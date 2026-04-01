@@ -3,35 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jardins du Paradis | عالم النباتات</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <title>JARDINS DU PARADIS | تهيئة وصيانة المساحات الخضراء</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root {
-            --bg-color: #ffffff;
             --main-green: #1a3c34; 
-            --soft-gray: #f9f9f9;
-            --text-color: #2c2c2c;
-            --accent: #d4a373;
+            --gold: #d4a373;
+            --light-bg: #fdfdfd;
+            --text: #333;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Cairo', sans-serif; background-color: var(--light-bg); color: var(--text); line-height: 1.6; }
 
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        /* Header & Navigation */
+        /* Navigation */
         nav {
-            padding: 15px 5%;
+            padding: 10px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -39,35 +28,19 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #f0f0f0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .logo img {
-            height: 50px; /* يمكنك تعديل الطول حسب حجم شعارك */
-            width: auto;
-            display: block;
-        }
+        .logo img { height: 70px; width: auto; }
 
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-size: 14px;
-            transition: 0.3s;
-        }
-
+        .nav-links { display: flex; gap: 20px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text); font-size: 15px; font-weight: 400; transition: 0.3s; }
         .nav-links a:hover { color: var(--main-green); font-weight: bold; }
 
         /* Hero Section */
         .hero {
-            height: 65vh;
-            /* تأكد من وجود صورة باسم hero-bg.jpg داخل مجلد images */
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/hero-bg.jpg');
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/hero-bg.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -77,132 +50,51 @@
             text-align: center;
         }
 
-        .hero-content h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(30px, 5vw, 50px);
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
+        .hero-content h2 { font-family: 'Playfair Display', serif; font-size: clamp(35px, 6vw, 60px); margin-bottom: 20px; }
+        .hero-content p { font-size: 1.2rem; max-width: 700px; margin: auto; }
 
-        /* Section Title */
-        .section-title {
-            text-align: center;
-            margin: 60px 0 40px;
-        }
+        /* Sections */
+        .container { padding: 80px 8%; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h3 { font-family: 'Playfair Display', serif; font-size: 35px; color: var(--main-green); }
 
-        .section-title h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 30px;
-            position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-
-        .section-title h3::after {
-            content: '';
-            width: 40px;
-            height: 2px;
-            background: var(--main-green);
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Product Grid */
-        .products-container {
+        /* Contact Info */
+        .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            padding: 0 8%;
-            margin-bottom: 80px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            text-align: center;
         }
 
-        .product-card {
+        .contact-card {
+            padding: 30px;
             background: white;
-            transition: 0.4s;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
         }
 
-        .product-image {
-            width: 100%;
-            height: 350px;
-            overflow: hidden;
-            background: var(--soft-gray);
-            border-radius: 4px;
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.8s ease;
-        }
-
-        .product-card:hover img {
-            transform: scale(1.08);
-        }
-
-        .product-info {
-            padding: 20px 0;
-            text-align: right;
-        }
-
-        .product-info h4 {
-            font-size: 18px;
-            margin-bottom: 8px;
-            color: var(--main-green);
-        }
-
-        .price {
-            color: #666;
-            font-weight: 400;
-            margin-bottom: 15px;
+        .contact-card i { font-size: 30px; color: var(--main-green); margin-bottom: 15px; }
+        .whatsapp-link {
             display: block;
-        }
-
-        .btn-order {
-            display: inline-block;
-            padding: 10px 25px;
-            border: 1.5px solid var(--main-green);
-            color: var(--main-green);
+            margin-top: 10px;
+            color: #25d366;
             text-decoration: none;
-            font-size: 13px;
             font-weight: bold;
-            transition: 0.3s;
-            border-radius: 2px;
         }
 
-        .btn-order:hover {
+        .btn-map {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
             background: var(--main-green);
             color: white;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--soft-gray);
-            padding: 50px 5% 30px;
-            text-align: center;
-            border-top: 1px solid #eee;
-        }
-
-        .social-icons {
-            margin-bottom: 20px;
-        }
-
-        .social-icons a {
-            font-size: 22px;
-            color: var(--main-green);
-            margin: 0 15px;
             text-decoration: none;
-            transition: 0.3s;
+            border-radius: 5px;
         }
-
-        .social-icons a:hover { transform: translateY(-3px); opacity: 0.7; }
 
         @media (max-width: 768px) {
-            .nav-links { display: none; } /* لإخفاء القائمة في الهاتف وجعل التصميم بسيطاً */
-            .hero { height: 50vh; }
-            .products-container { padding: 0 5%; }
+            .nav-links { display: none; }
+            .hero { height: 60vh; }
         }
     </style>
 </head>
@@ -213,75 +105,70 @@
             <img src="images/logo.png" alt="Jardins du Paradis Logo">
         </a>
         <ul class="nav-links">
-            <li><a href="#">الرئيسية</a></li>
-            <li><a href="#">نباتاتنا</a></li>
-            <li><a href="#">باقات الورد</a></li>
-            <li><a href="https://wa.me/2126XXXXXXXX">تواصل معنا</a></li>
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#plants">نباتاتنا</a></li>
+            <li><a href="#flowers">باقات الورد</a></li>
+            <li><a href="#contact">تواصل معنا</a></li>
         </ul>
-        <div class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <div class="contact-btn"><i class="fa-solid fa-phone"></i></div>
     </nav>
 
-    <header class="hero">
+    <header class="hero" id="home">
         <div class="hero-content">
-            <h2>الأناقة الخضراء في بيتك</h2>
-            <p>نباتات طبيعية مختارة بعناية لتزيين مساحتكم الخاصة</p>
+            <h2>JARDINS DU PARADIS</h2>
+            <p>
+                منذ سنة 2007، نحن متخصصون في تحويل، تهيئة وصيانة المساحات الخضراء الداخلية والخارجية. 
+                نحن نخلق واحات ترفع من قيمة جودة حياتكم وممتلكاتكم العقارية[cite: 5].
+            </p>
         </div>
     </header>
 
-    <div class="section-title">
-        <h3>مجموعتنا الجديدة</h3>
-    </div>
+    <section class="container" id="plants">
+        <div class="section-title">
+            <h3>نباتاتنا</h3>
+            <p>كتالوج النباتات الداخلية والخارجية المتميزة (قريباً)</p>
+        </div>
+        </section>
 
-    <div class="products-container">
-        
-        <div class="product-card">
-            <div class="product-image">
-                <img src="images/plant1.jpg" alt="نبات 1">
+    <section class="container" id="flowers" style="background: #f9f9f9;">
+        <div class="section-title">
+            <h3>باقات الورد</h3>
+            <p>أرقى باقات الزهور لمناسباتكم الخاصة (قريباً)</p>
+        </div>
+        </section>
+
+    <section class="container" id="contact">
+        <div class="section-title">
+            <h3>تواصل معنا</h3>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <i class="fa-solid fa-phone"></i>
+                <h4>خدمة العملاء (1)</h4>
+                <p>06 61 72 24 57 </p>
+                <a href="https://wa.me/212661722457" class="whatsapp-link"><i class="fab fa-whatsapp"></i> مراسلة عبر واتساب</a>
             </div>
-            <div class="product-info">
-                <h4>نبتة المونستيرا</h4>
-                <span class="price">180.00 DH</span>
-                <a href="https://wa.me/2126XXXXXXXX?text=أريد+طلب+نبتة+المونستيرا" class="btn-order">
-                    <i class="fab fa-whatsapp"></i> طلب سريع
-                </a>
+
+            <div class="contact-card">
+                <i class="fa-solid fa-phone"></i>
+                <h4>خدمة العملاء (2)</h4>
+                <p>06 61 06 41 17 </p>
+                <a href="https://wa.me/212661064117" class="whatsapp-link"><i class="fab fa-whatsapp"></i> مراسلة عبر واتساب</a>
+            </div>
+
+            <div class="contact-card">
+                <i class="fa-solid fa-location-dot"></i>
+                <h4>موقعنا</h4>
+                <p>Hay Mandar El Jamil, Dressia - Tanger </p>
+                <p>jardinsduparadis10@gmail.com </p>
+                <a href="https://maps.google.com/?q=Hay+mandar+El+Jamil,+Tanger" class="btn-map" target="_blank">فتح الموقع في الخريطة</a>
             </div>
         </div>
+    </section>
 
-        <div class="product-card">
-            <div class="product-image">
-                <img src="images/plant2.jpg" alt="نبات 2">
-            </div>
-            <div class="product-info">
-                <h4>صبار الزينة العصري</h4>
-                <span class="price">120.00 DH</span>
-                <a href="https://wa.me/2126XXXXXXXX?text=أريد+طلب+الصبار" class="btn-order">
-                    <i class="fab fa-whatsapp"></i> طلب سريع
-                </a>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <div class="product-image">
-                <img src="images/plant3.jpg" alt="نبات 3">
-            </div>
-            <div class="product-info">
-                <h4>باقة أوركيد فاخرة</h4>
-                <span class="price">350.00 DH</span>
-                <a href="https://wa.me/2126XXXXXXXX?text=أريد+طلب+الأوركيد" class="btn-order">
-                    <i class="fab fa-whatsapp"></i> طلب سريع
-                </a>
-            </div>
-        </div>
-
-    </div>
-
-    <footer>
-        <div class="social-icons">
-            <a href="https://www.instagram.com/jardinsduparadis21"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://wa.me/2126XXXXXXXX"><i class="fa-brands fa-whatsapp"></i></a>
-        </div>
-        <p>Jardins du Paradis © 2026</p>
-        <p style="font-size: 13px; margin-top: 10px; color: #888;">📍 طنجة، المغرب</p>
+    <footer style="text-align: center; padding: 40px; background: var(--main-green); color: white;">
+        <p>JARDINS DU PARADIS SARL © 2026 </p>
+        <p style="font-size: 12px; margin-top: 10px; opacity: 0.7;">L'excellence au cœur des espaces verts </p>
     </footer>
 
 </body>
