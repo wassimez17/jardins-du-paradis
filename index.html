@@ -10,13 +10,17 @@
     <style>
         :root {
             --bg-color: #ffffff;
-            --main-green: #1a3c34;
+            --main-green: #1a3c34; 
             --soft-gray: #f9f9f9;
             --text-color: #2c2c2c;
             --accent: #d4a373;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         body {
             font-family: 'Cairo', sans-serif;
@@ -25,8 +29,9 @@
             line-height: 1.6;
         }
 
+        /* Header & Navigation */
         nav {
-            padding: 10px 5%;
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -34,17 +39,34 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #f0f0f0;
         }
 
-        .logo img { height: 70px; width: auto; transition: 0.3s; }
+        .logo img {
+            height: 50px; /* يمكنك تعديل الطول حسب حجم شعارك */
+            width: auto;
+            display: block;
+        }
 
-        .nav-links { display: flex; gap: 25px; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--text-color); font-size: 14px; transition: 0.3s; }
-        .nav-links a:hover { color: var(--main-green); }
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
 
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--main-green); font-weight: bold; }
+
+        /* Hero Section */
         .hero {
-            height: 60vh;
+            height: 65vh;
+            /* تأكد من وجود صورة باسم hero-bg.jpg داخل مجلد images */
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/hero-bg.jpg');
             background-size: cover;
             background-position: center;
@@ -55,51 +77,132 @@
             text-align: center;
         }
 
-        .hero-content h2 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 5vw, 50px); margin-bottom: 15px; }
+        .hero-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(30px, 5vw, 50px);
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
 
-        .section-title { text-align: center; margin: 60px 0 40px; }
-        .section-title h3 { font-family: 'Playfair Display', serif; font-size: 32px; position: relative; display: inline-block; padding-bottom: 10px; }
-        .section-title h3::after { content: ''; width: 50px; height: 2px; background: var(--main-green); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+        }
 
+        .section-title h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 30px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h3::after {
+            content: '';
+            width: 40px;
+            height: 2px;
+            background: var(--main-green);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Product Grid */
         .products-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
-            padding: 0 5%;
+            padding: 0 8%;
             margin-bottom: 80px;
         }
 
-        .product-card { background: white; transition: 0.4s; }
-        .product-image { width: 100%; height: 350px; overflow: hidden; background: var(--soft-gray); border-radius: 4px; }
-        .product-image img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
-        .product-card:hover img { transform: scale(1.05); }
+        .product-card {
+            background: white;
+            transition: 0.4s;
+        }
 
-        .product-info { padding: 20px 0; text-align: center; }
-        .product-info h4 { font-size: 16px; letter-spacing: 1px; color: var(--main-green); margin-bottom: 8px; text-transform: uppercase; }
-        .price { color: #888; font-weight: 400; font-size: 14px; margin-bottom: 15px; }
+        .product-image {
+            width: 100%;
+            height: 350px;
+            overflow: hidden;
+            background: var(--soft-gray);
+            border-radius: 4px;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.8s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .product-info {
+            padding: 20px 0;
+            text-align: right;
+        }
+
+        .product-info h4 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: var(--main-green);
+        }
+
+        .price {
+            color: #666;
+            font-weight: 400;
+            margin-bottom: 15px;
+            display: block;
+        }
 
         .btn-order {
             display: inline-block;
             padding: 10px 25px;
-            border: 1px solid var(--main-green);
+            border: 1.5px solid var(--main-green);
             color: var(--main-green);
             text-decoration: none;
-            font-size: 12px;
-            letter-spacing: 1px;
-            transition: 0.3s;
+            font-size: 13px;
             font-weight: bold;
+            transition: 0.3s;
+            border-radius: 2px;
         }
 
-        .btn-order:hover { background: var(--main-green); color: white; }
+        .btn-order:hover {
+            background: var(--main-green);
+            color: white;
+        }
 
-        footer { background: var(--soft-gray); padding: 40px 5%; text-align: center; margin-top: 50px; }
-        .social-icons a { font-size: 22px; color: var(--main-green); margin: 0 15px; transition: 0.3s; }
-        .social-icons a:hover { opacity: 0.7; }
-        .footer-info { margin-top: 20px; font-size: 13px; color: #666; }
+        /* Footer */
+        footer {
+            background: var(--soft-gray);
+            padding: 50px 5% 30px;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+
+        .social-icons {
+            margin-bottom: 20px;
+        }
+
+        .social-icons a {
+            font-size: 22px;
+            color: var(--main-green);
+            margin: 0 15px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover { transform: translateY(-3px); opacity: 0.7; }
 
         @media (max-width: 768px) {
-            .nav-links { display: none; }
+            .nav-links { display: none; } /* لإخفاء القائمة في الهاتف وجعل التصميم بسيطاً */
             .hero { height: 50vh; }
+            .products-container { padding: 0 5%; }
         }
     </style>
 </head>
@@ -107,81 +210,78 @@
 
     <nav>
         <a href="#" class="logo">
-            <img src="images/logo.png" alt="Jardins du Paradis">
+            <img src="images/logo.png" alt="Jardins du Paradis Logo">
         </a>
         <ul class="nav-links">
             <li><a href="#">الرئيسية</a></li>
-            <li><a href="#catalog">كتالوج النباتات</a></li>
-            <li><a href="https://wa.me/212XXXXXXXXX">تواصل معنا</a></li>
+            <li><a href="#">نباتاتنا</a></li>
+            <li><a href="#">باقات الورد</a></li>
+            <li><a href="https://wa.me/2126XXXXXXXX">تواصل معنا</a></li>
         </ul>
-        <div><i class="fa-solid fa-magnifying-glass"></i></div>
+        <div class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
     </nav>
 
     <header class="hero">
         <div class="hero-content">
-            <h2>Jardins du Paradis</h2>
-            <p>نباتاتنا المختارة تضفي حياة على مساحتك الخاصة</p>
+            <h2>الأناقة الخضراء في بيتك</h2>
+            <p>نباتات طبيعية مختارة بعناية لتزيين مساحتكم الخاصة</p>
         </div>
     </header>
 
-    <div class="section-title" id="catalog">
-        <h3>مجموعتنا الحالية</h3>
+    <div class="section-title">
+        <h3>مجموعتنا الجديدة</h3>
     </div>
 
     <div class="products-container">
+        
         <div class="product-card">
             <div class="product-image">
-                <img src="images/plant1.jpg" alt="ASPLENIUM">
+                <img src="images/plant1.jpg" alt="نبات 1">
             </div>
             <div class="product-info">
-                <h4>ASPLENIUM</h4>
-                <p class="price">100.00 DH</p>
-                <a href="https://wa.me/212XXXXXXXXX?text=أريد+طلب+نبتة+ASPLENIUM" class="btn-order">اطلب عبر واتساب</a>
+                <h4>نبتة المونستيرا</h4>
+                <span class="price">180.00 DH</span>
+                <a href="https://wa.me/2126XXXXXXXX?text=أريد+طلب+نبتة+المونستيرا" class="btn-order">
+                    <i class="fab fa-whatsapp"></i> طلب سريع
+                </a>
             </div>
         </div>
 
         <div class="product-card">
             <div class="product-image">
-                <img src="images/plant2.jpg" alt="ALOCASIA POLLY">
+                <img src="images/plant2.jpg" alt="نبات 2">
             </div>
             <div class="product-info">
-                <h4>ALOCASIA POLLY</h4>
-                <p class="price">100.00 DH</p>
-                <a href="https://wa.me/212XXXXXXXXX?text=أريد+طلب+نبتة+ALOCASIA+POLLY" class="btn-order">اطلب عبر واتساب</a>
+                <h4>صبار الزينة العصري</h4>
+                <span class="price">120.00 DH</span>
+                <a href="https://wa.me/2126XXXXXXXX?text=أريد+طلب+الصبار" class="btn-order">
+                    <i class="fab fa-whatsapp"></i> طلب سريع
+                </a>
             </div>
         </div>
 
         <div class="product-card">
             <div class="product-image">
-                <img src="images/plant4.jpg" alt="DIEFFEMBACHIA CAMILLA">
+                <img src="images/plant3.jpg" alt="نبات 3">
             </div>
             <div class="product-info">
-                <h4>DIEFFEMBACHIA CAMILLA</h4>
-                <p class="price">100.00 DH</p>
-                <a href="https://wa.me/212XXXXXXXXX?text=أريد+طلب+نبتة+DIEFFEMBACHIA+CAMILLA" class="btn-order">اطلب عبر واتساب</a>
+                <h4>باقة أوركيد فاخرة</h4>
+                <span class="price">350.00 DH</span>
+                <a href="https://wa.me/2126XXXXXXXX?text=أريد+طلب+الأوركيد" class="btn-order">
+                    <i class="fab fa-whatsapp"></i> طلب سريع
+                </a>
             </div>
         </div>
 
-        <div class="product-card">
-            <div class="product-image">
-                <img src="images/plant5.jpg" alt="ANTHURIUM">
-            </div>
-            <div class="product-info">
-                <h4>ANTHURIUM</h4>
-                <p class="price">100.00 DH</p>
-                <a href="https://wa.me/212XXXXXXXXX?text=أريد+طلب+نبتة+ANTHURIUM" class="btn-order">اطلب عبر واتساب</a>
-            </div>
-        </div>
     </div>
 
     <footer>
         <div class="social-icons">
-            <a href="https://www.instagram.com/jardinsduparadis21" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://wa.me/212XXXXXXXXX"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/jardinsduparadis21"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://wa.me/2126XXXXXXXX"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
-        <div class="footer-info">
-            <p>© 2026 Jardins du Paradis | طنجة، المغرب</p>
-        </div>
+        <p>Jardins du Paradis © 2026</p>
+        <p style="font-size: 13px; margin-top: 10px; color: #888;">📍 طنجة، المغرب</p>
     </footer>
 
 </body>
