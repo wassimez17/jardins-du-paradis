@@ -1,17 +1,29 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" id="mainHtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jardins du Paradis | تميز المساحات الخضراء</title>
+    <title>Jardins du Paradis | SARL</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root { --main-green: #1a3c34; --text-color: #2c2c2c; --soft-gray: #f9f9f9; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; transition: all 0.3s ease; }
         body { font-family: 'Cairo', sans-serif; color: var(--text-color); line-height: 1.6; }
         
+        /* Language Switcher Style */
+        .lang-switch {
+            background: var(--main-green);
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Cairo', sans-serif;
+            font-size: 12px;
+        }
+
         nav { padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; background: white; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #eee; }
         .logo img { height: 60px; }
         .nav-links { display: flex; gap: 20px; list-style: none; }
@@ -19,12 +31,11 @@
 
         .hero { 
             height: 70vh; 
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/hero-bg.jpg'); 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/hero-bg.jpg'); 
             background-size: cover; background-position: center;
             display: flex; align-items: center; justify-content: center; color: white; text-align: center; padding: 0 20px;
         }
         .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 6vw, 55px); margin-bottom: 10px; }
-        .hero-content p { font-size: 18px; max-width: 700px; }
 
         .about-section { padding: 60px 10%; text-align: center; background: white; }
         .about-section h2 { color: var(--main-green); margin-bottom: 20px; font-family: 'Playfair Display', serif; }
@@ -32,18 +43,18 @@
         .section-title { text-align: center; margin: 50px 0; font-family: 'Playfair Display', serif; font-size: 28px; }
 
         .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 0 5%; margin-bottom: 60px; }
-        .item-card { border-radius: 8px; overflow: hidden; background: var(--soft-gray); transition: 0.3s; text-align: center; padding-bottom: 20px; }
+        .item-card { border-radius: 8px; overflow: hidden; background: var(--soft-gray); text-align: center; padding-bottom: 20px; }
         .item-card img { width: 100%; height: 300px; object-fit: cover; }
-        .item-card h4 { margin: 15px 0 5px; }
         .btn-wa { display: inline-block; padding: 8px 20px; background: #25d366; color: white; text-decoration: none; border-radius: 4px; font-size: 14px; }
 
         .contact-footer { background: var(--main-green); color: white; padding: 60px 10% 20px; }
         .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
         .contact-box h4 { margin-bottom: 15px; border-bottom: 1px solid #3d5a52; padding-bottom: 10px; }
-        .contact-box a { color: white; text-decoration: none; display: block; margin-bottom: 8px; font-size: 14px; }
-        .map-link { color: #d4a373 !important; font-weight: bold; }
+        .contact-box a, .contact-box p { color: white; text-decoration: none; display: block; margin-bottom: 8px; font-size: 14px; }
 
-        @media (max-width: 768px) { .nav-links { display: none; } }
+        /* LTR adjustments for French */
+        html[dir="ltr"] body { font-family: 'Playfair Display', serif; text-align: left; }
+        html[dir="ltr"] .product-info, html[dir="ltr"] .contact-box { text-align: left; }
     </style>
 </head>
 <body>
@@ -51,65 +62,116 @@
     <nav>
         <div class="logo"><img src="images/logo.png" alt="Jardins du Paradis"></div>
         <ul class="nav-links">
-            <li><a href="#home">الرئيسية</a></li>
-            <li><a href="#plants">نباتاتنا</a></li>
-            <li><a href="#flowers">باقات الورد</a></li>
-            <li><a href="#contact">تواصل معنا</a></li>
+            <li><a href="#home" id="nav-home">الرئيسية</a></li>
+            <li><a href="#plants" id="nav-plants">نباتاتنا</a></li>
+            <li><a href="#flowers" id="nav-flowers">باقات الورد</a></li>
+            <li><a href="#contact" id="nav-contact">تواصل معنا</a></li>
         </ul>
+        <button class="lang-switch" onclick="toggleLanguage()" id="langBtn">Français</button>
     </nav>
 
     <header id="home" class="hero">
         <div class="hero-content">
-            <h1>JARDINS DU PARADIS</h1>
-            <p>عندما يلتقي الفن بالطبيعة - تميز في تصميم وصيانة المساحات الخضراء منذ 2007 </p>
+            <h1 id="hero-title">JARDINS DU PARADIS</h1>
+            <p id="hero-desc">عندما يلتقي الفن بالطبيعة - تميز في تصميم وصيانة المساحات الخضراء منذ 2007 [cite: 3]</p>
         </div>
     </header>
 
     <section class="about-section">
-        <h2>من نحن</h2>
-        <p>شركة متخصصة في تحويل، تهيئة وصيانة المساحات الخضراء الداخلية والخارجية. نقدم خبرة متكاملة تشمل الفيلات الخاصة والمجمعات السكنية والتجارية، مع التركيز على الجودة الفائقة والابتكار الفني[cite: 4, 6].</p>
+        <h2 id="about-title">من نحن</h2>
+        <p id="about-desc">شركة متخصصة في تحويل، تهيئة وصيانة المساحات الخضراء الداخلية والخارجية. نقدم خبرة متكاملة تشمل الفيلات الخاصة والمجمعات السكنية والتجارية[cite: 3, 4].</p>
     </section>
 
-    <div id="plants" class="section-title"><h3>كتالوج النباتات</h3></div>
+    <div id="plants" class="section-title"><h3 id="cat-plants">كتالوج النباتات</h3></div>
     <div class="catalog-grid">
         <div class="item-card">
-            <img src="images/plant1.jpg" alt="نبتة">
-            <h4>نباتات داخلية</h4>
-            <a href="https://wa.me/212661722457" class="btn-wa"><i class="fab fa-whatsapp"></i> استفسار</a>
-        </div>
-        </div>
-
-    <div id="flowers" class="section-title"><h3>باقات الورد</h3></div>
-    <div class="catalog-grid">
-        <div class="item-card">
-            <img src="images/flower1.jpg" alt="باقة">
-            <h4>باقات مناسبات</h4>
-            <a href="https://wa.me/212661064117" class="btn-wa"><i class="fab fa-whatsapp"></i> طلب طلبية</a>
+            <img src="images/plant1.jpg" alt="Plant">
+            <h4 id="plant-type">نباتات داخلية وخارجية [cite: 1]</h4>
+            <a href="https://wa.me/212661722457" class="btn-wa"><i class="fab fa-whatsapp"></i> <span class="order-text">استفسار</span></a>
         </div>
     </div>
 
     <footer id="contact" class="contact-footer">
         <div class="contact-grid">
             <div class="contact-box">
-                <h4>أرقام الهاتف</h4>
-                <a href="tel:0661722457"><i class="fas fa-phone"></i> 06 61 72 24 57 </a>
-                <a href="https://wa.me/212661722457" style="color: #25d366;">راسلنا على واتساب 1</a>
-                <br>
-                <a href="tel:0661064117"><i class="fas fa-phone"></i> 06 61 06 41 17 </a>
-                <a href="https://wa.me/212661064117" style="color: #25d366;">راسلنا على واتساب 2</a>
+                <h4 id="footer-phone">أرقام الهاتف [cite: 1, 32]</h4>
+                <a href="tel:0661722457">06 61 72 24 57</a>
+                <a href="tel:0661064117">06 61 06 41 17</a>
             </div>
             <div class="contact-box">
-                <h4>البريد الإلكتروني</h4>
-                <a href="mailto:jardinsduparadis10@gmail.com">jardinsduparadis10@gmail.com </a>
+                <h4 id="footer-email">البريد الإلكتروني [cite: 1, 32]</h4>
+                <a href="mailto:jardinsduparadis10@gmail.com">jardinsduparadis10@gmail.com</a>
             </div>
             <div class="contact-box">
-                <h4>العنوان</h4>
-                <p style="font-size: 14px;">Hay Mandar El Jamil, Rue 75 No 42 - Tanger [cite: 1, 32]</p>
-                <a href="https://maps.app.goo.gl/Cirf2WyxHx2oBu8G6?g_st=ic" class="map-link"><i class="fas fa-map-marker-alt"></i> موقعنا على الخريطة</a>
+                <h4 id="footer-address">العنوان [cite: 1, 32]</h4>
+                <p>Hay Mandar Jamil, Rue 75 No 42 - Tanger [cite: 1, 32]</p>
+                <a href="https://maps.app.goo.gl/Cirf2WyxHx2oBu8G6?g_st=ic" style="color: #d4a373;">Google Maps</a>
             </div>
         </div>
-        <center><p style="font-size: 12px; opacity: 0.6;">© 2026 JARDINS DU PARADIS SARL - طنجة</p></center>
     </footer>
 
+    <script>
+        const translations = {
+            ar: {
+                navHome: "الرئيسية",
+                navPlants: "نباتاتنا",
+                navFlowers: "باقات الورد",
+                navContact: "تواصل معنا",
+                heroTitle: "JARDINS DU PARADIS",
+                heroDesc: "عندما يلتقي الفن بالطبيعة - تميز في تصميم وصيانة المساحات الخضراء منذ 2007 [cite: 3]",
+                aboutTitle: "من نحن",
+                aboutDesc: "شركة متخصصة في تحويل، تهيئة وصيانة المساحات الخضراء الداخلية والخارجية. نقدم خبرة متكاملة تشمل الفيلات الخاصة والمجمعات السكنية والتجارية[cite: 3, 4].",
+                catPlants: "كتالوج النباتات",
+                plantType: "نباتات داخلية وخارجية [cite: 1]",
+                orderText: "استفسار",
+                footerPhone: "أرقام الهاتف [cite: 1, 32]",
+                footerEmail: "البريد الإلكتروني [cite: 1, 32]",
+                footerAddress: "العنوان [cite: 1, 32]",
+                langBtn: "Français"
+            },
+            fr: {
+                navHome: "Accueil",
+                navPlants: "Nos Plantes",
+                navFlowers: "Bouquets",
+                navContact: "Contact",
+                heroTitle: "JARDINS DU PARADIS",
+                heroDesc: "Quand l'Art Rencontre la Nature - Excellence des espaces verts depuis 2007 [cite: 3]",
+                aboutTitle: "À Propos",
+                aboutDesc: "Spécialisés dans l'aménagement et l'entretien des espaces verts intérieurs et extérieurs pour villas et résidences[cite: 1, 3, 4].",
+                catPlants: "Catalogue des Plantes",
+                plantType: "Plantes d'intérieur et d'extérieur [cite: 1]",
+                orderText: "Commander",
+                footerPhone: "Téléphones [cite: 1, 32]",
+                footerEmail: "E-mail [cite: 1, 32]",
+                footerAddress: "Adresse [cite: 1, 32]",
+                langBtn: "العربية"
+            }
+        };
+
+        let currentLang = 'ar';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'fr' : 'ar';
+            const doc = document.getElementById('mainHtml');
+            doc.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            doc.lang = currentLang;
+
+            // Update Text
+            document.getElementById('nav-home').innerText = translations[currentLang].navHome;
+            document.getElementById('nav-plants').innerText = translations[currentLang].navPlants;
+            document.getElementById('nav-flowers').innerText = translations[currentLang].navFlowers;
+            document.getElementById('nav-contact').innerText = translations[currentLang].navContact;
+            document.getElementById('hero-desc').innerText = translations[currentLang].heroDesc;
+            document.getElementById('about-title').innerText = translations[currentLang].aboutTitle;
+            document.getElementById('about-desc').innerText = translations[currentLang].aboutDesc;
+            document.getElementById('cat-plants').innerText = translations[currentLang].catPlants;
+            document.getElementById('plant-type').innerText = translations[currentLang].plantType;
+            document.querySelectorAll('.order-text').forEach(el => el.innerText = translations[currentLang].orderText);
+            document.getElementById('footer-phone').innerText = translations[currentLang].footerPhone;
+            document.getElementById('footer-email').innerText = translations[currentLang].footerEmail;
+            document.getElementById('footer-address').innerText = translations[currentLang].footerAddress;
+            document.getElementById('langBtn').innerText = translations[currentLang].langBtn;
+        }
+    </script>
 </body>
 </html>
