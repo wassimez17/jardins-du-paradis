@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Jardins du Paradis</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial;
+      margin: 0;
+      background: #f5f5f5;
+    }
+
+    header {
+      background: #2e7d32;
+      color: white;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .btn {
+      background: white;
+      color: #2e7d32;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .section {
+      padding: 30px;
+      text-align: center;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      width: 250px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .whatsapp {
+      display: inline-block;
+      margin-top: 10px;
+      background: #25D366;
+      color: white;
+      padding: 8px 15px;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🌿 Jardins du Paradis</h1>
+  <p>Plantes • Décoration • Bouquets</p>
+  <a class="btn" href="#catalogue">Voir Catalogue</a>
+</header>
+
+<section id="catalogue" class="section">
+  <h2>🌿 Nos Plantes</h2>
+
+  <div class="products">
+
+    <div class="card">
+      <img src="https://via.placeholder.com/250" alt="">
+      <h3>Monstera</h3>
+      <p>🌤️ Lumière indirecte</p>
+      <p>💧 2x / semaine</p>
+      <p>💰 120 DH</p>
+      <a class="whatsapp" href="https://wa.me/212629415085?text=Je%20veux%20commander%20Monstera">
+        Commander
+      </a>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/250" alt="">
+      <h3>Ficus</h3>
+      <p>☀️ Lumière forte</p>
+      <p>💧 1x / semaine</p>
+      <p>💰 150 DH</p>
+      <a class="whatsapp" href="https://wa.me/212629415085?text=Je%20veux%20commander%20Ficus">
+        Commander
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <h2>💐 Bouquets</h2>
+
+  <div class="products">
+
+    <div class="card">
+      <img src="https://via.placeholder.com/250" alt="">
+      <h3>Bouquet Romantique</h3>
+      <p>💰 200 DH</p>
+      <a class="whatsapp" href="https://wa.me/212629415085?text=Je%20veux%20commander%20Bouquet">
+        Commander
+      </a>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>
