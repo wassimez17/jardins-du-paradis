@@ -6,7 +6,27 @@
     <title>Jardins du Paradis | Excellence des Espaces Verts</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+
+        .map-container {
+            display: block;
+            margin-top: 15px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .mini-map {
+            width: 100%;
+            max-width: 250px;
+            height: 120px;
+            border-radius: 8px;
+            border: 2px solid #3d5a52;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .map-container:hover .mini-map {
+            border-color: #d4a373;
+            opacity: 0.9;
+        }
     <style>
         :root { --main-green: #1a3c34; --text-color: #2c2c2c; --soft-gray: #f9f9f9; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -130,10 +150,16 @@
                 <a href="mailto:jardinsduparadis10@gmail.com"><i class="fas fa-envelope"></i> jardinsduparadis10@gmail.com</a>
             </div>
             <div class="contact-box">
-                <h4>Adresse</h4>
-                <p>Hay Mandar Jamil, Rue 75 No 42 - Tanger </p>
-                <a href="https://maps.app.goo.gl/Cirf2WyxHx2oBu8G6?g_st=ic" class="map-link"><i class="fas fa-map-marker-alt"></i> Voir sur Google Maps</a>
-            </div>
+                <div class="contact-box">
+    <h4>Adresse</h4>
+    <p style="margin-bottom: 10px;">
+        <i class="fas fa-map-marker-alt"></i> Hay Mandar Jamil, Rue 75 No 42 - Tanger
+    </p>
+    
+    <a href="https://maps.app.goo.gl/Cirf2WyxHx2oBu8G6?g_st=ic" target="_blank" style="color: #d4a373; text-decoration: underline; font-weight: bold; font-size: 14px;">
+        Cliquez ici pour voir l'emplacement sur Google Maps
+    </a>
+</div>
         </div>
         <center><p style="font-size: 11px; opacity: 0.5; margin-top: 40px;">© 2026 JARDINS DU PARADIS SARL - Tanger</p></center>
     </footer>
