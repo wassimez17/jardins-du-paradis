@@ -1,124 +1,273 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>Jardins du Paradis</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jardins du Paradis | عالم النباتات</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --main-green: #1a3c34; /* أخضر غامق ملكي مثل كلوروفيلا */
+            --soft-gray: #f9f9f9;
+            --text-color: #2c2c2c;
+            --accent: #d4a373; /* لون ترابي خفيف */
+        }
 
-  <style>
-    body {
-      font-family: Arial;
-      margin: 0;
-      background: #f5f5f5;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    header {
-      background: #2e7d32;
-      color: white;
-      text-align: center;
-      padding: 40px;
-    }
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
 
-    .btn {
-      background: white;
-      color: #2e7d32;
-      padding: 10px 20px;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-    }
+        /* Header & Navigation */
+        nav {
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #eee;
+        }
 
-    .section {
-      padding: 30px;
-      text-align: center;
-    }
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--main-green);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
 
-    .products {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-    }
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
 
-    .card {
-      background: white;
-      padding: 15px;
-      border-radius: 10px;
-      width: 250px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 14px;
+            font-weight: 400;
+            transition: 0.3s;
+        }
 
-    img {
-      width: 100%;
-      border-radius: 10px;
-    }
+        .nav-links a:hover { color: var(--main-green); }
 
-    .whatsapp {
-      display: inline-block;
-      margin-top: 10px;
-      background: #25D366;
-      color: white;
-      padding: 8px 15px;
-      border-radius: 5px;
-      text-decoration: none;
-    }
-  </style>
+        /* Hero Section */
+        .hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1463936575829-25148e1db1b8?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 45px;
+            margin-bottom: 20px;
+        }
+
+        /* Categories Section */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+
+        .section-title h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h3::after {
+            content: '';
+            width: 50px;
+            height: 2px;
+            background: var(--main-green);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Product Grid */
+        .products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            padding: 0 5%;
+            margin-bottom: 80px;
+        }
+
+        .product-card {
+            background: white;
+            transition: 0.4s;
+            position: relative;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+            background: var(--soft-gray);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.6s;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 15px 0;
+            text-align: right;
+        }
+
+        .product-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .price {
+            color: #777;
+            font-weight: 300;
+        }
+
+        .btn-order {
+            margin-top: 10px;
+            display: inline-block;
+            padding: 8px 20px;
+            border: 1px solid var(--main-green);
+            color: var(--main-green);
+            text-decoration: none;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .btn-order:hover {
+            background: var(--main-green);
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--soft-gray);
+            padding: 60px 5% 20px;
+            text-align: center;
+        }
+
+        .social-icons {
+            margin-bottom: 20px;
+        }
+
+        .social-icons a {
+            font-size: 20px;
+            color: var(--main-green);
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-content h2 { font-size: 32px; }
+            .product-image { height: 300px; }
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-  <h1>🌿 Jardins du Paradis</h1>
-  <p>Plantes • Décoration • Bouquets</p>
-  <a class="btn" href="#catalogue">Voir Catalogue</a>
-</header>
+    <nav>
+        <div class="logo">JARDINS DU PARADIS</div>
+        <ul class="nav-links">
+            <li><a href="#">الرئيسية</a></li>
+            <li><a href="#">نباتات داخلية</a></li>
+            <li><a href="#">باقات الورد</a></li>
+            <li><a href="#">اتصل بنا</a></li>
+        </ul>
+        <div class="cart-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+    </nav>
 
-<section id="catalogue" class="section">
-  <h2>🌿 Nos Plantes</h2>
+    <header class="hero">
+        <div class="hero-content">
+            <h2>الأناقة الخضراء في بيتك</h2>
+            <p>مجموعة مختارة بعناية من أفضل النباتات الطبيعية</p>
+        </div>
+    </header>
 
-  <div class="products">
-
-    <div class="card">
-      <img src="https://via.placeholder.com/250" alt="">
-      <h3>Monstera</h3>
-      <p>🌤️ Lumière indirecte</p>
-      <p>💧 2x / semaine</p>
-      <p>💰 120 DH</p>
-      <a class="whatsapp" href="https://wa.me/212629415085?text=Je%20veux%20commander%20Monstera">
-        Commander
-      </a>
+    <div class="section-title">
+        <h3>منتجاتنا المختارة</h3>
     </div>
 
-    <div class="card">
-      <img src="https://via.placeholder.com/250" alt="">
-      <h3>Ficus</h3>
-      <p>☀️ Lumière forte</p>
-      <p>💧 1x / semaine</p>
-      <p>💰 150 DH</p>
-      <a class="whatsapp" href="https://wa.me/212629415085?text=Je%20veux%20commander%20Ficus">
-        Commander
-      </a>
+    <div class="products-container">
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=600&q=80" alt="Plant">
+            </div>
+            <div class="product-info">
+                <h4>نبتة المونستيرا (Monstera)</h4>
+                <p class="price">180.00 DH</p>
+                <a href="https://wa.me/212XXXXXXXXX" class="btn-order">طلب عبر واتساب</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1512428813833-df4ef23759e3?auto=format&fit=crop&w=600&q=80" alt="Plant">
+            </div>
+            <div class="product-info">
+                <h4>صبار الـ Sansevieria</h4>
+                <p class="price">120.00 DH</p>
+                <a href="https://wa.me/212XXXXXXXXX" class="btn-order">طلب عبر واتساب</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1509423350716-97f9360b4e09?auto=format&fit=crop&w=600&q=80" alt="Plant">
+            </div>
+            <div class="product-info">
+                <h4>باقة أوركيد بيضاء</h4>
+                <p class="price">350.00 DH</p>
+                <a href="https://wa.me/212XXXXXXXXX" class="btn-order">طلب عبر واتساب</a>
+            </div>
+        </div>
     </div>
 
-  </div>
-</section>
-
-<section class="section">
-  <h2>💐 Bouquets</h2>
-
-  <div class="products">
-
-    <div class="card">
-      <img src="https://via.placeholder.com/250" alt="">
-      <h3>Bouquet Romantique</h3>
-      <p>💰 200 DH</p>
-      <a class="whatsapp" href="https://wa.me/212629415085?text=Je%20veux%20commander%20Bouquet">
-        Commander
-      </a>
-    </div>
-
-  </div>
-</section>
+    <footer>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/jardinsduparadis21"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+        <p>© 2026 Jardins du Paradis. جميع الحقوق محفوظة.</p>
+        <p style="font-size: 12px; color: #aaa; margin-top: 10px;">طنجة، المغرب</p>
+    </footer>
 
 </body>
 </html>
