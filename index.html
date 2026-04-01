@@ -10,28 +10,17 @@
     <style>
         :root {
             --bg-color: #ffffff;
-            --main-green: #1a3c34; /* أخضر غامق ملكي مثل كلوروفيلا */
+            --main-green: #1a3c34;
             --soft-gray: #f9f9f9;
             --text-color: #2c2c2c;
-            --accent: #d4a373; /* لون ترابي خفيف */
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Cairo', sans-serif; background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; }
 
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        /* Header & Navigation */
+        /* Header */
         nav {
-            padding: 20px 5%;
+            padding: 15px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -39,38 +28,19 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #eee;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--main-green);
-            text-decoration: none;
-            letter-spacing: 1px;
-        }
+        .logo img { height: 70px; width: auto; transition: 0.3s; }
 
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-size: 14px;
-            font-weight: 400;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover { color: var(--main-green); }
+        .nav-links { display: flex; gap: 25px; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-color); font-size: 14px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--main-green); font-weight: bold; }
 
         /* Hero Section */
         .hero {
-            height: 70vh;
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1463936575829-25148e1db1b8?auto=format&fit=crop&w=1350&q=80');
+            height: 80vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('images/hero-bg.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -80,193 +50,122 @@
             text-align: center;
         }
 
-        .hero-content h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 45px;
-            margin-bottom: 20px;
-        }
+        .hero-content h2 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 5vw, 50px); margin-bottom: 20px; }
 
-        /* Categories Section */
-        .section-title {
-            text-align: center;
-            margin: 60px 0 40px;
-        }
+        /* Products Grid */
+        .section-title { text-align: center; margin: 80px 0 40px; }
+        .section-title h3 { font-family: 'Playfair Display', serif; font-size: 32px; border-bottom: 2px solid var(--main-green); display: inline-block; padding-bottom: 10px; }
 
-        .section-title h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
-        }
-
-        .section-title h3::after {
-            content: '';
-            width: 50px;
-            height: 2px;
-            background: var(--main-green);
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Product Grid */
         .products-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            padding: 0 5%;
-            margin-bottom: 80px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            padding: 0 5% 80px;
         }
 
-        .product-card {
-            background: white;
-            transition: 0.4s;
-            position: relative;
-        }
+        .product-card { background: white; transition: 0.4s; text-align: right; }
+        .product-image { width: 100%; height: 350px; overflow: hidden; background: var(--soft-gray); border-radius: 4px; }
+        .product-image img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+        .product-card:hover img { transform: scale(1.08); }
 
-        .product-image {
-            width: 100%;
-            height: 380px;
-            overflow: hidden;
-            background: var(--soft-gray);
-        }
+        .product-info { padding: 15px 0; }
+        .product-info h4 { font-size: 18px; margin-bottom: 8px; color: var(--main-green); }
+        .price { color: #666; font-weight: 300; margin-bottom: 12px; display: block; }
 
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.6s;
-        }
-
-        .product-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .product-info {
-            padding: 15px 0;
-            text-align: right;
-        }
-
-        .product-info h4 {
-            font-size: 18px;
-            margin-bottom: 5px;
-        }
-
-        .price {
-            color: #777;
-            font-weight: 300;
-        }
-
-        .btn-order {
-            margin-top: 10px;
+        .btn-whatsapp {
             display: inline-block;
-            padding: 8px 20px;
+            padding: 10px 25px;
             border: 1px solid var(--main-green);
             color: var(--main-green);
             text-decoration: none;
             font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             transition: 0.3s;
         }
 
-        .btn-order:hover {
-            background: var(--main-green);
-            color: white;
-        }
+        .btn-whatsapp:hover { background: var(--main-green); color: white; }
 
         /* Footer */
-        footer {
-            background: var(--soft-gray);
-            padding: 60px 5% 20px;
-            text-align: center;
-        }
-
-        .social-icons {
-            margin-bottom: 20px;
-        }
-
-        .social-icons a {
-            font-size: 20px;
-            color: var(--main-green);
-            margin: 0 15px;
-            text-decoration: none;
-        }
+        footer { background: var(--soft-gray); padding: 50px 5%; text-align: center; border-top: 1px solid #eee; }
+        .social-links { margin-bottom: 20px; }
+        .social-links a { font-size: 24px; color: var(--main-green); margin: 0 15px; }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .hero-content h2 { font-size: 32px; }
-            .product-image { height: 300px; }
+            .hero { height: 60vh; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">JARDINS DU PARADIS</div>
+        <a href="#" class="logo">
+            <img src="images/logo.png" alt="Jardins du Paradis Logo">
+        </a>
         <ul class="nav-links">
             <li><a href="#">الرئيسية</a></li>
-            <li><a href="#">نباتات داخلية</a></li>
-            <li><a href="#">باقات الورد</a></li>
-            <li><a href="#">اتصل بنا</a></li>
+            <li><a href="#catalog">كتالوج النباتات</a></li>
+            <li><a href="https://wa.me/2126XXXXXXXX">واتساب</a></li>
         </ul>
-        <div class="cart-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+        <div><i class="fa-solid fa-cart-shopping"></i></div>
     </nav>
 
     <header class="hero">
         <div class="hero-content">
-            <h2>الأناقة الخضراء في بيتك</h2>
-            <p>مجموعة مختارة بعناية من أفضل النباتات الطبيعية</p>
+            <h2>فن الطبيعة في مساحتك الخاصة</h2>
+            <p>نباتات منتقاة بعناية لتناسب ذوقكم الرفيع</p>
         </div>
     </header>
 
-    <div class="section-title">
-        <h3>منتجاتنا المختارة</h3>
+    <div id="catalog" class="section-title">
+        <h3>مجموعتنا المختارة</h3>
     </div>
 
     <div class="products-container">
         <div class="product-card">
-            <div class="product-image">
-                <img src="https://images.unsplash.com/photo-1545241047-6083a3684587?auto=format&fit=crop&w=600&q=80" alt="Plant">
-            </div>
+            <div class="product-image"><img src="images/plant1.jpg" alt="Plant 1"></div>
             <div class="product-info">
-                <h4>نبتة المونستيرا (Monstera)</h4>
-                <p class="price">180.00 DH</p>
-                <a href="https://wa.me/212XXXXXXXXX" class="btn-order">طلب عبر واتساب</a>
+                <h4>اسم النبتة الأولى</h4>
+                <span class="price">00.00 DH</span>
+                <a href="https://wa.me/2126XXXXXXXX" class="btn-whatsapp">طلب المنتج</a>
             </div>
         </div>
 
         <div class="product-card">
-            <div class="product-image">
-                <img src="https://images.unsplash.com/photo-1512428813833-df4ef23759e3?auto=format&fit=crop&w=600&q=80" alt="Plant">
-            </div>
+            <div class="product-image"><img src="images/plant2.jpg" alt="Plant 2"></div>
             <div class="product-info">
-                <h4>صبار الـ Sansevieria</h4>
-                <p class="price">120.00 DH</p>
-                <a href="https://wa.me/212XXXXXXXXX" class="btn-order">طلب عبر واتساب</a>
+                <h4>اسم النبتة الثانية</h4>
+                <span class="price">00.00 DH</span>
+                <a href="https://wa.me/2126XXXXXXXX" class="btn-whatsapp">طلب المنتج</a>
             </div>
         </div>
 
         <div class="product-card">
-            <div class="product-image">
-                <img src="https://images.unsplash.com/photo-1509423350716-97f9360b4e09?auto=format&fit=crop&w=600&q=80" alt="Plant">
-            </div>
+            <div class="product-image"><img src="images/plant4.jpg" alt="Plant 4"></div>
             <div class="product-info">
-                <h4>باقة أوركيد بيضاء</h4>
-                <p class="price">350.00 DH</p>
-                <a href="https://wa.me/212XXXXXXXXX" class="btn-order">طلب عبر واتساب</a>
+                <h4>اسم النبتة الثالثة</h4>
+                <span class="price">00.00 DH</span>
+                <a href="https://wa.me/2126XXXXXXXX" class="btn-whatsapp">طلب المنتج</a>
+            </div>
+        </div>
+
+        <div class="product-card">
+            <div class="product-image"><img src="images/plant5.jpg" alt="Plant 5"></div>
+            <div class="product-info">
+                <h4>اسم النبتة الرابعة</h4>
+                <span class="price">00.00 DH</span>
+                <a href="https://wa.me/2126XXXXXXXX" class="btn-whatsapp">طلب المنتج</a>
             </div>
         </div>
     </div>
 
     <footer>
-        <div class="social-icons">
+        <div class="social-links">
             <a href="https://www.instagram.com/jardinsduparadis21"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-facebook"></i></a>
             <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
-        <p>© 2026 Jardins du Paradis. جميع الحقوق محفوظة.</p>
-        <p style="font-size: 12px; color: #aaa; margin-top: 10px;">طنجة، المغرب</p>
+        <p>© 2026 Jardins du Paradis. طنجة، المغرب.</p>
     </footer>
 
 </body>
