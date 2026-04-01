@@ -3,188 +3,324 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jardins du Paradis | Excellence des Espaces Verts</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <title>Jardins du Paradis | Luxe & Nature</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-/* Style de la carte cliquable */
+        :root { 
+            --main-green: #1a3c34; /* الأخضر الملكي */
+            --gold-accent: #c5a059; /* الذهبي الفاخر */
+            --soft-white: #ffffff;
+            --text-dark: #2c2c2c;
+            --bg-light: #fdfdfd;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: 'Tajawal', sans-serif; 
+            color: var(--text-dark); 
+            line-height: 1.6; 
+            background-color: var(--bg-light); 
+        }
+
+        /* Navigation - تصميم شفاف وأنيق */
+        nav { 
+            padding: 15px 8%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background: white; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .logo img { height: 60px; transition: 0.3s; }
+
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--main-green); 
+            font-size: 15px; 
+            font-weight: 500;
+            position: relative;
+            transition: 0.3s;
+        }
+        
+        /* تأثير الخط تحت الروابط عند التمرير */
+        .nav-links a::after {
+            content: '';
+            width: 0; height: 2px;
+            background: var(--gold-accent);
+            position: absolute; bottom: -5px; left: 0;
+            transition: 0.3s;
+        }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--gold-accent); }
+
+        /* Hero Section - نفس طابع المواقع الفخمة */
+        .hero { 
+            height: 75vh; 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('images/hero-bg.jpg'); 
+            background-size: cover; 
+            background-position: center;
+            display: flex; align-items: center; justify-content: center; 
+            color: white; text-align: center;
+        }
+        .hero-content h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: clamp(35px, 6vw, 65px); 
+            margin-bottom: 15px; 
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+        }
+        .hero-content p { 
+            font-size: 20px; 
+            font-weight: 300; 
+            letter-spacing: 2px;
+            color: #efefef;
+        }
+
+        /* About Section */
+        .about-section { 
+            padding: 80px 10%; 
+            text-align: center; 
+            background: white; 
+            margin-bottom: 20px;
+        }
+        .about-section h2 { 
+            color: var(--main-green); 
+            margin-bottom: 20px; 
+            font-family: 'Playfair Display', serif; 
+            font-size: 32px;
+        }
+        .about-section p { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            color: #666; 
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        /* Section Title - تصميم جديد */
+        .section-title { 
+            text-align: center; 
+            margin: 60px 0 40px; 
+            font-family: 'Playfair Display', serif; 
+            font-size: 32px; 
+            color: var(--main-green); 
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            width: 50px; height: 2px;
+            background: var(--gold-accent);
+            position: absolute; bottom: -10px; left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Catalog Grid - تصميم الكروت الفخم */
+        .catalog-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+            gap: 30px; 
+            padding: 0 10%; 
+            margin-bottom: 80px; 
+        }
+        .item-card { 
+            background: white; 
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center; 
+            padding-bottom: 25px; 
+            transition: 0.4s ease-in-out;
+            border: 1px solid #f0f0f0;
+        }
+        .item-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        
+        .item-card img { 
+            width: 100%; height: 280px; 
+            object-fit: cover; 
+            transition: 0.5s;
+        }
+        .item-card:hover img { transform: scale(1.05); }
+
+        .item-card h4 { 
+            margin: 20px 0 10px; 
+            font-size: 18px; 
+            color: var(--main-green);
+            font-weight: 700;
+        }
+        .price { 
+            display: block; 
+            color: var(--gold-accent); 
+            font-weight: 700; 
+            font-size: 16px; 
+            margin-bottom: 20px; 
+        }
+        
+        /* أزرار الواتساب بتصميم مشابه لـ Topdarfleur */
+        .btn-wa { 
+            display: inline-block; 
+            padding: 10px 30px; 
+            background: var(--main-green); 
+            color: white; 
+            text-decoration: none; 
+            border-radius: 5px; 
+            font-size: 13px; 
+            font-weight: bold;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+        .btn-wa:hover { background: var(--gold-accent); }
+
+        /* Contact Section - تصميم فخم وغامق */
+        .contact-footer { 
+            background: var(--main-green); 
+            color: white; 
+            padding: 80px 10% 40px; 
+        }
+        .contact-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 50px; 
+        }
+        .contact-box h4 { 
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin-bottom: 25px; 
+            color: var(--gold-accent);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+        }
+        .contact-box p, .contact-box a { 
+            color: #bbb; 
+            text-decoration: none; 
+            font-size: 15px; 
+            display: block; 
+            margin-bottom: 12px; 
+            transition: 0.3s;
+        }
+        .contact-box a:hover { color: var(--gold-accent); transform: translateX(5px); }
+        .contact-box i { margin-right: 10px; color: var(--gold-accent); width: 20px; }
+
+        /* Map Card */
         .map-card {
             display: block;
-            margin-top: 15px;
+            margin-top: 25px;
             width: 100%;
-            max-width: 300px; /* Taille de la petite carte */
-            height: 150px;
+            height: 180px;
             border-radius: 12px;
             overflow: hidden;
             border: 2px solid rgba(255,255,255,0.1);
             position: relative;
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            transition: 0.3s;
         }
-
-        .map-card:hover {
-            transform: scale(1.02);
-            border-color: var(--accent);
-        }
-
-        .map-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
+        .map-card img { width: 100%; height: 100%; object-fit: cover; }
         .map-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(26, 60, 52, 0.8);
-            color: white;
-            padding: 5px;
-            font-size: 11px;
-            text-align: center;
-            font-weight: bold;
+            position: absolute; bottom: 0; left: 0; right: 0;
+            background: rgba(197, 160, 89, 0.9); /* ذهبي شفاف */
+            color: white; padding: 8px; font-size: 12px; text-align: center;
         }
-        :root { --main-green: #1a3c34; --text-color: #2c2c2c; --soft-gray: #f9f9f9; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Cairo', sans-serif; color: var(--text-color); line-height: 1.6; background-color: #fff; }
-        
-        /* Navigation & Language Switcher */
-        nav { padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; background: white; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #eee; }
-        .logo img { height: 50px; }
-        .nav-right { display: flex; align-items: center; gap: 20px; }
-        .nav-links { display: flex; gap: 20px; list-style: none; }
-        .nav-links a { text-decoration: none; color: var(--text-color); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; }
-        .lang-switch { font-size: 12px; border: 1px solid #ddd; padding: 5px; border-radius: 4px; cursor: pointer; }
 
-        /* Hero Section */
-        .hero { 
-            height: 60vh; 
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/hero-bg.jpg'); 
-            background-size: cover; background-position: center;
-            display: flex; align-items: center; justify-content: center; color: white; text-align: center; padding: 0 20px;
+        /* تنسيق الجوال */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 15px; padding: 20px; }
+            .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; font-size: 13px; }
+            .hero { height: 50vh; }
+            .catalog-grid { padding: 0 5%; gap: 20px; }
+            .item-card img { height: 220px; }
         }
-        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(24px, 5vw, 45px); margin-bottom: 10px; }
-
-        /* About Section */
-        .about-section { padding: 50px 10%; text-align: center; }
-        .about-section h2 { color: var(--main-green); margin-bottom: 15px; font-family: 'Playfair Display', serif; }
-        .about-section p { max-width: 800px; margin: 0 auto; color: #555; }
-
-        /* Catalog Section */
-        .section-title { text-align: center; margin: 40px 0; font-family: 'Playfair Display', serif; font-size: 24px; color: var(--main-green); }
-        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 0 10%; margin-bottom: 50px; }
-        .item-card { background: white; border: 1px solid #eee; text-align: center; padding-bottom: 15px; transition: 0.3s; }
-        .item-card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .item-card img { width: 100%; height: 220px; object-fit: cover; } /* حجم صور أصغر */
-        .item-card h4 { margin: 10px 0 5px; font-size: 15px; text-transform: uppercase; }
-        .price { display: block; color: #888; font-size: 14px; margin-bottom: 10px; }
-        .btn-wa { display: inline-block; padding: 6px 15px; background: #25d366; color: white; text-decoration: none; border-radius: 20px; font-size: 12px; }
-
-        /* Contact Section */
-        .contact-footer { background: var(--main-green); color: white; padding: 50px 10% 20px; text-align: left; }
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 30px; }
-        .contact-box h4 { margin-bottom: 15px; font-family: 'Playfair Display', serif; border-bottom: 1px solid #3d5a52; padding-bottom: 5px; }
-        .contact-box p, .contact-box a { color: #ccc; text-decoration: none; font-size: 13px; display: block; margin-bottom: 5px; }
-        .contact-box i { margin-right: 8px; color: white; }
-        .map-link { color: #d4a373 !important; font-weight: bold; margin-top: 10px; }
-
-        @media (max-width: 768px) { 
-    .nav-links { display: none; } 
-    .catalog-grid { padding: 0 5%; }
-}
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo"><img src="images/logo.png" alt="Jardins du Paradis Logo"></div>
-        <div class="nav-right">
-            <ul class="nav-links">
-                <li><a href="#home">Accueil</a></li>
-                <li><a href="#plants">Nos Plantes</a></li>
-                <li><a href="#flowers">Bouquets</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-           
+        <div class="logo">
+            <img src="images/logo.png" alt="Jardins du Paradis Logo">
         </div>
+        <ul class="nav-links">
+            <li><a href="#home">Accueil</a></li>
+            <li><a href="#plants">Plantes</a></li>
+            <li><a href="#flowers">Bouquets</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
     <header id="home" class="hero">
         <div class="hero-content">
             <h1>JARDINS DU PARADIS</h1>
-            <p>L'excellence au cœur des espaces verts</p>
+            <p>CRÉATEURS D'ÉVASION ET DE NATURE</p>
         </div>
     </header>
 
     <section class="about-section">
-        <h2>À Propos de Nous</h2>
+        <h2>Quand l'Art Rencontre la Nature</h2>
         <p>
-            Fondée en 2007, Jardins Du Paradis est spécialisée dans la transformation, l'aménagement et l'entretien des espaces verts, avec les plantes d'intérieurs et d'extérieurs et aussi les bouquets de fleurs. 
-            Situés à Tanger, nous créons des oasis qui rehaussent la valeur et la qualité de vie de vos biens immobiliers.
+            Depuis 2007, Jardins Du Paradis transforme vos espaces en véritables oasis de sérénité. Spécialistes de l'aménagement paysager à Tanger, nous sélectionnons pour vous les plus belles plantes et fleurs pour rehausser l'élégance de vos intérieurs et extérieurs.
         </p>
     </section>
 
-    <div id="plants" class="section-title"><h3>Catalogue de Plantes</h3></div>
+    <div id="plants" class="section-title">Notre Collection Royale</div>
     <div class="catalog-grid">
         <div class="item-card">
             <img src="images/plant1.jpg" alt="ASPLENIUM">
             <h4>ASPLENIUM</h4>
             <span class="price">100.00 DH</span>
-            <a href="https://wa.me/212661722457?text=Commande+ASPLENIUM" class="btn-wa"><i class="fab fa-whatsapp"></i> Commander</a>
+            <a href="https://wa.me/212661722457?text=Commande+ASPLENIUM" class="btn-wa">Commander via WhatsApp</a>
         </div>
         <div class="item-card">
             <img src="images/plant2.jpg" alt="ALOCASIA POLLY">
             <h4>ALOCASIA POLLY</h4>
             <span class="price">100.00 DH</span>
-            <a href="https://wa.me/212661722457?text=Commande+ALOCASIA+POLLY" class="btn-wa"><i class="fab fa-whatsapp"></i> Commander</a>
+            <a href="https://wa.me/212661722457?text=Commande+ALOCASIA+POLLY" class="btn-wa">Commander via WhatsApp</a>
         </div>
         <div class="item-card">
-            <img src="images/plant3.jpg" alt="DIFFEMBACHIA CAMILLA">
+            <img src="images/plant3.jpg" alt="DIFFEMBACHIA">
             <h4>DIFFEMBACHIA CAMILLA</h4>
             <span class="price">100.00 DH</span>
-            <a href="https://wa.me/212661722457?text=Commande+DIFFEMBACHIA" class="btn-wa"><i class="fab fa-whatsapp"></i> Commander</a>
+            <a href="https://wa.me/212661722457?text=Commande+DIFFEMBACHIA" class="btn-wa">Commander via WhatsApp</a>
         </div>
         <div class="item-card">
             <img src="images/plant4.jpg" alt="ANTHURIUM">
             <h4>ANTHURIUM</h4>
             <span class="price">100.00 DH</span>
-            <a href="https://wa.me/212661722457?text=Commande+ANTHURIUM" class="btn-wa"><i class="fab fa-whatsapp"></i> Commander</a>
+            <a href="https://wa.me/212661722457?text=Commande+ANTHURIUM" class="btn-wa">Commander via WhatsApp</a>
         </div>
     </div>
 
-    <div id="flowers" class="section-title"><h3>Bouquets de Fleurs</h3></div>
-    <p style="text-align: center; color: #888; margin-bottom: 50px;">Bientôt disponible...</p>
+    <div id="flowers" class="section-title">Bouquets de Fleurs</div>
+    <p style="text-align: center; color: #888; margin-bottom: 80px; font-style: italic;">Collection de fleurs - Bientôt disponible...</p>
 
     <footer id="contact" class="contact-footer">
         <div class="contact-grid">
             <div class="contact-box">
-                <h4>Contactez-nous</h4>
+                <h4>Nous contacter</h4>
                 <a href="tel:0661722457"><i class="fas fa-phone"></i> 06 61 72 24 57</a>
-                <a href="https://wa.me/212661722457" style="color: #25d366;"><i class="fab fa-whatsapp"></i> WhatsApp 1</a>
-                <br>
                 <a href="tel:0661064117"><i class="fas fa-phone"></i> 06 61 06 41 17</a>
-                <a href="https://wa.me/212661064117" style="color: #25d366;"><i class="fab fa-whatsapp"></i> WhatsApp 2</a>
+                <a href="https://wa.me/212661722457" style="color: #25d366;"><i class="fab fa-whatsapp"></i> Service Clientèle 1</a>
+                <a href="https://wa.me/212661064117" style="color: #25d366;"><i class="fab fa-whatsapp"></i> Service Clientèle 2</a>
             </div>
             <div class="contact-box">
-                <h4>Email</h4>
+                <h4>Informations</h4>
                 <a href="mailto:jardinsduparadis10@gmail.com"><i class="fas fa-envelope"></i> jardinsduparadis10@gmail.com</a>
+                <p><i class="fas fa-clock"></i> Ouvert du Lundi au Samedi</p>
             </div>
             <div class="contact-box">
-                <h4>Adresse</h4>
-                <p>Hay Mandar Jamil, Rue 75 No 42 - Tanger</p>
-                
-                <a href="https://maps.app.goo.gl/Cirf2WyxHx2oBu8G6?g_st=ic" target="_blank" class="map-link">
-                    <i class="fas fa-map-marker-alt"></i> Voir sur Google Maps
-                </a>
-
+                <h4>Adresse à Tanger</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Hay Mandar Jamil, Rue 75 No 42</p>
                 <a href="https://maps.app.goo.gl/Cirf2WyxHx2oBu8G6?g_st=ic" target="_blank" class="map-card">
-                    <img src="images/map-preview.jpg" alt="Localisation Jardins du Paradis">
-                    <div class="map-overlay">Ouvrir dans Google Maps</div>
+                    <img src="images/map-preview.jpg" alt="Map">
+                    <div class="map-overlay">NOUS TROUVER SUR GOOGLE MAPS</div>
                 </a>
             </div>
         </div>
-        <center><p style="font-size: 11px; opacity: 0.5; margin-top: 40px;">© 2026 JARDINS DU PARADIS SARL - Tanger</p></center>
+        <div style="text-align: center; margin-top: 60px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; font-size: 12px; opacity: 0.5;">
+            © 2026 JARDINS DU PARADIS SARL - Tanger. Tous droits réservés.
+        </div>
     </footer>
 
 </body>
