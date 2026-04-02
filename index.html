@@ -71,7 +71,7 @@
         .plant-details i { color: var(--gold-accent); margin-right: 10px; width: 20px; }
         .plant-details strong { color: var(--main-green); }
 
-        /* Navigation */
+        /* Navigation & Hover Effect */
         nav { 
             padding: 15px 8%; 
             display: flex; 
@@ -239,148 +239,148 @@
 
     <div id="flowers" class="section-title">Nos Bouquets de Prestige</div>
     <div class="catalog-grid">
-        <div class="item-card" onclick="openPlant('BOUQUET AMOUR', 'images/fleur1.jpg', '100.00 DH', 'Roses rouges et blanches', 'Saint-Valentin, Anniversaire de mariage', 'Frais du jour', 'Design classique', 'Élégant')">
+        <div class="item-card" onclick="openFlower('BOUQUET AMOUR', 'images/fleur1.jpg', '150.00 DH', 'Un mélange passionné de roses rouges.', 'Saint-Valentin, Anniversaire')">
             <img src="images/fleur1.jpg" alt="Bouquet">
             <h4>BOUQUET AMOUR</h4>
-            <span class="price">100.00 DH</span>
+            <span class="price">150.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET PASSION', 'images/fleur2.jpg', '100.00 DH', 'Mélange intense de fleurs rouges', 'Déclaration d\'amour, Soirée romantique', 'Frais du jour', 'Riche en couleurs', 'Vibrant')">
+        <div class="item-card" onclick="openFlower('BOUQUET PASSION', 'images/fleur2.jpg', '180.00 DH', 'Éclat de couleurs vives et chaleureuses.', 'Célébrations, Déclaration')">
             <img src="images/fleur2.jpg" alt="Bouquet">
             <h4>BOUQUET PASSION</h4>
-            <span class="price">100.00 DH</span>
+            <span class="price">180.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET LUMIÈRE', 'images/fleur3.jpg', '100.00 DH', 'Fleurs jaunes et blanches lumineuses', 'Félicitations, Nouveau départ', 'Solaire', 'Épuré', 'Radieux')">
+        <div class="item-card" onclick="openFlower('BOUQUET LUMIÈRE', 'images/fleur3.jpg', '120.00 DH', 'Fleurs claires pour illuminer une pièce.', 'Remerciements, Décoration')">
             <img src="images/fleur3.jpg" alt="Bouquet">
             <h4>BOUQUET LUMIÈRE</h4>
-            <span class="price">100.00 DH</span>
+            <span class="price">120.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET SÉRÉNITÉ', 'images/fleur4.jpg', '100.00 DH', 'Compositions aux tons pastels', 'Remerciements, Paix intérieure', 'Apaisant', 'Harmonieux', 'Doux')">
+        <div class="item-card" onclick="openFlower('BOUQUET SÉRÉNITÉ', 'images/fleur4.jpg', '140.00 DH', 'Composition apaisante aux tons pastels.', 'Souhaits de santé, Paix')">
             <img src="images/fleur4.jpg" alt="Bouquet">
             <h4>BOUQUET SÉRÉNITÉ</h4>
-            <span class="price">100.00 DH</span>
+            <span class="price">140.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET ÉCLAT', 'images/fleur5.jpg', '100.00 DH', 'Fleurs variées très colorées', 'Fête d\'anniversaire, Célébration', 'Festif', 'Multi-fleurs', 'Éclatant')">
+        <div class="item-card" onclick="openFlower('BOUQUET ÉCLAT', 'images/fleur5.jpg', '200.00 DH', 'Design moderne et fleurs exotiques.', 'Inauguration, Prestige')">
             <img src="images/fleur5.jpg" alt="Bouquet">
             <h4>BOUQUET ÉCLAT</h4>
-            <span class="price">100.00 DH</span>
+            <span class="price">200.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET HARMONIE', 'images/fleur6.jpg', '100.00 DH', 'Équilibre parfait de verdure et fleurs', 'Décoration de table, Réunion familiale', 'Naturel', 'Équilibré', 'Zen')">
+        <div class="item-card" onclick="openFlower('BOUQUET HARMONIE', 'images/fleur6.jpg', '110.00 DH', 'Équilibre parfait entre fleurs et feuillage.', 'Amitié, Quotidien')">
             <img src="images/fleur6.jpg" alt="Bouquet">
             <h4>BOUQUET HARMONIE</h4>
-            <span class="price">100.00 DH</span>
+            <span class="price">110.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET ROMANCE', 'images/fleur7.jpg', '100.00 DH', 'Roses roses et gypsophile', 'Premier rendez-vous, Mariage', 'Romantique', 'Tendre', 'Délicat')">
+        <div class="item-card" onclick="openFlower('BOUQUET ROMANCE', 'images/fleur7.jpg', '160.00 DH', 'Élégance classique et senteur douce.', 'Dîner romantique, Mariage')">
             <img src="images/fleur7.jpg" alt="Bouquet">
             <h4>BOUQUET ROMANCE</h4>
-            <span class="price">100.00 DH</span>
+            <span class="price">160.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET ROYAL', 'images/fleur8.jpg', '100.00 DH', 'Lys et fleurs de prestige', 'Cérémonie officielle, Grand événement', 'Majestueux', 'Luxueux', 'Imposant')">
+        <div class="item-card" onclick="openFlower('BOUQUET ROYAL', 'images/fleur8.jpg', '190.00 DH', 'Le choix suprême pour les grandes occasions.', 'Réception, Cérémonie')">
             <img src="images/fleur8.jpg" alt="Bouquet">
             <h4>BOUQUET ROYAL</h4>
-            <span class="price">100.00 DH</span>
+            <span class="price">190.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET PARADIS', 'images/fleur9.jpg', '100.00 DH', 'Fleurs exotiques rares', 'Cadeau unique, Événement spécial', 'Tropical', 'Original', 'Exotique')">
+        <div class="item-card" onclick="openFlower('BOUQUET PARADIS', 'images/fleur9.jpg', '170.00 DH', 'Un jardin miniature dans un bouquet.', 'Cadeau spécial, Fête')">
             <img src="images/fleur9.jpg" alt="Bouquet">
             <h4>BOUQUET PARADIS</h4>
-            <span class="price">100.00 DH</span>
+            <span class="price">170.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET NOBLESSE', 'images/fleur10.jpg', '100.00 DH', 'Composition sobre et élégante', 'Dîner d\'affaires, Félicitations', 'Distingué', 'Haut de gamme', 'Sobre')">
+        <div class="item-card" onclick="openFlower('BOUQUET NOBLESSE', 'images/fleur10.jpg', '130.00 DH', 'Sobriété et distinction assurées.', 'Affaires, Condoléances')">
             <img src="images/fleur10.jpg" alt="Bouquet">
             <h4>BOUQUET NOBLESSE</h4>
-            <span class="price">100.00 DH</span>
+            <span class="price">130.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET GRÂCE', 'images/fleur11.jpg', '100.00 DH', 'Fleurs aux lignes fines et gracieuses', 'Fête des mères, Naissance', 'Aérien', 'Féminin', 'Gracieux')">
+        <div class="item-card" onclick="openFlower('BOUQUET GRÂCE', 'images/fleur11.jpg', '145.00 DH', 'Finesse des tiges et délicatesse des pétales.', 'Fête des mères, Naissance')">
             <img src="images/fleur11.jpg" alt="Bouquet">
             <h4>BOUQUET GRÂCE</h4>
-            <span class="price">100.00 DH</span>
+            <span class="price">145.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET PURETÉ', 'images/fleur12.jpg', '100.00 DH', 'Total look blanc immaculé', 'Baptême, Mariage, Paix', 'Pur', 'Minimaliste', 'Blanc')">
+        <div class="item-card" onclick="openFlower('BOUQUET PURETÉ', 'images/fleur12.jpg', '100.00 DH', 'Blancheur éclatante et fraîcheur intense.', 'Mariage, Baptême')">
             <img src="images/fleur12.jpg" alt="Bouquet">
             <h4>BOUQUET PURETÉ</h4>
             <span class="price">100.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET POÉSIE', 'images/fleur13.jpg', '100.00 DH', 'Fleurs des champs et style bohème', 'Cadeau amical, Pique-nique chic', 'Champêtre', 'Artistique', 'Poétique')">
+        <div class="item-card" onclick="openFlower('BOUQUET POÉSIE', 'images/fleur13.jpg', '115.00 DH', 'Inspiration artistique et champêtre.', 'Anniversaire, Plaisir d\'offrir')">
             <img src="images/fleur13.jpg" alt="Bouquet">
             <h4>BOUQUET POÉSIE</h4>
-            <span class="price">100.00 DH</span>
+            <span class="price">115.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET MAGNOLIA', 'images/fleur14.jpg', '100.00 DH', 'Fleurs grandes et charnues', 'Inauguration, Cadeau d\'accueil', 'Parfumé', 'Volumineux', 'Chic')">
+        <div class="item-card" onclick="openFlower('BOUQUET MAGNOLIA', 'images/fleur14.jpg', '155.00 DH', 'Touches fleuries imposantes et parfumées.', 'Décoration d\'intérieur')">
             <img src="images/fleur14.jpg" alt="Bouquet">
             <h4>BOUQUET MAGNOLIA</h4>
-            <span class="price">100.00 DH</span>
+            <span class="price">155.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET ZÉPHYR', 'images/fleur15.jpg', '100.00 DH', 'Fleurs légères et feuillage mouvant', 'Bon rétablissement, Pensées douces', 'Léger', 'Fluide', 'Vent frais')">
+        <div class="item-card" onclick="openFlower('BOUQUET ZÉPHYR', 'images/fleur15.jpg', '125.00 DH', 'Légèreté et mouvement naturel.', 'Remerciements, Printemps')">
             <img src="images/fleur15.jpg" alt="Bouquet">
             <h4>BOUQUET ZÉPHYR</h4>
-            <span class="price">100.00 DH</span>
+            <span class="price">125.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET DIVIN', 'images/fleur16.jpg', '100.00 DH', 'Fleurs rares et structure travaillée', 'Grandes occasions, Luxe', 'Sublime', 'Architecturé', 'Divin')">
+        <div class="item-card" onclick="openFlower('BOUQUET DIVIN', 'images/fleur16.jpg', '200.00 DH', 'La perfection florale par excellence.', 'Engagement, Grand luxe')">
             <img src="images/fleur16.jpg" alt="Bouquet">
             <h4>BOUQUET DIVIN</h4>
-            <span class="price">100.00 DH</span>
+            <span class="price">200.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET AURORE', 'images/fleur17.jpg', '100.00 DH', 'Tons orangés et rosés du matin', 'Réveil en douceur, Remerciements', 'Chaleureux', 'Coloré', 'Matin')">
+        <div class="item-card" onclick="openFlower('BOUQUET AURORE', 'images/fleur17.jpg', '135.00 DH', 'Couleurs du lever de soleil.', 'Bonne journée, Surprise')">
             <img src="images/fleur17.jpg" alt="Bouquet">
             <h4>BOUQUET AURORE</h4>
-            <span class="price">100.00 DH</span>
+            <span class="price">135.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET ORIENT', 'images/fleur18.jpg', '100.00 DH', 'Fleurs aux couleurs épicées', 'Fêtes traditionnelles, Accueil', 'Épicé', 'Mystérieux', 'Oriental')">
+        <div class="item-card" onclick="openFlower('BOUQUET ORIENT', 'images/fleur18.jpg', '165.00 DH', 'Richesse des textures et mystère.', 'Soirée, Événementiel')">
             <img src="images/fleur18.jpg" alt="Bouquet">
             <h4>BOUQUET ORIENT</h4>
-            <span class="price">100.00 DH</span>
+            <span class="price">165.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET MYSTÈRE', 'images/fleur19.jpg', '100.00 DH', 'Fleurs sombres et envoûtantes', 'Surprise, Soirée à thème', 'Captivant', 'Profond', 'Intrigant')">
+        <div class="item-card" onclick="openFlower('BOUQUET MYSTÈRE', 'images/fleur19.jpg', '140.00 DH', 'Combinaison unique de fleurs rares.', 'Curiosité, Cadeau original')">
             <img src="images/fleur19.jpg" alt="Bouquet">
             <h4>BOUQUET MYSTÈRE</h4>
-            <span class="price">100.00 DH</span>
+            <span class="price">140.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET PRESTIGE', 'images/fleur20.jpg', '100.00 DH', 'Le summum de l\'élégance florale', 'Galas, Mariages de luxe', 'Exclusif', 'Somptueux', 'Haut standing')">
+        <div class="item-card" onclick="openFlower('BOUQUET PRESTIGE', 'images/fleur20.jpg', '185.00 DH', 'Volume généreux et qualité premium.', 'Remise de prix, Succès')">
             <img src="images/fleur20.jpg" alt="Bouquet">
             <h4>BOUQUET PRESTIGE</h4>
-            <span class="price">100.00 DH</span>
+            <span class="price">185.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET EXOTIQUE', 'images/fleur21.jpg', '100.00 DH', 'Fleurs des îles et feuillage large', 'Dépaysement, Cadeau original', 'Solaire', 'Étonnant', 'Sauvage')">
+        <div class="item-card" onclick="openFlower('BOUQUET EXOTIQUE', 'images/fleur21.jpg', '195.00 DH', 'Voyage visuel vers les tropiques.', 'Dépaysement, Été')">
             <img src="images/fleur21.jpg" alt="Bouquet">
             <h4>BOUQUET EXOTIQUE</h4>
-            <span class="price">100.00 DH</span>
+            <span class="price">195.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET JOLI', 'images/fleur22.jpg', '100.00 DH', 'Petit bouquet frais et mignon', 'Petite attention, Plaisir d\'offrir', 'Mignon', 'Compact', 'Frais')">
+        <div class="item-card" onclick="openFlower('BOUQUET JOLI', 'images/fleur22.jpg', '105.00 DH', 'Simple, frais et irrésistible.', 'Plaisir quotidien')">
             <img src="images/fleur22.jpg" alt="Bouquet">
             <h4>BOUQUET JOLI</h4>
-            <span class="price">100.00 DH</span>
+            <span class="price">105.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET DÉLICE', 'images/fleur23.jpg', '100.00 DH', 'Fleurs aux couleurs gourmandes', 'Goûter entre amis, Réconfort', 'Suave', 'Gourmand', 'Coloré')">
+        <div class="item-card" onclick="openFlower('BOUQUET DÉLICE', 'images/fleur23.jpg', '125.00 DH', 'Un régal pour les yeux et les sens.', 'Gourmandise, Fête')">
             <img src="images/fleur23.jpg" alt="Bouquet">
             <h4>BOUQUET DÉLICE</h4>
-            <span class="price">100.00 DH</span>
+            <span class="price">125.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET FINAL', 'images/fleur24.jpg', '100.00 DH', 'Apothéose de fleurs et de senteurs', 'Grand succès, Fin d\'année', 'Complet', 'Généreux', 'Splendide')">
+        <div class="item-card" onclick="openFlower('BOUQUET FINAL', 'images/fleur24.jpg', '175.00 DH', 'L\'apothéose de notre collection florale.', 'Adieu, Grande réussite')">
             <img src="images/fleur24.jpg" alt="Bouquet">
             <h4>BOUQUET FINAL</h4>
-            <span class="price">100.00 DH</span>
+            <span class="price">175.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
     </div>
@@ -394,13 +394,19 @@
             <div class="modal-right">
                 <h2 id="modalTitle">Nom</h2>
                 <span id="modalPriceDisplay" class="modal-price"></span>
-                <ul class="plant-details">
-                    <li><i class="fas fa-info-circle"></i> <strong>Description:</strong> <span id="p-origin"></span></li>
-                    <li><i class="fas fa-calendar-alt"></i> <strong>Occasions:</strong> <span id="p-sun"></span></li>
-                    <li><i class="fas fa-leaf"></i> <strong>Style:</strong> <span id="p-water"></span></li>
-                    <li><i class="fas fa-star"></i> <strong>Qualité:</strong> <span id="p-soil"></span></li>
-                    <li><i class="fas fa-magic"></i> <strong>Ambiance:</strong> <span id="p-height"></span></li>
-                </ul>
+                <div id="modalDescriptionSection">
+                    <ul class="plant-details" id="plantInfoList">
+                        <li><i class="fas fa-globe"></i> <strong>Origine:</strong> <span id="p-origin"></span></li>
+                        <li><i class="fas fa-sun"></i> <strong>Exposition:</strong> <span id="p-sun"></span></li>
+                        <li><i class="fas fa-tint"></i> <strong>Arrosage:</strong> <span id="p-water"></span></li>
+                        <li><i class="fas fa-seedling"></i> <strong>Sol:</strong> <span id="p-soil"></span></li>
+                        <li><i class="fas fa-arrows-alt-v"></i> <strong>Hauteur:</strong> <span id="p-height"></span></li>
+                    </ul>
+                    <ul class="plant-details" id="flowerInfoList" style="display:none;">
+                        <li><i class="fas fa-info-circle"></i> <strong>Description:</strong> <span id="f-desc"></span></li>
+                        <li><i class="fas fa-calendar-check"></i> <strong>Occasion:</strong> <span id="f-occasion"></span></li>
+                    </ul>
+                </div>
                 <br>
                 <a id="waLink" href="#" class="btn-wa" style="width: 100%; text-align: center;">Commander via WhatsApp</a>
             </div>
@@ -434,16 +440,36 @@
     </footer>
 
     <script>
-    function openPlant(name, img, price, desc, occasion, style, quality, vibe) {
+    function openPlant(name, img, price, origin, sun, water, soil, height) {
         document.getElementById('modalTitle').innerText = name;
         document.getElementById('modalImg').src = img;
         document.getElementById('modalPriceDisplay').innerText = price;
-        document.getElementById('p-origin').innerText = desc;
-        document.getElementById('p-sun').innerText = occasion;
-        document.getElementById('p-water').innerText = style;
-        document.getElementById('p-soil').innerText = quality;
-        document.getElementById('p-height').innerText = vibe;
+        
+        document.getElementById('plantInfoList').style.display = "block";
+        document.getElementById('flowerInfoList').style.display = "none";
+        
+        document.getElementById('p-origin').innerText = origin;
+        document.getElementById('p-sun').innerText = sun;
+        document.getElementById('p-water').innerText = water;
+        document.getElementById('p-soil').innerText = soil;
+        document.getElementById('p-height').innerText = height;
+        
         document.getElementById('waLink').href = "https://wa.me/212661722457?text=Bonjour, je souhaite commander : " + name + " au prix de " + price;
+        document.getElementById('plantModal').style.display = "block";
+    }
+
+    function openFlower(name, img, price, desc, occasion) {
+        document.getElementById('modalTitle').innerText = name;
+        document.getElementById('modalImg').src = img;
+        document.getElementById('modalPriceDisplay').innerText = price;
+        
+        document.getElementById('plantInfoList').style.display = "none";
+        document.getElementById('flowerInfoList').style.display = "block";
+        
+        document.getElementById('f-desc').innerText = desc;
+        document.getElementById('f-occasion').innerText = occasion;
+        
+        document.getElementById('waLink').href = "https://wa.me/212661722457?text=Bonjour, je souhaite commander le bouquet : " + name + " au prix de " + price;
         document.getElementById('plantModal').style.display = "block";
     }
 
