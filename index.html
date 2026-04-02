@@ -97,15 +97,21 @@
         .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(35px, 6vw, 65px); margin-bottom: 15px; }
         .about-section { padding: 80px 10%; text-align: center; background: white; }
 
-        /* Catalog */
+        /* Catalog Grid */
         .section-title { text-align: center; margin: 60px 0 40px; font-family: 'Playfair Display', serif; font-size: 32px; color: var(--main-green); }
-        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; padding: 0 10%; margin-bottom: 80px; }
+        .catalog-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 40px; 
+            padding: 0 10%; 
+            margin-bottom: 80px; 
+        }
         
         .item-card { 
             background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             text-align: center; padding-bottom: 25px; transition: 0.4s; border: 1px solid #f0f0f0; cursor: pointer;
         }
-        .item-card:hover { transform: translateY(-10px); }
+        .item-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
         .item-card img { width: 100%; height: 280px; object-fit: cover; }
         .item-card h4 { margin: 20px 0 10px; font-size: 18px; color: var(--main-green); }
         .price { display: block; color: var(--gold-accent); font-weight: 700; margin-bottom: 20px; }
@@ -124,7 +130,7 @@
         @media (max-width: 768px) {
             nav { flex-direction: column; gap: 15px; }
             .nav-links { gap: 15px; font-size: 13px; }
-            .catalog-grid { padding: 0 5%; }
+            .catalog-grid { padding: 0 5%; gap: 20px; }
         }
     </style>
 </head>
@@ -153,6 +159,7 @@
     </section>
 
     <div id="plants" class="section-title">Notre Collection Royale</div>
+    
     <div class="catalog-grid">
         <div class="item-card" onclick="openPlant('ASPLENIUM', 'images/plant1.jpg', 'Asie du Sud-Est', 'Lumière tamisée (Mi-ombre)', '1 à 2 fois par semaine', 'Terreau riche en humus', '30-50 cm')">
             <img src="images/plant1.jpg" alt="ASPLENIUM">
@@ -160,58 +167,63 @@
             <span class="price">100.00 DH</span>
             <button class="btn-wa">Détails & Commande</button>
         </div>
+        
         <div class="item-card" onclick="openPlant('ALOCASIA POLLY', 'images/plant2.jpg', 'Asie Tropicale', 'Lumière vive sans soleil direct', '1 fois par semaine', 'Bien drainé', '40-60 cm')">
             <img src="images/plant2.jpg" alt="ALOCASIA">
             <h4>ALOCASIA POLLY</h4>
             <span class="price">100.00 DH</span>
             <button class="btn-wa">Détails & Commande</button>
         </div>
-        <div class="item-card" onclick="openPlant('DIFFEMBACHIA', 'images/plant3.jpg', 'Amérique Latine', 'Lumière indirecte', 'Régulier mais modéré', 'Standard fertile', '50-80 cm')">
+        
+        <div class="item-card" onclick="openPlant('DIFFEMBACHIA CAMILLA', 'images/plant3.jpg', 'Amérique Latine', 'Lumière indirecte', 'Régulier mais modéré', 'Standard fertile', '50-80 cm')">
             <img src="images/plant3.jpg" alt="DIFFEMBACHIA">
             <h4>DIFFEMBACHIA CAMILLA</h4>
             <span class="price">100.00 DH</span>
             <button class="btn-wa">Détails & Commande</button>
         </div>
+        
         <div class="item-card" onclick="openPlant('ANTHURIUM', 'images/plant4.jpg', 'Amérique Tropicale', 'Lumière vive sans soleil direct', '1 fois par semaine', 'Terreau drainant', '40-60 cm')">
             <img src="images/plant4.jpg" alt="ANTHURIUM">
             <h4>ANTHURIUM</h4>
             <span class="price">100.00 DH</span>
             <button class="btn-wa">Détails & Commande</button>
         </div>
-    </div> <div class="item-card" onclick="openPlant('GARDENIA JAMINOIDES', 'images/plant5.jpg', 'Chine et Japon', 'Lumière vive (éviter le soleil direct l\'après-midi)', '2 à 3 fois par semaine (maintenir humide)', 'Terreau acide et riche', '30-60 cm')">
-    <img src="images/plant5.jpg" alt="GARDENIA">
-    <h4>GARDENIA JAMINOIDES</h4>
-    <span class="price">100.00 DH</span>
-    <button class="btn-wa">Détails & Commande</button>
-</div>
 
-<div class="item-card" onclick="openPlant('FICUS ELASTICA', 'images/plant6.jpg', 'Asie du Sud-Est', 'Lumière vive indirecte', '1 fois par semaine (laisser sécher le sol)', 'Terreau drainage rapide', '60-100 cm')">
-    <img src="images/plant6.jpg" alt="FICUS">
-    <h4>FICUS ELASTICA</h4>
-    <span class="price">100.00 DH</span>
-    <button class="btn-wa">Détails & Commande</button>
-</div>
+        <div class="item-card" onclick="openPlant('GARDENIA JAMINOIDES', 'images/plant5.jpg', 'Chine et Japon', 'Lumière vive', '2 à 3 fois par semaine', 'Terreau acide et riche', '30-60 cm')">
+            <img src="images/plant5.jpg" alt="GARDENIA">
+            <h4>GARDENIA JAMINOIDES</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails & Commande</button>
+        </div>
 
-<div class="item-card" onclick="openPlant('DRACAEANA FRAGRANS', 'images/plant7.jpg', 'Afrique Tropicale', 'Lumière moyenne à vive', '1 fois tous les 10 jours', 'Terreau standard', '80-120 cm')">
-    <img src="images/plant7.jpg" alt="DRACAEANA FRAGRANS">
-    <h4>DRACAEANA FRAGRANS</h4>
-    <span class="price">100.00 DH</span>
-    <button class="btn-wa">Détails & Commande</button>
-</div>
+        <div class="item-card" onclick="openPlant('FICUS ELASTICA', 'images/plant6.jpg', 'Asie du Sud-Est', 'Lumière vive indirectه', '1 fois par semaine', 'Terreau drainage rapide', '60-100 cm')">
+            <img src="images/plant6.jpg" alt="FICUS">
+            <h4>FICUS ELASTICA</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails & Commande</button>
+        </div>
 
-<div class="item-card" onclick="openPlant('DRACAEANA DEREMENSIS', 'images/plant8.jpg', 'Afrique Tropicale', 'Ombre à mi-ombre', 'Modéré (1 fois par semaine)', 'Bien drainé', '60-90 cm')">
-    <img src="images/plant8.jpg" alt="DRACAEANA DEREMENSIS">
-    <h4>DRACAEANA DEREMENSIS</h4>
-    <span class="price">100.00 DH</span>
-    <button class="btn-wa">Détails & Commande</button>
-</div>
+        <div class="item-card" onclick="openPlant('DRACAEANA FRAGRANS', 'images/plant7.jpg', 'Afrique Tropicale', 'Lumière moyenne à vive', '1 fois tous les 10 jours', 'Terreau standard', '80-120 cm')">
+            <img src="images/plant7.jpg" alt="DRACAEANA FRAGRANS">
+            <h4>DRACAEANA FRAGRANS</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails & Commande</button>
+        </div>
 
-<div class="item-card" onclick="openPlant('DIFFENBACHIA', 'images/plant9.jpg', 'Amérique Centrale et Sud', 'Lumière indirecte', 'Régulier (ne pas détremper)', 'Riche en nutriments', '50-100 cm')">
-    <img src="images/plant9.jpg" alt="DIFFENBACHIA">
-    <h4>DIFFENBACHIA</h4>
-    <span class="price">100.00 DH</span>
-    <button class="btn-wa">Détails & Commande</button>
-</div>
+        <div class="item-card" onclick="openPlant('DRACAEANA DEREMENSIS', 'images/plant8.jpg', 'Afrique Tropicale', 'Ombre à mi-ombre', 'Modéré (1 fois par semaine)', 'Bien drainé', '60-90 cm')">
+            <img src="images/plant8.jpg" alt="DRACAEANA DEREMENSIS">
+            <h4>DRACAEANA DEREMENSIS</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails & Commande</button>
+        </div>
+
+        <div class="item-card" onclick="openPlant('DIFFEMBACHIA', 'images/plant9.jpg', 'Amérique Centrale et Sud', 'Lumière indirecte', 'Régulier', 'Riche en nutriments', '50-100 cm')">
+            <img src="images/plant9.jpg" alt="DIFFEMBACHIA">
+            <h4>DIFFEMBACHIA</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails & Commande</button>
+        </div>
+    </div>
 
     <div id="plantModal" class="modal">
         <div class="modal-content">
