@@ -8,53 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
-        /* تصميم النافذة المنبثقة (Modal) */
-.modal {
-    display: none; 
-    position: fixed; 
-    z-index: 2000; 
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.8);
-    backdrop-filter: blur(5px);
-}
-
-.modal-content {
-    background-color: white;
-    margin: 5% auto;
-    padding: 30px;
-    border-radius: 15px;
-    width: 90%;
-    max-width: 700px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    position: relative;
-    animation: fadeIn 0.4s;
-}
-
-@keyframes fadeIn { from {opacity: 0; transform: translateY(-20px);} to {opacity: 1; transform: translateY(0);} }
-
-.close-modal {
-    position: absolute;
-    right: 20px; top: 15px;
-    font-size: 28px;
-    cursor: pointer;
-    color: var(--main-green);
-}
-
-.modal-left { flex: 1; min-width: 250px; }
-.modal-left img { width: 100%; border-radius: 10px; height: 350px; object-fit: cover; }
-
-.modal-right { flex: 1.2; min-width: 250px; text-align: left; }
-.modal-right h2 { color: var(--main-green); font-family: 'Playfair Display', serif; margin-bottom: 15px; }
-.plant-details { list-style: none; }
-.plant-details li { margin-bottom: 12px; font-size: 14px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-.plant-details i { color: var(--gold-accent); margin-right: 10px; width: 20px; }
-.plant-details strong { color: var(--main-green); }
         :root { 
-            --main-green: #1a3c34; /* الأخضر الملكي */
-            --gold-accent: #c5a059; /* الذهبي الفاخر */
+            --main-green: #1a3c34; 
+            --gold-accent: #c5a059; 
             --soft-white: #ffffff;
             --text-dark: #2c2c2c;
             --bg-light: #fdfdfd;
@@ -69,7 +25,52 @@
             background-color: var(--bg-light); 
         }
 
-        /* Navigation - تصميم شفاف وأنيق */
+        /* Modal Design */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 750px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+            animation: fadeIn 0.4s;
+        }
+
+        @keyframes fadeIn { from {opacity: 0; transform: translateY(-20px);} to {opacity: 1; transform: translateY(0);} }
+
+        .close-modal {
+            position: absolute;
+            right: 20px; top: 15px;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--main-green);
+        }
+
+        .modal-left { flex: 1; min-width: 250px; }
+        .modal-left img { width: 100%; border-radius: 10px; height: 400px; object-fit: cover; }
+
+        .modal-right { flex: 1.2; min-width: 250px; text-align: left; }
+        .modal-right h2 { color: var(--main-green); font-family: 'Playfair Display', serif; margin-bottom: 15px; }
+        .plant-details { list-style: none; }
+        .plant-details li { margin-bottom: 12px; font-size: 14px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .plant-details i { color: var(--gold-accent); margin-right: 10px; width: 20px; }
+        .plant-details strong { color: var(--main-green); }
+
+        /* Navigation */
         nav { 
             padding: 15px 8%; 
             display: flex; 
@@ -81,211 +82,56 @@
             z-index: 1000; 
             box-shadow: 0 2px 15px rgba(0,0,0,0.05);
         }
-
-        .logo img { height: 60px; transition: 0.3s; }
-
+        .logo img { height: 60px; }
         .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { 
-            text-decoration: none; 
-            color: var(--main-green); 
-            font-size: 15px; 
-            font-weight: 500;
-            position: relative;
-            transition: 0.3s;
-        }
-        
-        /* تأثير الخط تحت الروابط عند التمرير */
-        .nav-links a::after {
-            content: '';
-            width: 0; height: 2px;
-            background: var(--gold-accent);
-            position: absolute; bottom: -5px; left: 0;
-            transition: 0.3s;
-        }
-        .nav-links a:hover::after { width: 100%; }
+        .nav-links a { text-decoration: none; color: var(--main-green); font-size: 15px; font-weight: 500; transition: 0.3s; }
         .nav-links a:hover { color: var(--gold-accent); }
 
-        /* Hero Section - نفس طابع المواقع الفخمة */
+        /* Hero & About */
         .hero { 
-            height: 75vh; 
+            height: 70vh; 
             background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('images/hero-bg.jpg'); 
-            background-size: cover; 
-            background-position: center;
-            display: flex; align-items: center; justify-content: center; 
-            color: white; text-align: center;
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; justify-content: center; color: white; text-align: center;
         }
-        .hero-content h1 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: clamp(35px, 6vw, 65px); 
-            margin-bottom: 15px; 
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
-        }
-        .hero-content p { 
-            font-size: 20px; 
-            font-weight: 300; 
-            letter-spacing: 2px;
-            color: #efefef;
-        }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(35px, 6vw, 65px); margin-bottom: 15px; }
+        .about-section { padding: 80px 10%; text-align: center; background: white; }
 
-        /* About Section */
-        .about-section { 
-            padding: 80px 10%; 
-            text-align: center; 
-            background: white; 
-            margin-bottom: 20px;
-        }
-        .about-section h2 { 
-            color: var(--main-green); 
-            margin-bottom: 20px; 
-            font-family: 'Playfair Display', serif; 
-            font-size: 32px;
-        }
-        .about-section p { 
-            max-width: 900px; 
-            margin: 0 auto; 
-            color: #666; 
-            font-size: 17px;
-            line-height: 1.8;
-        }
-
-        /* Section Title - تصميم جديد */
-        .section-title { 
-            text-align: center; 
-            margin: 60px 0 40px; 
-            font-family: 'Playfair Display', serif; 
-            font-size: 32px; 
-            color: var(--main-green); 
-            position: relative;
-        }
-        .section-title::after {
-            content: '';
-            width: 50px; height: 2px;
-            background: var(--gold-accent);
-            position: absolute; bottom: -10px; left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Catalog Grid - تصميم الكروت الفخم */
-        .catalog-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
-            gap: 40px; 
-            padding: 0 10%; 
-            margin-bottom: 24px; 
-        }
+        /* Catalog */
+        .section-title { text-align: center; margin: 60px 0 40px; font-family: 'Playfair Display', serif; font-size: 32px; color: var(--main-green); }
+        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; padding: 0 10%; margin-bottom: 80px; }
+        
         .item-card { 
-            background: white; 
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            text-align: center; 
-            padding-bottom: 25px; 
-            transition: 0.4s ease-in-out;
-            border: 1px solid #f0f0f0;
+            background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center; padding-bottom: 25px; transition: 0.4s; border: 1px solid #f0f0f0; cursor: pointer;
         }
-        .item-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        .item-card:hover { transform: translateY(-10px); }
+        .item-card img { width: 100%; height: 280px; object-fit: cover; }
+        .item-card h4 { margin: 20px 0 10px; font-size: 18px; color: var(--main-green); }
+        .price { display: block; color: var(--gold-accent); font-weight: 700; margin-bottom: 20px; }
         
-        .item-card img { 
-            width: 100%; height: 280px; 
-            object-fit: cover; 
-            transition: 0.5s;
-        }
-        .item-card:hover img { transform: scale(1.05); }
+        .btn-wa { display: inline-block; padding: 10px 30px; background: var(--main-green); color: white; text-decoration: none; border-radius: 5px; font-size: 13px; font-weight: bold; text-transform: uppercase; border: none; }
 
-        .item-card h4 { 
-            margin: 20px 0 10px; 
-            font-size: 18px; 
-            color: var(--main-green);
-            font-weight: 700;
-        }
-        .price { 
-            display: block; 
-            color: var(--gold-accent); 
-            font-weight: 700; 
-            font-size: 16px; 
-            margin-bottom: 20px; 
-        }
-        
-        /* أزرار الواتساب بتصميم مشابه لـ Topdarfleur */
-        .btn-wa { 
-            display: inline-block; 
-            padding: 10px 30px; 
-            background: var(--main-green); 
-            color: white; 
-            text-decoration: none; 
-            border-radius: 5px; 
-            font-size: 13px; 
-            font-weight: bold;
-            transition: 0.3s;
-            text-transform: uppercase;
-        }
-        .btn-wa:hover { background: var(--gold-accent); }
-
-        /* Contact Section - تصميم فخم وغامق */
-        .contact-footer { 
-            background: var(--main-green); 
-            color: white; 
-            padding: 80px 10% 40px; 
-        }
-        .contact-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 50px; 
-        }
-        .contact-box h4 { 
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            margin-bottom: 25px; 
-            color: var(--gold-accent);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 10px;
-        }
-        .contact-box p, .contact-box a { 
-            color: #bbb; 
-            text-decoration: none; 
-            font-size: 15px; 
-            display: block; 
-            margin-bottom: 12px; 
-            transition: 0.3s;
-        }
-        .contact-box a:hover { color: var(--gold-accent); transform: translateX(5px); }
-        .contact-box i { margin-right: 10px; color: var(--gold-accent); width: 20px; }
-
-        /* Map Card */
-        .map-card {
-            display: block;
-            margin-top: 25px;
-            width: 100%;
-            height: 180px;
-            border-radius: 12px;
-            overflow: hidden;
-            border: 2px solid rgba(255,255,255,0.1);
-            position: relative;
-            transition: 0.3s;
-        }
+        /* Footer */
+        .contact-footer { background: var(--main-green); color: white; padding: 80px 10% 40px; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 50px; }
+        .contact-box h4 { color: var(--gold-accent); font-family: 'Playfair Display', serif; margin-bottom: 20px; font-size: 20px; }
+        .contact-box a, .contact-box p { color: #bbb; text-decoration: none; display: block; margin-bottom: 10px; font-size: 14px; }
+        .map-card { width: 100%; height: 150px; border-radius: 10px; overflow: hidden; margin-top: 15px; position: relative; display: block; }
         .map-card img { width: 100%; height: 100%; object-fit: cover; }
-        .map-overlay {
-            position: absolute; bottom: 0; left: 0; right: 0;
-            background: rgba(197, 160, 89, 0.9); /* ذهبي شفاف */
-            color: white; padding: 8px; font-size: 12px; text-align: center;
-        }
+        .map-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(197,160,89,0.9); color: white; padding: 5px; text-align: center; font-size: 11px; }
 
-        /* تنسيق الجوال */
         @media (max-width: 768px) {
-            nav { flex-direction: column; gap: 15px; padding: 20px; }
-            .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; font-size: 13px; }
-            .hero { height: 50vh; }
-            .catalog-grid { padding: 0 5%; gap: 20px; }
-            .item-card img { height: 220px; }
+            nav { flex-direction: column; gap: 15px; }
+            .nav-links { gap: 15px; font-size: 13px; }
+            .catalog-grid { padding: 0 5%; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">
-            <img src="images/logo.png" alt="Jardins du Paradis Logo">
-        </div>
+        <div class="logo"><img src="images/logo.png" alt="Logo"></div>
         <ul class="nav-links">
             <li><a href="#home">Accueil</a></li>
             <li><a href="#plants">Plantes</a></li>
@@ -303,122 +149,104 @@
 
     <section class="about-section">
         <h2>Quand l'Art Rencontre la Nature</h2>
-        <p>
-            Depuis 2007, Jardins Du Paradis transforme vos espaces en véritables oasis de sérénité. Spécialistes de l'aménagement paysager à Tanger, nous sélectionnons pour vous les plus belles plantes et fleurs pour rehausser l'élégance de vos intérieurs et extérieurs.
-        </p>
+        <p>Spécialistes de l'aménagement paysager à Tanger depuis 2007, nous créons des oasis de sérénité pour vos intérieurs et extérieurs.</p>
     </section>
 
     <div id="plants" class="section-title">Notre Collection Royale</div>
     <div class="catalog-grid">
-        <div class="item-card">
+        <div class="item-card" onclick="openPlant('ASPLENIUM', 'images/plant1.jpg', 'Asie du Sud-Est', 'Lumière tamisée (Mi-ombre)', '1 à 2 fois par semaine', 'Terreau riche en humus', '30-50 cm')">
             <img src="images/plant1.jpg" alt="ASPLENIUM">
             <h4>ASPLENIUM</h4>
             <span class="price">100.00 DH</span>
-            <a href="https://wa.me/212661722457?text=Commande+ASPLENIUM" class="btn-wa">Commander via WhatsApp</a>
+            <button class="btn-wa">Détails & Commande</button>
         </div>
-        <div class="item-card">
-            <img src="images/plant2.jpg" alt="ALOCASIA POLLY">
+        <div class="item-card" onclick="openPlant('ALOCASIA POLLY', 'images/plant2.jpg', 'Asie Tropicale', 'Lumière vive sans soleil direct', '1 fois par semaine', 'Bien drainé', '40-60 cm')">
+            <img src="images/plant2.jpg" alt="ALOCASIA">
             <h4>ALOCASIA POLLY</h4>
             <span class="price">100.00 DH</span>
-            <a href="https://wa.me/212661722457?text=Commande+ALOCASIA+POLLY" class="btn-wa">Commander via WhatsApp</a>
+            <button class="btn-wa">Détails & Commande</button>
         </div>
-        <div class="item-card">
+        <div class="item-card" onclick="openPlant('DIFFEMBACHIA', 'images/plant3.jpg', 'Amérique Latine', 'Lumière indirecte', 'Régulier mais modéré', 'Standard fertile', '50-80 cm')">
             <img src="images/plant3.jpg" alt="DIFFEMBACHIA">
             <h4>DIFFEMBACHIA CAMILLA</h4>
             <span class="price">100.00 DH</span>
-            <a href="https://wa.me/212661722457?text=Commande+DIFFEMBACHIA" class="btn-wa">Commander via WhatsApp</a>
+            <button class="btn-wa">Détails & Commande</button>
         </div>
-        <div class="item-card">
+        <div class="item-card" onclick="openPlant('ANTHURIUM', 'images/plant4.jpg', 'Amérique Tropicale', 'Lumière vive sans soleil direct', '1 fois par semaine', 'Terreau drainant', '40-60 cm')">
             <img src="images/plant4.jpg" alt="ANTHURIUM">
             <h4>ANTHURIUM</h4>
             <span class="price">100.00 DH</span>
-            <a href="https://wa.me/212661722457?text=Commande+ANTHURIUM" class="btn-wa">Commander via WhatsApp</a>
+            <button class="btn-wa">Détails & Commande</button>
         </div>
     </div>
 
-    <div id="flowers" class="section-title">Bouquets de Fleurs</div>
-    <p style="text-align: center; color: #888; margin-bottom: 80px; font-style: italic;">Collection de fleurs - Bientôt disponible...</p>
+    <div id="plantModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="modal-left">
+                <img id="modalImg" src="" alt="">
+            </div>
+            <div class="modal-right">
+                <h2 id="modalTitle">Nom de la Plante</h2>
+                <ul class="plant-details">
+                    <li><i class="fas fa-globe"></i> <strong>Origine:</strong> <span id="p-origin"></span></li>
+                    <li><i class="fas fa-sun"></i> <strong>Exposition:</strong> <span id="p-sun"></span></li>
+                    <li><i class="fas fa-tint"></i> <strong>Arrosage:</strong> <span id="p-water"></span></li>
+                    <li><i class="fas fa-seedling"></i> <strong>Sol:</strong> <span id="p-soil"></span></li>
+                    <li><i class="fas fa-arrows-alt-v"></i> <strong>Hauteur:</strong> <span id="p-height"></span></li>
+                </ul>
+                <br>
+                <a id="waLink" href="#" class="btn-wa" style="width: 100%; text-align: center;">Commander via WhatsApp</a>
+            </div>
+        </div>
+    </div>
 
     <footer id="contact" class="contact-footer">
         <div class="contact-grid">
             <div class="contact-box">
-                <h4>Nous contacter</h4>
+                <h4>Contactez-nous</h4>
                 <a href="tel:0661722457"><i class="fas fa-phone"></i> 06 61 72 24 57</a>
                 <a href="tel:0661064117"><i class="fas fa-phone"></i> 06 61 06 41 17</a>
-                <a href="https://wa.me/212661722457" style="color: #25d366;"><i class="fab fa-whatsapp"></i> Service Clientèle 1</a>
-                <a href="https://wa.me/212661064117" style="color: #25d366;"><i class="fab fa-whatsapp"></i> Service Clientèle 2</a>
+                <a href="https://wa.me/212661722457" style="color: #25d366;"><i class="fab fa-whatsapp"></i> WhatsApp Direct</a>
             </div>
             <div class="contact-box">
                 <h4>Informations</h4>
                 <a href="mailto:jardinsduparadis10@gmail.com"><i class="fas fa-envelope"></i> jardinsduparadis10@gmail.com</a>
-                <p><i class="fas fa-clock"></i> Ouvert du Lundi au Dimanche (9:00 - 21:00)</p>
+                <p><i class="fas fa-clock"></i> Lun - Dim (9:00 - 21:00)</p>
             </div>
             <div class="contact-box">
                 <h4>Adresse</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Hay Mandar Jamil, Rue 75 No 42</p>
-                <a href="https://maps.app.goo.gl/Cirf2WyxHx2oBu8G6?g_st=ic" target="_blank" class="map-card">
+                <p><i class="fas fa-map-marker-alt"></i> Hay Mandar Jamil, Tanger</p>
+                <a href="https://goo.gl/maps/xyz" target="_blank" class="map-card">
                     <img src="images/map-preview.jpg" alt="Map">
-                    <div class="map-overlay">NOUS TROUVER SUR GOOGLE MAPS</div>
+                    <div class="map-overlay">OUVRIR DANS GOOGLE MAPS</div>
                 </a>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 60px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; font-size: 12px; opacity: 0.5;">
-            © 2026 JARDINS DU PARADIS SARL - Tanger. Tous droits réservés.
-        </div>
+        <div style="text-align: center; margin-top: 40px; opacity: 0.5; font-size: 11px;">© 2026 JARDINS DU PARADIS SARL</div>
     </footer>
-<script>
-function openPlant(name, img, origin, sun, water, soil, height) {
-    document.getElementById('modalTitle').innerText = name;
-    document.getElementById('modalImg').src = img;
-    document.getElementById('p-origin').innerText = origin;
-    document.getElementById('p-sun').innerText = sun;
-    document.getElementById('p-water').innerText = water;
-    document.getElementById('p-soil').innerText = soil;
-    document.getElementById('p-height').innerText = height;
-    
-    // تحديث رابط الواتساب برسالة مخصصة
-    document.getElementById('waLink').href = "https://wa.me/212661722457?text=Je suis intéressé par la plante : " + name;
-    
-    document.getElementById('plantModal').style.display = "block";
-}
 
-function closeModal() {
-    document.getElementById('plantModal').style.display = "none";
-}
+    <script>
+    function openPlant(name, img, origin, sun, water, soil, height) {
+        document.getElementById('modalTitle').innerText = name;
+        document.getElementById('modalImg').src = img;
+        document.getElementById('p-origin').innerText = origin;
+        document.getElementById('p-sun').innerText = sun;
+        document.getElementById('p-water').innerText = water;
+        document.getElementById('p-soil').innerText = soil;
+        document.getElementById('p-height').innerText = height;
+        document.getElementById('waLink').href = "https://wa.me/212661722457?text=Bonjour, je souhaite commander la plante : " + name;
+        document.getElementById('plantModal').style.display = "block";
+    }
 
-// إغلاق النافذة عند الضغط خارجها
-window.onclick = function(event) {
-    let modal = document.getElementById('plantModal');
-    if (event.target == modal) { modal.style.display = "none"; }
-}
-</script>
+    function closeModal() {
+        document.getElementById('plantModal').style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        let modal = document.getElementById('plantModal');
+        if (event.target == modal) { modal.style.display = "none"; }
+    }
+    </script>
 </body>
-    <div class="item-card" onclick="openPlant('ANTHURIUM', 'images/plant4.jpg', 'Amérique Tropicale', 'Lumière vive sans soleil direct', '1 fois par semaine', 'Terreau drainant', '40-60 cm')">
-    <img src="images/plant4.jpg" alt="ANTHURIUM">
-    <h4>ANTHURIUM</h4>
-    <span class="price">100.00 DH</span>
-    <button class="btn-wa">Détails & Commande</button>
-        </body>
-        <div id="plantModal" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeModal()">&times;</span>
-        <div class="modal-left">
-            <img id="modalImg" src="" alt="">
-        </div>
-        <div class="modal-right">
-            <h2 id="modalTitle">Nom de la Plante</h2>
-            <ul class="plant-details">
-                <li><i class="fas fa-globe"></i> <strong>Origine:</strong> <span id="p-origin"></span></li>
-                <li><i class="fas fa-sun"></i> <strong>Exposition:</strong> <span id="p-sun"></span></li>
-                <li><i class="fas fa-tint"></i> <strong>Arrosage:</strong> <span id="p-water"></span></li>
-                <li><i class="fas fa-seedling"></i> <strong>Sol:</strong> <span id="p-soil"></span></li>
-                <li><i class="fas fa-arrows-alt-v"></i> <strong>Hauteur:</strong> <span id="p-height"></span></li>
-            </ul>
-            <br>
-            <a id="waLink" href="#" class="btn-wa" style="width: 100%; text-align: center;">Commander via WhatsApp</a>
-        </div>
-    </div>
-</div>
-        
-</div>
 </html>
