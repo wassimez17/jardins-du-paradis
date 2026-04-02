@@ -70,7 +70,7 @@
         .plant-details i { color: var(--gold-accent); margin-right: 10px; width: 20px; }
         .plant-details strong { color: var(--main-green); }
 
-        /* Navigation & Hover Effect Fixed */
+        /* Navigation & Hover Effect (Fixed) */
         nav { 
             padding: 15px 8%; 
             display: flex; 
@@ -89,9 +89,9 @@
             color: var(--main-green); 
             font-size: 15px; 
             font-weight: 500; 
+            transition: 0.3s;
             position: relative;
             padding-bottom: 5px;
-            transition: 0.3s; 
         }
         .nav-links a::after {
             content: '';
@@ -103,8 +103,10 @@
             background-color: var(--gold-accent);
             transition: width 0.3s ease;
         }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
         .nav-links a:hover { color: var(--gold-accent); }
-        .nav-links a:hover::after { width: 100%; }
 
         /* Hero & About */
         .hero { 
@@ -135,7 +137,7 @@
         .item-card h4 { margin: 20px 0 10px; font-size: 18px; color: var(--main-green); }
         .price { display: block; color: var(--gold-accent); font-weight: 700; margin-bottom: 20px; }
         
-        .btn-wa { display: inline-block; padding: 10px 30px; background: var(--main-green); color: white; text-decoration: none; border-radius: 5px; font-size: 13px; font-weight: bold; text-transform: uppercase; border: none; }
+        .btn-wa { display: inline-block; padding: 10px 30px; background: var(--main-green); color: white; text-decoration: none; border-radius: 5px; font-size: 13px; font-weight: bold; text-transform: uppercase; border: none; cursor: pointer; }
 
         /* Footer */
         .contact-footer { background: var(--main-green); color: white; padding: 80px 10% 40px; }
@@ -180,67 +182,67 @@
     <div id="plants" class="section-title">Notre Collection Royale</div>
     
     <div class="catalog-grid">
-        <div class="item-card" onclick="openPlant('ASPLENIUM', 'images/plant1.jpg', 'Asie du Sud-Est', 'Lumière tamisée', '1 à 2 fois par semaine', 'Terreau riche', '30-50 cm')">
+        <div class="item-card" onclick="openPlant('ASPLENIUM', 'images/plant1.jpg', 'Asie du Sud-Est', 'Lumière tamisée', '1-2 fois/semaine', 'Terreau riche', '30-50 cm', '100.00 DH')">
             <img src="images/plant1.jpg" alt="ASPLENIUM">
             <h4>ASPLENIUM</h4>
             <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails & Commande</button>
+            <button class="btn-wa">Détails</button>
         </div>
         
-        <div class="item-card" onclick="openPlant('ALOCASIA POLLY', 'images/plant2.jpg', 'Asie Tropicale', 'Lumière vive indirecte', '1 fois par semaine', 'Bien drainé', '40-60 cm')">
+        <div class="item-card" onclick="openPlant('ALOCASIA POLLY', 'images/plant2.jpg', 'Asie Tropicale', 'Lumière vive', '1 fois/semaine', 'Bien drainé', '40-60 cm', '100.00 DH')">
             <img src="images/plant2.jpg" alt="ALOCASIA">
             <h4>ALOCASIA POLLY</h4>
             <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails & Commande</button>
+            <button class="btn-wa">Détails</button>
         </div>
-        
-        <div class="item-card" onclick="openPlant('DIFFEMBACHIA CAMILLA', 'images/plant3.jpg', 'Amérique Latine', 'Lumière indirecte', 'Régulier', 'Standard fertile', '50-80 cm')">
+
+        <div class="item-card" onclick="openPlant('DIFFEMBACHIA CAMILLA', 'images/plant3.jpg', 'Amérique Latine', 'Lumière indirecte', 'Régulier', 'Standard', '50-80 cm', '100.00 DH')">
             <img src="images/plant3.jpg" alt="DIFFEMBACHIA">
             <h4>DIFFEMBACHIA CAMILLA</h4>
             <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails & Commande</button>
+            <button class="btn-wa">Détails</button>
         </div>
-        
-        <div class="item-card" onclick="openPlant('ANTHURIUM', 'images/plant4.jpg', 'Amérique Tropicale', 'Lumière vive indirecte', '1 fois par semaine', 'Terreau drainant', '40-60 cm')">
+
+        <div class="item-card" onclick="openPlant('ANTHURIUM', 'images/plant4.jpg', 'Amérique Tropicale', 'Lumière vive', '1 fois/semaine', 'Drainant', '40-60 cm', '100.00 DH')">
             <img src="images/plant4.jpg" alt="ANTHURIUM">
             <h4>ANTHURIUM</h4>
             <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails & Commande</button>
+            <button class="btn-wa">Détails</button>
         </div>
 
-        <div class="item-card" onclick="openPlant('GARDENIA JAMINOIDES', 'images/plant5.jpg', 'Chine et Japon', 'Lumière vive', '2 à 3 fois par semaine', 'Terreau acide', '30-60 cm')">
+        <div class="item-card" onclick="openPlant('GARDENIA JAMINOIDES', 'images/plant5.jpg', 'Chine et Japon', 'Lumière vive', '2-3 fois/semaine', 'Acide', '30-60 cm', '100.00 DH')">
             <img src="images/plant5.jpg" alt="GARDENIA">
             <h4>GARDENIA JAMINOIDES</h4>
             <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails & Commande</button>
+            <button class="btn-wa">Détails</button>
         </div>
 
-        <div class="item-card" onclick="openPlant('FICUS ELASTICA', 'images/plant6.jpg', 'Asie du Sud-Est', 'Lumière vive', '1 fois par semaine', 'Drainage rapide', '60-100 cm')">
+        <div class="item-card" onclick="openPlant('FICUS ELASTICA', 'images/plant6.jpg', 'Asie du Sud-Est', 'Vive indirecte', '1 fois/semaine', 'Drainage rapide', '60-100 cm', '100.00 DH')">
             <img src="images/plant6.jpg" alt="FICUS">
             <h4>FICUS ELASTICA</h4>
             <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails & Commande</button>
+            <button class="btn-wa">Détails</button>
         </div>
 
-        <div class="item-card" onclick="openPlant('DRACAEANA FRAGRANS', 'images/plant7.jpg', 'Afrique Tropicale', 'Lumière moyenne', '1 fois tous les 10 jours', 'Terreau standard', '80-120 cm')">
-            <img src="images/plant7.jpg" alt="DRACAEANA FRAGRANS">
+        <div class="item-card" onclick="openPlant('DRACAEANA FRAGRANS', 'images/plant7.jpg', 'Afrique Tropicale', 'Moyenne', '1 fois/10 jours', 'Standard', '80-120 cm', '100.00 DH')">
+            <img src="images/plant7.jpg" alt="DRACAEANA">
             <h4>DRACAEANA FRAGRANS</h4>
             <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails & Commande</button>
+            <button class="btn-wa">Détails</button>
         </div>
 
-        <div class="item-card" onclick="openPlant('DRACAEANA DEREMENSIS', 'images/plant8.jpg', 'Afrique Tropicale', 'Ombre à mi-ombre', '1 fois par semaine', 'Bien drainé', '60-90 cm')">
-            <img src="images/plant8.jpg" alt="DRACAEANA DEREMENSIS">
+        <div class="item-card" onclick="openPlant('DRACAEANA DEREMENSIS', 'images/plant8.jpg', 'Afrique Tropicale', 'Mi-ombre', '1 fois/semaine', 'Bien drainé', '60-90 cm', '100.00 DH')">
+            <img src="images/plant8.jpg" alt="DRACAEANA">
             <h4>DRACAEANA DEREMENSIS</h4>
             <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails & Commande</button>
+            <button class="btn-wa">Détails</button>
         </div>
 
-        <div class="item-card" onclick="openPlant('DIFFEMBACHIA', 'images/plant9.jpg', 'Amérique Centrale', 'Lumière indirecte', 'Régulier', 'Riche', '50-100 cm')">
+        <div class="item-card" onclick="openPlant('DIFFEMBACHIA', 'images/plant9.jpg', 'Amérique Sud', 'Indirecte', 'Régulier', 'Riche', '50-100 cm', '100.00 DH')">
             <img src="images/plant9.jpg" alt="DIFFEMBACHIA">
             <h4>DIFFEMBACHIA</h4>
             <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails & Commande</button>
+            <button class="btn-wa">Détails</button>
         </div>
     </div>
 
@@ -253,6 +255,7 @@
             <div class="modal-right">
                 <h2 id="modalTitle">Nom de la Plante</h2>
                 <ul class="plant-details">
+                    <li><i class="fas fa-tag"></i> <strong>Prix:</strong> <span id="p-price" style="color: var(--gold-accent); font-weight: bold;"></span></li>
                     <li><i class="fas fa-globe"></i> <strong>Origine:</strong> <span id="p-origin"></span></li>
                     <li><i class="fas fa-sun"></i> <strong>Exposition:</strong> <span id="p-sun"></span></li>
                     <li><i class="fas fa-tint"></i> <strong>Arrosage:</strong> <span id="p-water"></span></li>
@@ -270,10 +273,8 @@
             <div class="contact-box">
                 <h4>Contactez-nous</h4>
                 <a href="tel:0661722457"><i class="fas fa-phone"></i> 06 61 72 24 57</a>
-                <a href="https://wa.me/212661722457" style="color: #25d366;"><i class="fab fa-whatsapp"></i> WhatsApp (M. Wassim)</a>
-                <hr style="opacity: 0.1; margin: 10px 0;">
-                <a href="tel:0661064117"><i class="fas fa-phone"></i> 06 61 06 41 17</a>
-                <a href="https://wa.me/212661064117" style="color: #25d366;"><i class="fab fa-whatsapp"></i> WhatsApp (Contact 2)</a>
+                <a href="https://wa.me/212661064117" style="color: #25d366;"><i class="fab fa-whatsapp"></i> WhatsApp: 06 61 06 41 17</a>
+                <a href="https://wa.me/212661722457" style="color: #25d366;"><i class="fab fa-whatsapp"></i> WhatsApp: 06 61 72 24 57</a>
             </div>
             <div class="contact-box">
                 <h4>Informations</h4>
@@ -293,7 +294,8 @@
     </footer>
 
     <script>
-    function openPlant(name, img, origin, sun, water, soil, height) {
+    // Added 'price' parameter to show it in modal
+    function openPlant(name, img, origin, sun, water, soil, height, price) {
         document.getElementById('modalTitle').innerText = name;
         document.getElementById('modalImg').src = img;
         document.getElementById('p-origin').innerText = origin;
@@ -301,7 +303,8 @@
         document.getElementById('p-water').innerText = water;
         document.getElementById('p-soil').innerText = soil;
         document.getElementById('p-height').innerText = height;
-        document.getElementById('waLink').href = "https://wa.me/212661722457?text=Bonjour, je souhaite commander la plante : " + name;
+        document.getElementById('p-price').innerText = price; // Show price
+        document.getElementById('waLink').href = "https://wa.me/212661722457?text=Bonjour, je souhaite commander la plante : " + name + " au prix de " + price;
         document.getElementById('plantModal').style.display = "block";
     }
 
