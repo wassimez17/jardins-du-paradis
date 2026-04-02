@@ -8,6 +8,50 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
+        /* تصميم النافذة المنبثقة (Modal) */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 2000; 
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    position: relative;
+    animation: fadeIn 0.4s;
+}
+
+@keyframes fadeIn { from {opacity: 0; transform: translateY(-20px);} to {opacity: 1; transform: translateY(0);} }
+
+.close-modal {
+    position: absolute;
+    right: 20px; top: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--main-green);
+}
+
+.modal-left { flex: 1; min-width: 250px; }
+.modal-left img { width: 100%; border-radius: 10px; height: 350px; object-fit: cover; }
+
+.modal-right { flex: 1.2; min-width: 250px; text-align: left; }
+.modal-right h2 { color: var(--main-green); font-family: 'Playfair Display', serif; margin-bottom: 15px; }
+.plant-details { list-style: none; }
+.plant-details li { margin-bottom: 12px; font-size: 14px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+.plant-details i { color: var(--gold-accent); margin-right: 10px; width: 20px; }
+.plant-details strong { color: var(--main-green); }
         :root { 
             --main-green: #1a3c34; /* الأخضر الملكي */
             --gold-accent: #c5a059; /* الذهبي الفاخر */
@@ -322,6 +366,59 @@
             © 2026 JARDINS DU PARADIS SARL - Tanger. Tous droits réservés.
         </div>
     </footer>
+<script>
+function openPlant(name, img, origin, sun, water, soil, height) {
+    document.getElementById('modalTitle').innerText = name;
+    document.getElementById('modalImg').src = img;
+    document.getElementById('p-origin').innerText = origin;
+    document.getElementById('p-sun').innerText = sun;
+    document.getElementById('p-water').innerText = water;
+    document.getElementById('p-soil').innerText = soil;
+    document.getElementById('p-height').innerText = height;
+    
+    // تحديث رابط الواتساب برسالة مخصصة
+    document.getElementById('waLink').href = "https://wa.me/212661722457?text=Je suis intéressé par la plante : " + name;
+    
+    document.getElementById('plantModal').style.display = "block";
+}
 
+function closeModal() {
+    document.getElementById('plantModal').style.display = "none";
+}
+
+// إغلاق النافذة عند الضغط خارجها
+window.onclick = function(event) {
+    let modal = document.getElementById('plantModal');
+    if (event.target == modal) { modal.style.display = "none"; }
+}
+</script>
 </body>
+    <div class="item-card" onclick="openPlant('ANTHURIUM', 'images/plant4.jpg', 'Amérique Tropicale', 'Lumière vive sans soleil direct', '1 fois par semaine', 'Terreau drainant', '40-60 cm')">
+    <img src="images/plant4.jpg" alt="ANTHURIUM">
+    <h4>ANTHURIUM</h4>
+    <span class="price">100.00 DH</span>
+    <button class="btn-wa">Détails & Commande</button>
+        </body>
+        <div id="plantModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <div class="modal-left">
+            <img id="modalImg" src="" alt="">
+        </div>
+        <div class="modal-right">
+            <h2 id="modalTitle">Nom de la Plante</h2>
+            <ul class="plant-details">
+                <li><i class="fas fa-globe"></i> <strong>Origine:</strong> <span id="p-origin"></span></li>
+                <li><i class="fas fa-sun"></i> <strong>Exposition:</strong> <span id="p-sun"></span></li>
+                <li><i class="fas fa-tint"></i> <strong>Arrosage:</strong> <span id="p-water"></span></li>
+                <li><i class="fas fa-seedling"></i> <strong>Sol:</strong> <span id="p-soil"></span></li>
+                <li><i class="fas fa-arrows-alt-v"></i> <strong>Hauteur:</strong> <span id="p-height"></span></li>
+            </ul>
+            <br>
+            <a id="waLink" href="#" class="btn-wa" style="width: 100%; text-align: center;">Commander via WhatsApp</a>
+        </div>
+    </div>
+</div>
+        
+</div>
 </html>
