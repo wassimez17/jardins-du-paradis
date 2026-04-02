@@ -1,147 +1,460 @@
-<div id="flowers" class="section-title">Nos Bouquets de Prestige</div>
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jardins du Paradis | Luxe & Nature</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root { 
+            --main-green: #1a3c34; 
+            --gold-accent: #c5a059; 
+            --soft-white: #ffffff;
+            --text-dark: #2c2c2c;
+            --bg-light: #fdfdfd;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body { 
+            font-family: 'Tajawal', sans-serif; 
+            color: var(--text-dark); 
+            line-height: 1.6; 
+            background-color: var(--bg-light); 
+        }
+
+        /* Modal Design */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 750px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+            animation: fadeIn 0.4s;
+        }
+
+        @keyframes fadeIn { from {opacity: 0; transform: translateY(-20px);} to {opacity: 1; transform: translateY(0);} }
+
+        .close-modal {
+            position: absolute;
+            right: 20px; top: 15px;
+            font-size: 28px;
+            cursor: pointer;
+            color: var(--main-green);
+        }
+
+        .modal-left { flex: 1; min-width: 250px; }
+        .modal-left img { width: 100%; border-radius: 10px; height: 400px; object-fit: cover; }
+
+        .modal-right { flex: 1.2; min-width: 250px; text-align: left; }
+        .modal-right h2 { color: var(--main-green); font-family: 'Playfair Display', serif; margin-bottom: 5px; }
+        .modal-price { color: var(--gold-accent); font-weight: 700; font-size: 20px; margin-bottom: 15px; display: block; }
+        .plant-details { list-style: none; }
+        .plant-details li { margin-bottom: 12px; font-size: 14px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
+        .plant-details i { color: var(--gold-accent); margin-right: 10px; width: 20px; }
+        .plant-details strong { color: var(--main-green); }
+
+        /* Navigation & Hover Effect */
+        nav { 
+            padding: 15px 8%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background: white; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+        .logo img { height: 60px; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { 
+            text-decoration: none; 
+            color: var(--main-green); 
+            font-size: 15px; 
+            font-weight: 500; 
+            transition: 0.3s; 
+            position: relative;
+            padding-bottom: 5px;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--gold-accent);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--gold-accent); }
+
+        /* Hero & About */
+        .hero { 
+            height: 70vh; 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('images/hero-bg.jpg'); 
+            background-size: cover; background-position: center;
+            display: flex; align-items: center; justify-content: center; color: white; text-align: center;
+        }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(35px, 6vw, 65px); margin-bottom: 15px; }
+        .about-section { padding: 80px 10%; text-align: center; background: white; }
+
+        /* Catalog Grid */
+        .section-title { text-align: center; margin: 60px 0 40px; font-family: 'Playfair Display', serif; font-size: 32px; color: var(--main-green); }
+        .catalog-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 40px; 
+            padding: 0 10%; 
+            margin-bottom: 80px; 
+        }
+        
+        .item-card { 
+            background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center; padding-bottom: 25px; transition: 0.4s; border: 1px solid #f0f0f0; cursor: pointer;
+        }
+        .item-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+        .item-card img { width: 100%; height: 280px; object-fit: cover; }
+        .item-card h4 { margin: 20px 0 10px; font-size: 18px; color: var(--main-green); }
+        .price { display: block; color: var(--gold-accent); font-weight: 700; margin-bottom: 20px; }
+        
+        .btn-wa { display: inline-block; padding: 10px 30px; background: var(--main-green); color: white; text-decoration: none; border-radius: 5px; font-size: 13px; font-weight: bold; text-transform: uppercase; border: none; cursor: pointer; }
+
+        /* Footer Fix */
+        .contact-footer { background: var(--main-green); color: white; padding: 80px 10% 40px; position: relative; width: 100%; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 50px; }
+        .contact-box h4 { color: var(--gold-accent); font-family: 'Playfair Display', serif; margin-bottom: 20px; font-size: 20px; }
+        .contact-box a, .contact-box p { color: #bbb; text-decoration: none; display: block; margin-bottom: 10px; font-size: 14px; transition: 0.3s; }
+        .contact-box a:hover { color: var(--gold-accent); }
+        .map-card { width: 100%; height: 150px; border-radius: 10px; overflow: hidden; margin-top: 15px; position: relative; display: block; }
+        .map-card img { width: 100%; height: 100%; object-fit: cover; }
+        .map-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(197,160,89,0.9); color: white; padding: 5px; text-align: center; font-size: 11px; }
+
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 15px; }
+            .nav-links { gap: 15px; font-size: 13px; }
+            .catalog-grid { padding: 0 5%; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><img src="images/logo.png" alt="Logo"></div>
+        <ul class="nav-links">
+            <li><a href="#home">Accueil</a></li>
+            <li><a href="#plants">Plantes</a></li>
+            <li><a href="#flowers">Bouquets</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content">
+            <h1>JARDINS DU PARADIS</h1>
+            <p>L'excellence au cœur des espaces verts</p>
+        </div>
+    </header>
+
+    <section class="about-section">
+        <h2>Quand l'Art Rencontre la Nature</h2>
+        <p>Spécialistes de l'aménagement paysager à Tanger depuis 2007, nous créons des oasis de sérénité pour vos intérieurs et extérieurs.</p>
+    </section>
+
+    <div id="plants" class="section-title">Notre Collection Royale</div>
     <div class="catalog-grid">
-        <div class="item-card" onclick="openPlant('BOUQUET PRESTIGE', 'images/fleur1.jpg', '100.00 DH', 'Maroc', 'Lumière douce', 'Eau fraîche', 'Vase', '40 cm')">
-            <img src="images/fleur1.jpg" alt="Bouquet 1">
-            <h4>BOUQUET PRESTIGE</h4>
+        <div class="item-card" onclick="openPlant('ASPLENIUM', 'images/plant1.jpg', '100.00 DH', 'Asie du Sud-Est', 'Lumière tamisée', '1 à 2 fois/sem', 'Humus', '30-50 cm')">
+            <img src="images/plant1.jpg" alt="ASPLENIUM">
+            <h4>ASPLENIUM</h4>
             <span class="price">100.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET ELEGANCE', 'images/fleur2.jpg', '100.00 DH', 'Maroc', 'Lumière douce', 'Eau fraîche', 'Vase', '40 cm')">
-            <img src="images/fleur2.jpg" alt="Bouquet 2">
-            <h4>BOUQUET ELEGANCE</h4>
+        <div class="item-card" onclick="openPlant('ALOCASIA POLLY', 'images/plant2.jpg', '100.00 DH', 'Asie Tropicale', 'Lumière vive', '1 fois/sem', 'Bien drainé', '40-60 cm')">
+            <img src="images/plant2.jpg" alt="ALOCASIA">
+            <h4>ALOCASIA POLLY</h4>
             <span class="price">100.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET ROYAL', 'images/fleur3.jpg', '100.00 DH', 'Maroc', 'Lumière douce', 'Eau fraîche', 'Vase', '40 cm')">
-            <img src="images/fleur3.jpg" alt="Bouquet 3">
-            <h4>BOUQUET ROYAL</h4>
+        <div class="item-card" onclick="openPlant('DIFFEMBACHIA CAMILLA', 'images/plant3.jpg', '100.00 DH', 'Amérique Latine', 'Lumière indirecte', 'Modéré', 'Fertile', '50-80 cm')">
+            <img src="images/plant3.jpg" alt="DIFFEMBACHIA">
+            <h4>DIFFEMBACHIA CAMILLA</h4>
             <span class="price">100.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET HARMONIE', 'images/fleur4.jpg', '100.00 DH', 'Maroc', 'Lumière douce', 'Eau fraîche', 'Vase', '40 cm')">
-            <img src="images/fleur4.jpg" alt="Bouquet 4">
-            <h4>BOUQUET HARMONIE</h4>
+        <div class="item-card" onclick="openPlant('ANTHURIUM', 'images/plant4.jpg', '100.00 DH', 'Amérique Tropicale', 'Lumière vive', '1 fois/sem', 'Drainant', '40-60 cm')">
+            <img src="images/plant4.jpg" alt="ANTHURIUM">
+            <h4>ANTHURIUM</h4>
             <span class="price">100.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET SPLENDEUR', 'images/fleur5.jpg', '100.00 DH', 'Maroc', 'Lumière douce', 'Eau fraîche', 'Vase', '40 cm')">
-            <img src="images/fleur5.jpg" alt="Bouquet 5">
-            <h4>BOUQUET SPLENDEUR</h4>
+        <div class="item-card" onclick="openPlant('GARDENIA JAMINOIDES', 'images/plant5.jpg', '100.00 DH', 'Chine et Japon', 'Lumière vive', '2 à 3 fois/sem', 'Acide', '30-60 cm')">
+            <img src="images/plant5.jpg" alt="GARDENIA">
+            <h4>GARDENIA JAMINOIDES</h4>
             <span class="price">100.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET PASSION', 'images/fleur6.jpg', '100.00 DH', 'Maroc', 'Lumière douce', 'Eau fraîche', 'Vase', '40 cm')">
-            <img src="images/fleur6.jpg" alt="Bouquet 6">
-            <h4>BOUQUET PASSION</h4>
+        <div class="item-card" onclick="openPlant('FICUS ELASTICA', 'images/plant6.jpg', '100.00 DH', 'Asie du Sud-Est', 'Lumière vive indirecte', '1 fois/sem', 'Drainage rapide', '60-100 cm')">
+            <img src="images/plant6.jpg" alt="FICUS">
+            <h4>FICUS ELASTICA</h4>
             <span class="price">100.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET DOUCEUR', 'images/fleur7.jpg', '100.00 DH', 'Maroc', 'Lumière douce', 'Eau fraîche', 'Vase', '40 cm')">
-            <img src="images/fleur7.jpg" alt="Bouquet 7">
-            <h4>BOUQUET DOUCEUR</h4>
+        <div class="item-card" onclick="openPlant('DRACAEANA FRAGRANS', 'images/plant7.jpg', '100.00 DH', 'Afrique Tropicale', 'Moyenne à vive', 'Tous les 10 jours', 'Standard', '80-120 cm')">
+            <img src="images/plant7.jpg" alt="DRACAEANA">
+            <h4>DRACAEANA FRAGRANS</h4>
             <span class="price">100.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET LUMIÈRE', 'images/fleur8.jpg', '100.00 DH', 'Maroc', 'Lumière douce', 'Eau fraîche', 'Vase', '40 cm')">
-            <img src="images/fleur8.jpg" alt="Bouquet 8">
-            <h4>BOUQUET LUMIÈRE</h4>
+        <div class="item-card" onclick="openPlant('DRACAEANA DEREMENSIS', 'images/plant8.jpg', '100.00 DH', 'Afrique Tropicale', 'Ombre à mi-ombre', '1 fois/sem', 'Bien drainé', '60-90 cm')">
+            <img src="images/plant8.jpg" alt="DRACAEANA">
+            <h4>DRACAEANA DEREMENSIS</h4>
             <span class="price">100.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
-        <div class="item-card" onclick="openPlant('BOUQUET AURORE', 'images/fleur9.jpg', '100.00 DH', 'Maroc', 'Lumière douce', 'Eau fraîche', 'Vase', '40 cm')">
-            <img src="images/fleur9.jpg" alt="Bouquet 9">
-            <h4>BOUQUET AURORE</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openPlant('BOUQUET JARDIN', 'images/fleur10.jpg', '100.00 DH', 'Maroc', 'Lumière douce', 'Eau fraîche', 'Vase', '40 cm')">
-            <img src="images/fleur10.jpg" alt="Bouquet 10">
-            <h4>BOUQUET JARDIN</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openPlant('BOUQUET CHARME', 'images/fleur11.jpg', '100.00 DH', 'Maroc', 'Lumière douce', 'Eau fraîche', 'Vase', '40 cm')">
-            <img src="images/fleur11.jpg" alt="Bouquet 11">
-            <h4>BOUQUET CHARME</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openPlant('BOUQUET PARADIS', 'images/fleur12.jpg', '100.00 DH', 'Maroc', 'Lumière douce', 'Eau fraîche', 'Vase', '40 cm')">
-            <img src="images/fleur12.jpg" alt="Bouquet 12">
-            <h4>BOUQUET PARADIS</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openPlant('BOUQUET MYSTÈRE', 'images/fleur13.jpg', '100.00 DH', 'Maroc', 'Lumière douce', 'Eau fraîche', 'Vase', '40 cm')">
-            <img src="images/fleur13.jpg" alt="Bouquet 13">
-            <h4>BOUQUET MYSTÈRE</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openPlant('BOUQUET ÉCLAT', 'images/fleur14.jpg', '100.00 DH', 'Maroc', 'Lumière douce', 'Eau fraîche', 'Vase', '40 cm')">
-            <img src="images/fleur14.jpg" alt="Bouquet 14">
-            <h4>BOUQUET ÉCLAT</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openPlant('BOUQUET RÊVERIE', 'images/fleur15.jpg', '100.00 DH', 'Maroc', 'Lumière douce', 'Eau fraîche', 'Vase', '40 cm')">
-            <img src="images/fleur15.jpg" alt="Bouquet 15">
-            <h4>BOUQUET RÊVERIE</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openPlant('BOUQUET UNIQUE', 'images/fleur16.jpg', '100.00 DH', 'Maroc', 'Lumière douce', 'Eau fraîche', 'Vase', '40 cm')">
-            <img src="images/fleur16.jpg" alt="Bouquet 16">
-            <h4>BOUQUET UNIQUE</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openPlant('BOUQUET DIVIN', 'images/fleur17.jpg', '100.00 DH', 'Maroc', 'Lumière douce', 'Eau fraîche', 'Vase', '40 cm')">
-            <img src="images/fleur17.jpg" alt="Bouquet 17">
-            <h4>BOUQUET DIVIN</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openPlant('BOUQUET ROMANCE', 'images/fleur18.jpg', '100.00 DH', 'Maroc', 'Lumière douce', 'Eau fraîche', 'Vase', '40 cm')">
-            <img src="images/fleur18.jpg" alt="Bouquet 18">
-            <h4>BOUQUET ROMANCE</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openPlant('BOUQUET ZEN', 'images/fleur19.jpg', '100.00 DH', 'Maroc', 'Lumière douce', 'Eau fraîche', 'Vase', '40 cm')">
-            <img src="images/fleur19.jpg" alt="Bouquet 19">
-            <h4>BOUQUET ZEN</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openPlant('BOUQUET ORIENT', 'images/fleur20.jpg', '100.00 DH', 'Maroc', 'Lumière douce', 'Eau fraîche', 'Vase', '40 cm')">
-            <img src="images/fleur20.jpg" alt="Bouquet 20">
-            <h4>BOUQUET ORIENT</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openPlant('BOUQUET DIAMANT', 'images/fleur21.jpg', '100.00 DH', 'Maroc', 'Lumière douce', 'Eau fraîche', 'Vase', '40 cm')">
-            <img src="images/fleur21.jpg" alt="Bouquet 21">
-            <h4>BOUQUET DIAMANT</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openPlant('BOUQUET AZUR', 'images/fleur22.jpg', '100.00 DH', 'Maroc', 'Lumière douce', 'Eau fraîche', 'Vase', '40 cm')">
-            <img src="images/fleur22.jpg" alt="Bouquet 22">
-            <h4>BOUQUET AZUR</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openPlant('BOUQUET RUBIS', 'images/fleur23.jpg', '100.00 DH', 'Maroc', 'Lumière douce', 'Eau fraîche', 'Vase', '40 cm')">
-            <img src="images/fleur23.jpg" alt="Bouquet 23">
-            <h4>BOUQUET RUBIS</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openPlant('BOUQUET INFINI', 'images/fleur24.jpg', '100.00 DH', 'Maroc', 'Lumière douce', 'Eau fraîche', 'Vase', '40 cm')">
-            <img src="images/fleur24.jpg" alt="Bouquet 24">
-            <h4>BOUQUET INFINI</h4>
+        <div class="item-card" onclick="openPlant('DIFFENBACHIA', 'images/plant9.jpg', '100.00 DH', 'Amérique Centrale/Sud', 'Lumière indirecte', 'Régulier', 'Riche', '50-100 cm')">
+            <img src="images/plant9.jpg" alt="DIFFENBACHIA">
+            <h4>DIFFENBACHIA</h4>
             <span class="price">100.00 DH</span>
             <button class="btn-wa">Détails</button>
         </div>
     </div>
+
+    <div id="flowers" class="section-title">Nos Bouquets de Prestige</div>
+    <div class="catalog-grid">
+        <div class="item-card" onclick="openPlant('BOUQUET AMOUR', 'images/fleur1.jpg', '100.00 DH', 'Fleurs Fraîches', 'Lumière douce', 'Eau quotidienne', 'Vase Prestige', '40 cm')">
+            <img src="images/fleur1.jpg" alt="Bouquet">
+            <h4>BOUQUET AMOUR</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openPlant('BOUQUET PASSION', 'images/fleur2.jpg', '100.00 DH', 'Fleurs Fraîches', 'Lumière douce', 'Eau quotidienne', 'Vase Prestige', '40 cm')">
+            <img src="images/fleur2.jpg" alt="Bouquet">
+            <h4>BOUQUET PASSION</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openPlant('BOUQUET LUMIÈRE', 'images/fleur3.jpg', '100.00 DH', 'Fleurs Fraîches', 'Lumière douce', 'Eau quotidienne', 'Vase Prestige', '40 cm')">
+            <img src="images/fleur3.jpg" alt="Bouquet">
+            <h4>BOUQUET LUMIÈRE</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openPlant('BOUQUET SÉRÉNITÉ', 'images/fleur4.jpg', '100.00 DH', 'Fleurs Fraîches', 'Lumière douce', 'Eau quotidienne', 'Vase Prestige', '40 cm')">
+            <img src="images/fleur4.jpg" alt="Bouquet">
+            <h4>BOUQUET SÉRÉNITÉ</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openPlant('BOUQUET ÉCLAT', 'images/fleur5.jpg', '100.00 DH', 'Fleurs Fraîches', 'Lumière douce', 'Eau quotidienne', 'Vase Prestige', '40 cm')">
+            <img src="images/fleur5.jpg" alt="Bouquet">
+            <h4>BOUQUET ÉCLAT</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openPlant('BOUQUET HARMONIE', 'images/fleur6.jpg', '100.00 DH', 'Fleurs Fraîches', 'Lumière douce', 'Eau quotidienne', 'Vase Prestige', '40 cm')">
+            <img src="images/fleur6.jpg" alt="Bouquet">
+            <h4>BOUQUET HARMONIE</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openPlant('BOUQUET ROMANCE', 'images/fleur7.jpg', '100.00 DH', 'Fleurs Fraîches', 'Lumière douce', 'Eau quotidienne', 'Vase Prestige', '40 cm')">
+            <img src="images/fleur7.jpg" alt="Bouquet">
+            <h4>BOUQUET ROMANCE</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openPlant('BOUQUET ROYAL', 'images/fleur8.jpg', '100.00 DH', 'Fleurs Fraîches', 'Lumière douce', 'Eau quotidienne', 'Vase Prestige', '40 cm')">
+            <img src="images/fleur8.jpg" alt="Bouquet">
+            <h4>BOUQUET ROYAL</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openPlant('BOUQUET PARADIS', 'images/fleur9.jpg', '100.00 DH', 'Fleurs Fraîches', 'Lumière douce', 'Eau quotidienne', 'Vase Prestige', '40 cm')">
+            <img src="images/fleur9.jpg" alt="Bouquet">
+            <h4>BOUQUET PARADIS</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openPlant('BOUQUET NOBLESSE', 'images/fleur10.jpg', '100.00 DH', 'Fleurs Fraîches', 'Lumière douce', 'Eau quotidienne', 'Vase Prestige', '40 cm')">
+            <img src="images/fleur10.jpg" alt="Bouquet">
+            <h4>BOUQUET NOBLESSE</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openPlant('BOUQUET GRÂCE', 'images/fleur11.jpg', '100.00 DH', 'Fleurs Fraîches', 'Lumière douce', 'Eau quotidienne', 'Vase Prestige', '40 cm')">
+            <img src="images/fleur11.jpg" alt="Bouquet">
+            <h4>BOUQUET GRÂCE</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openPlant('BOUQUET PURETÉ', 'images/fleur12.jpg', '100.00 DH', 'Fleurs Fraîches', 'Lumière douce', 'Eau quotidienne', 'Vase Prestige', '40 cm')">
+            <img src="images/fleur12.jpg" alt="Bouquet">
+            <h4>BOUQUET PURETÉ</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openPlant('BOUQUET POÉSIE', 'images/fleur13.jpg', '100.00 DH', 'Fleurs Fraîches', 'Lumière douce', 'Eau quotidienne', 'Vase Prestige', '40 cm')">
+            <img src="images/fleur13.jpg" alt="Bouquet">
+            <h4>BOUQUET POÉSIE</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openPlant('BOUQUET MAGNOLIA', 'images/fleur14.jpg', '100.00 DH', 'Fleurs Fraîches', 'Lumière douce', 'Eau quotidienne', 'Vase Prestige', '40 cm')">
+            <img src="images/fleur14.jpg" alt="Bouquet">
+            <h4>BOUQUET MAGNOLIA</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openPlant('BOUQUET ZÉPHYR', 'images/fleur15.jpg', '100.00 DH', 'Fleurs Fraîches', 'Lumière douce', 'Eau quotidienne', 'Vase Prestige', '40 cm')">
+            <img src="images/fleur15.jpg" alt="Bouquet">
+            <h4>BOUQUET ZÉPHYR</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openPlant('BOUQUET DIVIN', 'images/fleur16.jpg', '100.00 DH', 'Fleurs Fraîches', 'Lumière douce', 'Eau quotidienne', 'Vase Prestige', '40 cm')">
+            <img src="images/fleur16.jpg" alt="Bouquet">
+            <h4>BOUQUET DIVIN</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openPlant('BOUQUET AURORE', 'images/fleur17.jpg', '100.00 DH', 'Fleurs Fraîches', 'Lumière douce', 'Eau quotidienne', 'Vase Prestige', '40 cm')">
+            <img src="images/fleur17.jpg" alt="Bouquet">
+            <h4>BOUQUET AURORE</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openPlant('BOUQUET ORIENT', 'images/fleur18.jpg', '100.00 DH', 'Fleurs Fraîches', 'Lumière douce', 'Eau quotidienne', 'Vase Prestige', '40 cm')">
+            <img src="images/fleur18.jpg" alt="Bouquet">
+            <h4>BOUQUET ORIENT</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openPlant('BOUQUET MYSTÈRE', 'images/fleur19.jpg', '100.00 DH', 'Fleurs Fraîches', 'Lumière douce', 'Eau quotidienne', 'Vase Prestige', '40 cm')">
+            <img src="images/fleur19.jpg" alt="Bouquet">
+            <h4>BOUQUET MYSTÈRE</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openPlant('BOUQUET PRESTIGE', 'images/fleur20.jpg', '100.00 DH', 'Fleurs Fraîches', 'Lumière douce', 'Eau quotidienne', 'Vase Prestige', '40 cm')">
+            <img src="images/fleur20.jpg" alt="Bouquet">
+            <h4>BOUQUET PRESTIGE</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openPlant('BOUQUET EXOTIQUE', 'images/fleur21.jpg', '100.00 DH', 'Fleurs Fraîches', 'Lumière douce', 'Eau quotidienne', 'Vase Prestige', '40 cm')">
+            <img src="images/fleur21.jpg" alt="Bouquet">
+            <h4>BOUQUET EXOTIQUE</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openPlant('BOUQUET JOLI', 'images/fleur22.jpg', '100.00 DH', 'Fleurs Fraîches', 'Lumière douce', 'Eau quotidienne', 'Vase Prestige', '40 cm')">
+            <img src="images/fleur22.jpg" alt="Bouquet">
+            <h4>BOUQUET JOLI</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openPlant('BOUQUET DÉLICE', 'images/fleur23.jpg', '100.00 DH', 'Fleurs Fraîches', 'Lumière douce', 'Eau quotidienne', 'Vase Prestige', '40 cm')">
+            <img src="images/fleur23.jpg" alt="Bouquet">
+            <h4>BOUQUET DÉLICE</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openPlant('BOUQUET FINAL', 'images/fleur24.jpg', '100.00 DH', 'Fleurs Fraîches', 'Lumière douce', 'Eau quotidienne', 'Vase Prestige', '40 cm')">
+            <img src="images/fleur24.jpg" alt="Bouquet">
+            <h4>BOUQUET FINAL</h4>
+            <span class="price">100.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+    </div>
+
+    <div id="plantModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <div class="modal-left">
+                <img id="modalImg" src="" alt="">
+            </div>
+            <div class="modal-right">
+                <h2 id="modalTitle">Nom</h2>
+                <span id="modalPriceDisplay" class="modal-price"></span>
+                <ul class="plant-details">
+                    <li><i class="fas fa-globe"></i> <strong>Origine:</strong> <span id="p-origin"></span></li>
+                    <li><i class="fas fa-sun"></i> <strong>Exposition:</strong> <span id="p-sun"></span></li>
+                    <li><i class="fas fa-tint"></i> <strong>Arrosage:</strong> <span id="p-water"></span></li>
+                    <li><i class="fas fa-seedling"></i> <strong>Sol:</strong> <span id="p-soil"></span></li>
+                    <li><i class="fas fa-arrows-alt-v"></i> <strong>Hauteur:</strong> <span id="p-height"></span></li>
+                </ul>
+                <br>
+                <a id="waLink" href="#" class="btn-wa" style="width: 100%; text-align: center;">Commander via WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contact" class="contact-footer">
+        <div class="contact-grid">
+            <div class="contact-box">
+                <h4>Contactez-nous</h4>
+                <a href="tel:0661722457"><i class="fas fa-phone"></i> 06 61 72 24 57</a>
+                <a href="tel:0661064117"><i class="fas fa-phone"></i> 06 61 06 41 17</a>
+                <a href="https://wa.me/212661722457" style="color: #25d366;"><i class="fab fa-whatsapp"></i> WhatsApp (Wassim)</a>
+                <a href="https://wa.me/212661064117" style="color: #25d366;"><i class="fab fa-whatsapp"></i> WhatsApp (Contact 2)</a>
+            </div>
+            <div class="contact-box">
+                <h4>Informations</h4>
+                <a href="mailto:jardinsduparadis10@gmail.com"><i class="fas fa-envelope"></i> jardinsduparadis10@gmail.com</a>
+                <p><i class="fas fa-clock"></i> Lun - Dim (9:00 - 21:00)</p>
+            </div>
+            <div class="contact-box">
+                <h4>Adresse</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Hay Mandar Jamil, Tanger</p>
+                <a href="https://goo.gl/maps/xyz" target="_blank" class="map-card">
+                    <img src="images/map-preview.jpg" alt="Map">
+                    <div class="map-overlay">OUVRIR DANS GOOGLE MAPS</div>
+                </a>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 40px; opacity: 0.5; font-size: 11px;">© 2026 JARDINS DU PARADIS SARL</div>
+    </footer>
+
+    <script>
+    function openPlant(name, img, price, origin, sun, water, soil, height) {
+        document.getElementById('modalTitle').innerText = name;
+        document.getElementById('modalImg').src = img;
+        document.getElementById('modalPriceDisplay').innerText = price;
+        document.getElementById('p-origin').innerText = origin;
+        document.getElementById('p-sun').innerText = sun;
+        document.getElementById('p-water').innerText = water;
+        document.getElementById('p-soil').innerText = soil;
+        document.getElementById('p-height').innerText = height;
+        document.getElementById('waLink').href = "https://wa.me/212661722457?text=Bonjour, je souhaite commander : " + name + " au prix de " + price;
+        document.getElementById('plantModal').style.display = "block";
+    }
+
+    function closeModal() {
+        document.getElementById('plantModal').style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        let modal = document.getElementById('plantModal');
+        if (event.target == modal) { modal.style.display = "none"; }
+    }
+    </script>
+</body>
+</html>
