@@ -24,7 +24,7 @@
             background: white; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
         .logo img { height: 50px; cursor: pointer; }
-        .nav-links { display: flex; gap: 12px; list-style: none; flex-wrap: wrap; }
+        .nav-links { display: flex; gap: 10px; list-style: none; flex-wrap: wrap; }
         .nav-links a { 
             text-decoration: none; color: var(--main-green); font-size: 11px; font-weight: 700; 
             text-transform: uppercase; cursor: pointer; padding: 5px 8px; transition: 0.3s;
@@ -32,7 +32,7 @@
         .nav-links a:hover { color: var(--gold-accent); }
 
         /* Page Sections */
-        .page-section { display: none; padding-bottom: 60px; min-height: 80vh; }
+        .page-section { display: none; padding-bottom: 60px; min-height: 40vh; }
         .page-section.active { display: block; animation: fadeIn 0.5s; }
         @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
 
@@ -43,12 +43,12 @@
         }
         .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 40px; text-align: center; }
 
-        /* About Box */
-        .about-box { padding: 60px 10%; text-align: center; background: white; border-bottom: 1px solid #eee; }
-        .about-box h2 { color: var(--main-green); margin-bottom: 20px; font-family: 'Playfair Display', serif; }
+        /* Section Titles & Navigation inside sections */
+        .section-header { display: flex; justify-content: center; align-items: center; position: relative; margin: 50px 0 30px; padding: 0 8%; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--main-green); text-align: center; }
+        .btn-back { position: absolute; left: 8%; background: var(--main-green); color: white; border: none; padding: 5px 15px; border-radius: 20px; cursor: pointer; font-size: 12px; }
 
         /* Catalog Grid */
-        .section-title { text-align: center; margin: 50px 0 30px; font-family: 'Playfair Display', serif; font-size: 28px; color: var(--main-green); }
         .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; padding: 0 8%; }
         .item-card { 
             background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
@@ -59,31 +59,18 @@
         .item-card h4 { margin: 15px 0 5px; color: var(--main-green); }
         .price { color: var(--gold-accent); font-weight: bold; display: block; margin-bottom: 10px; }
 
-        /* Buttons */
-        .btn-container { text-align: center; margin: 30px 0; }
-        .btn-view-all { 
-            background: none; border: 2px solid var(--gold-accent); color: var(--gold-accent); 
-            padding: 8px 25px; border-radius: 20px; cursor: pointer; font-weight: bold; transition: 0.3s;
-        }
-        .btn-view-all:hover { background: var(--gold-accent); color: white; }
-
-        /* Jardinage Home Style */
-        .jardinage-preview { display: flex; gap: 10px; padding: 0 8%; overflow: hidden; justify-content: center; }
-        .jardinage-preview img { width: 200px; height: 150px; object-fit: cover; border-radius: 8px; }
-
-        /* Full Jardinage Masonry */
+        /* Jardinage Layout */
         .jardinage-grid { column-count: 3; column-gap: 15px; padding: 0 8%; }
-        .jardinage-item { margin-bottom: 15px; break-inside: avoid; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .jardinage-item { margin-bottom: 15px; break-inside: avoid; border-radius: 10px; overflow: hidden; }
         .jardinage-item img { width: 100%; display: block; }
 
-        /* Contact Page Styles */
-        .contact-container { padding: 50px 8%; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-        .contact-info h3 { color: var(--main-green); margin-bottom: 20px; }
-        .contact-item { display: flex; align-items: center; margin-bottom: 15px; gap: 15px; }
-        .contact-item i { color: var(--gold-accent); font-size: 20px; width: 25px; }
-        .contact-item a { text-decoration: none; color: var(--text-dark); transition: 0.3s; }
-        .contact-item a:hover { color: var(--gold-accent); }
-        .map-frame { width: 100%; height: 400px; border-radius: 15px; border: none; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        /* Footer & Contact */
+        footer { background: var(--main-green); color: white; padding: 60px 8% 20px; margin-top: 50px; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .contact-box h4 { color: var(--gold-accent); margin-bottom: 20px; font-size: 18px; }
+        .contact-box p, .contact-box a { color: #ccc; text-decoration: none; display: block; margin-bottom: 12px; font-size: 14px; }
+        .contact-box i { width: 25px; color: var(--gold-accent); }
+        .map-container { border-radius: 10px; overflow: hidden; height: 200px; border: 2px solid var(--gold-accent); }
 
         /* Modal */
         .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); backdrop-filter: blur(5px); }
@@ -93,7 +80,10 @@
         .modal-left img { width: 100%; border-radius: 10px; height: 350px; object-fit: cover; }
         .modal-right { flex: 1.2; }
 
-        @media (max-width: 850px) { .contact-container { grid-template-columns: 1fr; } .jardinage-grid { column-count: 2; } }
+        .btn-view-all { background: none; border: 2px solid var(--gold-accent); color: var(--gold-accent); padding: 8px 25px; border-radius: 20px; cursor: pointer; font-weight: bold; transition: 0.3s; margin-top: 20px; }
+        .btn-view-all:hover { background: var(--gold-accent); color: white; }
+
+        @media (max-width: 768px) { .jardinage-grid { column-count: 2; } nav { flex-direction: column; } .nav-links { margin-top: 10px; justify-content: center; } .btn-back { position: static; margin-bottom: 10px; } .section-header { flex-direction: column; } }
     </style>
 </head>
 <body>
@@ -108,7 +98,6 @@
             <li><a onclick="showSection('soins')">Soins</a></li>
             <li><a onclick="showSection('oiseaux')">Oiseaux</a></li>
             <li><a onclick="showSection('bouquets')">Bouquets</a></li>
-            <li><a onclick="showSection('contact')">Contact</a></li>
         </ul>
     </nav>
 
@@ -116,121 +105,145 @@
         <div class="hero">
             <div class="hero-content"><h1>JARDINS DU PARADIS</h1></div>
         </div>
-        <div class="about-box">
-            <h2>À Propos de Nous</h2>
-            <p>Fondée en 2007 à Tanger, <strong>Jardins du Paradis</strong> est spécialisée dans l'aménagement paysager d'excellence. Nous créons des oasis de verdure sur mesure pour sublimer vos espaces de vie.</p>
+        
+        <div style="padding: 60px 10%; text-align: center; background: white;">
+            <h2 style="color:var(--main-green); font-family: 'Playfair Display';">Depuis 2007</h2>
+            <p>Spécialiste de l'aménagement paysager à Tanger, nous créons des oasis de luxe pour vos intérieurs et extérieurs.</p>
         </div>
 
         <div class="section-title">Nos Plantes</div>
         <div class="catalog-grid" id="plants-preview"></div>
-        <div class="btn-container"><button class="btn-view-all" onclick="showSection('plantes')">Voir Tout</button></div>
+        <div style="text-align:center;"><button class="btn-view-all" onclick="showSection('plantes')">Voir tout "Plantes"</button></div>
 
         <div class="section-title">Les Pots</div>
         <div class="catalog-grid" id="pots-preview"></div>
-        <div class="btn-container"><button class="btn-view-all" onclick="showSection('pots')">Voir Tout</button></div>
-
-        <div class="section-title">Jardinage & Travaux</div>
-        <div class="jardinage-preview">
-            <img src="images/jardin1.jpg"> <img src="images/jardin2.jpg"> <img src="images/jardin3.jpg">
-        </div>
-        <div class="btn-container"><button class="btn-view-all" onclick="showSection('jardinage')">Découvrir nos travaux</button></div>
-
-        <div class="section-title">Soins & Vitamines</div>
-        <div class="catalog-grid" id="soins-preview"></div>
-        <div class="btn-container"><button class="btn-view-all" onclick="showSection('soins')">Voir Plus</button></div>
-
-        <div class="section-title">Nourriture Oiseaux</div>
-        <div class="catalog-grid" id="birds-preview"></div>
+        <div style="text-align:center;"><button class="btn-view-all" onclick="showSection('pots')">Voir tout "Les Pots"</button></div>
 
         <div class="section-title">Nos Bouquets</div>
         <div class="catalog-grid" id="bouquets-preview"></div>
-        <div class="btn-container"><button class="btn-view-all" onclick="showSection('bouquets')">Voir Tout</button></div>
+        <div style="text-align:center;"><button class="btn-view-all" onclick="showSection('bouquets')">Voir tout "Bouquets"</button></div>
     </div>
 
     <div id="plantes" class="page-section">
-        <div class="section-title">Toutes nos Plantes</div>
+        <div class="section-header">
+            <button class="btn-back" onclick="showSection('accueil')"><i class="fas fa-arrow-left"></i> Retour</button>
+            <h1 class="section-title">Collection Complète : Plantes</h1>
+        </div>
         <div class="catalog-grid" id="plants-full"></div>
     </div>
 
     <div id="pots" class="page-section">
-        <div class="section-title">Tous nos Pots</div>
+        <div class="section-header">
+            <button class="btn-back" onclick="showSection('accueil')"><i class="fas fa-arrow-left"></i> Retour</button>
+            <h1 class="section-title">Nos Pots & Vases</h1>
+        </div>
         <div class="catalog-grid" id="pots-full"></div>
     </div>
 
     <div id="jardinage" class="page-section">
-        <div class="section-title">Galerie Jardinage (23 Photos)</div>
-        <div class="jardinage-grid" id="jardinage-full"></div>
-        <div class="btn-container">
-            <button class="btn-view-all" style="background:var(--main-green); color:white;" onclick="showSection('contact')">Contactez-nous</button>
+        <div class="section-header">
+            <button class="btn-back" onclick="showSection('accueil')"><i class="fas fa-arrow-left"></i> Retour</button>
+            <h1 class="section-title">Nos Réalisations (23 Photos)</h1>
         </div>
+        <div class="jardinage-grid" id="jardinage-gallery"></div>
     </div>
 
     <div id="soins" class="page-section">
-        <div class="section-title">Soins & Fertilisants</div>
+        <div class="section-header">
+            <button class="btn-back" onclick="showSection('accueil')"><i class="fas fa-arrow-left"></i> Retour</button>
+            <h1 class="section-title">Produits de Soins</h1>
+        </div>
         <div class="catalog-grid" id="soins-full"></div>
     </div>
 
     <div id="oiseaux" class="page-section">
-        <div class="section-title">Produits pour Oiseaux</div>
+        <div class="section-header">
+            <button class="btn-back" onclick="showSection('accueil')"><i class="fas fa-arrow-left"></i> Retour</button>
+            <h1 class="section-title">Alimentation Oiseaux</h1>
+        </div>
         <div class="catalog-grid" id="birds-full"></div>
     </div>
 
     <div id="bouquets" class="page-section">
-        <div class="section-title">Collection de Bouquets</div>
+        <div class="section-header">
+            <button class="btn-back" onclick="showSection('accueil')"><i class="fas fa-arrow-left"></i> Retour</button>
+            <h1 class="section-title">Nos Bouquets</h1>
+        </div>
         <div class="catalog-grid" id="bouquets-full"></div>
     </div>
 
-    <div id="contact" class="page-section">
-        <div class="section-title">Contact & Localisation</div>
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3>Informations de Contact</h3>
-                <div class="contact-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <div>
-                        <a href="tel:0661722457">06 61 72 24 57</a><br>
-                        <a href="tel:0661064117">06 61 06 41 17</a>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-whatsapp"></i>
-                    <a href="https://wa.me/212661722457">Discuter sur WhatsApp</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:contact@jardinsparadis.com">contact@jardinsparadis.com</a>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>Hay Mandar Jamil, Tanger, Maroc</span>
-                </div>
+    <footer>
+        <div class="contact-grid">
+            <div class="contact-box">
+                <h4>Contact Direct</h4>
+                <p><i class="fas fa-phone"></i> 06 61 72 24 57</p>
+                <p><i class="fas fa-phone"></i> 06 61 06 41 17</p>
+                <a href="https://wa.me/212661722457" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Direct</a>
+                <p><i class="fas fa-envelope"></i> contact@jardinsparadis.com</p>
             </div>
-            <div class="contact-map">
-                <iframe class="map-frame" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.387974376378!2d-5.8000!3d35.7600!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDQ1JzM2LjAiTiA1wrA0OCcwMC4wIlc!5e0!3m2!1sen!2sma!4v1620000000000!5m2!1sen!2sma" allowfullscreen="" loading="lazy"></iframe>
+            <div class="contact-box">
+                <h4>Suivez-nous</h4>
+                <div style="display:flex; gap:15px; margin-top:10px;">
+                    <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                    <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+                </div>
+                <p style="margin-top:20px;">Hay Mandar Jamil, Tanger</p>
+            </div>
+            <div class="contact-box">
+                <h4>Localisation</h4>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107874.15220023642!2d-5.8850625!3d35.759465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0b46294025f38d%3A0x6b445371ef816a!2sTanger!5e0!3m2!1sfr!2sma!4v1700000000000" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
             </div>
         </div>
-    </div>
+        <p style="text-align: center; margin-top: 40px; opacity: 0.3; font-size: 10px;">© 2026 Jardins du Paradis - Tous droits réservés</p>
+    </footer>
 
     <div id="itemModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>
             <div class="modal-left"><img id="modalImg" src=""></div>
             <div class="modal-right">
-                <h2 id="modalTitle" style="color:var(--main-green);"></h2>
-                <span id="modalPrice" class="price" style="font-size: 20px;"></span>
-                <p id="modalDesc" style="margin: 20px 0; color: #555;"></p>
-                <a id="modalWa" href="#" class="btn-view-all" style="background:var(--main-green); color:white; text-decoration:none; display:inline-block;">Commander via WhatsApp</a>
+                <h2 id="modalTitle"></h2>
+                <span id="modalPrice" class="price" style="font-size:22px; margin-top:10px;"></span>
+                <p id="modalDesc" style="margin:20px 0; color:#666;"></p>
+                <a id="modalWa" href="#" class="btn-wa" style="display:block; text-align:center; padding:12px; background:var(--main-green); color:white; text-decoration:none; border-radius:5px;">Commander sur WhatsApp</a>
             </div>
         </div>
     </div>
 
     <script>
         const data = {
-            plants: Array.from({length: 9}, (_, i) => ({ name: `Plante ${i+1}`, price: "100 DH", img: `images/plant${i+1}.jpg`, desc: "Plante d'ornement pour embellir votre espace." })),
-            pots: Array.from({length: 9}, (_, i) => ({ name: `Pot Luxe ${i+1}`, price: "150 DH", img: `images/pot${i+1}.jpg`, desc: "Pot en céramique design." })),
-            soins: Array.from({length: 3}, (_, i) => ({ name: `Produit Soin ${i+1}`, price: "60 DH", img: `images/med${i+1}.jpg`, desc: "Soin spécialisé pour plantes." })),
-            birds: Array.from({length: 2}, (_, i) => ({ name: `Aliment ${i+1}`, price: "40 DH", img: `images/bird${i+1}.jpg`, desc: "Graines premium pour oiseaux." })),
-            bouquets: Array.from({length: 24}, (_, i) => ({ name: `Bouquet ${i+1}`, price: "200 DH", img: `images/fleur${i+1}.jpg`, desc: "Composition florale artisanale." }))
+            plants: Array.from({length: 9}, (_, i) => ({ name: `Plante ${i+1}`, price: "100 DH", desc: "Plante d'intérieur royale pour décorer votre salon.", img: `images/plant${i+1}.jpg` })),
+            pots: Array.from({length: 9}, (_, i) => ({ name: `Pot Luxe ${i+1}`, price: "150 DH", desc: "Design moderne et durable.", img: `images/pot${i+1}.jpg` })),
+            soins: Array.from({length: 3}, (_, i) => ({ name: `Produit Soin ${i+1}`, price: "60 DH", desc: "Idéal pour booster vos plantes.", img: `images/med${i+1}.jpg` })),
+            birds: Array.from({length: 2}, (_, i) => ({ name: `Graines ${i+1}`, price: "35 DH", desc: "Mélange nutritif pour oiseaux.", img: `images/bird${i+1}.jpg` })),
+            bouquets: Array.from({length: 24}, (_, i) => ({ name: `Bouquet ${i+1}`, price: "180 DH", desc: "Fleurs fraîches coupées le jour même.", img: `images/fleur${i+1}.jpg` }))
+        };
+
+        function createCard(item) {
+            return `
+                <div class="item-card" onclick="openModal('${item.name}', '${item.img}', '${item.price}', '${item.desc}')">
+                    <img src="${item.img}">
+                    <h4>${item.name}</h4>
+                    <span class="price">${item.price}</span>
+                </div>`;
+        }
+
+        window.onload = () => {
+            // Previews
+            document.getElementById('plants-preview').innerHTML = data.plants.slice(0,3).map(createCard).join('');
+            document.getElementById('pots-preview').innerHTML = data.pots.slice(0,3).map(createCard).join('');
+            document.getElementById('bouquets-preview').innerHTML = data.bouquets.slice(0,3).map(createCard).join('');
+            // Fulls
+            document.getElementById('plants-full').innerHTML = data.plants.map(createCard).join('');
+            document.getElementById('pots-full').innerHTML = data.pots.map(createCard).join('');
+            document.getElementById('soins-full').innerHTML = data.soins.map(createCard).join('');
+            document.getElementById('birds-full').innerHTML = data.birds.map(createCard).join('');
+            document.getElementById('bouquets-full').innerHTML = data.bouquets.map(createCard).join('');
+            // Jardinage
+            let jHtml = ''; for(let i=1; i<=23; i++) { jHtml += `<div class="jardinage-item"><img src="images/jardin${i}.jpg"></div>`; }
+            document.getElementById('jardinage-gallery').innerHTML = jHtml;
         };
 
         function showSection(id) {
@@ -239,44 +252,12 @@
             window.scrollTo(0,0);
         }
 
-        function createCard(item) {
-            return `
-                <div class="item-card" onclick="openModal('${item.name}', '${item.img}', '${item.price}', '${item.desc}')">
-                    <img src="${item.img}" alt="${item.name}">
-                    <h4>${item.name}</h4>
-                    <span class="price">${item.price}</span>
-                </div>`;
-        }
-
-        window.onload = () => {
-            // Home Previews
-            document.getElementById('plants-preview').innerHTML = data.plants.slice(0,3).map(createCard).join('');
-            document.getElementById('pots-preview').innerHTML = data.pots.slice(0,3).map(createCard).join('');
-            document.getElementById('soins-preview').innerHTML = data.soins.slice(0,3).map(createCard).join('');
-            document.getElementById('birds-preview').innerHTML = data.birds.map(createCard).join('');
-            document.getElementById('bouquets-preview').innerHTML = data.bouquets.slice(0,3).map(createCard).join('');
-
-            // Full Galleries
-            document.getElementById('plants-full').innerHTML = data.plants.map(createCard).join('');
-            document.getElementById('pots-full').innerHTML = data.pots.map(createCard).join('');
-            document.getElementById('soins-full').innerHTML = data.soins.map(createCard).join('');
-            document.getElementById('birds-full').innerHTML = data.birds.map(createCard).join('');
-            document.getElementById('bouquets-full').innerHTML = data.bouquets.map(createCard).join('');
-
-            // Jardinage Gallery (23 images)
-            let jardHtml = '';
-            for(let i=1; i<=23; i++) {
-                jardHtml += `<div class="jardinage-item"><img src="images/jardin${i}.jpg"></div>`;
-            }
-            document.getElementById('jardinage-full').innerHTML = jardHtml;
-        };
-
-        function openModal(name, img, price, desc) {
-            document.getElementById('modalTitle').innerText = name;
-            document.getElementById('modalImg').src = img;
-            document.getElementById('modalPrice').innerText = price;
-            document.getElementById('modalDesc').innerText = desc;
-            document.getElementById('modalWa').href = `https://wa.me/212661722457?text=Je suis intéressé par : ${name}`;
+        function openModal(n, i, p, d) {
+            document.getElementById('modalTitle').innerText = n;
+            document.getElementById('modalImg').src = i;
+            document.getElementById('modalPrice').innerText = p;
+            document.getElementById('modalDesc').innerText = d;
+            document.getElementById('modalWa').href = `https://wa.me/212661722457?text=Commande: ${n}`;
             document.getElementById('itemModal').style.display = "block";
         }
 
