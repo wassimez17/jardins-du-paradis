@@ -11,320 +11,280 @@
         :root { 
             --main-green: #1a3c34; 
             --gold-accent: #c5a059; 
-            --soft-white: #ffffff;
-            --text-dark: #2c2c2c;
             --bg-light: #fdfdfd;
+            --text-dark: #2c2c2c;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body { 
-            font-family: 'Tajawal', sans-serif; 
-            color: var(--text-dark); 
-            line-height: 1.6; 
-            background-color: var(--bg-light); 
-            scroll-behavior: smooth;
-        }
+        body { font-family: 'Tajawal', sans-serif; color: var(--text-dark); background-color: var(--bg-light); line-height: 1.6; overflow-x: hidden; }
 
-        /* Navigation & Gold Line Effect */
+        /* Navigation & Gold Line Animation */
         nav { 
-            padding: 15px 5%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            background: white; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; 
+            background: white; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-        .logo img { height: 50px; cursor: pointer; }
-        .nav-links { display: flex; gap: 20px; list-style: none; flex-wrap: wrap; }
+        .logo img { height: 55px; cursor: pointer; }
+        .nav-links { display: flex; gap: 20px; list-style: none; }
         .nav-links a { 
-            text-decoration: none; 
-            color: var(--main-green); 
-            font-size: 13px; 
-            font-weight: 700; 
-            position: relative;
-            padding-bottom: 5px;
-            cursor: pointer;
-            text-transform: uppercase;
+            text-decoration: none; color: var(--main-green); font-size: 13px; font-weight: 700; 
+            text-transform: uppercase; cursor: pointer; position: relative; padding-bottom: 5px;
         }
-        /* الخط الذهبي عند التمرير */
+        /* الخط الذهبي عند التمرير أو التحويم */
         .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--gold-accent);
-            transition: width 0.3s ease;
+            content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0;
+            background-color: var(--gold-accent); transition: width 0.3s ease;
         }
-        .nav-links a:hover::after { width: 100%; }
-        .nav-links a:hover { color: var(--gold-accent); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 
-        /* Sections Management */
-        .page-section { display: none; padding-bottom: 80px; animation: fadeIn 0.5s; }
-        .page-section.active { display: block; }
-        @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+        /* Page Sections */
+        .page-section { display: none; padding-bottom: 80px; min-height: 100vh; }
+        .page-section.active { display: block; animation: fadeIn 0.6s ease; }
+        @keyframes fadeIn { from {opacity: 0; transform: translateY(10px);} to {opacity: 1; transform: translateY(0);} }
 
-        /* Back Button */
-        .back-btn {
-            display: inline-block;
-            margin: 20px 8%;
-            padding: 8px 20px;
-            background: var(--main-green);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 14px;
-            cursor: pointer;
-            border: none;
-        }
-        .back-btn i { margin-right: 8px; }
-
-        /* Hero */
+        /* Hero & About (Accueil) */
         .hero { 
-            height: 60vh; 
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('images/hero-bg.jpg'); 
-            background-size: cover; background-position: center;
-            display: flex; align-items: center; justify-content: center; color: white; text-align: center;
+            height: 60vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/hero-bg.jpg'); 
+            background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; color: white;
         }
-        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(35px, 6vw, 65px); }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 6vw, 60px); text-align: center; letter-spacing: 2px; }
+        .about-box { padding: 80px 10%; text-align: center; background: white; }
+        .about-box h2 { color: var(--main-green); margin-bottom: 25px; font-family: 'Playfair Display', serif; font-size: 32px; }
+        .about-box p { max-width: 800px; margin: 0 auto; font-size: 18px; color: #555; }
 
-        /* Catalog Layout */
-        .section-title { text-align: center; margin: 50px 0 30px; font-family: 'Playfair Display', serif; font-size: 32px; color: var(--main-green); }
-        .catalog-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 30px; 
-            padding: 0 8%; 
-        }
+        /* Catalog Grid */
+        .section-title { text-align: center; margin: 60px 0 40px; font-family: 'Playfair Display', serif; font-size: 35px; color: var(--main-green); position: relative; }
+        .section-title::after { content: ''; display: block; width: 50px; height: 3px; background: var(--gold-accent); margin: 10px auto; }
+        
+        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 0 10%; }
         
         .item-card { 
-            background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            text-align: center; padding-bottom: 25px; transition: 0.3s; border: 1px solid #f0f0f0; cursor: pointer;
+            background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: 0.4s; text-align: center; padding-bottom: 25px; cursor: pointer; border: 1px solid #f0f0f0;
         }
-        .item-card:hover { transform: translateY(-10px); }
-        .item-card img { width: 100%; height: 280px; object-fit: cover; }
-        .item-card h4 { margin: 20px 0 8px; font-size: 18px; color: var(--main-green); }
-        .price { display: block; color: var(--gold-accent); font-weight: 700; margin-bottom: 15px; }
+        .item-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .item-card img { width: 100%; height: 300px; object-fit: cover; }
+        .item-card h4 { margin: 20px 0 8px; color: var(--main-green); font-size: 18px; }
+        .price { color: var(--gold-accent); font-weight: bold; font-size: 17px; display: block; }
 
-        .view-all-container { text-align: center; margin: 40px 0; }
-        .btn-view-all { background: none; border: 2px solid var(--gold-accent); color: var(--gold-accent); padding: 12px 30px; border-radius: 30px; cursor: pointer; font-weight: bold; transition: 0.3s; }
-        .btn-view-all:hover { background: var(--gold-accent); color: white; }
+        /* Buttons & Back Button */
+        .btn-container { text-align: center; margin: 40px 0; display: flex; justify-content: center; gap: 15px; }
+        .btn-view-all, .btn-back { 
+            background: none; border: 2px solid var(--gold-accent); color: var(--gold-accent); 
+            padding: 10px 30px; border-radius: 30px; cursor: pointer; font-weight: bold; transition: 0.3s; text-transform: uppercase; font-size: 13px;
+        }
+        .btn-view-all:hover, .btn-back:hover { background: var(--gold-accent); color: white; }
+        .btn-back { border-color: var(--main-green); color: var(--main-green); }
+        .btn-back:hover { background: var(--main-green); color: white; }
 
-        /* Modal Popup */
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(5px); }
-        .modal-content { background: white; margin: 5% auto; padding: 30px; border-radius: 15px; width: 90%; max-width: 800px; display: flex; flex-wrap: wrap; gap: 20px; position: relative; }
-        .close-modal { position: absolute; right: 20px; top: 15px; font-size: 30px; cursor: pointer; color: var(--main-green); }
+        /* Jardinage Masonry */
+        .jardinage-grid { column-count: 3; column-gap: 20px; padding: 0 10%; }
+        .jardinage-item { margin-bottom: 20px; break-inside: avoid; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .jardinage-item img { width: 100%; display: block; transition: 0.5s; }
+        .jardinage-item:hover img { transform: scale(1.1); }
+
+        /* Modal (Pop-up) */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); }
+        .modal-content { background: white; margin: 5vh auto; padding: 40px; border-radius: 20px; width: 90%; max-width: 800px; position: relative; display: flex; flex-wrap: wrap; gap: 30px; }
+        .close { position: absolute; right: 25px; top: 15px; font-size: 35px; cursor: pointer; color: var(--main-green); }
         .modal-left { flex: 1; min-width: 300px; }
-        .modal-left img { width: 100%; border-radius: 10px; height: 450px; object-fit: cover; }
-        .modal-right { flex: 1.2; text-align: left; }
-        .modal-right h2 { color: var(--main-green); font-family: 'Playfair Display', serif; }
-        .modal-price { color: var(--gold-accent); font-weight: 700; font-size: 24px; margin: 10px 0; display: block; }
-        .plant-details { list-style: none; margin-top: 20px; }
-        .plant-details li { margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 8px; font-size: 15px; }
-        .plant-details i { color: var(--gold-accent); margin-right: 10px; width: 20px; }
-        .btn-wa-modal { display: block; background: #25d366; color: white; text-align: center; padding: 15px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 20px; }
+        .modal-left img { width: 100%; border-radius: 15px; height: 400px; object-fit: cover; }
+        .modal-right { flex: 1.2; display: flex; flex-direction: column; justify-content: center; }
 
         /* Footer */
-        .contact-footer { background: var(--main-green); color: white; padding: 80px 8% 40px; }
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
-        .contact-box h4 { color: var(--gold-accent); margin-bottom: 20px; font-size: 20px; border-bottom: 1px solid rgba(197,160,89,0.3); padding-bottom: 10px; }
-        .contact-box p, .contact-box a { color: #ccc; text-decoration: none; margin-bottom: 12px; display: block; font-size: 14px; }
+        footer { background: var(--main-green); color: white; padding: 80px 10% 40px; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; }
+        .contact-box h4 { color: var(--gold-accent); margin-bottom: 25px; font-family: 'Playfair Display', serif; font-size: 22px; }
+        .contact-box p, .contact-box a { color: #bdc3c7; text-decoration: none; display: block; margin-bottom: 15px; font-size: 15px; transition: 0.3s; }
         .contact-box a:hover { color: var(--gold-accent); }
-        
-        /* Map Image Style */
-        .map-link img { width: 100%; border-radius: 10px; margin-top: 10px; border: 2px solid var(--gold-accent); transition: 0.3s; }
-        .map-link:hover img { opacity: 0.8; }
 
-        @media (max-width: 768px) {
-            nav { flex-direction: column; text-align: center; }
-            .nav-links { justify-content: center; margin-top: 15px; }
-            .modal-content { margin: 2% auto; height: 95vh; overflow-y: auto; }
+        @media (max-width: 992px) { .jardinage-grid { column-count: 2; } }
+        @media (max-width: 768px) { 
+            nav { flex-direction: column; gap: 15px; } 
+            .nav-links { gap: 10px; justify-content: center; font-size: 11px; }
+            .jardinage-grid { column-count: 1; }
+            .modal-content { margin: 2vh auto; padding: 20px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo" onclick="showSection('home')"><img src="images/logo.png" alt="Logo"></div>
+        <div class="logo" onclick="showSection('accueil')"><img src="images/logo.png" alt="Jardins du Paradis"></div>
         <ul class="nav-links">
-            <li><a onclick="showSection('home')">Accueil</a></li>
-            <li><a onclick="showSection('plants-full')">Plantes</a></li>
-            <li><a onclick="showSection('flowers-full')">Bouquets</a></li>
-            <li><a onclick="showSection('pots-full')">Les Pots</a></li>
-            <li><a onclick="showSection('meds-full')">Soins</a></li>
-            <li><a onclick="showSection('birds-full')">Oiseaux</a></li>
-            <li><a onclick="showSection('jardinage-full')">Jardinage</a></li>
+            <li><a onclick="showSection('accueil')" id="nav-accueil">accueil</a></li>
+            <li><a onclick="showSection('plantes')" id="nav-plantes">plantes</a></li>
+            <li><a onclick="showSection('pots')" id="nav-pots">les pots</a></li>
+            <li><a onclick="showSection('jardinage')" id="nav-jardinage">jardinage</a></li>
+            <li><a onclick="showSection('soins')" id="nav-soins">soins</a></li>
+            <li><a onclick="showSection('oiseaux')" id="nav-oiseaux">oiseaux</a></li>
+            <li><a onclick="showSection('bouquets')" id="nav-bouquets">bouquets</a></li>
+            <li><a onclick="showSection('contact')" id="nav-contact">contact</a></li>
         </ul>
     </nav>
 
-    <div id="home" class="page-section active">
-        <header class="hero">
-            <div class="hero-content">
-                <h1>JARDINS DU PARADIS</h1>
-                <p>Créateur d'espaces verts & Art Floral à Tanger</p>
-            </div>
-        </header>
-
-        <div class="section-title">Nos Meilleures Plantes</div>
-        <div class="catalog-grid">
-            <div class="item-card" onclick="openPlant('ASPLENIUM', 'images/plant1.jpg', '100.00 DH', 'Asie', 'Tamisée', '1x/sem')">
-                <img src="images/plant1.jpg"><h4>ASPLENIUM</h4><span class="price">100.00 DH</span>
-            </div>
-            <div class="item-card" onclick="openPlant('ALOCASIA', 'images/plant2.jpg', '100.00 DH', 'Tropicale', 'Vive', '1x/sem')">
-                <img src="images/plant2.jpg"><h4>ALOCASIA</h4><span class="price">100.00 DH</span>
-            </div>
-            <div class="item-card" onclick="openPlant('DIFFEMBACHIA', 'images/plant3.jpg', '100.00 DH', 'Amérique', 'Indirecte', 'Modéré')">
-                <img src="images/plant3.jpg"><h4>DIFFEMBACHIA</h4><span class="price">100.00 DH</span>
-            </div>
-            <div class="item-card" onclick="openPlant('ANTHURIUM', 'images/plant4.jpg', '100.00 DH', 'Amérique', 'Vive', '1x/sem')">
-                <img src="images/plant4.jpg"><h4>ANTHURIUM</h4><span class="price">100.00 DH</span>
-            </div>
+    <div id="accueil" class="page-section active">
+        <div class="hero">
+            <div class="hero-content"><h1>JARDINS DU PARADIS</h1></div>
         </div>
-        <div class="view-all-container"><button class="btn-view-all" onclick="showSection('plants-full')">Voir tout le catalogue</button></div>
+        <div class="about-box">
+            <h2>L'Excellence au Cœur de la Nature</h2>
+            <p>Depuis notre fondation en <strong>2007</strong> à Tanger, nous nous spécialisons dans l'art de l'aménagement paysager. Nous proposons des plantes d'exception, des pots design, et des solutions de soins végétales pour transformer vos espaces en véritables oasis de paix.</p>
+        </div>
+
+        <div class="section-title">Nos Plantes</div>
+        <div class="catalog-grid" id="plants-preview"></div>
+        <div class="btn-container"><button class="btn-view-all" onclick="showSection('plantes')">voir tout</button></div>
+
+        <div class="section-title">Les Pots</div>
+        <div class="catalog-grid" id="pots-preview"></div>
+        <div class="btn-container"><button class="btn-view-all" onclick="showSection('pots')">voir tout</button></div>
+
+        <div class="section-title">Nos Bouquets</div>
+        <div class="catalog-grid" id="bouquets-preview"></div>
+        <div class="btn-container"><button class="btn-view-all" onclick="showSection('bouquets')">voir tout</button></div>
     </div>
 
-    <div id="plants-full" class="page-section">
-        <button class="back-btn" onclick="showSection('home')"><i class="fas fa-arrow-left"></i> Retour à l'accueil</button>
-        <div class="section-title">Collection Complète des Plantes</div>
-        <div class="catalog-grid">
-            <div class="item-card" onclick="openPlant('ASPLENIUM', 'images/plant1.jpg', '100.00 DH', 'Asie', 'Tamisée', '1x/sem')">
-                <img src="images/plant1.jpg"><h4>ASPLENIUM</h4><span class="price">100.00 DH</span>
-            </div>
-            </div>
+    <div id="plantes" class="page-section">
+        <div class="section-title">Collection Complète : Plantes</div>
+        <div class="catalog-grid" id="plants-full"></div>
+        <div class="btn-container"><button class="btn-back" onclick="showSection('accueil')">Retour à l'accueil</button></div>
     </div>
 
-    <div id="pots-full" class="page-section">
-        <button class="back-btn" onclick="showSection('home')"><i class="fas fa-arrow-left"></i> Retour</button>
-        <div class="section-title">Catalogue : Les Pots</div>
-        <div class="catalog-grid">
-            <div class="item-card" onclick="openFlower('POT CÉRAMIQUE BLANC', 'images/pot1.jpg', '120.00 DH', 'Design minimaliste chic.', 'Intérieur/Extérieur')">
-                <img src="images/pot1.jpg"><h4>POT CÉRAMIQUE BLANC</h4><span class="price">120.00 DH</span>
-            </div>
+    <div id="pots" class="page-section">
+        <div class="section-title">Collection : Les Pots</div>
+        <div class="catalog-grid" id="pots-full"></div>
+        <div class="btn-container"><button class="btn-back" onclick="showSection('accueil')">Retour à l'accueil</button></div>
+    </div>
+
+    <div id="jardinage" class="page-section">
+        <div class="section-title">Nos Travaux de Jardinage</div>
+        <div class="jardinage-grid" id="jardinage-gallery"></div>
+        <div class="btn-container">
+            <button class="btn-back" onclick="showSection('accueil')">Retour</button>
+            <button class="btn-view-all" style="background:var(--main-green); color:white; border:none;" onclick="showSection('contact')">contactez-nous</button>
         </div>
     </div>
 
-    <div id="meds-full" class="page-section">
-        <button class="back-btn" onclick="showSection('home')"><i class="fas fa-arrow-left"></i> Retour</button>
-        <div class="section-title">Catalogue : Soins & Vitamines</div>
-        <div class="catalog-grid">
-            <div class="item-card" onclick="openFlower('BOOST VITAMINE', 'images/med1.jpg', '50.00 DH', 'Complément nutritif haute performance.', 'Toutes plantes')">
-                <img src="images/med1.jpg"><h4>BOOST VITAMINE</h4><span class="price">50.00 DH</span>
-            </div>
-        </div>
+    <div id="soins" class="page-section">
+        <div class="section-title">Soins & Vitamines</div>
+        <div class="catalog-grid" id="soins-full"></div>
+        <div class="btn-container"><button class="btn-back" onclick="showSection('accueil')">Retour</button></div>
     </div>
 
-    <div id="birds-full" class="page-section">
-        <button class="back-btn" onclick="showSection('home')"><i class="fas fa-arrow-left"></i> Retour</button>
-        <div class="section-title">Catalogue : Nourriture Oiseaux</div>
-        <div class="catalog-grid">
-            <div class="item-card" onclick="openFlower('MÉLANGE PREMIUM', 'images/bird1.jpg', '35.00 DH', 'Graines sélectionnées pour vitalité.', 'Canaris & Perruches')">
-                <img src="images/bird1.jpg"><h4>MÉLANGE PREMIUM</h4><span class="price">35.00 DH</span>
-            </div>
-        </div>
+    <div id="oiseaux" class="page-section">
+        <div class="section-title">Nourriture Oiseaux</div>
+        <div class="catalog-grid" id="birds-full"></div>
+        <div class="btn-container"><button class="btn-back" onclick="showSection('accueil')">Retour</button></div>
     </div>
 
-    <div id="jardinage-full" class="page-section">
-        <button class="back-btn" onclick="showSection('home')"><i class="fas fa-arrow-left"></i> Retour</button>
-        <div class="section-title">Nos Projets de Jardinage</div>
-        <div class="catalog-grid" style="display: block; padding: 0 8%;">
-             <p style="text-align:center">Visualisez nos plus belles réalisations d'espaces verts à Tanger.</p>
-        </div>
+    <div id="bouquets" class="page-section">
+        <div class="section-title">Nos Bouquets de Prestige</div>
+        <div class="catalog-grid" id="bouquets-full"></div>
+        <div class="btn-container"><button class="btn-back" onclick="showSection('accueil')">Retour à l'accueil</button></div>
     </div>
 
-    <div id="plantModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <div class="modal-left"><img id="modalImg" src=""></div>
-            <div class="modal-right">
-                <h2 id="modalTitle">Nom du Produit</h2>
-                <span id="modalPriceDisplay" class="modal-price"></span>
-                <ul class="plant-details" id="plantInfoList">
-                    <li><i class="fas fa-globe"></i> <strong>Origine:</strong> <span id="p-origin"></span></li>
-                    <li><i class="fas fa-sun"></i> <strong>Lumière:</strong> <span id="p-sun"></span></li>
-                    <li><i class="fas fa-tint"></i> <strong>Arrosage:</strong> <span id="p-water"></span></li>
-                </ul>
-                <ul class="plant-details" id="flowerInfoList" style="display:none;">
-                    <li><i class="fas fa-info-circle"></i> <strong>Description:</strong> <span id="f-desc"></span></li>
-                    <li><i class="fas fa-calendar-check"></i> <strong>Usage/Occasion:</strong> <span id="f-occasion"></span></li>
-                </ul>
-                <a id="waLink" href="#" target="_blank" class="btn-wa-modal"><i class="fab fa-whatsapp"></i> Commander via WhatsApp</a>
-            </div>
-        </div>
-    </div>
-
-    <footer id="contact" class="contact-footer">
-        <div class="contact-grid">
-            <div class="contact-box">
-                <h4>Nos Coordonnées</h4>
-                <a href="https://wa.me/212661722457" target="_blank"><i class="fab fa-whatsapp"></i> 06 61 72 24 57 (Commande)</a>
-                <a href="https://wa.me/212661064117" target="_blank"><i class="fab fa-whatsapp"></i> 06 61 06 41 17 (Support)</a>
-                <div class="social-links">
-                    <a href="https://www.instagram.com/jardinsduparadis21" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/share/1RjpjiNxJY" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.linkedin.com/company/jardins-du-paradis-sarl/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <div id="contact" class="page-section">
+        <div class="section-title">Contact & Localisation</div>
+        <footer>
+            <div class="contact-grid">
+                <div class="contact-box">
+                    <h4>Informations</h4>
+                    <p><i class="fas fa-phone"></i> 06 61 72 24 57</p>
+                    <p><i class="fas fa-phone"></i> 06 61 06 41 17</p>
+                    <a href="https://wa.me/212661722457" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                </div>
+                <div class="contact-box">
+                    <h4>Suivez-nous</h4>
+                    <div style="display:flex; gap:20px;">
+                        <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+                    </div>
+                </div>
+                <div class="contact-box">
+                    <h4>Siège Social</h4>
+                    <p>Hay Mandar Jamil, Tanger, Maroc</p>
+                    <p>Ouvert du Lundi au Samedi</p>
                 </div>
             </div>
-
-            <div class="contact-box">
-                <h4>Informations</h4>
-                <p><i class="fas fa-envelope"></i> Email: contact@jardinsduparadis.ma</p>
-                <p><i class="fas fa-clock"></i> Lun - Sam: 09:00 - 19:00</p>
-                <p><i class="fas fa-clock"></i> Dimanche: Fermé</p>
+            <div style="text-align: center; margin-top: 50px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 12px; opacity: 0.6;">
+                © 2026 Jardins du Paradis - Tous droits réservés.
             </div>
+        </footer>
+    </div>
 
-            <div class="contact-box">
-                <h4>Adresse</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Hay Mandar Jamil, Tanger, Maroc</p>
-                <a href="https://maps.google.com/?q=Hay+Mandar+Jamil+Tanger" target="_blank" class="map-link">
-                    <img src="images/map-preview.jpg" alt="Cliquez pour voir sur Maps">
-                    <p style="font-size:11px; text-align:center; color:var(--gold-accent)">Cliquez pour ouvrir Google Maps</p>
-                </a>
+    <div id="itemModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-left"><img id="modalImg" src=""></div>
+            <div class="modal-right">
+                <h2 id="modalTitle" style="color:var(--main-green); font-family:'Playfair Display';"></h2>
+                <span id="modalPrice" class="price" style="margin: 15px 0; font-size: 22px;"></span>
+                <p id="modalDesc" style="color: #666; margin-bottom: 30px;"></p>
+                <a id="modalWa" href="#" class="btn-view-all" style="background:var(--main-green); color:white; border:none; text-align:center; text-decoration:none;">Commander via WhatsApp</a>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 50px; opacity: 0.4; font-size: 11px;">
-            © 2026 JARDINS DU PARADIS - Tous droits réservés.
-        </div>
-    </footer>
+    </div>
 
     <script>
-        function showSection(sectionId) {
+        // Data Structure
+        const catalog = {
+            plants: Array.from({length: 9}, (_, i) => ({ name: `Plante Royale ${i+1}`, price: "100 DH", img: `images/plant${i+1}.jpg`, desc: "Une plante d'exception pour sublimer votre intérieur." })),
+            pots: Array.from({length: 9}, (_, i) => ({ name: `Vase Design ${i+1}`, price: "150 DH", img: `images/pot${i+1}.jpg`, desc: "Pot en céramique artisanale, résistant et élégant." })),
+            soins: Array.from({length: 3}, (_, i) => ({ name: `Soin Bio ${i+1}`, price: "55 DH", img: `images/med${i+1}.jpg`, desc: "Vitamines naturelles pour une croissance saine." })),
+            birds: Array.from({length: 2}, (_, i) => ({ name: `Graines Mix ${i+1}`, price: "35 DH", img: `images/bird${i+1}.jpg`, desc: "Mélange nutritif pour toutes espèces d'oiseaux." })),
+            bouquets: Array.from({length: 24}, (_, i) => ({ name: `Bouquet Luxe ${i+1}`, price: "180 DH", img: `images/fleur${i+1}.jpg`, desc: "Composition florale fraîchement coupée." }))
+        };
+
+        function showSection(id) {
             document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
-            document.getElementById(sectionId).classList.add('active');
-            window.scrollTo(0, 0);
+            document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+            
+            document.getElementById(id).classList.add('active');
+            const navItem = document.getElementById('nav-' + id);
+            if(navItem) navItem.classList.add('active');
+            
+            window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        function openPlant(name, img, price, origin, sun, water) {
+        function createCard(item) {
+            return `
+                <div class="item-card" onclick="openModal('${item.name}', '${item.img}', '${item.price}', '${item.desc}')">
+                    <img src="${item.img}" alt="${item.name}">
+                    <h4>${item.name}</h4>
+                    <span class="price">${item.price}</span>
+                </div>`;
+        }
+
+        window.onload = () => {
+            // Render Previews (Accueil) - 3 items each
+            document.getElementById('plants-preview').innerHTML = catalog.plants.slice(0,3).map(createCard).join('');
+            document.getElementById('pots-preview').innerHTML = catalog.pots.slice(0,3).map(createCard).join('');
+            document.getElementById('bouquets-preview').innerHTML = catalog.bouquets.slice(0,3).map(createCard).join('');
+
+            // Render Full Sections
+            document.getElementById('plants-full').innerHTML = catalog.plants.map(createCard).join('');
+            document.getElementById('pots-full').innerHTML = catalog.pots.map(createCard).join('');
+            document.getElementById('soins-full').innerHTML = catalog.soins.map(createCard).join('');
+            document.getElementById('birds-full').innerHTML = catalog.birds.map(createCard).join('');
+            document.getElementById('bouquets-full').innerHTML = catalog.bouquets.map(createCard).join('');
+
+            // Jardinage Gallery (23 images)
+            let jardHtml = '';
+            for(let i=1; i<=23; i++) { jardHtml += `<div class="jardinage-item"><img src="images/jardin${i}.jpg"></div>`; }
+            document.getElementById('jardinage-gallery').innerHTML = jardHtml;
+        };
+
+        function openModal(name, img, price, desc) {
             document.getElementById('modalTitle').innerText = name;
             document.getElementById('modalImg').src = img;
-            document.getElementById('modalPriceDisplay').innerText = price;
-            document.getElementById('plantInfoList').style.display = "block";
-            document.getElementById('flowerInfoList').style.display = "none";
-            document.getElementById('p-origin').innerText = origin;
-            document.getElementById('p-sun').innerText = sun;
-            document.getElementById('p-water').innerText = water;
-            document.getElementById('waLink').href = "https://wa.me/212661722457?text=Bonjour, je souhaite commander la plante : " + name;
-            document.getElementById('plantModal').style.display = "block";
+            document.getElementById('modalPrice').innerText = price;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('modalWa').href = `https://wa.me/212661722457?text=Bonjour, je souhaite commander : ${name}`;
+            document.getElementById('itemModal').style.display = "block";
         }
 
-        function openFlower(name, img, price, desc, occasion) {
-            document.getElementById('modalTitle').innerText = name;
-            document.getElementById('modalImg').src = img;
-            document.getElementById('modalPriceDisplay').innerText = price;
-            document.getElementById('plantInfoList').style.display = "none";
-            document.getElementById('flowerInfoList').style.display = "block";
-            document.getElementById('f-desc').innerText = desc;
-            document.getElementById('f-occasion').innerText = occasion;
-            document.getElementById('waLink').href = "https://wa.me/212661722457?text=Bonjour, je souhaite commander : " + name;
-            document.getElementById('plantModal').style.display = "block";
-        }
-
-        function closeModal() { document.getElementById('plantModal').style.display = "none"; }
-        window.onclick = function(e) { if(e.target.className == 'modal') closeModal(); }
+        function closeModal() { document.getElementById('itemModal').style.display = "none"; }
+        window.onclick = (e) => { if(e.target.className == 'modal') closeModal(); }
     </script>
 </body>
 </html>
