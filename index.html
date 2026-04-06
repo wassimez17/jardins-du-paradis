@@ -749,18 +749,55 @@
         document.getElementById('plantModal').style.display = "block";
     }
 <script>
-    <script>
-    // الدوال القديمة (openPlant, openFlower) تبقى كما هي هنا...
+    // 1. دالة النباتات (تحديث: إخفاء قائمة الأدوية والباقات)
+    function openPlant(name, img, price, origin, sun, water, soil, height) {
+        document.getElementById('modalTitle').innerText = name;
+        document.getElementById('modalImg').src = img;
+        document.getElementById('modalPriceDisplay').innerText = price;
+        
+        // التحكم في القوائم: إظهار النباتات فقط
+        document.getElementById('plantInfoList').style.display = 'block';
+        document.getElementById('flowerInfoList').style.display = 'none';
+        document.getElementById('careInfoList').style.display = 'none'; // مهم جداً للإصلاح
 
-    // --- أضف دالة openCare هنا (رقم 3) ---
+        document.getElementById('p-origin').innerText = origin;
+        document.getElementById('p-sun').innerText = sun;
+        document.getElementById('p-water').innerText = water;
+        document.getElementById('p-soil').innerText = soil;
+        document.getElementById('p-height').innerText = height;
+
+        document.getElementById('waLink').href = `https://wa.me/212661722457?text=Bonjour, je souhaite commander la plante: ${name}`;
+        document.getElementById('plantModal').style.display = 'block';
+    }
+
+    // 2. دالة الباقات (تحديث: إخفاء قائمة الأدوية والنباتات)
+    function openFlower(name, img, price, desc, occasion) {
+        document.getElementById('modalTitle').innerText = name;
+        document.getElementById('modalImg').src = img;
+        document.getElementById('modalPriceDisplay').innerText = price;
+        
+        // التحكم في القوائم: إظهار الباقات فقط
+        document.getElementById('plantInfoList').style.display = 'none';
+        document.getElementById('flowerInfoList').style.display = 'block';
+        document.getElementById('careInfoList').style.display = 'none'; // مهم جداً للإصلاح
+
+        document.getElementById('f-desc').innerText = desc;
+        document.getElementById('f-occasion').innerText = occasion;
+
+        document.getElementById('waLink').href = `https://wa.me/212661722457?text=Bonjour, je souhaite commander le bouquet: ${name}`;
+        document.getElementById('plantModal').style.display = 'block';
+    }
+
+    // 3. دالة الأدوية (تحديث: إخفاء القوائم الأخرى)
     function openCare(name, img, price, desc, usage, period) {
         document.getElementById('modalTitle').innerText = name;
         document.getElementById('modalImg').src = img;
         document.getElementById('modalPriceDisplay').innerText = price;
         
+        // التحكم في القوائم: إظهار الأدوية فقط
         document.getElementById('plantInfoList').style.display = 'none';
         document.getElementById('flowerInfoList').style.display = 'none';
-        document.getElementById('careInfoList').style.display = 'block'; // إظهار قائمة الأدوية
+        document.getElementById('careInfoList').style.display = 'block';
 
         document.getElementById('c-desc').innerText = desc;
         document.getElementById('c-usage').innerText = usage;
@@ -770,17 +807,17 @@
         document.getElementById('plantModal').style.display = 'block';
     }
 
-    // دالة الإغلاق تبقى في الأسفل
     function closeModal() {
         document.getElementById('plantModal').style.display = 'none';
     }
-</script>
-  
+
     window.onclick = function(event) {
         let modal = document.getElementById('plantModal');
-        if (event.target == modal) { modal.style.display = "none"; }
+        if (event.target == modal) {
+            closeModal();
+        }
     }
-    </script>
+</script>
 </body>
 </html>
 
