@@ -215,12 +215,14 @@
     <nav>
         <div class="logo"><img src="images/logo.png" alt="Logo"></div>
         <ul class="nav-links">
-            <li><a href="#home">Accueil</a></li>
-            <li><a href="#plants">Plantes</a></li>
-            <li><a href="#flowers">Bouquets</a></li>
-            <li><a href="#jardinage">Jardinage</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+    <li><a href="#home">Accueil</a></li>
+    <li><a href="#plants">Plantes</a></li>
+    <li><a href="#flowers">Bouquets</a></li>
+    <li><a href="#soins">Soins</a></li> 
+    <li><a href="#oiseaux">Oiseaux</a></li> 
+    <li><a href="#jardinage">Jardinage</a></li>
+    <li><a href="#contact">Contact</a></li>
+</ul>
     </nav>
 
     <header id="home" class="hero">
@@ -440,7 +442,43 @@
             <button class="btn-wa">Détails</button>
         </div>
     </div>
+<div id="soins" class="section-title">Soins & Énergie Végétale</div>
+    <div class="catalog-grid">
+        <div class="item-card" onclick="openFlower('ENGRAIS LIQUIDE', 'images/med1.jpg', '65.00 DH', 'Fertilisant riche en azote pour une croissance rapide.', 'Entretien régulier')">
+            <img src="images/med1.jpg" alt="Engrais">
+            <h4>ENGRAIS LIQUIDE</h4>
+            <span class="price">65.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openFlower('SPRAY LUSTRANT', 'images/med2.jpg', '45.00 DH', 'Pour des feuilles brillantes et protégées de la poussière.', 'Beauté des plantes')">
+            <img src="images/med2.jpg" alt="Spray">
+            <h4>SPRAY LUSTRANT</h4>
+            <span class="price">45.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openFlower('TERREAU UNIVERSEL', 'images/med3.jpg', '80.00 DH', 'Mélange riche pour rempotage toutes plantes.', 'Rempotage')">
+            <img src="images/med3.jpg" alt="Terreau">
+            <h4>TERREAU UNIVERSEL</h4>
+            <span class="price">80.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+    </div>
 
+    <div id="oiseaux" class="section-title">Espace Oiseaux du Paradis</div>
+    <div class="catalog-grid">
+        <div class="item-card" onclick="openFlower('MÉLANGE CANARIS', 'images/bird1.jpg', '35.00 DH', 'Graines sélectionnées pour le chant et la vitalité.', 'Alimentation quotidienne')">
+            <img src="images/bird1.jpg" alt="Graines">
+            <h4>MÉLANGE CANARIS</h4>
+            <span class="price">35.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+        <div class="item-card" onclick="openFlower('PÂTÉE AUX ŒUFS', 'images/bird2.jpg', '55.00 DH', 'Complément protéiné pour la période de mue.', 'Soin spécifique')">
+            <img src="images/bird2.jpg" alt="Pâtée">
+            <h4>PÂTÉE AUX ŒUFS</h4>
+            <span class="price">55.00 DH</span>
+            <button class="btn-wa">Détails</button>
+        </div>
+    </div>
         
         <div class="jardinage-masonry">
             <div class="jardinage-item">
