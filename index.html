@@ -14,144 +14,57 @@
 --gold:#c5a059;
 }
 
-body{
-margin:0;
-font-family:'Tajawal',sans-serif;
-background:#f9f9f9;
-}
+body{margin:0;font-family:'Tajawal';background:#f9f9f9}
 
 /* NAV */
 nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:10px 5%;
-background:white;
-position:sticky;
-top:0;
-z-index:1000;
+display:flex;justify-content:space-between;align-items:center;
+padding:10px 5%;background:white;position:sticky;top:0;z-index:1000;
+border-bottom:3px solid var(--gold);
 }
-
-nav img{height:45px}
-
-nav a{
-text-decoration:none;
-color:var(--green);
-font-weight:bold;
-margin:0 10px;
-font-size:13px;
-}
+nav img{height:50px}
+nav a{margin:0 8px;text-decoration:none;color:var(--green);font-size:13px;font-weight:bold}
 
 /* HERO */
 .hero{
 height:50vh;
 background:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('images/hero-bg.jpg');
-background-size:cover;
-display:flex;
-align-items:center;
-justify-content:center;
-color:white;
-text-align:center;
+background-size:cover;display:flex;align-items:center;justify-content:center;color:white;text-align:center;
 }
 
-.hero h1{font-size:38px}
-
-.hero p{margin-top:10px}
-
-.btn{
-display:inline-block;
-margin-top:15px;
-padding:10px 20px;
-border-radius:20px;
-text-decoration:none;
-font-weight:bold;
-}
-
-.btn-main{background:var(--gold);color:white}
-.btn-outline{border:2px solid white;color:white}
+/* SECTIONS */
+.section{padding:40px 8%}
+.title{text-align:center;font-size:26px;color:var(--green);margin-bottom:20px}
 
 /* GRID */
-.section-title{
-text-align:center;
-margin:40px 0;
-font-size:26px;
-color:var(--green);
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-gap:20px;
-padding:0 8%;
-}
-
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
 .card{
-background:white;
-border-radius:10px;
-overflow:hidden;
-box-shadow:0 5px 15px rgba(0,0,0,0.05);
-text-align:center;
-padding-bottom:15px;
-transition:0.3s;
-position:relative;
+background:white;border-radius:10px;overflow:hidden;text-align:center;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);transition:0.3s;
 }
-
-.card:hover{
-transform:translateY(-5px);
-box-shadow:0 10px 25px rgba(0,0,0,0.1);
-}
-
-.card img{
-width:100%;
-height:220px;
-object-fit:cover;
-}
-
+.card:hover{transform:translateY(-5px)}
+.card img{width:100%;height:200px;object-fit:cover}
 .price{color:var(--gold);font-weight:bold}
 
-.badge{
-position:absolute;
-top:10px;
-left:10px;
-background:var(--gold);
-color:white;
-font-size:10px;
-padding:3px 8px;
-border-radius:5px;
-}
-
 /* BUTTON */
-.order-btn{
-display:inline-block;
-margin-top:10px;
-background:var(--green);
-color:white;
-padding:8px 15px;
-border-radius:20px;
-text-decoration:none;
-font-size:13px;
+.btn{text-align:center;margin-top:20px}
+.btn button{
+padding:8px 20px;border:2px solid var(--gold);
+background:none;color:var(--gold);border-radius:20px;cursor:pointer;
 }
+.btn button:hover{background:var(--gold);color:white}
 
-/* WHATSAPP FLOAT */
-.whatsapp{
-position:fixed;
-bottom:20px;
-right:20px;
-background:#25D366;
-color:white;
-font-size:28px;
-padding:15px;
-border-radius:50%;
-z-index:2000;
-}
+/* BACK */
+.back{margin:20px}
+.back button{padding:8px 15px;cursor:pointer}
 
-/* FOOTER */
+/* JARDINAGE */
+.gallery{column-count:3;column-gap:10px}
+.gallery img{width:100%;margin-bottom:10px;border-radius:8px}
+
+/* CONTACT */
 footer{
-background:var(--green);
-color:white;
-text-align:center;
-padding:30px;
-margin-top:50px;
+background:var(--green);color:white;padding:40px;text-align:center;margin-top:50px;
 }
 </style>
 </head>
@@ -162,69 +75,138 @@ margin-top:50px;
 <nav>
 <img src="images/logo.png">
 <div>
-<a href="#">Accueil</a>
-<a href="#plants">Plantes</a>
-<a href="#bouquets">Bouquets</a>
+<a onclick="show('home')">Accueil</a>
+<a onclick="show('plants')">Plantes</a>
+<a onclick="show('pots')">Les Pots</a>
+<a onclick="show('jardinage')">Jardinage</a>
+<a onclick="show('soins')">Soins</a>
+<a onclick="show('oiseaux')">Oiseaux</a>
+<a onclick="show('bouquets')">Bouquets</a>
+<a href="#contact">Contact</a>
 </div>
 </nav>
 
-<!-- HERO -->
+<!-- HOME -->
+<div id="home" class="section">
+
 <div class="hero">
 <div>
 <h1>🌿 Jardins du Paradis</h1>
-<p>Plantes • Décoration • Bouquets à Tanger</p>
-<a href="#plants" class="btn btn-outline">Voir Catalogue</a>
-<a href="https://wa.me/212661722457" class="btn btn-main">Commander</a>
+<p>Depuis 2007 - Aménagement & plantes à Tanger</p>
 </div>
 </div>
 
-<!-- PLANTS -->
-<h2 class="section-title" id="plants">Nos Plantes</h2>
-<div class="grid" id="plants-container"></div>
+<div class="section">
+<h2 class="title">Qui sommes-nous ?</h2>
+<p style="text-align:center">
+Entreprise spécialisée en aménagement paysager, vente de plantes, pots et bouquets.
+</p>
+</div>
 
-<!-- BOUQUETS -->
-<h2 class="section-title" id="bouquets">Bouquets</h2>
-<div class="grid" id="bouquets-container"></div>
+<!-- PREVIEW PLANTS -->
+<h2 class="title">Plantes</h2>
+<div class="grid" id="preview-plants"></div>
+<div class="btn"><button onclick="show('plants')">Voir tout</button></div>
 
-<!-- FOOTER -->
-<footer>
-<p>📍 Tanger | 📞 0661722457</p>
-<p>© Jardins du Paradis 2026</p>
+<!-- PREVIEW POTS -->
+<h2 class="title">Les Pots</h2>
+<div class="grid" id="preview-pots"></div>
+<div class="btn"><button onclick="show('pots')">Voir tout</button></div>
+
+<!-- PREVIEW BOUQUETS -->
+<h2 class="title">Bouquets</h2>
+<div class="grid" id="preview-bouquets"></div>
+<div class="btn"><button onclick="show('bouquets')">Voir tout</button></div>
+
+</div>
+
+<!-- FULL SECTIONS -->
+<div id="plants" class="section" style="display:none">
+<div class="back"><button onclick="show('home')">← Retour</button></div>
+<h2 class="title">Toutes les plantes</h2>
+<div class="grid" id="full-plants"></div>
+</div>
+
+<div id="pots" class="section" style="display:none">
+<div class="back"><button onclick="show('home')">← Retour</button></div>
+<h2 class="title">Tous les pots</h2>
+<div class="grid" id="full-pots"></div>
+</div>
+
+<div id="bouquets" class="section" style="display:none">
+<div class="back"><button onclick="show('home')">← Retour</button></div>
+<h2 class="title">Tous les bouquets</h2>
+<div class="grid" id="full-bouquets"></div>
+</div>
+
+<div id="jardinage" class="section" style="display:none">
+<div class="back"><button onclick="show('home')">← Retour</button></div>
+<h2 class="title">Nos réalisations</h2>
+<div class="gallery" id="jardinage-gallery"></div>
+<div class="btn"><button onclick="document.getElementById('contact').scrollIntoView()">Contactez-nous</button></div>
+</div>
+
+<div id="soins" class="section" style="display:none">
+<div class="back"><button onclick="show('home')">← Retour</button></div>
+<h2 class="title">Soins</h2>
+<div class="grid" id="full-soins"></div>
+</div>
+
+<div id="oiseaux" class="section" style="display:none">
+<div class="back"><button onclick="show('home')">← Retour</button></div>
+<h2 class="title">Oiseaux</h2>
+<div class="grid" id="full-oiseaux"></div>
+</div>
+
+<!-- CONTACT -->
+<footer id="contact">
+<h3>Contact</h3>
+<p>📞 0661722457</p>
+<p>📍 Tanger</p>
+<p>WhatsApp disponible</p>
 </footer>
 
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/212661722457" class="whatsapp">
-<i class="fab fa-whatsapp"></i>
-</a>
-
 <script>
-const plants = [
-{name:"Monstera",price:"120 DH",img:"images/plant1.jpg"},
-{name:"Ficus",price:"150 DH",img:"images/plant2.jpg"},
-{name:"Palmier",price:"200 DH",img:"images/plant3.jpg"}
-];
+// DATA
+const plants = Array.from({length:9},(_,i)=>({name:`Plante ${i+1}`,price:"100 DH",img:`images/plant${i+1}.jpg`}));
+const pots = Array.from({length:9},(_,i)=>({name:`Pot ${i+1}`,price:"150 DH",img:`images/pot${i+1}.jpg`}));
+const bouquets = Array.from({length:24},(_,i)=>({name:`Bouquet ${i+1}`,price:"200 DH",img:`images/fleur${i+1}.jpg`}));
+const soins = Array.from({length:3},(_,i)=>({name:`Soin ${i+1}`,price:"60 DH",img:`images/med${i+1}.jpg`}));
+const oiseaux = Array.from({length:2},(_,i)=>({name:`Oiseau ${i+1}`,price:"35 DH",img:`images/bird${i+1}.jpg`}));
 
-const bouquets = [
-{name:"Bouquet Rouge",price:"200 DH",img:"images/fleur1.jpg"},
-{name:"Bouquet Blanc",price:"180 DH",img:"images/fleur2.jpg"}
-];
-
-function createCard(item){
-return `
-<div class="card">
-<span class="badge">Nouveau</span>
+function card(item){
+return `<div class="card">
 <img src="${item.img}">
-<h3>${item.name}</h3>
+<h4>${item.name}</h4>
 <p class="price">${item.price}</p>
-<a href="https://wa.me/212661722457?text=Je veux commander ${item.name}" class="order-btn">
-Commander
-</a>
-</div>
-`;
+</div>`;
 }
 
-document.getElementById('plants-container').innerHTML = plants.map(createCard).join('');
-document.getElementById('bouquets-container').innerHTML = bouquets.map(createCard).join('');
+// PREVIEW
+previewPlants.innerHTML = plants.slice(0,3).map(card).join('');
+previewPots.innerHTML = pots.slice(0,3).map(card).join('');
+previewBouquets.innerHTML = bouquets.slice(0,3).map(card).join('');
+
+// FULL
+fullPlants.innerHTML = plants.map(card).join('');
+fullPots.innerHTML = pots.map(card).join('');
+fullBouquets.innerHTML = bouquets.map(card).join('');
+fullSoins.innerHTML = soins.map(card).join('');
+fullOiseaux.innerHTML = oiseaux.map(card).join('');
+
+// JARDINAGE
+let j='';
+for(let i=1;i<=23;i++){
+j+=`<img src="images/jardin${i}.jpg">`;
+}
+document.getElementById('jardinage-gallery').innerHTML=j;
+
+// NAVIGATION
+function show(id){
+document.querySelectorAll('.section').forEach(s=>s.style.display='none');
+document.getElementById(id).style.display='block';
+window.scrollTo(0,0);
+}
 </script>
 
 </body>
