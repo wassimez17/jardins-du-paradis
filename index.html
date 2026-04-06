@@ -661,11 +661,23 @@
                         <li><i class="fas fa-tint"></i> <strong>Arrosage:</strong> <span id="p-water"></span></li>
                         <li><i class="fas fa-seedling"></i> <strong>Sol:</strong> <span id="p-soil"></span></li>
                         <li><i class="fas fa-arrows-alt-v"></i> <strong>Hauteur:</strong> <span id="p-height"></span></li>
+                        <div id="modalDescriptionSection">
+    <ul class="plant-details" id="plantInfoList"> ... </ul>
+
+    <ul class="plant-details" id="flowerInfoList" style="display:none;"> ... </ul>
+
+    <ul class="plant-details" id="careInfoList" style="display:none;">
+        <li><i class="fas fa-microscope"></i> <strong>Description:</strong> <span id="c-desc"></span></li>
+        <li><i class="fas fa-vial"></i> <strong>Mode d'emploi:</strong> <span id="c-usage"></span></li>
+        <li><i class="fas fa-calendar-alt"></i> <strong>Fréquence:</strong> <span id="c-period"></span></li>
+    </ul>
+</div>
                     </ul>
-                    <ul class="plant-details" id="flowerInfoList" style="display:none;">
-                        <li><i class="fas fa-info-circle"></i> <strong>Description:</strong> <span id="f-desc"></span></li>
-                        <li><i class="fas fa-calendar-check"></i> <strong>Occasion:</strong> <span id="f-occasion"></span></li>
-                    </ul>
+                   <ul class="plant-details" id="careInfoList" style="display:none;">
+    <li><i class="fas fa-microscope"></i> <strong>Description:</strong> <span id="c-desc"></span></li>
+    <li><i class="fas fa-vial"></i> <strong>Mode d'emploi:</strong> <span id="c-usage"></span></li>
+    <li><i class="fas fa-calendar-alt"></i> <strong>Fréquence:</strong> <span id="c-period"></span></li>
+</ul>
                 </div>
                 <br>
                 <a id="waLink" href="#" class="btn-wa" style="width: 100%; text-align: center;">Commander via WhatsApp</a>
@@ -733,7 +745,32 @@
         document.getElementById('waLink').href = "https://wa.me/212661722457?text=Bonjour, je souhaite commander le bouquet : " + name + " au prix de " + price;
         document.getElementById('plantModal').style.display = "block";
     }
+<script>
+    // الدوال القديمة (openPlant, openFlower) تبقى كما هي هنا...
 
+    // --- أضف دالة openCare هنا (رقم 3) ---
+    function openCare(name, img, price, desc, usage, period) {
+        document.getElementById('modalTitle').innerText = name;
+        document.getElementById('modalImg').src = img;
+        document.getElementById('modalPriceDisplay').innerText = price;
+        
+        document.getElementById('plantInfoList').style.display = 'none';
+        document.getElementById('flowerInfoList').style.display = 'none';
+        document.getElementById('careInfoList').style.display = 'block'; // إظهار قائمة الأدوية
+
+        document.getElementById('c-desc').innerText = desc;
+        document.getElementById('c-usage').innerText = usage;
+        document.getElementById('c-period').innerText = period;
+
+        document.getElementById('waLink').href = `https://wa.me/212661722457?text=Bonjour, je souhaite commander ce soin: ${name}`;
+        document.getElementById('plantModal').style.display = 'block';
+    }
+
+    // دالة الإغلاق تبقى في الأسفل
+    function closeModal() {
+        document.getElementById('plantModal').style.display = 'none';
+    }
+</script>
     function closeModal() {
         document.getElementById('plantModal').style.display = "none";
     }
