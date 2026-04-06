@@ -1,20 +1,11 @@
-Voici une version **améliorée et optimisée** de votre code avec de nombreuses améliorations :
-
-```html
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jardins du Paradis | Luxe & Nature - Tanger</title>
-    <meta name="description" content="Spécialiste de l'aménagement paysager à Tanger. Plantes rares, pots de luxe, jardinage professionnel et bouquets artisanaux.">
-    
-    <!-- Préchargement des polices et images critiques -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Playfair+Display:wght@400;600;800&display=swap" as="style">
-    <link rel="preload" href="images/logo.png" as="image">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Playfair+Display:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Jardins du Paradis | Luxe & Nature</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <style>
         :root { 
@@ -22,455 +13,244 @@ Voici une version **améliorée et optimisée** de votre code avec de nombreuses
             --gold-accent: #c5a059; 
             --bg-light: #fdfdfd;
             --text-dark: #2c2c2c;
-            --shadow-light: 0 4px 20px rgba(0,0,0,0.08);
-            --shadow-hover: 0 8px 30px rgba(0,0,0,0.15);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        body { 
-            font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, sans-serif; 
-            color: var(--text-dark); 
-            background-color: var(--bg-light); 
-            line-height: 1.7; 
-            overflow-x: hidden;
-        }
+        body { font-family: 'Tajawal', sans-serif; color: var(--text-dark); background-color: var(--bg-light); line-height: 1.6; }
 
-        /* Navigation améliorée */
+        /* Navigation */
         nav { 
-            padding: 1rem 5%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            background: rgba(255,255,255,0.95); 
-            backdrop-filter: blur(10px);
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            box-shadow: var(--shadow-light);
+            padding: 10px 5%; display: flex; justify-content: space-between; align-items: center; 
+            background: white; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-        .logo { 
-            height: 55px; 
-            cursor: pointer; 
-            transition: var(--transition);
-        }
-        .logo:hover { transform: scale(1.05); }
-        .nav-links { 
-            display: flex; 
-            gap: 2px; 
-            list-style: none; 
-            flex-wrap: wrap;
-        }
+        .logo img { height: 50px; cursor: pointer; }
+        .nav-links { display: flex; gap: 10px; list-style: none; flex-wrap: wrap; }
         .nav-links a { 
-            text-decoration: none; 
-            color: var(--main-green); 
-            font-size: 12px; 
-            font-weight: 600; 
-            text-transform: uppercase; 
-            letter-spacing: 0.5px;
-            padding: 12px 16px; 
-            border-radius: 25px;
-            transition: var(--transition);
-            position: relative;
-        }
-        .nav-links a:hover, .nav-links a.active { 
-            background: var(--gold-accent); 
-            color: white; 
-            transform: translateY(-2px);
+            text-decoration: none; color: var(--main-green); font-size: 11px; font-weight: 700; 
+            text-transform: uppercase; cursor: pointer; padding: 5px 8px;
         }
 
-        /* Sections */
-        .page-section { 
-            display: none; 
-            padding-bottom: 60px; 
-            min-height: 60vh; 
-            animation: fadeIn 0.6s ease-out;
-        }
+        /* Section Visibility */
+        .page-section { display: none; padding-bottom: 40px; min-height: 40vh; }
         .page-section.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Bouton retour */
+        /* Back Button */
         .back-btn { 
-            margin: 30px 8%; 
-            padding: 12px 24px; 
-            background: linear-gradient(135deg, #f8f9fa, #e9ecef); 
-            border: 2px solid transparent;
-            border-radius: 50px; 
-            cursor: pointer; 
-            font-weight: 600; 
-            color: var(--main-green);
-            display: inline-flex; 
-            align-items: center; 
-            gap: 10px; 
-            transition: var(--transition);
-            font-size: 14px;
+            margin: 20px 8%; padding: 8px 15px; background: #eee; border: none; 
+            border-radius: 5px; cursor: pointer; font-weight: bold; color: var(--main-green);
+            display: inline-flex; align-items: center; gap: 8px; transition: 0.3s;
         }
-        .back-btn:hover { 
-            background: linear-gradient(135deg, var(--gold-accent), #b8944f); 
-            color: white; 
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-hover);
-        }
+        .back-btn:hover { background: var(--gold-accent); color: white; }
 
-        /* Hero amélioré */
+        /* Hero */
         .hero { 
-            height: 60vh; 
-            background: linear-gradient(135deg, rgba(26,60,52,0.7), rgba(197,160,89,0.3)), 
-                        url('images/hero-bg.jpg'); 
-            background-size: cover; 
-            background-position: center; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            color: white;
-            position: relative;
-            overflow: hidden;
+            height: 45vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/hero-bg.jpg'); 
+            background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; color: white;
         }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
-            animation: shimmer 3s infinite;
-        }
-        @keyframes shimmer { 0%, 100% { transform: translateX(-100%); } 50% { transform: translateX(100%); } }
-        .hero-content { 
-            text-align: center; 
-            z-index: 2;
-            position: relative;
-        }
-        .hero-content h1 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: clamp(2.2rem, 6vw, 4rem); 
-            font-weight: 800;
-            margin-bottom: 1rem;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
-        }
-        .hero-content p {
-            font-size: 1.2rem;
-            opacity: 0.95;
-        }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 35px; text-align: center; }
 
-        /* Titres de section */
-        .section-title { 
-            text-align: center; 
-            margin: 60px 0 35px; 
-            font-family: 'Playfair Display', serif; 
-            font-size: clamp(1.8rem, 4vw, 2.5rem); 
-            color: var(--main-green); 
-            position: relative;
-            display: inline-block;
-        }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gold-accent), transparent);
-            border-radius: 2px;
-        }
-
-        /* Grille catalogue améliorée */
-        .catalog-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 30px; 
-            padding: 0 8%; 
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+        /* Catalog Grid */
+        .section-title { text-align: center; margin: 40px 0 25px; font-family: 'Playfair Display', serif; font-size: 26px; color: var(--main-green); border-bottom: 2px solid var(--gold-accent); display: table; margin-left: auto; margin-right: auto; padding-bottom: 5px; }
+        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; padding: 0 8%; }
         .item-card { 
-            background: white; 
-            border-radius: 20px; 
-            overflow: hidden; 
-            box-shadow: var(--shadow-light);
-            transition: var(--transition);
-            text-align: center; 
-            padding: 25px 20px 30px;
-            position: relative;
-            cursor: pointer;
+            background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: 0.3s; text-align: center; padding-bottom: 15px; cursor: pointer; border: 1px solid #f0f0f0;
         }
-        .item-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--gold-accent), transparent);
-            transform: scaleX(0);
-            transition: var(--transition);
-        }
-        .item-card:hover::before { transform: scaleX(1); }
-        .item-card:hover { 
-            transform: translateY(-12px); 
-            box-shadow: var(--shadow-hover);
-        }
-        .item-card img { 
-            width: 100%; 
-            height: 240px; 
-            object-fit: cover; 
-            border-radius: 16px;
-            margin-bottom: 20px;
-            transition: var(--transition);
-        }
-        .item-card:hover img { transform: scale(1.05); }
-        .item-card h4 { 
-            font-size: 1.1rem; 
-            margin-bottom: 10px; 
-            color: var(--text-dark);
-            font-weight: 600;
-        }
-        .price { 
-            color: var(--gold-accent); 
-            font-weight: 700; 
-            font-size: 1.3rem;
-            margin-bottom: 8px;
-        }
+        .item-card img { width: 100%; height: 220px; object-fit: cover; }
+        .price { color: var(--gold-accent); font-weight: bold; }
 
-        /* Boutons */
-        .btn-container { text-align: center; margin: 50px 0; }
+        /* Buttons */
+        .btn-container { text-align: center; margin: 25px 0 50px; }
         .btn-view-all { 
-            background: transparent; 
-            border: 3px solid var(--gold-accent); 
-            color: var(--gold-accent); 
-            padding: 15px 40px; 
-            border-radius: 50px; 
-            cursor: pointer; 
-            font-weight: 700;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
+            background: none; border: 2px solid var(--gold-accent); color: var(--gold-accent); 
+            padding: 7px 20px; border-radius: 20px; cursor: pointer; font-weight: bold;
         }
-        .btn-view-all::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%; width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: var(--transition);
-        }
-        .btn-view-all:hover::before { left: 100%; }
-        .btn-view-all:hover { 
-            background: var(--gold-accent); 
-            color: white; 
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
-        }
+        .btn-view-all:hover { background: var(--gold-accent); color: white; }
 
-        /* Jardinage masonry amélioré */
-        .jardinage-grid { 
-            column-count: 3; 
-            column-gap: 20px; 
-            padding: 0 8%; 
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .jardinage-item { 
-            margin-bottom: 20px; 
-            break-inside: avoid; 
-            border-radius: 16px; 
-            overflow: hidden; 
-            box-shadow: var(--shadow-light);
-            transition: var(--transition);
-        }
-        .jardinage-item:hover { 
-            transform: translateY(-8px); 
-            box-shadow: var(--shadow-hover);
-        }
-        .jardinage-item img { 
-            width: 100%; 
-            height: auto; 
-            display: block; 
-            transition: var(--transition);
-        }
-        .jardinage-item:hover img { transform: scale(1.03); }
+        /* Jardinage */
+        .jardinage-grid { column-count: 3; column-gap: 12px; padding: 0 8%; }
+        .jardinage-item { margin-bottom: 12px; break-inside: avoid; border-radius: 8px; overflow: hidden; }
+        .jardinage-item img { width: 100%; display: block; }
 
-        /* Footer amélioré */
-        .global-footer { 
-            background: linear-gradient(135deg, var(--main-green), #0f2a24); 
-            color: white; 
-            padding: 80px 8% 40px; 
-            margin-top: 80px;
-            position: relative;
-        }
-        .global-footer::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, var(--gold-accent), transparent, var(--gold-accent));
-        }
-        .footer-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 50px; 
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .footer-box h4 { 
-            color: var(--gold-accent); 
-            margin-bottom: 25px; 
-            font-size: 1.3rem; 
-            font-weight: 700;
-            position: relative;
-        }
-        .footer-box h4::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background: var(--gold-accent);
-        }
-        .footer-box p, .footer-box a { 
-            color: #e0e6e0; 
-            text-decoration: none; 
-            display: flex; 
-            align-items: center; 
-            gap: 12px; 
-            margin-bottom: 18px; 
-            font-size: 15px;
-            transition: var(--transition);
-            padding: 8px 0;
-        }
-        .footer-box a:hover { 
-            color: var(--gold-accent); 
-            transform: translateX(5px);
-        }
-        .map-container { 
-            width: 100%; 
-            height: 220px; 
-            border-radius: 16px; 
-            overflow: hidden; 
-            margin-top: 20px; 
-            border: 3px solid rgba(255,255,255,0.2);
-            box-shadow: var(--shadow-light);
-        }
+        /* Global Footer (Contact Always Visible) */
+        .global-footer { background: var(--main-green); color: white; padding: 50px 8% 20px; margin-top: 60px; border-top: 4px solid var(--gold-accent); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 35px; }
+        .footer-box h4 { color: var(--gold-accent); margin-bottom: 15px; font-size: 18px; text-transform: uppercase; }
+        .footer-box p, .footer-box a { color: #ddd; text-decoration: none; display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 14px; }
+        .map-container { width: 100%; height: 180px; border-radius: 8px; overflow: hidden; margin-top: 10px; border: 1px solid #444; }
 
-        /* Modal amélioré */
-        .modal { 
-            display: none; 
-            position: fixed; 
-            z-index: 3000; 
-            left: 0; 
-            top: 0; 
-            width: 100%; 
-            height: 100%; 
-            background: rgba(0,0,0,0.9); 
-            backdrop-filter: blur(5px);
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            animation: modalSlide 0.4s ease-out;
-        }
-        @keyframes modalSlide { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
-        .modal-content { 
-            background: white; 
-            padding: 40px; 
-            border-radius: 24px; 
-            width: 90%; 
-            max-width: 800px; 
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative; 
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 30px; 
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
-        }
-        .modal-close {
-            position: absolute;
-            right: 25px; 
-            top: 25px; 
-            cursor: pointer; 
-            font-size: 30px; 
-            color: #999;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-        .modal-close:hover { 
-            background: var(--gold-accent); 
-            color: white;
-        }
-        #modalImg { 
-            width: 100%; 
-            max-width: 350px;
-            border-radius: 20px;
-            box-shadow: var(--shadow-hover);
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .catalog-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
-            .jardinage-grid { column-count: 2; }
-        }
-        @media (max-width: 768px) {
-            nav { 
-                flex-direction: column; 
-                gap: 15px; 
-                padding: 1rem;
-            }
-            .nav-links { 
-                gap: 5px; 
-                justify-content: center;
-            }
-            .nav-links a { 
-                padding: 10px 12px; 
-                font-size: 11px;
-            }
-            .jardinage-grid { column-count: 1; }
-            .hero { height: 50vh; }
-            .catalog-grid, .jardinage-grid { padding: 0 5%; }
-            .modal-content { padding: 25px 20px; }
-        }
-        @media (max-width: 480px) {
-            .section-title { margin: 40px 0 25px; }
-            .back-btn { margin: 20px 5%; padding: 10px 20px; }
-        }
-
-        /* Loading */
-        .loading { 
-            display: inline-block; 
-            width: 20px; 
-            height: 20px; 
-            border: 3px solid rgba(197,160,89,0.3); 
-            border-radius: 50%; 
-            border-top-color: var(--gold-accent);
-            animation: spin 1s ease-in-out infinite;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
+        /* Modal */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: flex; align-items: center; justify-content: center; }
+        .modal-content { background: white; padding: 25px; border-radius: 12px; width: 90%; max-width: 650px; position: relative; display: flex; flex-wrap: wrap; gap: 20px; }
+        
+        @media (max-width: 768px) { .jardinage-grid { column-count: 2; } nav { flex-direction: column; } }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
     <nav>
-        <div class="logo" onclick="showSection('accueil')" title="Accueil">
-            <img src="images/logo.png" alt="Jardins du Paradis - Logo" loading="eager">
-        </div>
-        <ul class="nav-links" id="navLinks">
-            <li><a onclick="showSection('accueil')" data-section="accueil">Accueil</a></li>
-            <li><a onclick="showSection('plantes')" data-section="plantes">Plantes</a></li>
-            <li><a onclick="showSection('pots')" data-section="pots">Pots</a></li>
-            <li><a onclick="showSection('jardinage')" data-section="jardinage">Jardinage</a></li>
-            <li><a onclick="showSection('soins')" data-section="soins">Soins</a></li>
-            <li><a onclick="showSection('oiseaux')" data-section="oiseaux">Oiseaux</a></li>
-            <li><a onclick="showSection('bouquets')" data-section="bouquets">Bouquets</a></li>
+        <div class="logo" onclick="showSection('accueil')"><img src="images/logo.png" alt="Logo"></div>
+        <ul class="nav-links">
+            <li><a onclick="showSection('accueil')">Accueil</a></li>
+            <li><a onclick="showSection('plantes')">Plantes</a></li>
+            <li><a onclick="showSection('pots')">Les Pots</a></li>
+            <li><a onclick="showSection('jardinage')">Jardinage</a></li>
+            <li><a onclick="showSection('soins')">Soins</a></li>
+            <li><a onclick="showSection('oiseaux')">Oiseaux</a></li>
+            <li><a onclick="showSection('bouquets')">Bouquets</a></li>
         </ul>
     </nav>
 
-    <!-- Accueil -->
     <div id="accueil" class="page-section active">
         <div class="hero">
-            <div class="hero-content
+            <div class="hero-content"><h1>JARDINS DU PARADIS</h1></div>
+        </div>
+        <div style="padding: 50px 10%; text-align: center; background: white;">
+            <h2 style="color:var(--main-green);">Artisans de la Nature depuis 2007</h2>
+            <p>Spécialiste de l'aménagement paysager à Tanger, nous transformons vos espaces en havres de paix grâce à notre expertise en plantes rares, design de jardins et soins horticoles.</p>
+        </div>
+
+        <div class="section-title">Nos Plantes</div>
+        <div class="catalog-grid" id="preview-plants"></div>
+        <div class="btn-container"><button class="btn-view-all" onclick="showSection('plantes')">Voir Toutes الأقسام</button></div>
+
+        <div class="section-title">Les Pots</div>
+        <div class="catalog-grid" id="preview-pots"></div>
+        <div class="btn-container"><button class="btn-view-all" onclick="showSection('pots')">Voir Tout</button></div>
+
+        <div class="section-title">Bouquets</div>
+        <div class="catalog-grid" id="preview-bouquets"></div>
+        <div class="btn-container"><button class="btn-view-all" onclick="showSection('bouquets')">Voir Tout</button></div>
+    </div>
+
+    <div id="plantes" class="page-section">
+        <button class="back-btn" onclick="showSection('accueil')"><i class="fas fa-arrow-left"></i> Retour</button>
+        <div class="section-title">Toutes nos Plantes (9)</div>
+        <div class="catalog-grid" id="full-plants"></div>
+    </div>
+
+    <div id="pots" class="page-section">
+        <button class="back-btn" onclick="showSection('accueil')"><i class="fas fa-arrow-left"></i> Retour</button>
+        <div class="section-title">Nos Pots (9)</div>
+        <div class="catalog-grid" id="full-pots"></div>
+    </div>
+
+    <div id="jardinage" class="page-section">
+        <button class="back-btn" onclick="showSection('accueil')"><i class="fas fa-arrow-left"></i> Retour</button>
+        <div class="section-title">Nos Travaux de Jardinage</div>
+        <div class="jardinage-grid" id="full-jardinage"></div>
+    </div>
+
+    <div id="soins" class="page-section">
+        <button class="back-btn" onclick="showSection('accueil')"><i class="fas fa-arrow-left"></i> Retour</button>
+        <div class="section-title">Produits de Soins (3)</div>
+        <div class="catalog-grid" id="full-soins"></div>
+    </div>
+
+    <div id="oiseaux" class="page-section">
+        <button class="back-btn" onclick="showSection('accueil')"><i class="fas fa-arrow-left"></i> Retour</button>
+        <div class="section-title">Alimentation Oiseaux (2)</div>
+        <div class="catalog-grid" id="full-birds"></div>
+    </div>
+
+    <div id="bouquets" class="page-section">
+        <button class="back-btn" onclick="showSection('accueil')"><i class="fas fa-arrow-left"></i> Retour</button>
+        <div class="section-title">Boutique Bouquets (24)</div>
+        <div class="catalog-grid" id="full-bouquets"></div>
+    </div>
+
+    <footer class="global-footer">
+        <div class="footer-grid">
+            <div class="footer-box">
+                <h4>Contact Direct</h4>
+                <a href="tel:0661722457"><i class="fas fa-phone"></i> 06 61 72 24 57</a>
+                <a href="tel:0661064117"><i class="fas fa-phone"></i> 06 61 06 41 17</a>
+                <a href="https://wa.me/212661722457" style="color:#25d366;"><i class="fab fa-whatsapp"></i> WhatsApp Principal</a>
+                <a href="mailto:contact@jardinsduparadis.com"><i class="fas fa-envelope"></i> contact@jardinsduparadis.com</a>
+            </div>
+            <div class="footer-box">
+                <h4>Suivez-nous</h4>
+                <div style="display:flex; gap:15px; margin-top:10px;">
+                    <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                    <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+                </div>
+            </div>
+            <div class="footer-box">
+                <h4>Localisation (Tanger)</h4>
+                <p><i class="fas fa-map-marker-alt"></i> Hay Mandar Jamil, Tanger</p>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.5!2d-5.8!3d35.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDQyJzAwLjAiTiA1wrA0OCcwMC4wIlc!5e0!3m2!1sfr!2sma!4v123456789" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+        <p style="text-align: center; margin-top: 40px; opacity: 0.3; font-size: 10px;">© 2026 Jardins du Paradis - Tanger</p>
+    </footer>
+
+    <div id="itemModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span style="position:absolute; right:15px; top:10px; cursor:pointer; font-size:25px;" onclick="closeModal()">&times;</span>
+            <div style="flex:1; min-width:200px;"><img id="modalImg" src="" style="width:100%; border-radius:8px;"></div>
+            <div style="flex:1.2;">
+                <h2 id="modalTitle" style="color:var(--main-green);"></h2>
+                <p id="modalPrice" style="color:var(--gold-accent); font-weight:bold; font-size:20px;"></p>
+                <p id="modalDesc" style="margin:15px 0; font-size:14px;"></p>
+                <a id="modalWa" href="#" class="btn-view-all" style="display:inline-block; text-decoration:none; background:var(--main-green); color:white; border:none;">Commander via WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const data = {
+            plants: Array.from({length: 9}, (_, i) => ({ name: `Plante ${i+1}`, price: "100 DH", img: `images/plant${i+1}.jpg`, desc: "Plante naturelle de haute qualité." })),
+            pots: Array.from({length: 9}, (_, i) => ({ name: `Pot Luxe ${i+1}`, price: "150 DH", img: `images/pot${i+1}.jpg`, desc: "Pot artisanal élégant." })),
+            soins: Array.from({length: 3}, (_, i) => ({ name: `Produit Soin ${i+1}`, price: "60 DH", img: `images/med${i+1}.jpg`, desc: "Vitamines pour la croissance." })),
+            birds: Array.from({length: 2}, (_, i) => ({ name: `Graines ${i+1}`, price: "35 DH", img: `images/bird${i+1}.jpg`, desc: "Aliment complet pour oiseaux." })),
+            bouquets: Array.from({length: 24}, (_, i) => ({ name: `Bouquet ${i+1}`, price: "200 DH", img: `images/fleur${i+1}.jpg`, desc: "Composition florale artisanale." }))
+        };
+
+        function showSection(id) {
+            document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function createCard(item) {
+            return `<div class="item-card" onclick="openModal('${item.name}', '${item.img}', '${item.price}', '${item.desc}')">
+                        <img src="${item.img}">
+                        <h4 style="margin-top:10px;">${item.name}</h4>
+                        <p class="price">${item.price}</p>
+                    </div>`;
+        }
+
+        window.onload = () => {
+            // Fill Previews (3 items)
+            document.getElementById('preview-plants').innerHTML = data.plants.slice(0,3).map(createCard).join('');
+            document.getElementById('preview-pots').innerHTML = data.pots.slice(0,3).map(createCard).join('');
+            document.getElementById('preview-bouquets').innerHTML = data.bouquets.slice(0,3).map(createCard).join('');
+
+            // Fill Full Sections
+            document.getElementById('full-plants').innerHTML = data.plants.map(createCard).join('');
+            document.getElementById('full-pots').innerHTML = data.pots.map(createCard).join('');
+            document.getElementById('full-soins').innerHTML = data.soins.map(createCard).join('');
+            document.getElementById('full-birds').innerHTML = data.birds.map(createCard).join('');
+            document.getElementById('full-bouquets').innerHTML = data.bouquets.map(createCard).join('');
+
+            // Fill Jardinage (23 Images)
+            let jardHtml = '';
+            for(let i=1; i<=23; i++) { jardHtml += `<div class="jardinage-item"><img src="images/jardin${i}.jpg"></div>`; }
+            document.getElementById('full-jardinage').innerHTML = jardHtml;
+        };
+
+        function openModal(name, img, price, desc) {
+            document.getElementById('modalTitle').innerText = name;
+            document.getElementById('modalImg').src = img;
+            document.getElementById('modalPrice').innerText = price;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('modalWa').href = `https://wa.me/212661722457?text=Commande: ${name}`;
+            document.getElementById('itemModal').style.display = "flex";
+        }
+
+        function closeModal() { document.getElementById('itemModal').style.display = "none"; }
+    </script>
+</body>
+</html>
