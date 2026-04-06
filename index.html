@@ -43,7 +43,7 @@
             padding: 30px;
             border-radius: 15px;
             width: 90%;
-            max-width: 750px;
+            max-width: 800px;
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
@@ -67,9 +67,10 @@
         .modal-right { flex: 1.2; min-width: 250px; text-align: left; }
         .modal-right h2 { color: var(--main-green); font-family: 'Playfair Display', serif; margin-bottom: 5px; }
         .modal-price { color: var(--gold-accent); font-weight: 700; font-size: 20px; margin-bottom: 15px; display: block; }
-        .plant-details { list-style: none; }
+        
+        .plant-details { list-style: none; margin-bottom: 20px; }
         .plant-details li { margin-bottom: 12px; font-size: 14px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-        .plant-details i { color: var(--gold-accent); margin-right: 10px; width: 20px; }
+        .plant-details i { color: var(--gold-accent); margin-right: 10px; width: 20px; text-align: center; }
         .plant-details strong { color: var(--main-green); }
 
         /* Navigation */
@@ -139,24 +140,11 @@
         .price { display: block; color: var(--gold-accent); font-weight: 700; margin-bottom: 20px; }
         .btn-wa { display: inline-block; padding: 10px 30px; background: var(--main-green); color: white; text-decoration: none; border-radius: 5px; font-size: 13px; font-weight: bold; text-transform: uppercase; border: none; cursor: pointer; }
 
-        /* --- JARDINAGE SECTION (NEW UNIQUE DESIGN) --- */
-        .jardinage-container {
-            background: #f4f7f6;
-            padding: 80px 10%;
-        }
-        .jardinage-intro {
-            max-width: 800px;
-            margin: 0 auto 50px;
-            text-align: center;
-        }
-        .jardinage-intro p {
-            font-size: 18px;
-            color: #555;
-            font-style: italic;
-        }
+        /* Jardinage Masonry */
         .jardinage-masonry {
             column-count: 3;
             column-gap: 20px;
+            padding: 0 10% 80px;
         }
         .jardinage-item {
             background: white;
@@ -166,13 +154,8 @@
             overflow: hidden;
             position: relative;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: 0.3s;
         }
-        .jardinage-item img {
-            width: 100%;
-            display: block;
-            transition: 0.5s ease;
-        }
+        .jardinage-item img { width: 100%; display: block; transition: 0.5s; }
         .jardinage-overlay {
             position: absolute;
             bottom: 0; left: 0; right: 0;
@@ -181,33 +164,16 @@
             padding: 20px;
             opacity: 0;
             transition: 0.3s;
-            transform: translateY(20px);
         }
-        .jardinage-item:hover { transform: scale(1.02); }
-        .jardinage-item:hover img { transform: scale(1.1); }
-        .jardinage-item:hover .jardinage-overlay { opacity: 1; transform: translateY(0); }
-        
+        .jardinage-item:hover .jardinage-overlay { opacity: 1; }
+
         @media (max-width: 992px) { .jardinage-masonry { column-count: 2; } }
         @media (max-width: 600px) { .jardinage-masonry { column-count: 1; } }
 
         /* Footer */
-        .contact-footer { background: var(--main-green); color: white; padding: 80px 10% 40px; position: relative; width: 100%; }
+        .contact-footer { background: var(--main-green); color: white; padding: 80px 10% 40px; }
         .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 50px; }
-        .contact-box h4 { color: var(--gold-accent); font-family: 'Playfair Display', serif; margin-bottom: 20px; font-size: 20px; }
-        .contact-box a, .contact-box p { color: #bbb; text-decoration: none; display: block; margin-bottom: 10px; font-size: 14px; transition: 0.3s; }
-        .contact-box a:hover { color: var(--gold-accent); }
-        .social-links { display: flex; gap: 15px; margin-top: 10px; }
-        .social-links a { font-size: 24px; color: #bbb; transition: 0.3s; }
-        .social-links a:hover { color: var(--gold-accent); }
-        .map-card { width: 100%; height: 150px; border-radius: 10px; overflow: hidden; margin-top: 15px; position: relative; display: block; }
-        .map-card img { width: 100%; height: 100%; object-fit: cover; }
-        .map-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(197,160,89,0.9); color: white; padding: 5px; text-align: center; font-size: 11px; }
-
-        @media (max-width: 768px) {
-            nav { flex-direction: column; gap: 15px; }
-            .nav-links { gap: 15px; font-size: 13px; }
-            .catalog-grid { padding: 0 5%; gap: 20px; }
-        }
+        .contact-box h4 { color: var(--gold-accent); margin-bottom: 20px; }
     </style>
 </head>
 <body>
@@ -215,14 +181,14 @@
     <nav>
         <div class="logo"><img src="images/logo.png" alt="Logo"></div>
         <ul class="nav-links">
-    <li><a href="#home">Accueil</a></li>
-    <li><a href="#plants">Plantes</a></li>
-    <li><a href="#flowers">Bouquets</a></li>
-    <li><a href="#soins">Soins</a></li> 
-    <li><a href="#oiseaux">Oiseaux</a></li> 
-    <li><a href="#jardinage">Jardinage</a></li>
-    <li><a href="#contact">Contact</a></li>
-</ul>
+            <li><a href="#home">Accueil</a></li>
+            <li><a href="#plants">Plantes</a></li>
+            <li><a href="#flowers">Bouquets</a></li>
+            <li><a href="#soins">Soins</a></li> 
+            <li><a href="#oiseaux">Oiseaux</a></li> 
+            <li><a href="#jardinage">Jardinage</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
     <header id="home" class="hero">
@@ -232,415 +198,26 @@
         </div>
     </header>
 
-    <section class="about-section">
-        <h2>Quand l'Art Rencontre la Nature</h2>
-        <p>Spécialistes de l'aménagement paysager à Tanger depuis 2007, nous créons des oasis de sérénité pour vos intérieurs et extérieurs.</p>
+    <section id="plants">
+        <div class="section-title">Notre Collection Royale</div>
+        <div class="catalog-grid">
+            <div class="item-card" onclick="openPlant('ASPLENIUM', 'images/plant1.jpg', '100.00 DH', 'Asie du Sud-Est', 'Lumière tamisée', '1 à 2 fois/sem', 'Humus', '30-50 cm')">
+                <img src="images/plant1.jpg" alt="ASPLENIUM">
+                <h4>ASPLENIUM</h4>
+                <span class="price">100.00 DH</span>
+                <button class="btn-wa">Détails</button>
+            </div>
+            </div>
     </section>
 
-        <div id="plants" class="section-title">Notre Collection Royale</div>
-    <div class="catalog-grid">
-        <div class="item-card" onclick="openPlant('ASPLENIUM', 'images/plant1.jpg', '100.00 DH', 'Asie du Sud-Est', 'Lumière tamisée', '1 à 2 fois/sem', 'Humus', '30-50 cm')">
-            <img src="images/plant1.jpg" alt="ASPLENIUM">
-            <h4>ASPLENIUM</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openPlant('ALOCASIA POLLY', 'images/plant2.jpg', '100.00 DH', 'Asie Tropicale', 'Lumière vive', '1 fois/sem', 'Bien drainé', '40-60 cm')">
-            <img src="images/plant2.jpg" alt="ALOCASIA">
-            <h4>ALOCASIA POLLY</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openPlant('DIFFEMBACHIA CAMILLA', 'images/plant3.jpg', '100.00 DH', 'Amérique Latine', 'Lumière indirecte', 'Modéré', 'Fertile', '50-80 cm')">
-            <img src="images/plant3.jpg" alt="DIFFEMBACHIA">
-            <h4>DIFFEMBACHIA CAMILLA</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openPlant('ANTHURIUM', 'images/plant4.jpg', '100.00 DH', 'Amérique Tropicale', 'Lumière vive', '1 fois/sem', 'Drainant', '40-60 cm')">
-            <img src="images/plant4.jpg" alt="ANTHURIUM">
-            <h4>ANTHURIUM</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openPlant('GARDENIA JAMINOIDES', 'images/plant5.jpg', '100.00 DH', 'Chine et Japon', 'Lumière vive', '2 à 3 fois/sem', 'Acide', '30-60 cm')">
-            <img src="images/plant5.jpg" alt="GARDENIA">
-            <h4>GARDENIA JAMINOIDES</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openPlant('FICUS ELASTICA', 'images/plant6.jpg', '100.00 DH', 'Asie du Sud-Est', 'Lumière vive indirecte', '1 fois/sem', 'Drainage rapide', '60-100 cm')">
-            <img src="images/plant6.jpg" alt="FICUS">
-            <h4>FICUS ELASTICA</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openPlant('DRACAEANA FRAGRANS', 'images/plant7.jpg', '100.00 DH', 'Afrique Tropicale', 'Moyenne à vive', 'Tous les 10 jours', 'Standard', '80-120 cm')">
-            <img src="images/plant7.jpg" alt="DRACAEANA">
-            <h4>DRACAEANA FRAGRANS</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openPlant('DRACAEANA DEREMENSIS', 'images/plant8.jpg', '100.00 DH', 'Afrique Tropicale', 'Ombre à mi-ombre', '1 fois/sem', 'Bien drainé', '60-90 cm')">
-            <img src="images/plant8.jpg" alt="DRACAEANA">
-            <h4>DRACAEANA DEREMENSIS</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openPlant('DIFFENBACHIA', 'images/plant9.jpg', '100.00 DH', 'Amérique Centrale/Sud', 'Lumière indirecte', 'Régulier', 'Riche', '50-100 cm')">
-            <img src="images/plant9.jpg" alt="DIFFENBACHIA">
-            <h4>DIFFENBACHIA</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-    </div>
-
-    <div id="flowers" class="section-title">Nos Bouquets de Prestige</div>
-    <div class="catalog-grid">
-        <div class="item-card" onclick="openFlower('BOUQUET AMOUR', 'images/fleur1.jpg', '150.00 DH', 'Un mélange passionné de roses rouges.', 'Saint-Valentin, Anniversaire')">
-            <img src="images/fleur1.jpg" alt="Bouquet">
-            <h4>BOUQUET AMOUR</h4>
-            <span class="price">150.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('BOUQUET PASSION', 'images/fleur2.jpg', '180.00 DH', 'Éclat de couleurs vives et chaleureuses.', 'Célébrations, Déclaration')">
-            <img src="images/fleur2.jpg" alt="Bouquet">
-            <h4>BOUQUET PASSION</h4>
-            <span class="price">180.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('BOUQUET LUMIÈRE', 'images/fleur3.jpg', '120.00 DH', 'Fleurs claires pour illuminer une pièce.', 'Remerciements, Décoration')">
-            <img src="images/fleur3.jpg" alt="Bouquet">
-            <h4>BOUQUET LUMIÈRE</h4>
-            <span class="price">120.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('BOUQUET SÉRÉNITÉ', 'images/fleur4.jpg', '140.00 DH', 'Composition apaisante aux tons pastels.', 'Souhaits de santé, Paix')">
-            <img src="images/fleur4.jpg" alt="Bouquet">
-            <h4>BOUQUET SÉRÉNITÉ</h4>
-            <span class="price">140.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('BOUQUET ÉCLAT', 'images/fleur5.jpg', '200.00 DH', 'Design moderne et fleurs exotiques.', 'Inauguration, Prestige')">
-            <img src="images/fleur5.jpg" alt="Bouquet">
-            <h4>BOUQUET ÉCLAT</h4>
-            <span class="price">200.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('BOUQUET HARMONIE', 'images/fleur6.jpg', '110.00 DH', 'Équilibre parfait entre fleurs et feuillage.', 'Amitié, Quotidien')">
-            <img src="images/fleur6.jpg" alt="Bouquet">
-            <h4>BOUQUET HARMONIE</h4>
-            <span class="price">110.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('BOUQUET ROMANCE', 'images/fleur7.jpg', '160.00 DH', 'Élégance classique et senteur douce.', 'Dîner romantique, Mariage')">
-            <img src="images/fleur7.jpg" alt="Bouquet">
-            <h4>BOUQUET ROMANCE</h4>
-            <span class="price">160.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('BOUQUET ROYAL', 'images/fleur8.jpg', '190.00 DH', 'Le choix suprême pour les grandes occasions.', 'Réception, Cérémonie')">
-            <img src="images/fleur8.jpg" alt="Bouquet">
-            <h4>BOUQUET ROYAL</h4>
-            <span class="price">190.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('BOUQUET PARADIS', 'images/fleur9.jpg', '170.00 DH', 'Un jardin miniature dans un bouquet.', 'Cadeau spécial, Fête')">
-            <img src="images/fleur9.jpg" alt="Bouquet">
-            <h4>BOUQUET PARADIS</h4>
-            <span class="price">170.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('BOUQUET NOBLESSE', 'images/fleur10.jpg', '130.00 DH', 'Sobriété et distinction assurées.', 'Affaires, Condoléances')">
-            <img src="images/fleur10.jpg" alt="Bouquet">
-            <h4>BOUQUET NOBLESSE</h4>
-            <span class="price">130.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('BOUQUET GRÂCE', 'images/fleur11.jpg', '145.00 DH', 'Finesse des tiges et délicatesسه des pétales.', 'Fête des mères, Naissance')">
-            <img src="images/fleur11.jpg" alt="Bouquet">
-            <h4>BOUQUET GRÂCE</h4>
-            <span class="price">145.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('BOUQUET PURETÉ', 'images/fleur12.jpg', '100.00 DH', 'Blancheur éclatante et fraîcheur intense.', 'Mariage, Baptême')">
-            <img src="images/fleur12.jpg" alt="Bouquet">
-            <h4>BOUQUET PURETÉ</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('BOUQUET POÉSIE', 'images/fleur13.jpg', '115.00 DH', 'Inspiration artistique et champêtre.', 'Anniversaire, Plaisير d\'offrir')">
-            <img src="images/fleur13.jpg" alt="Bouquet">
-            <h4>BOUQUET POÉSIE</h4>
-            <span class="price">115.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('BOUQUET MAGNOLIA', 'images/fleur14.jpg', '155.00 DH', 'Touches fleuries imposantes et parfumées.', 'Décoration d\'intérieur')">
-            <img src="images/fleur14.jpg" alt="Bouquet">
-            <h4>BOUQUET MAGNOLIA</h4>
-            <span class="price">155.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('BOUQUET ZÉPHYR', 'images/fleur15.jpg', '125.00 DH', 'Légèreté et mouvement naturel.', 'Remerciements, Printemps')">
-            <img src="images/fleur15.jpg" alt="Bouquet">
-            <h4>BOUQUET ZÉPHYR</h4>
-            <span class="price">125.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('BOUQUET DIVIN', 'images/fleur16.jpg', '200.00 DH', 'La perfection florale par excellence.', 'Engagement, Grand luxe')">
-            <img src="images/fleur16.jpg" alt="Bouquet">
-            <h4>BOUQUET DIVIN</h4>
-            <span class="price">200.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('BOUQUET AURORE', 'images/fleur17.jpg', '135.00 DH', 'Couleurs du lever de soleil.', 'Bonne journée, Surprise')">
-            <img src="images/fleur17.jpg" alt="Bouquet">
-            <h4>BOUQUET AURORE</h4>
-            <span class="price">135.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('BOUQUET ORIENT', 'images/fleur18.jpg', '165.00 DH', 'Richesse des textures et mystère.', 'Soirée, Événementiel')">
-            <img src="images/fleur18.jpg" alt="Bouquet">
-            <h4>BOUQUET ORIENT</h4>
-            <span class="price">165.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('BOUQUET MYSTÈRE', 'images/fleur19.jpg', '140.00 DH', 'Combinaison unique de fleurs rares.', 'Curiosité, Cadeau original')">
-            <img src="images/fleur19.jpg" alt="Bouquet">
-            <h4>BOUQUET MYSTÈRE</h4>
-            <span class="price">140.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('BOUQUET PRESTIGE', 'images/fleur20.jpg', '185.00 DH', 'Volume généreux et qualité premium.', 'Remise de prix, Succès')">
-            <img src="images/fleur20.jpg" alt="Bouquet">
-            <h4>BOUQUET PRESTIGE</h4>
-            <span class="price">185.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('BOUQUET EXOTIQUE', 'images/fleur21.jpg', '195.00 DH', 'Voyage visuel vers les tropiques.', 'Dépaysement, Été')">
-            <img src="images/fleur21.jpg" alt="Bouquet">
-            <h4>BOUQUET EXOTIQUE</h4>
-            <span class="price">195.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('BOUQUET JOLI', 'images/fleur22.jpg', '105.00 DH', 'Simple, frais et irrésistible.', 'Plaisير quotidien')">
-            <img src="images/fleur22.jpg" alt="Bouquet">
-            <h4>BOUQUET JOLI</h4>
-            <span class="price">105.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('BOUQUET DÉLICE', 'images/fleur23.jpg', '125.00 DH', 'Un régal pour les yeux et les sens.', 'Gourmandise, Fête')">
-            <img src="images/fleur23.jpg" alt="Bouquet">
-            <h4>BOUQUET DÉLICE</h4>
-            <span class="price">125.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('BOUQUET FINAL', 'images/fleur24.jpg', '175.00 DH', 'L\'apothéose de notre collection florale.', 'Adieu, Grande réussite')">
-            <img src="images/fleur24.jpg" alt="Bouquet">
-            <h4>BOUQUET FINAL</h4>
-            <span class="price">175.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-    </div>
-<div id="soins" class="section-title">Soins & Énergie Végétale</div>
-    <div class="catalog-grid">
-        <div class="item-card" onclick="openFlower('ENGRAIS LIQUIDE', 'images/med1.jpg', '65.00 DH', 'Fertilisant riche en azote pour une croissance rapide.', 'Entretien régulier')">
-            <img src="images/med1.jpg" alt="Engrais">
-            <h4>ENGRAIS LIQUIDE</h4>
-            <span class="price">65.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('SPRAY LUSTRANT', 'images/med2.jpg', '45.00 DH', 'Pour des feuilles brillantes et protégées de la poussière.', 'Beauté des plantes')">
-            <img src="images/med2.jpg" alt="Spray">
-            <h4>SPRAY LUSTRANT</h4>
-            <span class="price">45.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('TERREAU UNIVERSEL', 'images/med3.jpg', '80.00 DH', 'Mélange riche pour rempotage toutes plantes.', 'Rempotage')">
-            <img src="images/med3.jpg" alt="Terreau">
-            <h4>TERREAU UNIVERSEL</h4>
-            <span class="price">80.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-    </div>
-
-    <div id="oiseaux" class="section-title">Espace Oiseaux du Paradis</div>
-    <div class="catalog-grid">
-        <div class="item-card" onclick="openFlower('MÉLANGE CANARIS', 'images/bird1.jpg', '35.00 DH', 'Graines sélectionnées pour le chant et la vitalité.', 'Alimentation quotidienne')">
-            <img src="images/bird1.jpg" alt="Graines">
-            <h4>MÉLANGE CANARIS</h4>
-            <span class="price">35.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openFlower('PÂTÉE AUX ŒUFS', 'images/bird2.jpg', '55.00 DH', 'Complément protéiné pour la période de mue.', 'Soin spécifique')">
-            <img src="images/bird2.jpg" alt="Pâtée">
-            <h4>PÂTÉE AUX ŒUFS</h4>
-            <span class="price">55.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-    </div>
-        
-        <div class="jardinage-masonry">
-            <div class="jardinage-item">
-                <img src="images/jardin1.jpg" alt="Aménagement">
-                <div class="jardinage-overlay">
-                    <h4>Aménagement de Villas</h4>
-                    <p>Création d'espaces verts sur mesure.</p>
-                </div>
-            </div>
-            <div class="jardinage-item">
-                <img src="images/jardin2.jpg" alt="Entretien">
-                <div class="jardinage-overlay">
-                    <h4>Taille et Élagage</h4>
-                    <p>Entretien professionnel de vos arbres.</p>
-                </div>
-            </div>
-            <div class="jardinage-item">
-                <img src="images/jardin3.jpg" alt="Irrigation">
-                <div class="jardinage-overlay">
-                    <h4>Systèmes d'Irrigation</h4>
-                    <p>Solutions intelligentes pour l'économie d'eau.</p>
-                </div>
-            </div>
-            <div class="jardinage-item">
-                <img src="images/jardin4.jpg" alt="Design">
-                <div class="jardinage-overlay">
-                    <h4>Murs Végétaux</h4>
-                    <p>Végétalisation verticale moderne.</p>
-                </div>
-            </div>
-            <div class="jardinage-item">
-                <img src="images/jardin5.jpg" alt="Design">
-                <div class="jardinage-overlay">
-                    <h4>Gazon Naturel</h4>
-                    <p>Installation et maintenance de pelouses.</p>
-                </div>
-            </div>
-            <div class="jardinage-item">
-                <img src="images/jardin6.jpg" alt="Design">
-                <div class="jardinage-overlay">
-                    <h4>Conception 3D</h4>
-                    <p>Visualisez votre jardin avant sa réalisation.</p>
-                </div>
-            </div>
-            <div class="jardinage-item">
-                <img src="images/jardin7.jpg" alt="Design">
-                <div class="jardinage-overlay">
-                    <h4>Conception 3D</h4>
-                    <p>Visualisez votre jardin avant sa réalisation.</p>
-                </div>
-            </div>
-            <div class="jardinage-item">
-                <img src="images/jardin8.jpg" alt="Design">
-                <div class="jardinage-overlay">
-                    <h4>Conception 3D</h4>
-                    <p>Visualisez votre jardin avant sa réalisation.</p>
-                </div>
-            </div>
-            <div class="jardinage-item">
-                <img src="images/jardin9.jpg" alt="Design">
-                <div class="jardinage-overlay">
-                    <h4>Conception 3D</h4>
-                    <p>Visualisez votre jardin avant sa réalisation.</p>
-                </div>
-            </div>
-            <div class="jardinage-item">
-                <img src="images/jardin10.jpg" alt="Design">
-                <div class="jardinage-overlay">
-                    <h4>Conception 3D</h4>
-                    <p>Visualisez votre jardin avant sa réalisation.</p>
-                </div>
-            </div>
-            <div class="jardinage-item">
-                <img src="images/jardin11.jpg" alt="Design">
-                <div class="jardinage-overlay">
-                    <h4>Conception 3D</h4>
-                    <p>Visualisez votre jardin avant sa réalisation.</p>
-                </div>
-            </div>
-            <div class="jardinage-item">
-                <img src="images/jardin12.jpg" alt="Design">
-                <div class="jardinage-overlay">
-                    <h4>Conception 3D</h4>
-                    <p>Visualisez votre jardin avant sa réalisation.</p>
-                </div>
-            </div>
-            <div class="jardinage-item">
-                <img src="images/jardin13.jpg" alt="Design">
-                <div class="jardinage-overlay">
-                    <h4>Conception 3D</h4>
-                    <p>Visualisez votre jardin avant sa réalisation.</p>
-                </div>
-            </div>
-            <div class="jardinage-item">
-                <img src="images/jardin14.jpg" alt="Design">
-                <div class="jardinage-overlay">
-                    <h4>Conception 3D</h4>
-                    <p>Visualisez votre jardin avant sa réalisation.</p>
-                </div>
-            </div>
-            <div class="jardinage-item">
-                <img src="images/jardin15.jpg" alt="Design">
-                <div class="jardinage-overlay">
-                    <h4>Conception 3D</h4>
-                    <p>Visualisez votre jardin avant sa réalisation.</p>
-                </div>
-            </div>
-            <div class="jardinage-item">
-                <img src="images/jardin16.jpg" alt="Design">
-                <div class="jardinage-overlay">
-                    <h4>Conception 3D</h4>
-                    <p>Visualisez votre jardin avant sa réalisation.</p>
-                </div>
-            </div>
-            <div class="jardinage-item">
-                <img src="images/jardin17.jpg" alt="Design">
-                <div class="jardinage-overlay">
-                    <h4>Conception 3D</h4>
-                    <p>Visualisez votre jardin avant sa réalisation.</p>
-                </div>
-            </div>
-            <div class="jardinage-item">
-                <img src="images/jardin18.jpg" alt="Design">
-                <div class="jardinage-overlay">
-                    <h4>Conception 3D</h4>
-                    <p>Visualisez votre jardin avant sa réalisation.</p>
-                </div>
-            </div>
-            <div class="jardinage-item">
-                <img src="images/jardin19.jpg" alt="Design">
-                <div class="jardinage-overlay">
-                    <h4>Conception 3D</h4>
-                    <p>Visualisez votre jardin avant sa réalisation.</p>
-                </div>
-            </div>
-            <div class="jardinage-item">
-                <img src="images/jardin20.jpg" alt="Design">
-                <div class="jardinage-overlay">
-                    <h4>Conception 3D</h4>
-                    <p>Visualisez votre jardin avant sa réalisation.</p>
-                </div>
-            </div>
-            <div class="jardinage-item">
-                <img src="images/jardin21.jpg" alt="Design">
-                <div class="jardinage-overlay">
-                    <h4>Conception 3D</h4>
-                    <p>Visualisez votre jardin avant sa réalisation.</p>
-                </div>
-            </div>
-            <div class="jardinage-item">
-                <img src="images/jardin22.jpg" alt="Design">
-                <div class="jardinage-overlay">
-                    <h4>Conception 3D</h4>
-                    <p>Visualisez votre jardin avant sa réalisation.</p>
-                </div>
-            </div>
-            <div class="jardinage-item">
-                <img src="images/jardin23.jpg" alt="Design">
-                <div class="jardinage-overlay">
-                    <h4>Conception 3D</h4>
-                    <p>Visualisez votre jardin avant sa réalisation.</p>
-                </div>
+    <section id="soins">
+        <div class="section-title">Pharmacie Végétale</div>
+        <div class="catalog-grid">
+            <div class="item-card" onclick="openCare('VITAMINE CROISSANCE', 'images/med1.jpg', '75.00 DH', 'Boosteur de chlorophylle.', 'Diluer 5ml dans 1L d\'eau.', 'Tous les 15 jours')">
+                <img src="images/med1.jpg" alt="Vitamine">
+                <h4>VITAMINE CROISSANCE</h4>
+                <span class="price">75.00 DH</span>
+                <button class="btn-wa">Conseils</button>
             </div>
         </div>
     </section>
@@ -649,163 +226,80 @@
         <div class="modal-content">
             <span class="close-modal" onclick="closeModal()">&times;</span>
             <div class="modal-left">
-                <img id="modalImg" src="" alt="">
+                <img id="modalImg" src="" alt="Produit">
             </div>
             <div class="modal-right">
-                <h2 id="modalTitle">Nom</h2>
-                <span id="modalPriceDisplay" class="modal-price"></span>
+                <h2 id="modalTitle">Nom du Produit</h2>
+                <span class="modal-price" id="modalPriceDisplay">00.00 DH</span>
                 
-                        <div id="modalDescriptionSection">
-    <ul class="plant-details" id="plantInfoList"> ... </ul>
+                <ul class="plant-details" id="plantInfoList">
+                    <li><i class="fas fa-globe"></i> <strong>Origine:</strong> <span id="p-origin"></span></li>
+                    <li><i class="fas fa-sun"></i> <strong>Lumière:</strong> <span id="p-sun"></span></li>
+                    <li><i class="fas fa-tint"></i> <strong>Arrosage:</strong> <span id="p-water"></span></li>
+                    <li><i class="fas fa-seedling"></i> <strong>Sol:</strong> <span id="p-soil"></span></li>
+                    <li><i class="fas fa-arrows-alt-v"></i> <strong>Taille:</strong> <span id="p-height"></span></li>
+                </ul>
 
-    <ul class="plant-details" id="flowerInfoList" style="display:none;"> ... </ul>
+                <ul class="plant-details" id="flowerInfoList" style="display:none;">
+                    <li><i class="fas fa-info-circle"></i> <strong>Description:</strong> <span id="f-desc"></span></li>
+                    <li><i class="fas fa-gift"></i> <strong>Occasion:</strong> <span id="f-occasion"></span></li>
+                </ul>
 
-    <ul class="plant-details" id="careInfoList" style="display:none;">
-        <li><i class="fas fa-microscope"></i> <strong>Description:</strong> <span id="c-desc"></span></li>
-        <li><i class="fas fa-vial"></i> <strong>Mode d'emploi:</strong> <span id="c-usage"></span></li>
-        <li><i class="fas fa-calendar-alt"></i> <strong>Fréquence:</strong> <span id="c-period"></span></li>
-    <ul class="plant-details" id="plantInfoList"> ... </ul>
+                <ul class="plant-details" id="careInfoList" style="display:none;">
+                    <li><i class="fas fa-microscope"></i> <strong>Description:</strong> <span id="c-desc"></span></li>
+                    <li><i class="fas fa-vial"></i> <strong>Usage:</strong> <span id="c-usage"></span></li>
+                    <li><i class="fas fa-calendar-alt"></i> <strong>Fréquence:</strong> <span id="c-period"></span></li>
+                </ul>
 
-    <ul class="plant-details" id="flowerInfoList" style="display:none;"> ... </ul>
-
-</div>
-                <br>
-                <a id="waLink" href="#" class="btn-wa" style="width: 100%; text-align: center;">Commander via WhatsApp</a>
+                <a id="waLink" href="#" class="btn-wa" style="display: block; text-align: center; margin-top: 20px;">Commander via WhatsApp</a>
             </div>
         </div>
     </div>
 
-    <footer id="contact" class="contact-footer">
-        <div class="contact-grid">
-            <div class="contact-box">
-                <h4>Contactez-nous</h4>
-                <a href="tel:0661722457"><i class="fas fa-phone"></i> 06 61 72 24 57</a>
-                <a href="tel:0661064117"><i class="fas fa-phone"></i> 06 61 06 41 17</a>
-                <a href="https://wa.me/212661722457" style="color: #25d366;"><i class="fab fa-whatsapp"></i> WhatsApp (Wassim)</a>
-                <a href="https://wa.me/212661064117" style="color: #25d366;"><i class="fab fa-whatsapp"></i> WhatsApp (Contact 2)</a>
-            </div>
-            <div class="contact-box">
-                <h4>Réseaux Sociaux</h4>
-                <div class="social-links">
-                    <a href="https://www.instagram.com/jardinsduparadis21?igsh=MTE5cnc2dnF3bDdqbA==" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.facebook.com/share/1RjpjiNxJY/?mibextid=wwXIfr" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.linkedin.com/company/jardins-du-paradis-sarl/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                </div>
-                <br>
-                <h4>Informations</h4>
-                <a href="mailto:jardinsduparadis10@gmail.com"><i class="fas fa-envelope"></i> jardinsduparadis10@gmail.com</a>
-                <p><i class="fas fa-clock"></i> Lun - Dim (9:00 - 21:00)</p>
-            </div>
-            <div class="contact-box">
-                <h4>Adresse</h4>
-                <p><i class="fas fa-map-marker-alt"></i> Hay Mandar Jamil, Tanger</p>
-                <a href="https://goo.gl/maps/xyz" target="_blank" class="map-card">
-                    <img src="images/map-preview.jpg" alt="Map">
-                    <div class="map-overlay">OUVRIR DANS GOOGLE MAPS</div>
-                </a>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 40px; opacity: 0.5; font-size: 11px;">© 2026 JARDINS DU PARADIS SARL</div>
-    </footer>
-
     <script>
-    function openPlant(name, img, price, origin, sun, water, soil, height) {
-        document.getElementById('modalTitle').innerText = name;
-        document.getElementById('modalImg').src = img;
-        document.getElementById('modalPriceDisplay').innerText = price;
-        document.getElementById('plantInfoList').style.display = "block";
-        document.getElementById('flowerInfoList').style.display = "none";
-        document.getElementById('p-origin').innerText = origin;
-        document.getElementById('p-sun').innerText = sun;
-        document.getElementById('p-water').innerText = water;
-        document.getElementById('p-soil').innerText = soil;
-        document.getElementById('p-height').innerText = height;
-        document.getElementById('waLink').href = "https://wa.me/212661722457?text=Bonjour, je souhaite commander : " + name + " au prix de " + price;
-        document.getElementById('plantModal').style.display = "block";
-    }
+        function openPlant(name, img, price, origin, sun, water, soil, height) {
+            document.getElementById('modalTitle').innerText = name;
+            document.getElementById('modalImg').src = img;
+            document.getElementById('modalPriceDisplay').innerText = price;
+            
+            document.getElementById('plantInfoList').style.display = 'block';
+            document.getElementById('flowerInfoList').style.display = 'none';
+            document.getElementById('careInfoList').style.display = 'none';
 
-    function openFlower(name, img, price, desc, occasion) {
-        document.getElementById('modalTitle').innerText = name;
-        document.getElementById('modalImg').src = img;
-        document.getElementById('modalPriceDisplay').innerText = price;
-        document.getElementById('plantInfoList').style.display = "none";
-        document.getElementById('flowerInfoList').style.display = "block";
-        document.getElementById('f-desc').innerText = desc;
-        document.getElementById('f-occasion').innerText = occasion;
-        document.getElementById('waLink').href = "https://wa.me/212661722457?text=Bonjour, je souhaite commander le bouquet : " + name + " au prix de " + price;
-        document.getElementById('plantModal').style.display = "block";
-    }
-<script>
-    // 1. دالة النباتات (تحديث: إخفاء قائمة الأدوية والباقات)
-    function openPlant(name, img, price, origin, sun, water, soil, height) {
-        document.getElementById('modalTitle').innerText = name;
-        document.getElementById('modalImg').src = img;
-        document.getElementById('modalPriceDisplay').innerText = price;
-        
-        // التحكم في القوائم: إظهار النباتات فقط
-        document.getElementById('plantInfoList').style.display = 'block';
-        document.getElementById('flowerInfoList').style.display = 'none';
-        document.getElementById('careInfoList').style.display = 'none'; // مهم جداً للإصلاح
+            document.getElementById('p-origin').innerText = origin;
+            document.getElementById('p-sun').innerText = sun;
+            document.getElementById('p-water').innerText = water;
+            document.getElementById('p-soil').innerText = soil;
+            document.getElementById('p-height').innerText = height;
 
-        document.getElementById('p-origin').innerText = origin;
-        document.getElementById('p-sun').innerText = sun;
-        document.getElementById('p-water').innerText = water;
-        document.getElementById('p-soil').innerText = soil;
-        document.getElementById('p-height').innerText = height;
-
-        document.getElementById('waLink').href = `https://wa.me/212661722457?text=Bonjour, je souhaite commander la plante: ${name}`;
-        document.getElementById('plantModal').style.display = 'block';
-    }
-
-    // 2. دالة الباقات (تحديث: إخفاء قائمة الأدوية والنباتات)
-    function openFlower(name, img, price, desc, occasion) {
-        document.getElementById('modalTitle').innerText = name;
-        document.getElementById('modalImg').src = img;
-        document.getElementById('modalPriceDisplay').innerText = price;
-        
-        // التحكم في القوائم: إظهار الباقات فقط
-        document.getElementById('plantInfoList').style.display = 'none';
-        document.getElementById('flowerInfoList').style.display = 'block';
-        document.getElementById('careInfoList').style.display = 'none'; // مهم جداً للإصلاح
-
-        document.getElementById('f-desc').innerText = desc;
-        document.getElementById('f-occasion').innerText = occasion;
-
-        document.getElementById('waLink').href = `https://wa.me/212661722457?text=Bonjour, je souhaite commander le bouquet: ${name}`;
-        document.getElementById('plantModal').style.display = 'block';
-    }
-
-    // 3. دالة الأدوية (تحديث: إخفاء القوائم الأخرى)
-    function openCare(name, img, price, desc, usage, period) {
-        document.getElementById('modalTitle').innerText = name;
-        document.getElementById('modalImg').src = img;
-        document.getElementById('modalPriceDisplay').innerText = price;
-        
-        // التحكم في القوائم: إظهار الأدوية فقط
-        document.getElementById('plantInfoList').style.display = 'none';
-        document.getElementById('flowerInfoList').style.display = 'none';
-        document.getElementById('careInfoList').style.display = 'block';
-
-        document.getElementById('c-desc').innerText = desc;
-        document.getElementById('c-usage').innerText = usage;
-        document.getElementById('c-period').innerText = period;
-
-        document.getElementById('waLink').href = `https://wa.me/212661722457?text=Bonjour, je souhaite commander ce soin: ${name}`;
-        document.getElementById('plantModal').style.display = 'block';
-    }
-
-    function closeModal() {
-        document.getElementById('plantModal').style.display = 'none';
-    }
-
-    window.onclick = function(event) {
-        let modal = document.getElementById('plantModal');
-        if (event.target == modal) {
-            closeModal();
+            document.getElementById('waLink').href = `https://wa.me/212661722457?text=Commande: ${name}`;
+            document.getElementById('plantModal').style.display = 'block';
         }
-    }
-</script>
+
+        function openCare(name, img, price, desc, usage, period) {
+            document.getElementById('modalTitle').innerText = name;
+            document.getElementById('modalImg').src = img;
+            document.getElementById('modalPriceDisplay').innerText = price;
+            
+            document.getElementById('plantInfoList').style.display = 'none';
+            document.getElementById('flowerInfoList').style.display = 'none';
+            document.getElementById('careInfoList').style.display = 'block';
+
+            document.getElementById('c-desc').innerText = desc;
+            document.getElementById('c-usage').innerText = usage;
+            document.getElementById('c-period').innerText = period;
+
+            document.getElementById('waLink').href = `https://wa.me/212661722457?text=Soin: ${name}`;
+            document.getElementById('plantModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('plantModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('plantModal')) closeModal();
+        }
+    </script>
 </body>
 </html>
-
-    
