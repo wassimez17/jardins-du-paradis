@@ -1,60 +1,63 @@
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jardins du Paradis | Luxe & Nature</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-   <style>
-    /* --- 1. الإعدادات العامة والألوان --- */
-    :root {
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jardins du Paradis | Luxe &amp; Nature</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700&amp;family=Playfair+Display:wght@600;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <style>
+      /* --- 1. الإعدادات العامة والألوان --- */
+      :root {
         --primary-color: #27ae60;
         --secondary-color: #2c3e50;
         --bg-light: #f9f9f9;
         --white: #ffffff;
-        --shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
+        --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
 
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         background-color: var(--bg-light);
         margin: 0;
         padding: 0;
         direction: ltr; /* لضمان اتساق أيقونات FontAwesome واللغة الفرنسية */
-    }
+      }
 
-    /* --- 2. تنسيق الأقسام والشبكة --- */
-    .section-title {
+      /* --- 2. تنسيق الأقسام والشبكة --- */
+      .section-title {
         text-align: center;
         font-size: 2.2rem;
         margin: 50px 0 30px;
         color: var(--secondary-color);
-        font-family: 'Playfair Display', serif;
+        font-family: "Playfair Display", serif;
         position: relative;
-    }
+      }
 
-    .section-title::after {
-        content: '';
+      .section-title::after {
+        content: "";
         display: block;
         width: 60px;
         height: 3px;
         background: var(--primary-color);
         margin: 10px auto;
-    }
+      }
 
-    .catalog-grid {
+      .catalog-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 30px;
         padding: 20px;
         max-width: 1200px;
         margin: 0 auto;
-    }
+      }
 
-    /* --- 3. تصميم كروت المنتجات --- */
-    .item-card {
+      /* --- 3. تصميم كروت المنتجات --- */
+      .item-card {
         background: var(--white);
         border-radius: 20px;
         overflow: hidden;
@@ -62,46 +65,48 @@
         transition: all 0.3s ease;
         cursor: pointer;
         text-align: center;
-    }
+      }
 
-    .item-card:hover {
+      .item-card:hover {
         transform: translateY(-10px);
-        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    }
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
 
-    .item-card img {
+      .item-card img {
         width: 100%;
         height: 280px;
         object-fit: cover;
-    }
+      }
 
-    .item-card h4 {
+      .item-card h4 {
         margin: 15px 0 5px;
         color: var(--secondary-color);
         font-size: 1.2rem;
         text-transform: uppercase;
-    }
+      }
 
-    .item-card .price {
+      .item-card .price {
         color: var(--primary-color);
         font-weight: bold;
         font-size: 1.1rem;
         display: block;
         margin-bottom: 15px;
-    }
+      }
 
-    /* --- 4. تنسيق النافذة المنبثقة (Modal) --- */
-    .modal {
-        display: none; 
-        position: fixed; 
-        z-index: 2000; 
-        left: 0; top: 0;
-        width: 100%; height: 100%;
-        background-color: rgba(0,0,0,0.85);
+      /* --- 4. تنسيق النافذة المنبثقة (Modal) --- */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.85);
         backdrop-filter: blur(8px);
-    }
+      }
 
-    .modal-content {
+      .modal-content {
         background-color: var(--white);
         margin: 5% auto;
         width: 85%;
@@ -112,49 +117,76 @@
         position: relative;
         overflow: hidden;
         animation: slideIn 0.4s ease-out;
-    }
+      }
 
-    @keyframes slideIn {
-        from { opacity: 0; transform: scale(0.9); }
-        to { opacity: 1; transform: scale(1); }
-    }
+      @keyframes slideIn {
+        from {
+          opacity: 0;
+          transform: scale(0.9);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
 
-    .close-modal {
+      .close-modal {
         position: absolute;
-        right: 25px; top: 15px;
+        right: 25px;
+        top: 15px;
         font-size: 35px;
         color: #999;
         cursor: pointer;
         z-index: 100;
         transition: 0.3s;
-    }
+      }
 
-    .close-modal:hover { color: #ff0000; }
+      .close-modal:hover {
+        color: #ff0000;
+      }
 
-    .modal-left { flex: 1.2; min-width: 350px; background: #eee; }
-    .modal-left img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .modal-left {
+        flex: 1.2;
+        min-width: 350px;
+        background: #eee;
+      }
+      .modal-left img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
 
-    .modal-right { 
-        flex: 1; 
-        padding: 40px; 
-        min-width: 350px; 
-        display: flex; 
-        flex-direction: column; 
+      .modal-right {
+        flex: 1;
+        padding: 40px;
+        min-width: 350px;
+        display: flex;
+        flex-direction: column;
         justify-content: center;
         background: var(--white);
-    }
+      }
 
-    .modal-right h2 { margin-top: 0; color: var(--secondary-color); font-size: 1.8rem; }
-    .modal-price { font-size: 1.6rem; color: var(--primary-color); font-weight: bold; margin-bottom: 25px; }
+      .modal-right h2 {
+        margin-top: 0;
+        color: var(--secondary-color);
+        font-size: 1.8rem;
+      }
+      .modal-price {
+        font-size: 1.6rem;
+        color: var(--primary-color);
+        font-weight: bold;
+        margin-bottom: 25px;
+      }
 
-    /* قوائم التفاصيل داخل Modal */
-    .plant-details {
+      /* قوائم التفاصيل داخل Modal */
+      .plant-details {
         list-style: none;
         padding: 0;
         margin-bottom: 30px;
-    }
+      }
 
-    .plant-details li {
+      .plant-details li {
         margin-bottom: 15px;
         font-size: 1rem;
         border-bottom: 1px solid #f0f0f0;
@@ -162,18 +194,18 @@
         display: flex;
         align-items: center;
         color: #555;
-    }
+      }
 
-    .plant-details i {
+      .plant-details i {
         color: var(--primary-color);
         margin-right: 12px;
         font-size: 1.1rem;
         width: 25px;
         text-align: center;
-    }
+      }
 
-    /* --- 5. زر الواتساب والتنسيق للجوال --- */
-    .btn-wa {
+      /* --- 5. زر الواتساب والتنسيق للجوال --- */
+      .btn-wa {
         background-color: #25d366;
         color: white;
         padding: 15px 30px;
@@ -185,249 +217,378 @@
         border: none;
         display: inline-block;
         font-size: 1.1rem;
-    }
+      }
 
-    .btn-wa:hover {
+      .btn-wa:hover {
         background-color: #128c7e;
         transform: scale(1.05);
         box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
-    }
+      }
 
-    /* تجاوب الموقع مع الشاشات الصغيرة */
-    @media (max-width: 850px) {
+      /* تجاوب الموقع مع الشاشات الصغيرة */
+      @media (max-width: 850px) {
         .modal-content {
-            flex-direction: column;
-            width: 95%;
-            margin: 5% auto;
-            max-height: 90vh;
-            overflow-y: auto;
+          flex-direction: column;
+          width: 95%;
+          margin: 5% auto;
+          max-height: 90vh;
+          overflow-y: auto;
         }
-        .modal-left { min-width: 100%; height: 300px; }
-        .modal-right { padding: 25px; min-width: 100%; }
-        .section-title { font-size: 1.8rem; }
-    }
-</style>
-</head>
-<body>
-
+        .modal-left {
+          min-width: 100%;
+          height: 300px;
+        }
+        .modal-right {
+          padding: 25px;
+          min-width: 100%;
+        }
+        .section-title {
+          font-size: 1.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
     <nav>
-        <div class="logo"><img src="images/logo.png" alt="Logo"></div>
-        <ul class="nav-links">
-            <li><a href="#home">Accueil</a></li>
-            <li><a href="#plants">Plantes</a></li>
-            <li><a href="#flowers">Bouquets</a></li>
-            <li><a href="#soins">Soins</a></li>
-            <li><a href="#oiseaux">Oiseaux</a></li>
-            <li><a href="#jardinage">Jardinage</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+      <div class="logo"><img src="images/logo.png" alt="Logo" /></div>
+      <ul class="nav-links">
+        <li><a href="#home">Accueil</a></li>
+        <li><a href="#plants">Plantes</a></li>
+        <li><a href="#flowers">Bouquets</a></li>
+        <li><a href="#soins">Soins</a></li>
+        <li><a href="#oiseaux">Oiseaux</a></li>
+        <li><a href="#jardinage">Jardinage</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
 
-<div id="plantModal" class="modal">
-    <div class="modal-content">
-        <span class="close-modal" onclick="closeModal()">&times;</span>
-        
+    <div id="plantModal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal" onclick="closeModal()">×</span>
+
         <div class="modal-left">
-            <img id="modalImg" src="" alt="Produit">
+          <img id="modalImg" src="" alt="Produit" />
         </div>
-        
+
         <div class="modal-right">
-            <h2 id="modalTitle">Nom</h2>
-            <span class="modal-price" id="modalPriceDisplay">0.00 DH</span>
-            
-            <ul class="plant-details" id="plantInfoList">
-                <li><i class="fas fa-globe"></i> <strong>Origine:</strong> <span id="p-origin"></span></li>
-                <li><i class="fas fa-sun"></i> <strong>Lumière:</strong> <span id="p-sun"></span></li>
-                <li><i class="fas fa-tint"></i> <strong>Arrosage:</strong> <span id="p-water"></span></li>
-                <li><i class="fas fa-seedling"></i> <strong>Sol:</strong> <span id="p-soil"></span></li>
-                <li><i class="fas fa-arrows-alt-v"></i> <strong>Taille:</strong> <span id="p-height"></span></li>
-            </ul>
+          <h2 id="modalTitle">Nom</h2>
+          <span class="modal-price" id="modalPriceDisplay">0.00 DH</span>
 
-            <ul class="plant-details" id="flowerInfoList" style="display:none;">
-                <li><i class="fas fa-info-circle"></i> <strong>Description:</strong> <span id="f-desc"></span></li>
-                <li><i class="fas fa-gift"></i> <strong>Occasion:</strong> <span id="f-occasion"></span></li>
-            </ul>
+          <ul class="plant-details" id="plantInfoList">
+            <li>
+              <i class="fas fa-globe"></i>
+              <strong>Origine:</strong>
+              <span id="p-origin"></span>
+            </li>
+            <li>
+              <i class="fas fa-sun"></i>
+              <strong>Lumière:</strong>
+              <span id="p-sun"></span>
+            </li>
+            <li>
+              <i class="fas fa-tint"></i>
+              <strong>Arrosage:</strong>
+              <span id="p-water"></span>
+            </li>
+            <li>
+              <i class="fas fa-seedling"></i>
+              <strong>Sol:</strong>
+              <span id="p-soil"></span>
+            </li>
+            <li>
+              <i class="fas fa-arrows-alt-v"></i>
+              <strong>Taille:</strong>
+              <span id="p-height"></span>
+            </li>
+          </ul>
 
-            <ul class="plant-details" id="careInfoList" style="display:none;">
-                <li><i class="fas fa-microscope"></i> <strong>Description:</strong> <span id="c-desc"></span></li>
-                <li><i class="fas fa-vial"></i> <strong>Mode d'emploi:</strong> <span id="c-usage"></span></li>
-                <li><i class="fas fa-calendar-alt"></i> <strong>Fréquence:</strong> <span id="c-period"></span></li>
-            </ul>
+          <ul class="plant-details" id="flowerInfoList" style="display: none">
+            <li>
+              <i class="fas fa-info-circle"></i>
+              <strong>Description:</strong>
+              <span id="f-desc"></span>
+            </li>
+            <li>
+              <i class="fas fa-gift"></i>
+              <strong>Occasion:</strong>
+              <span id="f-occasion"></span>
+            </li>
+          </ul>
 
-            <br>
-            <a id="waLink" href="#" target="_blank" class="btn-wa" style="text-align: center; display: block;">Commander via WhatsApp</a>
+          <ul class="plant-details" id="careInfoList" style="display: none">
+            <li>
+              <i class="fas fa-microscope"></i>
+              <strong>Description:</strong>
+              <span id="c-desc"></span>
+            </li>
+            <li>
+              <i class="fas fa-vial"></i>
+              <strong>Mode d'emploi:</strong>
+              <span id="c-usage"></span>
+            </li>
+            <li>
+              <i class="fas fa-calendar-alt"></i>
+              <strong>Fréquence:</strong>
+              <span id="c-period"></span>
+            </li>
+          </ul>
+
+          <br />
+          <a id="waLink" href="#" target="_blank" class="btn-wa" style="text-align: center; display: block">
+            Commander via WhatsApp
+          </a>
         </div>
+      </div>
     </div>
-</div>
 
     <header id="home" class="hero">
-        <div class="hero-content">
-            <h1>JARDINS DU PARADIS</h1>
-            <p>L'excellence au cœur des espaces verts</p>
-        </div>
+      <div class="hero-content">
+        <h1>JARDINS DU PARADIS</h1>
+        <p>L'excellence au cœur des espaces verts</p>
+      </div>
     </header>
 
     <section class="about-section">
-        <h2>Quand l'Art Rencontre la Nature</h2>
-        <p>Spécialistes de l'aménagement paysager à Tanger depuis 2007.</p>
+      <h2>Quand l'Art Rencontre la Nature</h2>
+      <p>Spécialistes de l'aménagement paysager à Tanger depuis 2007.</p>
     </section>
 
-<div id="plants" class="section-title">Notre Collection Royale</div>
-<div class="catalog-grid">
-    <div class="item-card" onclick="openPlant('ASPLENIUM', 'images/plant1.jpg', '100.00 DH', 'Asie du Sud-Est', 'Lumière tamisée', '1 à 2 fois/sem', 'Humus', '30-50 cm')">
-        <img src="images/plant1.jpg" alt="ASPLENIUM">
+    <div id="plants" class="section-title">Notre Collection Royale</div>
+    <div class="catalog-grid">
+      <div
+        class="item-card"
+        onclick="
+          openPlant(
+            'ASPLENIUM',
+            'images/plant1.jpg',
+            '100.00 DH',
+            'Asie du Sud-Est',
+            'Lumière tamisée',
+            '1 à 2 fois/sem',
+            'Humus',
+            '30-50 cm',
+          )
+        "
+      >
+        <img src="images/plant1.jpg" alt="ASPLENIUM" />
         <h4>ASPLENIUM</h4>
         <span class="price">100.00 DH</span>
         <button class="btn-wa">Détails</button>
-    </div>
+      </div>
     </div>
 
-<div id="flowers" class="section-title">Nos Bouquets de Prestige</div>
-<div class="catalog-grid">
-    <div class="item-card" onclick="openFlower('BOUQUET AMOUR', 'images/fleur1.jpg', '150.00 DH', 'Un mélange passionné de roses rouges.', 'Saint-Valentin')">
-        <img src="images/fleur1.jpg" alt="Bouquet">
+    <div id="flowers" class="section-title">Nos Bouquets de Prestige</div>
+    <div class="catalog-grid">
+      <div
+        class="item-card"
+        onclick="
+          openFlower(
+            'BOUQUET AMOUR',
+            'images/fleur1.jpg',
+            '150.00 DH',
+            'Un mélange passionné de roses rouges.',
+            'Saint-Valentin',
+          )
+        "
+      >
+        <img src="images/fleur1.jpg" alt="Bouquet" />
         <h4>BOUQUET AMOUR</h4>
         <span class="price">150.00 DH</span>
         <button class="btn-wa">Détails</button>
+      </div>
     </div>
-</div>
 
-<div id="oiseaux" class="section-title">Espace Oiseaux</div>
-<div class="catalog-grid">
-    <div class="item-card" onclick="openFlower('MÉLANGE CANARIS', 'images/bird1.jpg', '35.00 DH', 'Graines sélectionnées pour la vitalité.', 'Alimentation quotidienne')">
-        <img src="images/bird1.jpg" alt="Graines">
+    <div id="oiseaux" class="section-title">Espace Oiseaux</div>
+    <div class="catalog-grid">
+      <div
+        class="item-card"
+        onclick="
+          openFlower(
+            'MÉLANGE CANARIS',
+            'images/bird1.jpg',
+            '35.00 DH',
+            'Graines sélectionnées pour la vitalité.',
+            'Alimentation quotidienne',
+          )
+        "
+      >
+        <img src="images/bird1.jpg" alt="Graines" />
         <h4>MÉLANGE CANARIS</h4>
         <span class="price">35.00 DH</span>
         <button class="btn-wa">Détails</button>
+      </div>
     </div>
-</div>
 
-<div id="soins" class="section-title">Soins & Énergie Végétale</div>
-<div class="catalog-grid">
-    <div class="item-card" onclick="openCare('ENGRAIS LIQUIDE', 'images/med1.jpg', '65.00 DH', 'مغذي غني بالنيتروجين لنمو سريع', 'خلط 5 مل في لتر ماء', 'مرة كل 15 يوم')">
-        <img src="images/med1.jpg" alt="Engrais">
+    <div id="soins" class="section-title">Soins &amp; Énergie Végétale</div>
+    <div class="catalog-grid">
+      <div
+        class="item-card"
+        onclick="
+          openCare(
+            'ENGRAIS LIQUIDE',
+            'images/med1.jpg',
+            '65.00 DH',
+            'مغذي غني بالنيتروجين لنمو سريع',
+            'خلط 5 مل في لتر ماء',
+            'مرة كل 15 يوم',
+          )
+        "
+      >
+        <img src="images/med1.jpg" alt="Engrais" />
         <h4>ENGRAIS LIQUIDE</h4>
         <span class="price">65.00 DH</span>
         <button class="btn-wa">Détails</button>
+      </div>
     </div>
-</div>
-        <div class="item-card" onclick="openCare('SPRAY LUSTRANT', 'images/med2.jpg', '45.00 DH', 'Protège les feuilles et donne de l\'éclat.', 'Vaporiser à 20cm des feuilles.', 'Une fois par mois.')">
-            <img src="images/med2.jpg" alt="Spray">
-            <h4>SPRAY LUSTRANT</h4>
-            <span class="price">45.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
+    <div
+      class="item-card"
+      onclick="
+        openCare(
+          'SPRAY LUSTRANT',
+          'images/med2.jpg',
+          '45.00 DH',
+          'Protège les feuilles et donne de l\'éclat.',
+          'Vaporiser à 20cm des feuilles.',
+          'Une fois par mois.',
+        )
+      "
+    >
+      <img src="images/med2.jpg" alt="Spray" />
+      <h4>SPRAY LUSTRANT</h4>
+      <span class="price">45.00 DH</span>
+      <button class="btn-wa">Détails</button>
     </div>
 
     <div id="oiseaux" class="section-title">Espace Oiseaux du Paradis</div>
     <div class="catalog-grid">
-        <div class="item-card" onclick="openFlower('MÉLANGE CANARIS', 'images/bird1.jpg', '35.00 DH', 'Graines sélectionnées pour la vitalité.', 'Alimentation quotidienne')">
-            <img src="images/bird1.jpg" alt="Graines">
-            <h4>MÉLANGE CANARIS</h4>
-            <span class="price">35.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
+      <div
+        class="item-card"
+        onclick="
+          openFlower(
+            'MÉLANGE CANARIS',
+            'images/bird1.jpg',
+            '35.00 DH',
+            'Graines sélectionnées pour la vitalité.',
+            'Alimentation quotidienne',
+          )
+        "
+      >
+        <img src="images/bird1.jpg" alt="Graines" />
+        <h4>MÉLANGE CANARIS</h4>
+        <span class="price">35.00 DH</span>
+        <button class="btn-wa">Détails</button>
+      </div>
     </div>
 
     <div id="jardinage" class="section-title">Nos Services Paysagers</div>
     <div class="jardinage-masonry">
-        <div class="jardinage-item">
-            <img src="images/jardin1.jpg" alt="Aménagement">
-            <div class="jardinage-overlay"><h4>Aménagement de Villas</h4><p>Espaces sur mesure.</p></div>
+      <div class="jardinage-item">
+        <img src="images/jardin1.jpg" alt="Aménagement" />
+        <div class="jardinage-overlay">
+          <h4>Aménagement de Villas</h4>
+          <p>Espaces sur mesure.</p>
         </div>
-        </div>
+      </div>
+    </div>
 
     <footer id="contact" class="contact-footer">
-        <div class="contact-grid">
-            <div class="contact-box">
-                <h4>Contactez-nous</h4>
-                <p><i class="fas fa-phone"></i> +212 661 72 24 57</p>
-                <p><i class="fas fa-envelope"></i> contact@jardinsparadis.com</p>
-            </div>
+      <div class="contact-grid">
+        <div class="contact-box">
+          <h4>Contactez-nous</h4>
+          <p>
+            <i class="fas fa-phone"></i>
+            +212 661 72 24 57
+          </p>
+          <p>
+            <i class="fas fa-envelope"></i>
+            contact@jardinsparadis.com
+          </p>
         </div>
+      </div>
     </footer>
 
     <script>
-    // --- 1. وظيفة فتح نافذة النباتات ---
-    function openPlant(name, img, price, origin, sun, water, soil, height) {
+      // --- 1. وظيفة فتح نافذة النباتات ---
+      function openPlant(name, img, price, origin, sun, water, soil, height) {
         setupCommonModal(name, img, price); // تعبئة البيانات المشتركة
-        
-        // إظهار قائمة معلومات النباتات وإخفاء الباقي
-        toggleLists('plantInfoList');
 
-        document.getElementById('p-origin').innerText = origin;
-        document.getElementById('p-sun').innerText = sun;
-        document.getElementById('p-water').innerText = water;
-        document.getElementById('p-soil').innerText = soil;
-        document.getElementById('p-height').innerText = height;
+        // إظهار قائمة معلومات النباتات وإخفاء الباقي
+        toggleLists("plantInfoList");
+
+        document.getElementById("p-origin").innerText = origin;
+        document.getElementById("p-sun").innerText = sun;
+        document.getElementById("p-water").innerText = water;
+        document.getElementById("p-soil").innerText = soil;
+        document.getElementById("p-height").innerText = height;
 
         setWhatsAppLink("la plante: " + name);
         showModal();
-    }
+      }
 
-    // --- 2. وظيفة فتح نافذة الباقات أو العصافير ---
-    function openFlower(name, img, price, desc, occasion) {
+      // --- 2. وظيفة فتح نافذة الباقات أو العصافير ---
+      function openFlower(name, img, price, desc, occasion) {
         setupCommonModal(name, img, price);
-        
-        // إظهار قائمة الباقات وإخفاء الباقي
-        toggleLists('flowerInfoList');
 
-        document.getElementById('f-desc').innerText = desc;
-        document.getElementById('f-occasion').innerText = occasion;
+        // إظهار قائمة الباقات وإخفاء الباقي
+        toggleLists("flowerInfoList");
+
+        document.getElementById("f-desc").innerText = desc;
+        document.getElementById("f-occasion").innerText = occasion;
 
         setWhatsAppLink("le produit: " + name);
         showModal();
-    }
+      }
 
-    // --- 3. وظيفة فتح نافذة الأدوية والسماد ---
-    function openCare(name, img, price, desc, usage, period) {
+      // --- 3. وظيفة فتح نافذة الأدوية والسماد ---
+      function openCare(name, img, price, desc, usage, period) {
         setupCommonModal(name, img, price);
-        
-        // إظهار قائمة الأدوية وإخفاء الباقي
-        toggleLists('careInfoList');
 
-        document.getElementById('c-desc').innerText = desc;
-        document.getElementById('c-usage').innerText = usage;
-        document.getElementById('c-period').innerText = period;
+        // إظهار قائمة الأدوية وإخفاء الباقي
+        toggleLists("careInfoList");
+
+        document.getElementById("c-desc").innerText = desc;
+        document.getElementById("c-usage").innerText = usage;
+        document.getElementById("c-period").innerText = period;
 
         setWhatsAppLink("ce soin: " + name);
         showModal();
-    }
+      }
 
-    // --- وظائف مساعدة لتنظيف الكود (Helper Functions) ---
+      // --- وظائف مساعدة لتنظيف الكود (Helper Functions) ---
 
-    function setupCommonModal(name, img, price) {
-        document.getElementById('modalTitle').innerText = name;
-        document.getElementById('modalImg').src = img;
-        document.getElementById('modalPriceDisplay').innerText = price;
-    }
+      function setupCommonModal(name, img, price) {
+        document.getElementById("modalTitle").innerText = name;
+        document.getElementById("modalImg").src = img;
+        document.getElementById("modalPriceDisplay").innerText = price;
+      }
 
-    function toggleLists(activeListId) {
-        const lists = ['plantInfoList', 'flowerInfoList', 'careInfoList'];
-        lists.forEach(listId => {
-            const el = document.getElementById(listId);
-            if(el) el.style.display = (listId === activeListId) ? 'block' : 'none';
+      function toggleLists(activeListId) {
+        const lists = ["plantInfoList", "flowerInfoList", "careInfoList"];
+        lists.forEach((listId) => {
+          const el = document.getElementById(listId);
+          if (el) el.style.display = listId === activeListId ? "block" : "none";
         });
-    }
+      }
 
-    function setWhatsAppLink(message) {
+      function setWhatsAppLink(message) {
         const phone = "212661722457";
-        document.getElementById('waLink').href = `https://wa.me/${phone}?text=Bonjour, je souhaite commander ${message}`;
-    }
+        document.getElementById("waLink").href =
+          `https://wa.me/${phone}?text=Bonjour, je souhaite commander ${message}`;
+      }
 
-    function showModal() {
-        document.getElementById('plantModal').style.display = 'block';
-    }
+      function showModal() {
+        document.getElementById("plantModal").style.display = "block";
+      }
 
-    function closeModal() {
-        document.getElementById('plantModal').style.display = 'none';
-    }
+      function closeModal() {
+        document.getElementById("plantModal").style.display = "none";
+      }
 
-    // إغلاق النافذة عند النقر خارجها
-    window.onclick = function(event) {
-        let modal = document.getElementById('plantModal');
+      // إغلاق النافذة عند النقر خارجها
+      window.onclick = function (event) {
+        let modal = document.getElementById("plantModal");
         if (event.target == modal) closeModal();
-    }
-</script>
-</body>
+      };
+    </script>
+  </body>
 </html>
