@@ -11,281 +11,219 @@
         :root { 
             --main-green: #1a3c34; 
             --gold-accent: #c5a059; 
-            --soft-white: #ffffff;
-            --text-dark: #2c2c2c;
             --bg-light: #fdfdfd;
+            --text-dark: #2c2c2c;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body { 
-            font-family: 'Tajawal', sans-serif; 
-            color: var(--text-dark); 
-            line-height: 1.6; 
-            background-color: var(--bg-light); 
-            scroll-behavior: smooth;
-        }
+        body { font-family: 'Tajawal', sans-serif; color: var(--text-dark); background-color: var(--bg-light); line-height: 1.6; overflow-x: hidden; }
 
-        /* Modal Design */
-        .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 2000; 
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px);
-        }
-
-        .modal-content {
-            background-color: white;
-            margin: 5% auto;
-            padding: 30px;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 750px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            position: relative;
-            animation: fadeIn 0.4s;
-        }
-
-        @keyframes fadeIn { from {opacity: 0; transform: translateY(-20px);} to {opacity: 1; transform: translateY(0);} }
-
-        .close-modal {
-            position: absolute;
-            right: 20px; top: 15px;
-            font-size: 28px;
-            cursor: pointer;
-            color: var(--main-green);
-        }
-
-        .modal-left { flex: 1; min-width: 250px; }
-        .modal-left img { width: 100%; border-radius: 10px; height: 400px; object-fit: cover; }
-
-        .modal-right { flex: 1.2; min-width: 250px; text-align: left; }
-        .modal-right h2 { color: var(--main-green); font-family: 'Playfair Display', serif; margin-bottom: 5px; }
-        .modal-price { color: var(--gold-accent); font-weight: 700; font-size: 20px; margin-bottom: 15px; display: block; }
-        .plant-details { list-style: none; }
-        .plant-details li { margin-bottom: 12px; font-size: 14px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-        .plant-details i { color: var(--gold-accent); margin-right: 10px; width: 20px; }
-        .plant-details strong { color: var(--main-green); }
-
-        /* Navigation */
+        /* Navigation & Gold Line Animation */
         nav { 
-            padding: 15px 8%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            background: white; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; 
+            background: white; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-        .logo img { height: 60px; }
-        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .logo img { height: 55px; cursor: pointer; }
+        .nav-links { display: flex; gap: 20px; list-style: none; }
         .nav-links a { 
-            text-decoration: none; 
-            color: var(--main-green); 
-            font-size: 15px; 
-            font-weight: 500; 
-            transition: 0.3s; 
-            position: relative;
-            padding-bottom: 5px;
+            text-decoration: none; color: var(--main-green); font-size: 13px; font-weight: 700; 
+            text-transform: uppercase; cursor: pointer; position: relative; padding-bottom: 5px;
         }
+        /* الخط الذهبي عند التمرير أو التحويم */
         .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--gold-accent);
-            transition: width 0.3s ease;
+            content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 0;
+            background-color: var(--gold-accent); transition: width 0.3s ease;
         }
-        .nav-links a:hover::after { width: 100%; }
-        .nav-links a:hover { color: var(--gold-accent); }
+        .nav-links a:hover::after, .nav-links a.active::after { width: 100%; }
 
-        /* Hero */
+        /* Page Sections */
+        .page-section { display: none; padding-bottom: 80px; min-height: 100vh; }
+        .page-section.active { display: block; animation: fadeIn 0.6s ease; }
+        @keyframes fadeIn { from {opacity: 0; transform: translateY(10px);} to {opacity: 1; transform: translateY(0);} }
+
+        /* Hero & About (Accueil) */
         .hero { 
-            height: 70vh; 
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('images/hero-bg.jpg'); 
-            background-size: cover; background-position: center;
-            display: flex; align-items: center; justify-content: center; color: white; text-align: center;
+            height: 60vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/hero-bg.jpg'); 
+            background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; color: white;
         }
-        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(35px, 6vw, 65px); margin-bottom: 15px; }
-        
-        .about-section { padding: 80px 10%; text-align: center; background: white; }
+        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(30px, 6vw, 60px); text-align: center; letter-spacing: 2px; }
+        .about-box { padding: 80px 10%; text-align: center; background: white; }
+        .about-box h2 { color: var(--main-green); margin-bottom: 25px; font-family: 'Playfair Display', serif; font-size: 32px; }
+        .about-box p { max-width: 800px; margin: 0 auto; font-size: 18px; color: #555; }
 
         /* Catalog Grid */
-        .section-title { text-align: center; margin: 60px 0 40px; font-family: 'Playfair Display', serif; font-size: 32px; color: var(--main-green); }
-        .catalog-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 40px; 
-            padding: 0 10%; 
-            margin-bottom: 80px; 
-        }
+        .section-title { text-align: center; margin: 60px 0 40px; font-family: 'Playfair Display', serif; font-size: 35px; color: var(--main-green); position: relative; }
+        .section-title::after { content: ''; display: block; width: 50px; height: 3px; background: var(--gold-accent); margin: 10px auto; }
+        
+        .catalog-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; padding: 0 10%; }
         
         .item-card { 
-            background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            text-align: center; padding-bottom: 25px; transition: 0.4s; border: 1px solid #f0f0f0; cursor: pointer;
+            background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: 0.4s; text-align: center; padding-bottom: 25px; cursor: pointer; border: 1px solid #f0f0f0;
         }
-        .item-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
-        .item-card img { width: 100%; height: 280px; object-fit: cover; }
-        .item-card h4 { margin: 20px 0 10px; font-size: 18px; color: var(--main-green); }
-        .price { display: block; color: var(--gold-accent); font-weight: 700; margin-bottom: 20px; }
-        .btn-wa { display: inline-block; padding: 10px 30px; background: var(--main-green); color: white; text-decoration: none; border-radius: 5px; font-size: 13px; font-weight: bold; text-transform: uppercase; border: none; cursor: pointer; }
+        .item-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .item-card img { width: 100%; height: 300px; object-fit: cover; }
+        .item-card h4 { margin: 20px 0 8px; color: var(--main-green); font-size: 18px; }
+        .price { color: var(--gold-accent); font-weight: bold; font-size: 17px; display: block; }
 
-        /* Jardinage Section */
-        .jardinage-container { background: #f4f7f6; padding: 80px 10%; }
-        .jardinage-masonry { column-count: 3; column-gap: 20px; padding: 0 10%; margin-bottom: 50px; }
-        .jardinage-item { background: white; margin-bottom: 20px; break-inside: avoid; border-radius: 15px; overflow: hidden; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: 0.3s; }
-        .jardinage-item img { width: 100%; display: block; transition: 0.5s ease; }
-        .jardinage-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(26, 60, 52, 0.9)); color: white; padding: 20px; opacity: 0; transition: 0.3s; transform: translateY(20px); }
-        .jardinage-item:hover .jardinage-overlay { opacity: 1; transform: translateY(0); }
+        /* Buttons & Back Button */
+        .btn-container { text-align: center; margin: 40px 0; display: flex; justify-content: center; gap: 15px; }
+        .btn-view-all, .btn-back { 
+            background: none; border: 2px solid var(--gold-accent); color: var(--gold-accent); 
+            padding: 10px 30px; border-radius: 30px; cursor: pointer; font-weight: bold; transition: 0.3s; text-transform: uppercase; font-size: 13px;
+        }
+        .btn-view-all:hover, .btn-back:hover { background: var(--gold-accent); color: white; }
+        .btn-back { border-color: var(--main-green); color: var(--main-green); }
+        .btn-back:hover { background: var(--main-green); color: white; }
+
+        /* Jardinage Masonry */
+        .jardinage-grid { column-count: 3; column-gap: 20px; padding: 0 10%; }
+        .jardinage-item { margin-bottom: 20px; break-inside: avoid; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .jardinage-item img { width: 100%; display: block; transition: 0.5s; }
+        .jardinage-item:hover img { transform: scale(1.1); }
+
+        /* Modal (Pop-up) */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); }
+        .modal-content { background: white; margin: 5vh auto; padding: 40px; border-radius: 20px; width: 90%; max-width: 800px; position: relative; display: flex; flex-wrap: wrap; gap: 30px; }
+        .close { position: absolute; right: 25px; top: 15px; font-size: 35px; cursor: pointer; color: var(--main-green); }
+        .modal-left { flex: 1; min-width: 300px; }
+        .modal-left img { width: 100%; border-radius: 15px; height: 400px; object-fit: cover; }
+        .modal-right { flex: 1.2; display: flex; flex-direction: column; justify-content: center; }
 
         /* Footer */
-        .contact-footer { background: var(--main-green); color: white; padding: 80px 10% 40px; }
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 50px; }
-        .contact-box h4 { color: var(--gold-accent); margin-bottom: 20px; }
-        
-        @media (max-width: 768px) {
-            nav { flex-direction: column; gap: 15px; }
-            .nav-links { gap: 15px; font-size: 13px; }
-            .jardinage-masonry { column-count: 1; }
+        footer { background: var(--main-green); color: white; padding: 80px 10% 40px; }
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; }
+        .contact-box h4 { color: var(--gold-accent); margin-bottom: 25px; font-family: 'Playfair Display', serif; font-size: 22px; }
+        .contact-box p, .contact-box a { color: #bdc3c7; text-decoration: none; display: block; margin-bottom: 15px; font-size: 15px; transition: 0.3s; }
+        .contact-box a:hover { color: var(--gold-accent); }
+
+        @media (max-width: 992px) { .jardinage-grid { column-count: 2; } }
+        @media (max-width: 768px) { 
+            nav { flex-direction: column; gap: 15px; } 
+            .nav-links { gap: 10px; justify-content: center; font-size: 11px; }
+            .jardinage-grid { column-count: 1; }
+            .modal-content { margin: 2vh auto; padding: 20px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo"><img src="images/logo.png" alt="Logo"></div>
+        <div class="logo" onclick="showSection('accueil')"><img src="images/logo.png" alt="Jardins du Paradis"></div>
         <ul class="nav-links">
-            <li><a href="#home">Accueil</a></li>
-            <li><a href="#plants">Plantes</a></li>
-            <li><a href="#flowers">Bouquets</a></li>
-            <li><a href="#soins">Soins</a></li>
-            <li><a href="#oiseaux">Oiseaux</a></li>
-            <li><a href="#jardinage">Jardinage</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a onclick="showSection('accueil')" id="nav-accueil">accueil</a></li>
+            <li><a onclick="showSection('plantes')" id="nav-plantes">plantes</a></li>
+            <li><a onclick="showSection('pots')" id="nav-pots">les pots</a></li>
+            <li><a onclick="showSection('jardinage')" id="nav-jardinage">jardinage</a></li>
+            <li><a onclick="showSection('soins')" id="nav-soins">soins</a></li>
+            <li><a onclick="showSection('oiseaux')" id="nav-oiseaux">oiseaux</a></li>
+            <li><a onclick="showSection('bouquets')" id="nav-bouquets">bouquets</a></li>
+            <li><a onclick="showSection('contact')" id="nav-contact">contact</a></li>
         </ul>
     </nav>
 
-    <div id="plantModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <div class="modal-left">
-                <img id="modalImg" src="" alt="Produit">
-            </div>
-            <div class="modal-right">
-                <h2 id="modalTitle">Nom du Produit</h2>
-                <span class="modal-price" id="modalPriceDisplay">0.00 DH</span>
-                
-                <div id="modalDescriptionSection">
-                    <ul class="plant-details" id="plantInfoList">
-                        <li><i class="fas fa-globe"></i> <strong>Origine:</strong> <span id="p-origin"></span></li>
-                        <li><i class="fas fa-sun"></i> <strong>Lumière:</strong> <span id="p-sun"></span></li>
-                        <li><i class="fas fa-tint"></i> <strong>Arrosage:</strong> <span id="p-water"></span></li>
-                        <li><i class="fas fa-seedling"></i> <strong>Sol:</strong> <span id="p-soil"></span></li>
-                        <li><i class="fas fa-arrows-alt-v"></i> <strong>Taille:</strong> <span id="p-height"></span></li>
-                    </ul>
+    <div id="accueil" class="page-section active">
+        <div class="hero">
+            <div class="hero-content"><h1>JARDINS DU PARADIS</h1></div>
+        </div>
+        <div class="about-box">
+            <h2>L'Excellence au Cœur de la Nature</h2>
+            <p>Depuis notre fondation en <strong>2007</strong> à Tanger, nous nous spécialisons dans l'art de l'aménagement paysager. Nous proposons des plantes d'exception, des pots design, et des solutions de soins végétales pour transformer vos espaces en véritables oasis de paix.</p>
+        </div>
 
-                    <ul class="plant-details" id="flowerInfoList" style="display:none;">
-                        <li><i class="fas fa-info-circle"></i> <strong>Description:</strong> <span id="f-desc"></span></li>
-                        <li><i class="fas fa-gift"></i> <strong>Occasion:</strong> <span id="f-occasion"></span></li>
-                    </ul>
+        <div class="section-title">Nos Plantes</div>
+        <div class="catalog-grid" id="plants-preview"></div>
+        <div class="btn-container"><button class="btn-view-all" onclick="showSection('plantes')">voir tout</button></div>
 
-                    <ul class="plant-details" id="careInfoList" style="display:none;">
-                        <li><i class="fas fa-microscope"></i> <strong>Description:</strong> <span id="c-desc"></span></li>
-                        <li><i class="fas fa-vial"></i> <strong>Mode d'emploi:</strong> <span id="c-usage"></span></li>
-                        <li><i class="fas fa-calendar-alt"></i> <strong>Fréquence:</strong> <span id="c-period"></span></li>
-                    </ul>
+        <div class="section-title">Les Pots</div>
+        <div class="catalog-grid" id="pots-preview"></div>
+        <div class="btn-container"><button class="btn-view-all" onclick="showSection('pots')">voir tout</button></div>
+
+        <div class="section-title">Nos Bouquets</div>
+        <div class="catalog-grid" id="bouquets-preview"></div>
+        <div class="btn-container"><button class="btn-view-all" onclick="showSection('bouquets')">voir tout</button></div>
+    </div>
+
+    <div id="plantes" class="page-section">
+        <div class="section-title">Collection Complète : Plantes</div>
+        <div class="catalog-grid" id="plants-full"></div>
+        <div class="btn-container"><button class="btn-back" onclick="showSection('accueil')">Retour à l'accueil</button></div>
+    </div>
+
+    <div id="pots" class="page-section">
+        <div class="section-title">Collection : Les Pots</div>
+        <div class="catalog-grid" id="pots-full"></div>
+        <div class="btn-container"><button class="btn-back" onclick="showSection('accueil')">Retour à l'accueil</button></div>
+    </div>
+
+    <div id="jardinage" class="page-section">
+        <div class="section-title">Nos Travaux de Jardinage</div>
+        <div class="jardinage-grid" id="jardinage-gallery"></div>
+        <div class="btn-container">
+            <button class="btn-back" onclick="showSection('accueil')">Retour</button>
+            <button class="btn-view-all" style="background:var(--main-green); color:white; border:none;" onclick="showSection('contact')">contactez-nous</button>
+        </div>
+    </div>
+
+    <div id="soins" class="page-section">
+        <div class="section-title">Soins & Vitamines</div>
+        <div class="catalog-grid" id="soins-full"></div>
+        <div class="btn-container"><button class="btn-back" onclick="showSection('accueil')">Retour</button></div>
+    </div>
+
+    <div id="oiseaux" class="page-section">
+        <div class="section-title">Nourriture Oiseaux</div>
+        <div class="catalog-grid" id="birds-full"></div>
+        <div class="btn-container"><button class="btn-back" onclick="showSection('accueil')">Retour</button></div>
+    </div>
+
+    <div id="bouquets" class="page-section">
+        <div class="section-title">Nos Bouquets de Prestige</div>
+        <div class="catalog-grid" id="bouquets-full"></div>
+        <div class="btn-container"><button class="btn-back" onclick="showSection('accueil')">Retour à l'accueil</button></div>
+    </div>
+
+    <div id="contact" class="page-section">
+        <div class="section-title">Contact & Localisation</div>
+        <footer>
+            <div class="contact-grid">
+                <div class="contact-box">
+                    <h4>Informations</h4>
+                    <p><i class="fas fa-phone"></i> 06 61 72 24 57</p>
+                    <p><i class="fas fa-phone"></i> 06 61 06 41 17</p>
+                    <a href="https://wa.me/212661722457" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 </div>
+                <div class="contact-box">
+                    <h4>Suivez-nous</h4>
+                    <div style="display:flex; gap:20px;">
+                        <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+                    </div>
+                </div>
+                <div class="contact-box">
+                    <h4>Siège Social</h4>
+                    <p>Hay Mandar Jamil, Tanger, Maroc</p>
+                    <p>Ouvert du Lundi au Samedi</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 50px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 12px; opacity: 0.6;">
+                © 2026 Jardins du Paradis - Tous droits réservés.
+            </div>
+        </footer>
+    </div>
 
-                <br>
-                <a id="waLink" href="#" target="_blank" class="btn-wa" style="text-align: center; width: 100%;">Commander via WhatsApp</a>
+    <div id="itemModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-left"><img id="modalImg" src=""></div>
+            <div class="modal-right">
+                <h2 id="modalTitle" style="color:var(--main-green); font-family:'Playfair Display';"></h2>
+                <span id="modalPrice" class="price" style="margin: 15px 0; font-size: 22px;"></span>
+                <p id="modalDesc" style="color: #666; margin-bottom: 30px;"></p>
+                <a id="modalWa" href="#" class="btn-view-all" style="background:var(--main-green); color:white; border:none; text-align:center; text-decoration:none;">Commander via WhatsApp</a>
             </div>
         </div>
     </div>
-
-    <header id="home" class="hero">
-        <div class="hero-content">
-            <h1>JARDINS DU PARADIS</h1>
-            <p>L'excellence au cœur des espaces verts</p>
-        </div>
-    </header>
-
-    <section class="about-section">
-        <h2>Quand l'Art Rencontre la Nature</h2>
-        <p>Spécialistes de l'aménagement paysager à Tanger depuis 2007.</p>
-    </section>
-
-    <div id="plants" class="section-title">Notre Collection Royale</div>
-    <div class="catalog-grid">
-        <div class="item-card" onclick="openPlant('ASPLENIUM', 'images/plant1.jpg', '100.00 DH', 'Asie du Sud-Est', 'Lumière tamisée', '1 à 2 fois/sem', 'Humus', '30-50 cm')">
-            <img src="images/plant1.jpg" alt="ASPLENIUM">
-            <h4>ASPLENIUM</h4>
-            <span class="price">100.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        </div>
-
-    <div id="flowers" class="section-title">Nos Bouquets de Prestige</div>
-    <div class="catalog-grid">
-        <div class="item-card" onclick="openFlower('BOUQUET AMOUR', 'images/fleur1.jpg', '150.00 DH', 'Un mélange passionné de roses rouges.', 'Saint-Valentin, Anniversaire')">
-            <img src="images/fleur1.jpg" alt="Bouquet">
-            <h4>BOUQUET AMOUR</h4>
-            <span class="price">150.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-    </div>
-
-    <div id="soins" class="section-title">Pharmacie Végétale & Soins</div>
-    <div class="catalog-grid">
-        <div class="item-card" onclick="openCare('ENGRAIS LIQUIDE', 'images/med1.jpg', '65.00 DH', 'Boosteur de croissance riche en azote.', 'Diluer 5ml dans 1L d\'eau.', 'Chaque 15 jours.')">
-            <img src="images/med1.jpg" alt="Engrais">
-            <h4>ENGRAIS LIQUIDE</h4>
-            <span class="price">65.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-        <div class="item-card" onclick="openCare('SPRAY LUSTRANT', 'images/med2.jpg', '45.00 DH', 'Protège les feuilles et donne de l\'éclat.', 'Vaporiser à 20cm des feuilles.', 'Une fois par mois.')">
-            <img src="images/med2.jpg" alt="Spray">
-            <h4>SPRAY LUSTRANT</h4>
-            <span class="price">45.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-    </div>
-
-    <div id="oiseaux" class="section-title">Espace Oiseaux du Paradis</div>
-    <div class="catalog-grid">
-        <div class="item-card" onclick="openFlower('MÉLANGE CANARIS', 'images/bird1.jpg', '35.00 DH', 'Graines sélectionnées pour la vitalité.', 'Alimentation quotidienne')">
-            <img src="images/bird1.jpg" alt="Graines">
-            <h4>MÉLANGE CANARIS</h4>
-            <span class="price">35.00 DH</span>
-            <button class="btn-wa">Détails</button>
-        </div>
-    </div>
-
-    <div id="jardinage" class="section-title">Nos Services Paysagers</div>
-    <div class="jardinage-masonry">
-        <div class="jardinage-item">
-            <img src="images/jardin1.jpg" alt="Aménagement">
-            <div class="jardinage-overlay"><h4>Aménagement de Villas</h4><p>Espaces sur mesure.</p></div>
-        </div>
-        </div>
-
-    <footer id="contact" class="contact-footer">
-        <div class="contact-grid">
-            <div class="contact-box">
-                <h4>Contactez-nous</h4>
-                <p><i class="fas fa-phone"></i> +212 661 72 24 57</p>
-                <p><i class="fas fa-envelope"></i> contact@jardinsparadis.com</p>
-            </div>
-        </div>
-    </footer>
 
     <script>
     // --- 1. وظيفة فتح نافذة النباتات ---
