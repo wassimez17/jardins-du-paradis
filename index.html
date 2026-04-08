@@ -288,70 +288,86 @@
     </footer>
 
     <script>
-        // 1. Fonction pour les Plantes
-        function openPlant(name, img, price, origin, sun, water, soil, height) {
-            document.getElementById('modalTitle').innerText = name;
-            document.getElementById('modalImg').src = img;
-            document.getElementById('modalPriceDisplay').innerText = price;
-            
-            document.getElementById('plantInfoList').style.display = 'block';
-            document.getElementById('flowerInfoList').style.display = 'none';
-            document.getElementById('careInfoList').style.display = 'none';
+    // --- 1. وظيفة فتح نافذة النباتات ---
+    function openPlant(name, img, price, origin, sun, water, soil, height) {
+        setupCommonModal(name, img, price); // تعبئة البيانات المشتركة
+        
+        // إظهار قائمة معلومات النباتات وإخفاء الباقي
+        toggleLists('plantInfoList');
 
-            document.getElementById('p-origin').innerText = origin;
-            document.getElementById('p-sun').innerText = sun;
-            document.getElementById('p-water').innerText = water;
-            document.getElementById('p-soil').innerText = soil;
-            document.getElementById('p-height').innerText = height;
+        document.getElementById('p-origin').innerText = origin;
+        document.getElementById('p-sun').innerText = sun;
+        document.getElementById('p-water').innerText = water;
+        document.getElementById('p-soil').innerText = soil;
+        document.getElementById('p-height').innerText = height;
 
-            document.getElementById('waLink').href = `https://wa.me/212661722457?text=Bonjour, je souhaite commander la plante: ${name}`;
-            document.getElementById('plantModal').style.display = 'block';
-        }
+        setWhatsAppLink("la plante: " + name);
+        showModal();
+    }
 
-        // 2. Fonction pour les Bouquets et Oiseaux
-        function openFlower(name, img, price, desc, occasion) {
-            document.getElementById('modalTitle').innerText = name;
-            document.getElementById('modalImg').src = img;
-            document.getElementById('modalPriceDisplay').innerText = price;
-            
-            document.getElementById('plantInfoList').style.display = 'none';
-            document.getElementById('flowerInfoList').style.display = 'block';
-            document.getElementById('careInfoList').style.display = 'none';
+    // --- 2. وظيفة فتح نافذة الباقات أو العصافير ---
+    function openFlower(name, img, price, desc, occasion) {
+        setupCommonModal(name, img, price);
+        
+        // إظهار قائمة الباقات وإخفاء الباقي
+        toggleLists('flowerInfoList');
 
-            document.getElementById('f-desc').innerText = desc;
-            document.getElementById('f-occasion').innerText = occasion;
+        document.getElementById('f-desc').innerText = desc;
+        document.getElementById('f-occasion').innerText = occasion;
 
-            document.getElementById('waLink').href = `https://wa.me/212661722457?text=Bonjour, je souhaite commander: ${name}`;
-            document.getElementById('plantModal').style.display = 'block';
-        }
+        setWhatsAppLink("le produit: " + name);
+        showModal();
+    }
 
-        // 3. Fonction pour les Soins (Nouveau)
-        function openCare(name, img, price, desc, usage, period) {
-            document.getElementById('modalTitle').innerText = name;
-            document.getElementById('modalImg').src = img;
-            document.getElementById('modalPriceDisplay').innerText = price;
-            
-            document.getElementById('plantInfoList').style.display = 'none';
-            document.getElementById('flowerInfoList').style.display = 'none';
-            document.getElementById('careInfoList').style.display = 'block';
+    // --- 3. وظيفة فتح نافذة الأدوية والسماد ---
+    function openCare(name, img, price, desc, usage, period) {
+        setupCommonModal(name, img, price);
+        
+        // إظهار قائمة الأدوية وإخفاء الباقي
+        toggleLists('careInfoList');
 
-            document.getElementById('c-desc').innerText = desc;
-            document.getElementById('c-usage').innerText = usage;
-            document.getElementById('c-period').innerText = period;
+        document.getElementById('c-desc').innerText = desc;
+        document.getElementById('c-usage').innerText = usage;
+        document.getElementById('c-period').innerText = period;
 
-            document.getElementById('waLink').href = `https://wa.me/212661722457?text=Bonjour, je souhaite commander ce soin: ${name}`;
-            document.getElementById('plantModal').style.display = 'block';
-        }
+        setWhatsAppLink("ce soin: " + name);
+        showModal();
+    }
 
-        function closeModal() {
-            document.getElementById('plantModal').style.display = 'none';
-        }
+    // --- وظائف مساعدة لتنظيف الكود (Helper Functions) ---
 
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('plantModal')) {
-                closeModal();
-            }
-        }
-    </script>
+    function setupCommonModal(name, img, price) {
+        document.getElementById('modalTitle').innerText = name;
+        document.getElementById('modalImg').src = img;
+        document.getElementById('modalPriceDisplay').innerText = price;
+    }
+
+    function toggleLists(activeListId) {
+        const lists = ['plantInfoList', 'flowerInfoList', 'careInfoList'];
+        lists.forEach(listId => {
+            const el = document.getElementById(listId);
+            if(el) el.style.display = (listId === activeListId) ? 'block' : 'none';
+        });
+    }
+
+    function setWhatsAppLink(message) {
+        const phone = "212661722457";
+        document.getElementById('waLink').href = `https://wa.me/${phone}?text=Bonjour, je souhaite commander ${message}`;
+    }
+
+    function showModal() {
+        document.getElementById('plantModal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('plantModal').style.display = 'none';
+    }
+
+    // إغلاق النافذة عند النقر خارجها
+    window.onclick = function(event) {
+        let modal = document.getElementById('plantModal');
+        if (event.target == modal) closeModal();
+    }
+</script>
 </body>
 </html>
