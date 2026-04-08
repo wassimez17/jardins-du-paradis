@@ -7,157 +7,206 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <style>
-        :root { 
-            --main-green: #1a3c34; 
-            --gold-accent: #c5a059; 
-            --soft-white: #ffffff;
-            --text-dark: #2c2c2c;
-            --bg-light: #fdfdfd;
-        }
+   <style>
+    /* --- 1. الإعدادات العامة والألوان --- */
+    :root {
+        --primary-color: #27ae60;
+        --secondary-color: #2c3e50;
+        --bg-light: #f9f9f9;
+        --white: #ffffff;
+        --shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body { 
-            font-family: 'Tajawal', sans-serif; 
-            color: var(--text-dark); 
-            line-height: 1.6; 
-            background-color: var(--bg-light); 
-            scroll-behavior: smooth;
-        }
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--bg-light);
+        margin: 0;
+        padding: 0;
+        direction: ltr; /* لضمان اتساق أيقونات FontAwesome واللغة الفرنسية */
+    }
 
-        /* Modal Design */
-        .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 2000; 
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px);
-        }
+    /* --- 2. تنسيق الأقسام والشبكة --- */
+    .section-title {
+        text-align: center;
+        font-size: 2.2rem;
+        margin: 50px 0 30px;
+        color: var(--secondary-color);
+        font-family: 'Playfair Display', serif;
+        position: relative;
+    }
 
+    .section-title::after {
+        content: '';
+        display: block;
+        width: 60px;
+        height: 3px;
+        background: var(--primary-color);
+        margin: 10px auto;
+    }
+
+    .catalog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* --- 3. تصميم كروت المنتجات --- */
+    .item-card {
+        background: var(--white);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .item-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+
+    .item-card img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+    }
+
+    .item-card h4 {
+        margin: 15px 0 5px;
+        color: var(--secondary-color);
+        font-size: 1.2rem;
+        text-transform: uppercase;
+    }
+
+    .item-card .price {
+        color: var(--primary-color);
+        font-weight: bold;
+        font-size: 1.1rem;
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    /* --- 4. تنسيق النافذة المنبثقة (Modal) --- */
+    .modal {
+        display: none; 
+        position: fixed; 
+        z-index: 2000; 
+        left: 0; top: 0;
+        width: 100%; height: 100%;
+        background-color: rgba(0,0,0,0.85);
+        backdrop-filter: blur(8px);
+    }
+
+    .modal-content {
+        background-color: var(--white);
+        margin: 5% auto;
+        width: 85%;
+        max-width: 900px;
+        border-radius: 25px;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        overflow: hidden;
+        animation: slideIn 0.4s ease-out;
+    }
+
+    @keyframes slideIn {
+        from { opacity: 0; transform: scale(0.9); }
+        to { opacity: 1; transform: scale(1); }
+    }
+
+    .close-modal {
+        position: absolute;
+        right: 25px; top: 15px;
+        font-size: 35px;
+        color: #999;
+        cursor: pointer;
+        z-index: 100;
+        transition: 0.3s;
+    }
+
+    .close-modal:hover { color: #ff0000; }
+
+    .modal-left { flex: 1.2; min-width: 350px; background: #eee; }
+    .modal-left img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .modal-right { 
+        flex: 1; 
+        padding: 40px; 
+        min-width: 350px; 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center;
+        background: var(--white);
+    }
+
+    .modal-right h2 { margin-top: 0; color: var(--secondary-color); font-size: 1.8rem; }
+    .modal-price { font-size: 1.6rem; color: var(--primary-color); font-weight: bold; margin-bottom: 25px; }
+
+    /* قوائم التفاصيل داخل Modal */
+    .plant-details {
+        list-style: none;
+        padding: 0;
+        margin-bottom: 30px;
+    }
+
+    .plant-details li {
+        margin-bottom: 15px;
+        font-size: 1rem;
+        border-bottom: 1px solid #f0f0f0;
+        padding-bottom: 8px;
+        display: flex;
+        align-items: center;
+        color: #555;
+    }
+
+    .plant-details i {
+        color: var(--primary-color);
+        margin-right: 12px;
+        font-size: 1.1rem;
+        width: 25px;
+        text-align: center;
+    }
+
+    /* --- 5. زر الواتساب والتنسيق للجوال --- */
+    .btn-wa {
+        background-color: #25d366;
+        color: white;
+        padding: 15px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        text-align: center;
+        transition: 0.3s;
+        border: none;
+        display: inline-block;
+        font-size: 1.1rem;
+    }
+
+    .btn-wa:hover {
+        background-color: #128c7e;
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+    }
+
+    /* تجاوب الموقع مع الشاشات الصغيرة */
+    @media (max-width: 850px) {
         .modal-content {
-            background-color: white;
+            flex-direction: column;
+            width: 95%;
             margin: 5% auto;
-            padding: 30px;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 750px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            position: relative;
-            animation: fadeIn 0.4s;
+            max-height: 90vh;
+            overflow-y: auto;
         }
-
-        @keyframes fadeIn { from {opacity: 0; transform: translateY(-20px);} to {opacity: 1; transform: translateY(0);} }
-
-        .close-modal {
-            position: absolute;
-            right: 20px; top: 15px;
-            font-size: 28px;
-            cursor: pointer;
-            color: var(--main-green);
-        }
-
-        .modal-left { flex: 1; min-width: 250px; }
-        .modal-left img { width: 100%; border-radius: 10px; height: 400px; object-fit: cover; }
-
-        .modal-right { flex: 1.2; min-width: 250px; text-align: left; }
-        .modal-right h2 { color: var(--main-green); font-family: 'Playfair Display', serif; margin-bottom: 5px; }
-        .modal-price { color: var(--gold-accent); font-weight: 700; font-size: 20px; margin-bottom: 15px; display: block; }
-        .plant-details { list-style: none; }
-        .plant-details li { margin-bottom: 12px; font-size: 14px; border-bottom: 1px solid #eee; padding-bottom: 5px; }
-        .plant-details i { color: var(--gold-accent); margin-right: 10px; width: 20px; }
-        .plant-details strong { color: var(--main-green); }
-
-        /* Navigation */
-        nav { 
-            padding: 15px 8%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            background: white; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-        }
-        .logo img { height: 60px; }
-        .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { 
-            text-decoration: none; 
-            color: var(--main-green); 
-            font-size: 15px; 
-            font-weight: 500; 
-            transition: 0.3s; 
-            position: relative;
-            padding-bottom: 5px;
-        }
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--gold-accent);
-            transition: width 0.3s ease;
-        }
-        .nav-links a:hover::after { width: 100%; }
-        .nav-links a:hover { color: var(--gold-accent); }
-
-        /* Hero */
-        .hero { 
-            height: 70vh; 
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('images/hero-bg.jpg'); 
-            background-size: cover; background-position: center;
-            display: flex; align-items: center; justify-content: center; color: white; text-align: center;
-        }
-        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: clamp(35px, 6vw, 65px); margin-bottom: 15px; }
-        
-        .about-section { padding: 80px 10%; text-align: center; background: white; }
-
-        /* Catalog Grid */
-        .section-title { text-align: center; margin: 60px 0 40px; font-family: 'Playfair Display', serif; font-size: 32px; color: var(--main-green); }
-        .catalog-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 40px; 
-            padding: 0 10%; 
-            margin-bottom: 80px; 
-        }
-        
-        .item-card { 
-            background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            text-align: center; padding-bottom: 25px; transition: 0.4s; border: 1px solid #f0f0f0; cursor: pointer;
-        }
-        .item-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
-        .item-card img { width: 100%; height: 280px; object-fit: cover; }
-        .item-card h4 { margin: 20px 0 10px; font-size: 18px; color: var(--main-green); }
-        .price { display: block; color: var(--gold-accent); font-weight: 700; margin-bottom: 20px; }
-        .btn-wa { display: inline-block; padding: 10px 30px; background: var(--main-green); color: white; text-decoration: none; border-radius: 5px; font-size: 13px; font-weight: bold; text-transform: uppercase; border: none; cursor: pointer; }
-
-        /* Jardinage Section */
-        .jardinage-container { background: #f4f7f6; padding: 80px 10%; }
-        .jardinage-masonry { column-count: 3; column-gap: 20px; padding: 0 10%; margin-bottom: 50px; }
-        .jardinage-item { background: white; margin-bottom: 20px; break-inside: avoid; border-radius: 15px; overflow: hidden; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.08); transition: 0.3s; }
-        .jardinage-item img { width: 100%; display: block; transition: 0.5s ease; }
-        .jardinage-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(26, 60, 52, 0.9)); color: white; padding: 20px; opacity: 0; transition: 0.3s; transform: translateY(20px); }
-        .jardinage-item:hover .jardinage-overlay { opacity: 1; transform: translateY(0); }
-
-        /* Footer */
-        .contact-footer { background: var(--main-green); color: white; padding: 80px 10% 40px; }
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 50px; }
-        .contact-box h4 { color: var(--gold-accent); margin-bottom: 20px; }
-        
-        @media (max-width: 768px) {
-            nav { flex-direction: column; gap: 15px; }
-            .nav-links { gap: 15px; font-size: 13px; }
-            .jardinage-masonry { column-count: 1; }
-        }
-    </style>
+        .modal-left { min-width: 100%; height: 300px; }
+        .modal-right { padding: 25px; min-width: 100%; }
+        .section-title { font-size: 1.8rem; }
+    }
+</style>
 </head>
 <body>
 
