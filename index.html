@@ -71,9 +71,16 @@ nav {
 
 /* Image du logo */
 .logo img {
-  width: 80px; 
-  height: 42px;
+  width: 120px; 
+  height: 60px;
   object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+  transform: scale(1.05);
 }
 
 /* Conteneur des textes pour organiser verticalement */
@@ -81,8 +88,8 @@ nav {
   display: flex; flex-direction: column;
 }
 
-.logo-text { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: var(--green-deep); line-height: 1.1; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-.logo-sub { font-size: 11px; letter-spacing: 2.5px; color: var(--green-mid); text-transform: uppercase; font-weight: 500; }
+.logo-text { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--main-green); line-height: 1.1; text-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+.logo-sub { font-size: 10px; letter-spacing: 2px; color: var(--gold-accent); text-transform: uppercase; font-weight: 500; margin-top: 2px; }
 
 .nav-links { display: flex; gap: 2px; list-style: none; }
 .nav-links a {
@@ -438,6 +445,7 @@ nav {
         
         <div class="logo-text-container">
             <div class="logo-text">Jardins du Paradis</div>
+            <div class="logo-sub">Nature & Élégance</div>
         </div>
     </div>
     
