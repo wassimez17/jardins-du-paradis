@@ -1,266 +1,953 @@
 <!DOCTYPE html>
-<html lang="fr" dir="ltr">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jardins Du Paradis — Pépinière & Jardinerie</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=Noto+Naskh+Arabic:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jardins Du Paradis </title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-deep: #1a3a1f;
+    --green-mid: #2d6a35;
+    --green-light: #4a9b52;
+    --green-pale: #c8e6ca;
+    --green-mist: #f0f7f0;
+    --cream: #faf8f3;
+    --warm-white: #ffffff;
+    --brown: #5c3d1e;
+    --gold: #b8860b;
+    --text-dark: #1a1a1a;
+    --text-mid: #444;
+    --text-light: #777;
+    --border: rgba(45,106,53,0.15);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    font-weight: 300;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250,248,243,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 4vw;
+    height: 72px;
+  }
+
+  .logo {
+    display: flex; align-items: center; gap: 12px;
+    text-decoration: none; cursor: pointer;
+  }
+
+  /* تنسيق الصورة الجديدة بدلاً من logo-icon */
+  .logo img {
+    width: 45px; 
+    height: 45px;
+    object-fit: contain; /* لضمان عدم تشوه الشعار */
+  }
+
+  /* تنسيق النص (تم دمج منطق الترتيب هنا) */
+  .logo-text-container {
+    display: flex; flex-direction: column;
+  }
+  
+  .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--green-deep); line-height: 1.1; }
+  .logo-sub { font-size: 10px; letter-spacing: 2px; color: var(--text-light); text-transform: uppercase; }
+
+  /* باقي الكود كما هو */
+  .nav-links { display: flex; gap: 2px; list-style: none; }
+  .nav-links a {
+    font-size: 12px; font-weight: 400; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--text-mid); text-decoration: none; padding: 8px 14px; border-radius: 4px;
+    transition: all 0.2s; cursor: pointer;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--green-mid); background: var(--green-mist); }
+  /* HERO */
+  #accueil {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    padding-top: 72px;
+  }
+  .hero-image {
+    background: linear-gradient(135deg, #2d6a35 0%, #1a3a1f 60%, #0d2410 100%);
+    position: relative; overflow: hidden; min-height: 600px;
+  }
+  .hero-image-overlay {
+    position: absolute; inset: 0;
+    background-image: 
+      radial-gradient(ellipse at 30% 60%, rgba(74,155,82,0.3) 0%, transparent 60%),
+      radial-gradient(ellipse at 70% 20%, rgba(200,230,202,0.1) 0%, transparent 50%);
+  }
+  .leaf-deco {
+    position: absolute;
+    font-size: 180px; opacity: 0.07;
+    line-height: 1;
+  }
+  .leaf-deco.l1 { top: 10%; left: -5%; transform: rotate(-20deg); }
+  .leaf-deco.l2 { bottom: 5%; right: -5%; transform: rotate(30deg); font-size: 250px; }
+  .leaf-deco.l3 { top: 40%; right: 10%; transform: rotate(15deg); font-size: 120px; opacity: 0.05; }
+  .hero-image-content {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 3rem;
+  }
+  .hero-img-tag {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--green-pale); margin-bottom: 1rem; opacity: 0.8;
+  }
+  .hero-img-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(42px, 6vw, 72px); font-weight: 300; color: white;
+    line-height: 1.1; margin-bottom: 1.5rem;
+  }
+  .hero-img-title em { font-style: italic; color: var(--green-pale); }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.1); border: 1px solid rgba(200,230,202,0.3);
+    color: var(--green-pale); padding: 10px 24px; border-radius: 40px;
+    font-size: 12px; letter-spacing: 1px;
+  }
+  .hero-text {
+    padding: clamp(3rem, 6vw, 6rem) clamp(2rem, 5vw, 5rem);
+    display: flex; flex-direction: column; justify-content: center;
+    background: var(--cream);
+  }
+  .section-eyebrow {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--green-mid); margin-bottom: 1.5rem; font-weight: 400;
+  }
+  .hero-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 3.5vw, 52px); font-weight: 400;
+    line-height: 1.2; color: var(--green-deep);
+    margin-bottom: 1.5rem;
+  }
+  .hero-body { font-size: 15px; color: var(--text-mid); line-height: 1.8; margin-bottom: 2rem; }
+  .stats-row { display: flex; gap: 2rem; margin-top: 2rem; }
+  .stat { text-align: center; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px; font-weight: 600; color: var(--green-deep); line-height: 1;
+  }
+  .stat-label { font-size: 11px; letter-spacing: 1px; color: var(--text-light); margin-top: 4px; }
+  .divider { width: 1px; background: var(--border); margin: 0 1rem; }
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--green-deep); color: white;
+    padding: 14px 32px; border-radius: 40px;
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    text-decoration: none; transition: all 0.3s; margin-top: 2rem;
+    align-self: flex-start; border: none; cursor: pointer;
+  }
+  .cta-btn:hover { background: var(--green-mid); transform: translateY(-2px); }
+  .cta-outline {
+    background: transparent; color: var(--green-deep);
+    border: 1.5px solid var(--green-deep);
+  }
+  .cta-outline:hover { background: var(--green-deep); color: white; }
+
+  /* SECTIONS */
+  section { padding: 6rem 6vw; }
+  section:nth-child(even) { background: var(--warm-white); }
+  .section-header { text-align: center; margin-bottom: 4rem; }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 3vw, 44px); font-weight: 400;
+    color: var(--green-deep); margin-bottom: 1rem; line-height: 1.2;
+  }
+  .section-desc { font-size: 15px; color: var(--text-light); max-width: 520px; margin: 0 auto; line-height: 1.8; }
+  .section-divider {
+    width: 60px; height: 2px; background: var(--green-light);
+    margin: 1rem auto 0; border-radius: 2px;
+  }
+
+  /* CARDS */
+  .cards-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+    margin-bottom: 3rem;
+  }
+  .card {
+    background: white; border-radius: 16px;
+    border: 1px solid var(--border); overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(26,58,31,0.12); }
+  .card-img {
+    height: 220px; overflow: hidden; position: relative;
+  }
+  .card-img-inner {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 80px; transition: transform 0.5s;
+  }
+  .card:hover .card-img-inner { transform: scale(1.08); }
+  .card-body { padding: 1.4rem 1.5rem; }
+  .card-tag {
+    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--green-mid); margin-bottom: 6px; font-weight: 400;
+  }
+  .card-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--green-deep); margin-bottom: 6px; }
+  .card-desc { font-size: 13px; color: var(--text-light); line-height: 1.7; margin-bottom: 12px; }
+  .card-price { font-size: 18px; font-weight: 500; color: var(--green-mid); }
+  .card-price span { font-size: 12px; font-weight: 300; color: var(--text-light); }
+
+  /* VOIR TOUT BTN */
+  .voir-tout-wrap { text-align: center; }
+  .voir-tout-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    border: 1.5px solid var(--green-deep); color: var(--green-deep);
+    background: transparent; padding: 13px 36px; border-radius: 40px;
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    cursor: pointer; transition: all 0.3s; font-family: 'Jost', sans-serif; font-weight: 400;
+  }
+  .voir-tout-btn:hover { background: var(--green-deep); color: white; }
+  .voir-tout-btn.active { background: var(--green-deep); color: white; }
+
+  /* HIDDEN CARDS */
+  .hidden-cards { display: none; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-bottom: 2rem; margin-top: 28px; }
+  .hidden-cards.visible { display: grid; }
+
+  /* JARDINAGE */
+  #jardinage { background: var(--green-deep); }
+  #jardinage .section-eyebrow { color: var(--green-pale); }
+  #jardinage .section-title { color: white; }
+  #jardinage .section-desc { color: rgba(200,230,202,0.8); }
+  #jardinage .section-divider { background: var(--green-pale); }
+  .photo-masonry {
+    columns: 4; column-gap: 16px;
+    margin-bottom: 3rem;
+  }
+  .photo-item {
+    break-inside: avoid; margin-bottom: 16px;
+    border-radius: 12px; overflow: hidden;
+    position: relative;
+  }
+  .photo-item-inner {
+    background: rgba(45,106,53,0.6);
+    border: 1px solid rgba(200,230,202,0.2);
+    border-radius: 12px; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s;
+  }
+  .photo-item-inner:hover { background: rgba(74,155,82,0.5); transform: scale(1.02); }
+  .photo-emoji {
+    font-size: 48px; padding: 24px;
+    display: block; text-align: center;
+    line-height: 1;
+  }
+  .photo-item.tall .photo-emoji { font-size: 64px; padding: 48px 24px; }
+  .photo-item.short .photo-emoji { font-size: 36px; padding: 16px 24px; }
+  .jardinage-cta { text-align: center; }
+  .jardinage-cta .cta-btn { background: var(--green-light); margin: 0 auto; display: inline-flex; }
+  .jardinage-cta .cta-btn:hover { background: white; color: var(--green-deep); }
+
+  /* SOINS */
+  .soins-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .soins-card {
+    background: var(--green-mist); border-radius: 16px; padding: 2rem;
+    border: 1px solid var(--border); text-align: center; transition: all 0.3s;
+  }
+  .soins-card:hover { transform: translateY(-4px); background: white; box-shadow: 0 12px 40px rgba(26,58,31,0.1); }
+  .soins-icon { font-size: 48px; margin-bottom: 1.5rem; display: block; }
+  .soins-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--green-deep); margin-bottom: 0.75rem; }
+  .soins-desc { font-size: 13px; color: var(--text-light); line-height: 1.8; margin-bottom: 1.5rem; }
+  .soins-price { font-size: 16px; font-weight: 500; color: var(--green-mid); }
+
+  /* OISEAUX */
+  .oiseaux-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 700px; margin: 0 auto; }
+  .oiseau-card {
+    background: white; border-radius: 20px; overflow: hidden;
+    border: 1px solid var(--border); transition: all 0.3s;
+  }
+  .oiseau-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(26,58,31,0.12); }
+  .oiseau-img { height: 260px; display: flex; align-items: center; justify-content: center; font-size: 100px; }
+  .oiseau-body { padding: 1.5rem; text-align: center; }
+  .oiseau-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--green-deep); margin-bottom: 6px; }
+  .oiseau-origin { font-size: 12px; letter-spacing: 1px; color: var(--text-light); text-transform: uppercase; margin-bottom: 10px; }
+  .oiseau-price { font-size: 20px; font-weight: 500; color: var(--green-mid); }
+
+  /* BOUQUETS */
+  .bouquet-card .card-img { background: linear-gradient(135deg, #fff5f7, #fce4ec); }
+  .bouquet-card .card-img-inner { font-size: 90px; }
+
+  /* CONTACT */
+  #contact {
+    background: var(--green-deep); color: white;
+    padding: 5rem 6vw;
+  }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+  .contact-left .section-title { color: white; text-align: left; }
+  .contact-left .section-eyebrow { color: var(--green-pale); }
+  .contact-left .section-desc { color: rgba(200,230,202,0.8); text-align: left; margin: 0; }
+  .contact-left .section-divider { margin: 1rem 0 0; }
+  .contact-info { margin-top: 3rem; display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-item { display: flex; align-items: flex-start; gap: 1rem; }
+  .contact-item-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    background: rgba(200,230,202,0.15); border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+  .contact-item-text { }
+  .contact-item-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--green-pale); opacity: 0.7; margin-bottom: 4px; }
+  .contact-item-value { color: white; font-size: 15px; line-height: 1.5; }
+  .contact-form { background: rgba(255,255,255,0.05); border: 1px solid rgba(200,230,202,0.15); border-radius: 20px; padding: 2.5rem; }
+  .form-title { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 400; color: white; margin-bottom: 1.5rem; }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label { display: block; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--green-pale); margin-bottom: 6px; opacity: 0.8; }
+  .form-group input, .form-group textarea {
+    width: 100%; background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(200,230,202,0.2); border-radius: 10px;
+    color: white; padding: 12px 16px; font-family: 'Jost', sans-serif;
+    font-size: 14px; font-weight: 300; outline: none; transition: border 0.2s;
+  }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(255,255,255,0.35); }
+  .form-group input:focus, .form-group textarea:focus { border-color: var(--green-pale); }
+  .form-group textarea { height: 100px; resize: none; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .submit-btn {
+    width: 100%; background: var(--green-light); color: white;
+    border: none; padding: 14px; border-radius: 10px; font-family: 'Jost', sans-serif;
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+    cursor: pointer; margin-top: 0.5rem; transition: all 0.3s;
+  }
+  .submit-btn:hover { background: white; color: var(--green-deep); }
+
+  /* FOOTER BAR */
+  .footer-bar {
+    background: #0d2410; color: rgba(200,230,202,0.5);
+    text-align: center; padding: 1.5rem;
+    font-size: 12px; letter-spacing: 1px;
+  }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    #accueil { grid-template-columns: 1fr; }
+    .hero-image { min-height: 50vh; }
+    .cards-grid { grid-template-columns: 1fr 1fr; }
+    .hidden-cards { grid-template-columns: 1fr 1fr; }
+    .photo-masonry { columns: 2; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; background: var(--cream); flex-direction: column; padding: 1rem 2rem 2rem; border-bottom: 1px solid var(--border); gap: 0; }
+    .nav-links.open { display: flex; }
+    .nav-burger { display: flex; }
+    .stats-row { flex-wrap: wrap; gap: 1rem; }
+    .soins-cards { grid-template-columns: 1fr; }
+    .oiseaux-grid { grid-template-columns: 1fr; max-width: 360px; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .cards-grid { grid-template-columns: 1fr; }
+    .hidden-cards { grid-template-columns: 1fr; }
+    .photo-masonry { columns: 2; }
+  }
+
+  /* Scroll reveal */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s, transform 0.7s; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
 </head>
 <body>
 
-  <!-- ═══════════════════════════════ PRELOADER ═══════════════════════════════ -->
-  <div id="preloader">
-    <div class="preloader-inner">
-      <div class="leaf-spin">🌿</div>
-      <p>Jardins Du Paradis</p>
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#accueil" class="logo">
+    <div class="logo-icon">🌿</div>
+    <div>
+      <div class="logo-text">Vert & Nature</div>
+      <div class="logo-sub">Jardinerie</div>
     </div>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="#accueil" class="active">Accueil</a>
+    <a href="#plantes">Plantes</a>
+    <a href="#pots">Les Pots</a>
+    <a href="#jardinage">Jardinage</a>
+    <a href="#soins">Soins</a>
+    <a href="#oiseaux">Oiseaux</a>
+    <a href="#bouquets">Bouquets</a>
+    <a href="#contact">Contact</a>
   </div>
-
-  <!-- ═══════════════════════════════ NAVBAR ═══════════════════════════════ -->
-  <header id="navbar">
-    <div class="nav-inner">
-      <a href="#hero" class="logo">
-        <img src="images/Logo.png" alt="Jardins Du Paradis" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
-        <span class="logo-text-fallback" style="display:none">🌿 Jardins Du Paradis</span>
-      </a>
-      <nav class="nav-links">
-        <a href="#plantes">Plantes</a>
-        <a href="#bouquets">Bouquets</a>
-        <a href="#pots">Pots</a>
-        <a href="#oiseaux">Oiseaux</a>
-        <a href="#soins">Soins</a>
-        <a href="#jardinage">Jardinage</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <div class="nav-lang">
-        <button onclick="setLang('fr')" id="btn-fr" class="active">FR</button>
-        <span>|</span>
-        <button onclick="setLang('ar')" id="btn-ar">AR</button>
-      </div>
-      <button class="hamburger" id="hamburger" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-    <div class="nav-mobile" id="nav-mobile">
-      <a href="#plantes" onclick="toggleMenu()">Plantes</a>
-      <a href="#bouquets" onclick="toggleMenu()">Bouquets</a>
-      <a href="#pots" onclick="toggleMenu()">Pots</a>
-      <a href="#oiseaux" onclick="toggleMenu()">Oiseaux</a>
-      <a href="#soins" onclick="toggleMenu()">Soins</a>
-      <a href="#jardinage" onclick="toggleMenu()">Jardinage</a>
-      <a href="#contact" onclick="toggleMenu()">Contact</a>
-    </div>
-  </header>
-
-  <!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
-  <section id="hero">
-    <div class="hero-bg-decoration">
-      <div class="circle c1"></div>
-      <div class="circle c2"></div>
-      <div class="circle c3"></div>
-      <div class="leaf-deco l1">🌿</div>
-      <div class="leaf-deco l2">🌸</div>
-      <div class="leaf-deco l3">🌱</div>
-      <div class="leaf-deco l4">🍃</div>
-    </div>
-    <div class="hero-content">
-      <p class="hero-eyebrow" data-fr="Pépinière & Jardinerie" data-ar="مشتل وحديقة نباتية">Pépinière & Jardinerie</p>
-      <h1 class="hero-title">
-        <span class="line1" data-fr="Jardins" data-ar="جنات">Jardins</span>
-        <span class="line2" data-fr="Du Paradis" data-ar="الفردوس">Du Paradis</span>
-      </h1>
-      <p class="hero-sub" data-fr="Des plantes rares, des fleurs somptueuses &amp; tout ce qu'il faut pour sublimer votre espace vert." data-ar="نباتات نادرة، زهور فاخرة وكل ما تحتاجه لتجميل مساحتك الخضراء.">Des plantes rares, des fleurs somptueuses &amp; tout ce qu'il faut pour sublimer votre espace vert.</p>
-      <div class="hero-cta">
-        <a href="#plantes" class="btn-primary" data-fr="Découvrir" data-ar="اكتشف">Découvrir</a>
-        <a href="#contact" class="btn-outline" data-fr="Nous contacter" data-ar="اتصل بنا">Nous contacter</a>
-      </div>
-    </div>
-    <div class="hero-scroll">
-      <span></span>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════ STATS BAND ═══════════════════════════════ -->
-  <div class="stats-band">
-    <div class="stat-item">
-      <strong>70+</strong>
-      <span data-fr="Espèces de plantes" data-ar="أنواع من النباتات">Espèces de plantes</span>
-    </div>
-    <div class="stat-sep">✦</div>
-    <div class="stat-item">
-      <strong>24</strong>
-      <span data-fr="Bouquets exclusifs" data-ar="باقة حصرية">Bouquets exclusifs</span>
-    </div>
-    <div class="stat-sep">✦</div>
-    <div class="stat-item">
-      <strong>100%</strong>
-      <span data-fr="Produits naturels" data-ar="منتجات طبيعية">Produits naturels</span>
-    </div>
-    <div class="stat-sep">✦</div>
-    <div class="stat-item">
-      <strong>🚚</strong>
-      <span data-fr="Livraison à domicile" data-ar="توصيل للمنزل">Livraison à domicile</span>
-    </div>
+  <div class="nav-burger" id="burger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
   </div>
+</nav>
 
-  <!-- ═══════════════════════════════ SECTION: PLANTES ═══════════════════════════════ -->
-  <section id="plantes" class="catalog-section">
-    <div class="section-header">
-      <span class="section-tag" data-fr="Notre Collection" data-ar="مجموعتنا">Notre Collection</span>
-      <h2 data-fr="Plantes" data-ar="النباتات">Plantes</h2>
-      <p data-fr="Des plantes d'intérieur et d'extérieur soigneusement sélectionnées pour embellir votre espace." data-ar="نباتات داخلية وخارجية مختارة بعناية لتجميل مساحتك.">Des plantes d'intérieur et d'extérieur soigneusement sélectionnées pour embellir votre espace.</p>
-    </div>
-    <div class="products-grid" id="grid-plantes"></div>
-  </section>
-
-  <!-- ═══════════════════════════════ SECTION: BOUQUETS ═══════════════════════════════ -->
-  <section id="bouquets" class="catalog-section alt-bg">
-    <div class="section-header">
-      <span class="section-tag" data-fr="Fleurs & Bouquets" data-ar="زهور وباقات">Fleurs & Bouquets</span>
-      <h2 data-fr="Bouquets" data-ar="الباقات">Bouquets</h2>
-      <p data-fr="Compositions florales fraîches pour toutes les occasions — mariage, anniversaire, cadeau." data-ar="تنسيقات زهرية طازجة لكل المناسبات — زفاف، عيد ميلاد، هدية.">Compositions florales fraîches pour toutes les occasions — mariage, anniversaire, cadeau.</p>
-    </div>
-    <div class="products-grid" id="grid-bouquets"></div>
-  </section>
-
-  <!-- ═══════════════════════════════ SECTION: POTS ═══════════════════════════════ -->
-  <section id="pots" class="catalog-section">
-    <div class="section-header">
-      <span class="section-tag" data-fr="Décoration" data-ar="ديكور">Décoration</span>
-      <h2 data-fr="Pots & Jardinières" data-ar="أصص ومزارع">Pots & Jardinières</h2>
-      <p data-fr="Des pots artisanaux en céramique, terre cuite et résine pour sublimer vos plantes." data-ar="أصص يدوية من الخزف والفخار والراتنج لإبراز نباتاتك.">Des pots artisanaux en céramique, terre cuite et résine pour sublimer vos plantes.</p>
-    </div>
-    <div class="products-grid" id="grid-pots"></div>
-  </section>
-
-  <!-- ═══════════════════════════════ SECTION: OISEAUX ═══════════════════════════════ -->
-  <section id="oiseaux" class="catalog-section alt-bg">
-    <div class="section-header">
-      <span class="section-tag" data-fr="Animaux" data-ar="حيوانات">Animaux</span>
-      <h2 data-fr="Oiseaux" data-ar="الطيور">Oiseaux</h2>
-      <p data-fr="Oiseaux ornementaux pour animer votre jardin et votre intérieur." data-ar="طيور زينة لإضفاء الحيوية على حديقتك وداخل منزلك.">Oiseaux ornementaux pour animer votre jardin et votre intérieur.</p>
-    </div>
-    <div class="products-grid" id="grid-oiseaux"></div>
-  </section>
-
-  <!-- ═══════════════════════════════ SECTION: SOINS ═══════════════════════════════ -->
-  <section id="soins" class="catalog-section">
-    <div class="section-header">
-      <span class="section-tag" data-fr="Santé des plantes" data-ar="صحة النباتات">Santé des plantes</span>
-      <h2 data-fr="Soins & Traitements" data-ar="العناية والمعالجة">Soins & Traitements</h2>
-      <p data-fr="Engrais, pesticides naturels et produits de soin pour des plantes saines et vigoureuses." data-ar="أسمدة، مبيدات طبيعية ومنتجات عناية لنباتات صحية وقوية.">Engrais, pesticides naturels et produits de soin pour des plantes saines et vigoureuses.</p>
-    </div>
-    <div class="products-grid" id="grid-soins"></div>
-  </section>
-
-  <!-- ═══════════════════════════════ SECTION: JARDINAGE ═══════════════════════════════ -->
-  <section id="jardinage" class="catalog-section alt-bg">
-    <div class="section-header">
-      <span class="section-tag" data-fr="Outillage" data-ar="أدوات">Outillage</span>
-      <h2 data-fr="Jardinage" data-ar="البستنة">Jardinage</h2>
-      <p data-fr="Tous les outils et accessoires pour entretenir votre jardin avec passion." data-ar="جميع الأدوات والملحقات للعناية بحديقتك بشغف.">Tous les outils et accessoires pour entretenir votre jardin avec passion.</p>
-    </div>
-    <div class="products-grid" id="grid-jardinage"></div>
-  </section>
-
-  <!-- ═══════════════════════════════ MAP SECTION ═══════════════════════════════ -->
-  <section id="map-section">
-    <div class="map-inner">
-      <div class="map-info">
-        <span class="section-tag" data-fr="Venez nous voir" data-ar="زورونا">Venez nous voir</span>
-        <h2 data-fr="Notre Adresse" data-ar="عنواننا">Notre Adresse</h2>
-        <ul class="address-list">
-          <li>📍 <span data-fr="Route de la Pépinière, Tanger, Maroc" data-ar="طريق المشتل، طنجة، المغرب">Route de la Pépinière, Tanger, Maroc</span></li>
-          <li>🕐 <span data-fr="Lun–Sam : 08h00 – 19h00" data-ar="الاثنين–السبت: 08:00 – 19:00">Lun–Sam : 08h00 – 19h00</span></li>
-          <li>📞 <span>+212 6XX-XXX-XXX</span></li>
-          <li>✉️ <span>contact@jardinsduparadis.ma</span></li>
-        </ul>
-        <a href="#contact" class="btn-primary" data-fr="Nous écrire" data-ar="راسلنا">Nous écrire</a>
-      </div>
-      <div class="map-preview">
-        <img src="images/map-preview.jpg" alt="Localisation Jardins Du Paradis" onerror="this.parentElement.classList.add('map-placeholder')" />
-        <div class="map-pin">📍</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════ CONTACT ═══════════════════════════════ -->
-  <section id="contact">
-    <div class="section-header">
-      <span class="section-tag" data-fr="Restons en contact" data-ar="ابقَ على تواصل">Restons en contact</span>
-      <h2 data-fr="Contactez-nous" data-ar="اتصل بنا">Contactez-nous</h2>
-    </div>
-    <div class="contact-form-wrapper">
-      <div class="contact-form">
-        <div class="form-row">
-          <input type="text" id="c-name" placeholder="Votre nom / اسمك" />
-          <input type="email" id="c-email" placeholder="Email" />
-        </div>
-        <input type="text" id="c-subject" placeholder="Sujet / الموضوع" />
-        <textarea id="c-msg" rows="5" placeholder="Votre message / رسالتك..."></textarea>
-        <button class="btn-primary" onclick="sendMessage()" data-fr="Envoyer le message" data-ar="إرسال الرسالة">Envoyer le message</button>
-        <div id="form-success" style="display:none">
-          ✅ <span data-fr="Message envoyé ! Nous vous répondrons bientôt." data-ar="تم الإرسال! سنرد عليك قريباً.">Message envoyé ! Nous vous répondrons bientôt.</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <p class="footer-logo">🌿 Jardins Du Paradis</p>
-        <p data-fr="Votre paradis vert depuis toujours." data-ar="جنتك الخضراء دائماً.">Votre paradis vert depuis toujours.</p>
-      </div>
-      <div class="footer-links">
-        <h4 data-fr="Navigation" data-ar="روابط">Navigation</h4>
-        <a href="#plantes" data-fr="Plantes" data-ar="نباتات">Plantes</a>
-        <a href="#bouquets" data-fr="Bouquets" data-ar="باقات">Bouquets</a>
-        <a href="#pots" data-fr="Pots" data-ar="أصص">Pots</a>
-        <a href="#oiseaux" data-fr="Oiseaux" data-ar="طيور">Oiseaux</a>
-        <a href="#soins" data-fr="Soins" data-ar="عناية">Soins</a>
-        <a href="#jardinage" data-fr="Jardinage" data-ar="بستنة">Jardinage</a>
-      </div>
-      <div class="footer-social">
-        <h4 data-fr="Suivez-nous" data-ar="تابعنا">Suivez-nous</h4>
-        <div class="social-icons">
-          <a href="#" title="Instagram">📷</a>
-          <a href="#" title="Facebook">📘</a>
-          <a href="#" title="WhatsApp">💬</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p data-fr="© 2025 Jardins Du Paradis. Tous droits réservés." data-ar="© 2025 جنات الفردوس. جميع الحقوق محفوظة.">© 2025 Jardins Du Paradis. Tous droits réservés.</p>
-    </div>
-  </footer>
-
-  <!-- ═══════════════════════════════ MODAL ═══════════════════════════════ -->
-  <div id="modal-overlay" onclick="closeModal()">
-    <div class="modal-box" onclick="event.stopPropagation()">
-      <button class="modal-close" onclick="closeModal()">✕</button>
-      <div class="modal-img-wrap">
-        <img id="modal-img" src="" alt="" />
-      </div>
-      <div class="modal-body">
-        <p class="modal-category" id="modal-cat"></p>
-        <h3 id="modal-name"></h3>
-        <p id="modal-desc"></p>
-        <div class="modal-price-row">
-          <span class="modal-price" id="modal-price"></span>
-          <button class="btn-primary" onclick="closeModal()" data-fr="Commander via WhatsApp" data-ar="اطلب عبر واتساب">Commander via WhatsApp</button>
-        </div>
+<!-- ACCUEIL -->
+<section id="accueil" style="padding:0; padding-top: 72px;">
+  <div class="hero-image">
+    <div class="hero-image-overlay"></div>
+    <div class="leaf-deco l1">🍃</div>
+    <div class="leaf-deco l2">🌿</div>
+    <div class="leaf-deco l3">🌱</div>
+    <div class="hero-image-content">
+      <div class="hero-img-tag">Fondée en 1998 · Tanger, Maroc</div>
+      <h1 class="hero-img-title">La nature,<br>à votre <em>portée</em></h1>
+      <div class="hero-badge">
+        <span>🌱</span>
+        <span>Plus de 500 espèces disponibles</span>
       </div>
     </div>
   </div>
+  <div class="hero-text reveal">
+    <div class="section-eyebrow">Bienvenue chez Vert & Nature</div>
+    <h2 class="hero-heading">Votre jardinerie de confiance depuis 1998</h2>
+    <p class="hero-body">
+      Fondée à Tanger en 1998, Vert & Nature est spécialisée dans la vente et l'entretien de plantes d'intérieur et d'extérieur, de fleurs, d'oiseaux et de tout ce qui touche au monde végétal. Nous accompagnons particuliers et professionnels dans la création d'espaces verts uniques, avec passion et expertise.
+    </p>
+    <p class="hero-body" style="margin-top: -1rem;">
+      Notre équipe de passionnés vous conseille sur le choix des plantes, les soins adaptés, l'aménagement paysager et la décoration florale. De la graine à la plante adulte, nous sommes là à chaque étape de votre jardinage.
+    </p>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-num">25+</div><div class="stat-label">Années d'expérience</div></div>
+      <div class="divider"></div>
+      <div class="stat"><div class="stat-num">500+</div><div class="stat-label">Espèces disponibles</div></div>
+      <div class="divider"></div>
+      <div class="stat"><div class="stat-num">10k+</div><div class="stat-label">Clients satisfaits</div></div>
+    </div>
+    <a href="#plantes" class="cta-btn">Découvrir nos produits <span>→</span></a>
+  </div>
+</section>
 
-  <!-- ═══════════════════════════════ SCROLL TO TOP ═══════════════════════════════ -->
-  <button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<!-- PLANTES -->
+<section id="plantes">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Notre sélection</div>
+    <h2 class="section-title">Plantes</h2>
+    <div class="section-divider"></div>
+    <p class="section-desc" style="margin-top:1rem;">Des plantes d'intérieur et d'extérieur soigneusement sélectionnées pour embellir votre espace.</p>
+  </div>
+  <div class="cards-grid reveal" id="plantes-preview">
+    <div class="card">
+      <div class="card-img" style="background: linear-gradient(135deg,#e8f5e9,#c8e6c9)"><div class="card-img-inner">🪴</div></div>
+      <div class="card-body">
+        <div class="card-tag">Intérieur</div>
+        <div class="card-title">Monstera Deliciosa</div>
+        <div class="card-desc">Plante tropicale aux larges feuilles découpées, idéale pour les espaces lumineux.</div>
+        <div class="card-price">120 DH <span>/ unité</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img" style="background: linear-gradient(135deg,#f3e5f5,#e1bee7)"><div class="card-img-inner">🌵</div></div>
+      <div class="card-body">
+        <div class="card-tag">Extérieur</div>
+        <div class="card-title">Cactus Saguaro</div>
+        <div class="card-desc">Résistant et décoratif, parfait pour les jardins secs et ensoleillés.</div>
+        <div class="card-price">85 DH <span>/ unité</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img" style="background: linear-gradient(135deg,#e0f7fa,#b2ebf2)"><div class="card-img-inner">🌿</div></div>
+      <div class="card-body">
+        <div class="card-tag">Intérieur</div>
+        <div class="card-title">Ficus Lyrata</div>
+        <div class="card-desc">Le figuier à feuilles de violon, tendance et élégant pour votre salon.</div>
+        <div class="card-price">200 DH <span>/ unité</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="hidden-cards reveal" id="plantes-extra">
+    <div class="card">
+      <div class="card-img" style="background: linear-gradient(135deg,#fff8e1,#ffecb3)"><div class="card-img-inner">🌴</div></div>
+      <div class="card-body">
+        <div class="card-tag">Extérieur</div>
+        <div class="card-title">Palmier Nain</div>
+        <div class="card-desc">Apporte une touche méditerranéenne à votre jardin ou terrasse.</div>
+        <div class="card-price">350 DH <span>/ unité</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img" style="background: linear-gradient(135deg,#fce4ec,#f8bbd0)"><div class="card-img-inner">🌺</div></div>
+      <div class="card-body">
+        <div class="card-tag">Floraison</div>
+        <div class="card-title">Hibiscus</div>
+        <div class="card-desc">Fleurs spectaculaires en rouge et rose, floraison abondante en été.</div>
+        <div class="card-price">95 DH <span>/ unité</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img" style="background: linear-gradient(135deg,#e8f5e9,#a5d6a7)"><div class="card-img-inner">🌱</div></div>
+      <div class="card-body">
+        <div class="card-tag">Intérieur</div>
+        <div class="card-title">Pothos Doré</div>
+        <div class="card-desc">Plante retombante facile d'entretien, idéale pour débutants.</div>
+        <div class="card-price">55 DH <span>/ unité</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img" style="background: linear-gradient(135deg,#e3f2fd,#bbdefb)"><div class="card-img-inner">🌊</div></div>
+      <div class="card-body">
+        <div class="card-tag">Aquatique</div>
+        <div class="card-title">Lotus Sacré</div>
+        <div class="card-desc">Magnifique plante aquatique pour bassins et fontaines de jardin.</div>
+        <div class="card-price">180 DH <span>/ unité</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img" style="background: linear-gradient(135deg,#f9fbe7,#f0f4c3)"><div class="card-img-inner">🌾</div></div>
+      <div class="card-body">
+        <div class="card-tag">Extérieur</div>
+        <div class="card-title">Bambou Sacré</div>
+        <div class="card-desc">Haie naturelle élégante à croissance rapide pour votre jardin.</div>
+        <div class="card-price">130 DH <span>/ pot</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img" style="background: linear-gradient(135deg,#fbe9e7,#ffccbc)"><div class="card-img-inner">🌹</div></div>
+      <div class="card-body">
+        <div class="card-tag">Floraison</div>
+        <div class="card-title">Rosier Grimpant</div>
+        <div class="card-desc">Variété robuste aux fleurs parfumées, idéale pour les pergolas.</div>
+        <div class="card-price">115 DH <span>/ unité</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="voir-tout-wrap reveal">
+    <button class="voir-tout-btn" onclick="toggleSection('plantes-extra', this)">Voir tout — 9 plantes</button>
+  </div>
+</section>
 
-  <script src="script.js"></script>
+<!-- LES POTS -->
+<section id="pots">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Accessoires</div>
+    <h2 class="section-title">Les Pots</h2>
+    <div class="section-divider"></div>
+    <p class="section-desc" style="margin-top:1rem;">Une collection de pots et jardinières pour sublimer vos plantes, du plus simple au plus raffiné.</p>
+  </div>
+  <div class="cards-grid reveal">
+    <div class="card">
+      <div class="card-img" style="background: linear-gradient(135deg,#efebe9,#d7ccc8)"><div class="card-img-inner">🏺</div></div>
+      <div class="card-body">
+        <div class="card-tag">Terre cuite</div>
+        <div class="card-title">Pot Artisanal</div>
+        <div class="card-desc">Pot en terre cuite façonné à la main, style marocain authentique.</div>
+        <div class="card-price">75 DH <span>/ unité</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img" style="background: linear-gradient(135deg,#eceff1,#cfd8dc)"><div class="card-img-inner">🪣</div></div>
+      <div class="card-body">
+        <div class="card-tag">Céramique</div>
+        <div class="card-title">Jardinière Moderne</div>
+        <div class="card-desc">Design épuré en céramique blanche, parfait pour l'intérieur contemporain.</div>
+        <div class="card-price">140 DH <span>/ unité</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img" style="background: linear-gradient(135deg,#e8f5e9,#c8e6c9)"><div class="card-img-inner">🌿</div></div>
+      <div class="card-body">
+        <div class="card-tag">Suspendu</div>
+        <div class="card-title">Pot Macramé</div>
+        <div class="card-desc">Suspension en corde naturelle, tendance boho pour vos plantes retombantes.</div>
+        <div class="card-price">60 DH <span>/ unité</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="hidden-cards reveal" id="pots-extra">
+    <div class="card">
+      <div class="card-img" style="background: linear-gradient(135deg,#fafafa,#eeeeee)"><div class="card-img-inner">⬜</div></div>
+      <div class="card-body">
+        <div class="card-tag">Béton</div>
+        <div class="card-title">Cube Béton</div>
+        <div class="card-desc">Pot cubique en béton léger, look industriel et moderne.</div>
+        <div class="card-price">95 DH <span>/ unité</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img" style="background: linear-gradient(135deg,#fff3e0,#ffe0b2)"><div class="card-img-inner">🪵</div></div>
+      <div class="card-body">
+        <div class="card-tag">Bois naturel</div>
+        <div class="card-title">Bac en Bois</div>
+        <div class="card-desc">Bac rectangulaire en bois traité, idéal pour terrasses et balcons.</div>
+        <div class="card-price">220 DH <span>/ unité</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img" style="background: linear-gradient(135deg,#e8eaf6,#c5cae9)"><div class="card-img-inner">🔵</div></div>
+      <div class="card-body">
+        <div class="card-tag">Céramique émaillée</div>
+        <div class="card-title">Pot Zellige</div>
+        <div class="card-desc">Inspiration zellige marocain, émaillé à la main en bleu et blanc.</div>
+        <div class="card-price">185 DH <span>/ unité</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img" style="background: linear-gradient(135deg,#f1f8e9,#dcedc8)"><div class="card-img-inner">🟢</div></div>
+      <div class="card-body">
+        <div class="card-tag">Recyclé</div>
+        <div class="card-title">Pot Éco</div>
+        <div class="card-desc">Fabriqué à partir de matériaux recyclés, démarche éco-responsable.</div>
+        <div class="card-price">45 DH <span>/ unité</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img" style="background: linear-gradient(135deg,#fce4ec,#f8bbd0)"><div class="card-img-inner">🏵️</div></div>
+      <div class="card-body">
+        <div class="card-tag">Prestige</div>
+        <div class="card-title">Vasque Décorative</div>
+        <div class="card-desc">Grande vasque ornementale pour entrées et espaces extérieurs soignés.</div>
+        <div class="card-price">480 DH <span>/ unité</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-img" style="background: linear-gradient(135deg,#e0f7fa,#b2ebf2)"><div class="card-img-inner">🪴</div></div>
+      <div class="card-body">
+        <div class="card-tag">Métal</div>
+        <div class="card-title">Cache-pot Zinc</div>
+        <div class="card-desc">Cache-pot en zinc vieilli, patine naturelle, look campagne chic.</div>
+        <div class="card-price">110 DH <span>/ unité</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="voir-tout-wrap reveal">
+    <button class="voir-tout-btn" onclick="toggleSection('pots-extra', this)">Voir tout — 9 pots</button>
+  </div>
+</section>
+
+<!-- JARDINAGE -->
+<section id="jardinage">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Galerie de réalisations</div>
+    <h2 class="section-title">Jardinage & Aménagement</h2>
+    <div class="section-divider"></div>
+    <p class="section-desc" style="margin-top:1rem;">Découvrez nos projets d'aménagement paysager réalisés pour particuliers et professionnels à travers tout le Maroc.</p>
+  </div>
+  <div class="photo-masonry reveal">
+    <div class="photo-item tall"><div class="photo-item-inner"><span class="photo-emoji">🌳</span></div></div>
+    <div class="photo-item"><div class="photo-item-inner"><span class="photo-emoji">🌷</span></div></div>
+    <div class="photo-item"><div class="photo-item-inner"><span class="photo-emoji">🏡</span></div></div>
+    <div class="photo-item tall"><div class="photo-item-inner"><span class="photo-emoji">🌻</span></div></div>
+    <div class="photo-item"><div class="photo-item-inner"><span class="photo-emoji">⛲</span></div></div>
+    <div class="photo-item tall"><div class="photo-item-inner"><span class="photo-emoji">🌿</span></div></div>
+    <div class="photo-item short"><div class="photo-item-inner"><span class="photo-emoji">🍃</span></div></div>
+    <div class="photo-item"><div class="photo-item-inner"><span class="photo-emoji">🌺</span></div></div>
+    <div class="photo-item tall"><div class="photo-item-inner"><span class="photo-emoji">🌴</span></div></div>
+    <div class="photo-item"><div class="photo-item-inner"><span class="photo-emoji">🌼</span></div></div>
+    <div class="photo-item"><div class="photo-item-inner"><span class="photo-emoji">🍀</span></div></div>
+    <div class="photo-item short"><div class="photo-item-inner"><span class="photo-emoji">🌱</span></div></div>
+    <div class="photo-item"><div class="photo-item-inner"><span class="photo-emoji">🌾</span></div></div>
+    <div class="photo-item tall"><div class="photo-item-inner"><span class="photo-emoji">🌵</span></div></div>
+    <div class="photo-item"><div class="photo-item-inner"><span class="photo-emoji">🏵️</span></div></div>
+    <div class="photo-item"><div class="photo-item-inner"><span class="photo-emoji">🌹</span></div></div>
+    <div class="photo-item short"><div class="photo-item-inner"><span class="photo-emoji">🪴</span></div></div>
+    <div class="photo-item tall"><div class="photo-item-inner"><span class="photo-emoji">🌲</span></div></div>
+    <div class="photo-item"><div class="photo-item-inner"><span class="photo-emoji">🌸</span></div></div>
+    <div class="photo-item"><div class="photo-item-inner"><span class="photo-emoji">🍂</span></div></div>
+    <div class="photo-item"><div class="photo-item-inner"><span class="photo-emoji">🌊</span></div></div>
+    <div class="photo-item tall"><div class="photo-item-inner"><span class="photo-emoji">🏕️</span></div></div>
+    <div class="photo-item short"><div class="photo-item-inner"><span class="photo-emoji">🌿</span></div></div>
+  </div>
+  <div class="jardinage-cta reveal">
+    <a href="#contact" class="cta-btn">Contactez-nous <span>→</span></a>
+  </div>
+</section>
+
+<!-- SOINS -->
+<section id="soins">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Entretien & Produits</div>
+    <h2 class="section-title">Soins des Plantes</h2>
+    <div class="section-divider"></div>
+    <p class="section-desc" style="margin-top:1rem;">Tout ce qu'il faut pour garder vos plantes en bonne santé, des engrais naturels aux traitements spécialisés.</p>
+  </div>
+  <div class="soins-cards reveal">
+    <div class="soins-card">
+      <span class="soins-icon">🌿</span>
+      <div class="soins-title">Engrais Bio</div>
+      <div class="soins-desc">Formule naturelle riche en nutriments essentiels pour stimuler la croissance et renforcer vos plantes de façon écologique.</div>
+      <div class="soins-price">à partir de 35 DH</div>
+    </div>
+    <div class="soins-card">
+      <span class="soins-icon">💧</span>
+      <div class="soins-title">Traitements Anti-parasites</div>
+      <div class="soins-desc">Solutions efficaces contre pucerons, cochenilles et autres nuisibles. Formules douces et respectueuses de l'environnement.</div>
+      <div class="soins-price">à partir de 50 DH</div>
+    </div>
+    <div class="soins-card">
+      <span class="soins-icon">🔬</span>
+      <div class="soins-title">Substrats Spéciaux</div>
+      <div class="soins-desc">Mélanges de terreau adaptés à chaque type de plante : cactées, orchidées, plantes tropicales et arbustes.</div>
+      <div class="soins-price">à partir de 40 DH</div>
+    </div>
+  </div>
+</section>
+
+<!-- OISEAUX -->
+<section id="oiseaux" style="background: var(--warm-white);">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Nos compagnons ailés</div>
+    <h2 class="section-title">Oiseaux</h2>
+    <div class="section-divider"></div>
+    <p class="section-desc" style="margin-top:1rem;">Adoptez un compagnon ailé pour animer votre maison ou jardin avec leurs chants mélodieux.</p>
+  </div>
+  <div class="oiseaux-grid reveal">
+    <div class="oiseau-card">
+      <div class="oiseau-img" style="background: linear-gradient(135deg,#fff9c4,#fff176)">🦜</div>
+      <div class="oiseau-body">
+        <div class="oiseau-name">Perroquet Vert</div>
+        <div class="oiseau-origin">Amazonie · Perroquet parleur</div>
+        <div class="oiseau-price">1 200 DH</div>
+      </div>
+    </div>
+    <div class="oiseau-card">
+      <div class="oiseau-img" style="background: linear-gradient(135deg,#e1f5fe,#b3e5fc)">🐦</div>
+      <div class="oiseau-body">
+        <div class="oiseau-name">Canari Mélodieux</div>
+        <div class="oiseau-origin">Îles Canaries · Chanteur</div>
+        <div class="oiseau-price">350 DH</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOUQUETS -->
+<section id="bouquets">
+  <div class="section-header reveal">
+    <div class="section-eyebrow">Art floral</div>
+    <h2 class="section-title">Bouquets & Compositions</h2>
+    <div class="section-divider"></div>
+    <p class="section-desc" style="margin-top:1rem;">Des compositions florales sur mesure pour toutes les occasions : mariages, cérémonies, cadeaux et décoration.</p>
+  </div>
+  <div class="cards-grid reveal" id="bouquets-preview">
+    <div class="card bouquet-card">
+      <div class="card-img" style="background: linear-gradient(135deg,#fce4ec,#f48fb1)"><div class="card-img-inner">💐</div></div>
+      <div class="card-body">
+        <div class="card-tag">Mariage</div>
+        <div class="card-title">Bouquet Romantique</div>
+        <div class="card-desc">Roses et pivoines pastel, composition élégante pour la mariée.</div>
+        <div class="card-price">380 DH</div>
+      </div>
+    </div>
+    <div class="card bouquet-card">
+      <div class="card-img" style="background: linear-gradient(135deg,#fff9c4,#fff176)"><div class="card-img-inner">🌻</div></div>
+      <div class="card-body">
+        <div class="card-tag">Cadeau</div>
+        <div class="card-title">Bouquet Soleil</div>
+        <div class="card-desc">Tournesols et marguerites, gaieté garantie pour offrir en toute occasion.</div>
+        <div class="card-price">180 DH</div>
+      </div>
+    </div>
+    <div class="card bouquet-card">
+      <div class="card-img" style="background: linear-gradient(135deg,#e8f5e9,#a5d6a7)"><div class="card-img-inner">🌿</div></div>
+      <div class="card-body">
+        <div class="card-tag">Moderne</div>
+        <div class="card-title">Composition Verte</div>
+        <div class="card-desc">Feuillages tropicaux et fleurs blanches, style épuré et contemporain.</div>
+        <div class="card-price">250 DH</div>
+      </div>
+    </div>
+  </div>
+  <div class="hidden-cards reveal" id="bouquets-extra">
+    <div class="card bouquet-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#e8eaf6,#c5cae9)"><div class="card-img-inner">🌹</div></div>
+      <div class="card-body"><div class="card-tag">Classique</div><div class="card-title">Roses Rouges</div><div class="card-desc">La composition intemporelle, 12 roses rouges pour déclarer votre amour.</div><div class="card-price">220 DH</div></div>
+    </div>
+    <div class="card bouquet-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#f3e5f5,#ce93d8)"><div class="card-img-inner">🌸</div></div>
+      <div class="card-body"><div class="card-tag">Printemps</div><div class="card-title">Bouquet Sakura</div><div class="card-desc">Fleurs de cerisier et lilas, fraîcheur printanière enchanteresse.</div><div class="card-price">290 DH</div></div>
+    </div>
+    <div class="card bouquet-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#fff3e0,#ffcc80)"><div class="card-img-inner">🌼</div></div>
+      <div class="card-body"><div class="card-tag">Champêtre</div><div class="card-title">Bouquet Champêtre</div><div class="card-desc">Mélange de fleurs sauvages, lavande et marguerites, style naturel.</div><div class="card-price">160 DH</div></div>
+    </div>
+    <div class="card bouquet-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#e0f7fa,#80deea)"><div class="card-img-inner">🌺</div></div>
+      <div class="card-body"><div class="card-tag">Exotique</div><div class="card-title">Tropical</div><div class="card-desc">Strelitzias, anthuriums et feuilles de bananier pour un effet spectaculaire.</div><div class="card-price">420 DH</div></div>
+    </div>
+    <div class="card bouquet-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#fafafa,#f5f5f5)"><div class="card-img-inner">🤍</div></div>
+      <div class="card-body"><div class="card-tag">Cérémonie</div><div class="card-title">Bouquet Blanc Pur</div><div class="card-desc">Lys blancs et orchidées, élégance absolue pour cérémonies officielles.</div><div class="card-price">550 DH</div></div>
+    </div>
+    <div class="card bouquet-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#ffccbc,#ff8a65)"><div class="card-img-inner">🌷</div></div>
+      <div class="card-body"><div class="card-tag">Automne</div><div class="card-title">Coucher de Soleil</div><div class="card-desc">Tulipes orangées, dahlias et chrysanthèmes, palette chaude et enveloppante.</div><div class="card-price">200 DH</div></div>
+    </div>
+    <div class="card bouquet-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#e8f5e9,#66bb6a)"><div class="card-img-inner">🫧</div></div>
+      <div class="card-body"><div class="card-tag">Zen</div><div class="card-title">Composition Zen</div><div class="card-desc">Bambou, mousse et fleurs blanches, harmonie et sérénité japonaise.</div><div class="card-price">310 DH</div></div>
+    </div>
+    <div class="card bouquet-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#e1bee7,#8e24aa)"><div class="card-img-inner">💜</div></div>
+      <div class="card-body"><div class="card-tag">Luxe</div><div class="card-title">Bouquet Violet</div><div class="card-desc">Jacinthe, lilas et iris violets pour une composition lumineuse et raffinée.</div><div class="card-price">340 DH</div></div>
+    </div>
+    <div class="card bouquet-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#fff8e1,#ffd54f)"><div class="card-img-inner">🌟</div></div>
+      <div class="card-body"><div class="card-tag">Anniversaire</div><div class="card-title">Bouquet Fête</div><div class="card-desc">Mélange coloré de gerberas, asters et roses, explosif de joie et de couleurs.</div><div class="card-price">195 DH</div></div>
+    </div>
+    <div class="card bouquet-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#b2dfdb,#00897b)"><div class="card-img-inner">🌊</div></div>
+      <div class="card-body"><div class="card-tag">Professionnel</div><div class="card-title">Décoration Bureau</div><div class="card-desc">Composition sobre et durable pour bureaux, hôtels et espaces professionnels.</div><div class="card-price">450 DH</div></div>
+    </div>
+    <div class="card bouquet-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#ffd7d7,#e57373)"><div class="card-img-inner">💝</div></div>
+      <div class="card-body"><div class="card-tag">Saint-Valentin</div><div class="card-title">Cœur Fleuri</div><div class="card-desc">Composition en forme de cœur, roses et œillets rouges, pour une déclaration inoubliable.</div><div class="card-price">490 DH</div></div>
+    </div>
+    <div class="card bouquet-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#e8f5e9,#43a047)"><div class="card-img-inner">🌿</div></div>
+      <div class="card-body"><div class="card-tag">Sur mesure</div><div class="card-title">Création Personnalisée</div><div class="card-desc">Conception sur mesure selon vos goûts et votre budget. Devis gratuit.</div><div class="card-price">Sur devis</div></div>
+    </div>
+    <div class="card bouquet-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#fff9c4,#f9a825)"><div class="card-img-inner">☀️</div></div>
+      <div class="card-body"><div class="card-tag">Été</div><div class="card-title">Bouquet Méditerranéen</div><div class="card-desc">Lavande, santoline et fleurs séchées, senteurs du bassin méditerranéen.</div><div class="card-price">175 DH</div></div>
+    </div>
+    <div class="card bouquet-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#fce4ec,#ec407a)"><div class="card-img-inner">🎀</div></div>
+      <div class="card-body"><div class="card-tag">Naissance</div><div class="card-title">Bouquet Naissance</div><div class="card-desc">Tons pastel doux et délicats pour célébrer l'arrivée d'un nouveau-né.</div><div class="card-price">260 DH</div></div>
+    </div>
+    <div class="card bouquet-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#ede7f6,#7e57c2)"><div class="card-img-inner">✨</div></div>
+      <div class="card-body"><div class="card-tag">Séché</div><div class="card-title">Bouquet Éternel</div><div class="card-desc">Fleurs séchées et stabilisées, compositions durables à garder toujours.</div><div class="card-price">285 DH</div></div>
+    </div>
+    <div class="card bouquet-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#e0f2f1,#26a69a)"><div class="card-img-inner">🎋</div></div>
+      <div class="card-body"><div class="card-tag">Minimaliste</div><div class="card-title">One-Stem</div><div class="card-desc">L'art du minimalisme floral, une seule fleur exceptionnelle sublimée dans un vase.</div><div class="card-price">95 DH</div></div>
+    </div>
+    <div class="card bouquet-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#fff8e1,#ffc107)"><div class="card-img-inner">🌻</div></div>
+      <div class="card-body"><div class="card-tag">Cadeau entreprise</div><div class="card-title">Corbeille Luxe</div><div class="card-desc">Grande corbeille fleurie avec ruban et carte personnalisée, idéale en affaires.</div><div class="card-price">650 DH</div></div>
+    </div>
+    <div class="card bouquet-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#e3f2fd,#42a5f5)"><div class="card-img-inner">❄️</div></div>
+      <div class="card-body"><div class="card-tag">Hiver</div><div class="card-title">Bouquet Hivernal</div><div class="card-desc">Houx, baies rouges et branches enneigées, magie de l'hiver dans vos mains.</div><div class="card-price">230 DH</div></div>
+    </div>
+    <div class="card bouquet-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#fbe9e7,#bf360c)"><div class="card-img-inner">🔥</div></div>
+      <div class="card-body"><div class="card-tag">Dramatique</div><div class="card-title">Bouquet Passion</div><div class="card-desc">Protéas, roses noires et leucadendrons pour une composition audacieuse et inoubliable.</div><div class="card-price">580 DH</div></div>
+    </div>
+    <div class="card bouquet-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#f9fbe7,#aed581)"><div class="card-img-inner">🌱</div></div>
+      <div class="card-body"><div class="card-tag">Herbes aromatiques</div><div class="card-title">Bouquet Aromatique</div><div class="card-desc">Romarin, thym, lavande et basilic pourpre, bouquet décoratif et parfumé.</div><div class="card-price">130 DH</div></div>
+    </div>
+    <div class="card bouquet-card">
+      <div class="card-img" style="background:linear-gradient(135deg,#fce4ec,#f06292)"><div class="card-img-inner">🫶</div></div>
+      <div class="card-body"><div class="card-tag">Fête des mères</div><div class="card-title">Bouquet Maman</div><div class="card-desc">Pivoines, roses et freesias, la composition idéale pour honorer votre maman.</div><div class="card-price">320 DH</div></div>
+    </div>
+  </div>
+  <div class="voir-tout-wrap reveal">
+    <button class="voir-tout-btn" onclick="toggleSection('bouquets-extra', this)">Voir tout — 24 bouquets</button>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="padding: 6rem 6vw 3rem;">
+  <div class="contact-grid">
+    <div class="contact-left reveal">
+      <div class="section-eyebrow">Restons en contact</div>
+      <h2 class="section-title" style="text-align:left;">Venez nous<br>rendre visite</h2>
+      <div class="section-divider" style="margin:1rem 0 0;"></div>
+      <p class="section-desc" style="text-align:left; margin-top:1.5rem; color:rgba(200,230,202,0.8)">
+        Nous sommes à votre disposition pour tous vos projets de jardinage, conseils personnalisés ou commandes spéciales.
+      </p>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div class="contact-item-text">
+            <div class="contact-item-label">Adresse</div>
+            <div class="contact-item-value">Avenue Mohammed VI, Quartier Boukhalef<br>Tanger 90000, Maroc</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div class="contact-item-text">
+            <div class="contact-item-label">Téléphone</div>
+            <div class="contact-item-value">+212 539 XX XX XX<br>+212 6XX XX XX XX</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">🕐</div>
+          <div class="contact-item-text">
+            <div class="contact-item-label">Horaires</div>
+            <div class="contact-item-value">Lun–Sam : 8h00 – 19h00<br>Dimanche : 9h00 – 13h00</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">✉️</div>
+          <div class="contact-item-text">
+            <div class="contact-item-label">Email</div>
+            <div class="contact-item-value">contact@vertnature.ma</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form reveal">
+      <div class="form-title">Envoyez-nous un message</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Prénom</label>
+          <input type="text" placeholder="Votre prénom">
+        </div>
+        <div class="form-group">
+          <label>Nom</label>
+          <input type="text" placeholder="Votre nom">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="votre@email.com">
+      </div>
+      <div class="form-group">
+        <label>Téléphone</label>
+        <input type="tel" placeholder="+212 6XX XX XX XX">
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea placeholder="Comment pouvons-nous vous aider ?"></textarea>
+      </div>
+      <button class="submit-btn" onclick="this.textContent='Message envoyé ✓'; this.style.background='#4a9b52';">Envoyer le message</button>
+    </div>
+  </div>
+</section>
+
+<div class="footer-bar">
+  © 2024 Vert & Nature — Jardinerie à Tanger · Tous droits réservés
+</div>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  function toggleSection(id, btn) {
+    const el = document.getElementById(id);
+    const isOpen = el.classList.contains('visible');
+    el.classList.toggle('visible', !isOpen);
+    btn.classList.toggle('active', !isOpen);
+    const names = { 'plantes-extra': 'plantes', 'pots-extra': 'pots', 'bouquets-extra': 'bouquets' };
+    const counts = { 'plantes-extra': 9, 'pots-extra': 9, 'bouquets-extra': 24 };
+    const name = names[id] || '';
+    const count = counts[id] || '';
+    btn.textContent = isOpen
+      ? `Voir tout — ${count} ${name}`
+      : `Réduire ↑`;
+  }
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  const sections = document.querySelectorAll('section[id], div[id="accueil"]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const link = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { threshold: 0.3 });
+  document.querySelectorAll('section[id]').forEach(s => scrollObserver.observe(s));
+</script>
 </body>
 </html>
