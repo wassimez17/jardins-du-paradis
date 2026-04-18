@@ -30,6 +30,23 @@
     color: var(--text-dark);
     font-weight: 300;
   }
+  /* Optimisation globale des images */
+img {
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.5s ease;
+}
+
+.card:hover img {
+  transform: scale(1.1); /* Effet de zoom au survol sur les plantes/pots */
+}
+
+.card-img {
+  background: #f0f0f0; /* Couleur de fond en attendant le chargement */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
   /* NAV */
 nav {
