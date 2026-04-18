@@ -64,14 +64,14 @@ nav {
   text-decoration: none; cursor: pointer;
 }
 
-/* تنسيق صورة الشعار بدلاً من الأيقونة السابقة */
+/* Image du logo */
 .logo img {
   width: 80px; 
   height: 42px;
   object-fit: contain;
 }
 
-/* حاوية النصوص لتنظيمها عمودياً بجانب الشعار */
+/* Conteneur des textes pour organiser verticalement */
 .logo-text-container {
   display: flex; flex-direction: column;
 }
@@ -380,38 +380,51 @@ nav {
 <!-- NAV -->
 <nav>
     <div class="logo" onclick="showSection('accueil')">
-        <img src="images/logo.png" alt="Logo">
+        <img src="images/Logo.png" alt="Logo">
         
         <div class="logo-text-container">
             <div class="logo-text">Jardins du Paradis</div>
         </div>
     </div>
     
-    <ul class="nav-links">
-        </ul>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#accueil" class="nav-link">Accueil</a></li>
+        <li><a href="#plantes" class="nav-link">Plantes</a></li>
+        <li><a href="#pots" class="nav-link">Pots</a></li>
+        <li><a href="#jardinage" class="nav-link">Jardinage</a></li>
+        <li><a href="#soins" class="nav-link">Soins</a></li>
+        <li><a href="#oiseaux" class="nav-link">Oiseaux</a></li>
+        <li><a href="#bouquets" class="nav-link">Bouquets</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-burger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
 </nav>
 
 <!-- ACCUEIL -->
 <section id="accueil" style="padding:0; padding-top: 72px;">
   <div class="hero-image">
     <div class="hero-image-overlay"></div>
-    <div class="leaf-deco l1">🍃</div>
-    <div class="leaf-deco l2">🌿</div>
-    <div class="leaf-deco l3">🌱</div>
+    <div class="leaf-deco l1"><img src="images/leaf1.png" alt="Leaf"></div>
+    <div class="leaf-deco l2"><img src="images/leaf2.png" alt="Leaf"></div>
+    <div class="leaf-deco l3"><img src="images/leaf3.png" alt="Leaf"></div>
     <div class="hero-image-content">
       <div class="hero-img-tag">Fondée en 1998 · Tanger, Maroc</div>
       <h1 class="hero-img-title">La nature,<br>à votre <em>portée</em></h1>
       <div class="hero-badge">
-        <span>🌱</span>
+        <span><img src="images/badge.png" alt="Badge"></span>
         <span>Plus de 500 espèces disponibles</span>
       </div>
     </div>
   </div>
   <div class="hero-text reveal">
-    <div class="section-eyebrow">Bienvenue chez Vert & Nature</div>
+    <div class="section-eyebrow">Bienvenue chez Jardins du Paradis</div>
     <h2 class="hero-heading">Votre jardinerie de confiance depuis 1998</h2>
     <p class="hero-body">
-      Fondée à Tanger en 1998, Vert & Nature est spécialisée dans la vente et l'entretien de plantes d'intérieur et d'extérieur, de fleurs, d'oiseaux et de tout ce qui touche au monde végétal. Nous accompagnons particuliers et professionnels dans la création d'espaces verts uniques, avec passion et expertise.
+      Fondée à Tanger en 1998, Jardins du Paradis est spécialisée dans la vente et l'entretien de plantes d'intérieur et d'extérieur, de fleurs, d'oiseaux et de tout ce qui touche au monde végétal. Nous accompagnons particuliers et professionnels dans la création d'espaces verts uniques, avec passion et expertise.
     </p>
     <p class="hero-body" style="margin-top: -1rem;">
       Notre équipe de passionnés vous conseille sur le choix des plantes, les soins adaptés, l'aménagement paysager et la décoration florale. De la graine à la plante adulte, nous sommes là à chaque étape de votre jardinage.
@@ -423,7 +436,7 @@ nav {
       <div class="divider"></div>
       <div class="stat"><div class="stat-num">10k+</div><div class="stat-label">Clients satisfaits</div></div>
     </div>
-    <a href="#plantes" class="cta-btn">Découvrir nos produits <span>→</span></a>
+    <a href="#plantes" class="cta-btn">Découvrir nos produits <span><img src="images/arrow.png" alt="Arrow"></span></a>
   </div>
 </section>
 
@@ -435,46 +448,46 @@ nav {
     <div class="section-divider"></div>
     <p class="section-desc" style="margin-top:1rem;">Des plantes d'intérieur et d'extérieur soigneusement sélectionnées pour embellir votre espace.</p>
   </div>
-  <div class="card">
-  <div class="card-img">
-    <img src="plant1.jpg" alt="Monstera" style="width: 100%; height: 100%; object-fit: cover;">
-  </div>
-  <div class="card-body">
-    <div class="card-tag">Intérieur</div>
-    <div class="card-title">Monstera Deliciosa</div>
+  <div class="cards-grid reveal">
+    <div class="card">
+      <div class="card-img">
+        <img src="images/plant1.jpg" alt="Monstera" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Intérieur</div>
+        <div class="card-title">Monstera Deliciosa</div>
+        <div class="card-desc">Plante tropicale populaire, feuilles découpées spectaculaires.</div>
+        <div class="card-price">120 DH <span>/ unité</span></div>
+      </div>
     </div>
-</div>
-  </div>
-  <div class="card-body">
-    <div class="card-tag">Intérieur</div>
-    <div class="card-title">Monstera Deliciosa</div>
+    <div class="card">
+      <div class="card-img">
+        <img src="images/plant2.jpg" alt="Ficus" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Intérieur</div>
+        <div class="card-title">Ficus Lyrata</div>
+        <div class="card-desc">Arbre d'intérieur élégant, feuilles en forme de violon.</div>
+        <div class="card-price">180 DH <span>/ unité</span></div>
+      </div>
     </div>
-</div>
-    </div>
- <div class="card">
-  <div class="card-img">
-    <img src="plant1.jpg" alt="Monstera" style="width: 100%; height: 100%; object-fit: cover;">
-  </div>
-  <div class="card-body">
-    <div class="card-tag">Intérieur</div>
-    <div class="card-title">Monstera Deliciosa</div>
-    </div>
-</div>
-
-   <div class="card">
-  <div class="card-img">
-    <img src="plant1.jpg" alt="Monstera" style="width: 100%; height: 100%; object-fit: cover;">
-  </div>
-  <div class="card-body">
-    <div class="card-tag">Intérieur</div>
-    <div class="card-title">Monstera Deliciosa</div>
-    </div>
-</div>
+    <div class="card">
+      <div class="card-img">
+        <img src="images/plant3.jpg" alt="Laurier" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div class="card-body">
+        <div class="card-tag">Extérieur</div>
+        <div class="card-title">Laurier Rose</div>
+        <div class="card-desc">Arbuste méditerranéen, fleurs roses parfumées toute l'année.</div>
+        <div class="card-price">95 DH <span>/ unité</span></div>
+      </div>
     </div>
   </div>
   <div class="hidden-cards reveal" id="plantes-extra">
     <div class="card">
-      <div class="card-img" style="background: linear-gradient(135deg,#fff8e1,#ffecb3)"><div class="card-img-inner">🌴</div></div>
+      <div class="card-img">
+        <img src="images/plant4.jpg" alt="Palmier" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body">
         <div class="card-tag">Extérieur</div>
         <div class="card-title">Palmier Nain</div>
@@ -483,7 +496,9 @@ nav {
       </div>
     </div>
     <div class="card">
-      <div class="card-img" style="background: linear-gradient(135deg,#fce4ec,#f8bbd0)"><div class="card-img-inner">🌺</div></div>
+      <div class="card-img">
+        <img src="images/plant5.jpg" alt="Hibiscus" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body">
         <div class="card-tag">Floraison</div>
         <div class="card-title">Hibiscus</div>
@@ -492,7 +507,9 @@ nav {
       </div>
     </div>
     <div class="card">
-      <div class="card-img" style="background: linear-gradient(135deg,#e8f5e9,#a5d6a7)"><div class="card-img-inner">🌱</div></div>
+      <div class="card-img">
+        <img src="images/plant6.jpg" alt="Pothos" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body">
         <div class="card-tag">Intérieur</div>
         <div class="card-title">Pothos Doré</div>
@@ -501,7 +518,9 @@ nav {
       </div>
     </div>
     <div class="card">
-      <div class="card-img" style="background: linear-gradient(135deg,#e3f2fd,#bbdefb)"><div class="card-img-inner">🌊</div></div>
+      <div class="card-img">
+        <img src="images/plant7.jpg" alt="Lotus" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body">
         <div class="card-tag">Aquatique</div>
         <div class="card-title">Lotus Sacré</div>
@@ -510,7 +529,9 @@ nav {
       </div>
     </div>
     <div class="card">
-      <div class="card-img" style="background: linear-gradient(135deg,#f9fbe7,#f0f4c3)"><div class="card-img-inner">🌾</div></div>
+      <div class="card-img">
+        <img src="images/plant8.jpg" alt="Bambou" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body">
         <div class="card-tag">Extérieur</div>
         <div class="card-title">Bambou Sacré</div>
@@ -519,7 +540,9 @@ nav {
       </div>
     </div>
     <div class="card">
-      <div class="card-img" style="background: linear-gradient(135deg,#fbe9e7,#ffccbc)"><div class="card-img-inner">🌹</div></div>
+      <div class="card-img">
+        <img src="images/plant9.jpg" alt="Rosier" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body">
         <div class="card-tag">Floraison</div>
         <div class="card-title">Rosier Grimpant</div>
@@ -529,7 +552,7 @@ nav {
     </div>
   </div>
   <div class="voir-tout-wrap reveal">
-    <button class="voir-tout-btn" onclick="toggleSection('plantes-extra', this)">Voir tout — 9 plantes</button>
+    <button class="voir-tout-btn" onclick="toggleSection('plantes-extra', this)">Voir tout ? 9 plantes</button>
   </div>
 </section>
 
@@ -543,7 +566,9 @@ nav {
   </div>
   <div class="cards-grid reveal">
     <div class="card">
-      <div class="card-img" style="background: linear-gradient(135deg,#efebe9,#d7ccc8)"><div class="card-img-inner">🏺</div></div>
+      <div class="card-img">
+        <img src="images/pot1.jpg" alt="Pot Artisanal" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body">
         <div class="card-tag">Terre cuite</div>
         <div class="card-title">Pot Artisanal</div>
@@ -552,7 +577,9 @@ nav {
       </div>
     </div>
     <div class="card">
-      <div class="card-img" style="background: linear-gradient(135deg,#eceff1,#cfd8dc)"><div class="card-img-inner">🪣</div></div>
+      <div class="card-img">
+        <img src="images/pot2.jpg" alt="Jardinière" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body">
         <div class="card-tag">Céramique</div>
         <div class="card-title">Jardinière Moderne</div>
@@ -561,7 +588,9 @@ nav {
       </div>
     </div>
     <div class="card">
-      <div class="card-img" style="background: linear-gradient(135deg,#e8f5e9,#c8e6c9)"><div class="card-img-inner">🌿</div></div>
+      <div class="card-img">
+        <img src="images/pot3.jpg" alt="Pot Macramé" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body">
         <div class="card-tag">Suspendu</div>
         <div class="card-title">Pot Macramé</div>
@@ -572,7 +601,9 @@ nav {
   </div>
   <div class="hidden-cards reveal" id="pots-extra">
     <div class="card">
-      <div class="card-img" style="background: linear-gradient(135deg,#fafafa,#eeeeee)"><div class="card-img-inner">⬜</div></div>
+      <div class="card-img">
+        <img src="images/pot4.jpg" alt="Cube Béton" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body">
         <div class="card-tag">Béton</div>
         <div class="card-title">Cube Béton</div>
@@ -581,7 +612,9 @@ nav {
       </div>
     </div>
     <div class="card">
-      <div class="card-img" style="background: linear-gradient(135deg,#fff3e0,#ffe0b2)"><div class="card-img-inner">🪵</div></div>
+      <div class="card-img">
+        <img src="images/pot5.jpg" alt="Bac en Bois" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body">
         <div class="card-tag">Bois naturel</div>
         <div class="card-title">Bac en Bois</div>
@@ -590,7 +623,9 @@ nav {
       </div>
     </div>
     <div class="card">
-      <div class="card-img" style="background: linear-gradient(135deg,#e8eaf6,#c5cae9)"><div class="card-img-inner">🔵</div></div>
+      <div class="card-img">
+        <img src="images/pot6.jpg" alt="Pot Zellige" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body">
         <div class="card-tag">Céramique émaillée</div>
         <div class="card-title">Pot Zellige</div>
@@ -599,7 +634,9 @@ nav {
       </div>
     </div>
     <div class="card">
-      <div class="card-img" style="background: linear-gradient(135deg,#f1f8e9,#dcedc8)"><div class="card-img-inner">🟢</div></div>
+      <div class="card-img">
+        <img src="images/pot7.jpg" alt="Pot Éco" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body">
         <div class="card-tag">Recyclé</div>
         <div class="card-title">Pot Éco</div>
@@ -608,7 +645,9 @@ nav {
       </div>
     </div>
     <div class="card">
-      <div class="card-img" style="background: linear-gradient(135deg,#fce4ec,#f8bbd0)"><div class="card-img-inner">🏵️</div></div>
+      <div class="card-img">
+        <img src="images/pot8.jpg" alt="Vasque Décorative" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body">
         <div class="card-tag">Prestige</div>
         <div class="card-title">Vasque Décorative</div>
@@ -617,7 +656,9 @@ nav {
       </div>
     </div>
     <div class="card">
-      <div class="card-img" style="background: linear-gradient(135deg,#e0f7fa,#b2ebf2)"><div class="card-img-inner">🪴</div></div>
+      <div class="card-img">
+        <img src="images/pot9.jpg" alt="Cache-pot Zinc" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body">
         <div class="card-tag">Métal</div>
         <div class="card-title">Cache-pot Zinc</div>
@@ -627,7 +668,7 @@ nav {
     </div>
   </div>
   <div class="voir-tout-wrap reveal">
-    <button class="voir-tout-btn" onclick="toggleSection('pots-extra', this)">Voir tout — 9 pots</button>
+    <button class="voir-tout-btn" onclick="toggleSection('pots-extra', this)">Voir tout ? 9 pots</button>
   </div>
 </section>
 
@@ -640,32 +681,32 @@ nav {
     <p class="section-desc" style="margin-top:1rem;">Découvrez nos projets d'aménagement paysager réalisés pour particuliers et professionnels à travers tout le Maroc.</p>
   </div>
   <div class="photo-masonry reveal">
-    <div class="photo-item tall"><div class="photo-item-inner"><span class="photo-emoji">🌳</span></div></div>
-    <div class="photo-item"><div class="photo-item-inner"><span class="photo-emoji">🌷</span></div></div>
-    <div class="photo-item"><div class="photo-item-inner"><span class="photo-emoji">🏡</span></div></div>
-    <div class="photo-item tall"><div class="photo-item-inner"><span class="photo-emoji">🌻</span></div></div>
-    <div class="photo-item"><div class="photo-item-inner"><span class="photo-emoji">⛲</span></div></div>
-    <div class="photo-item tall"><div class="photo-item-inner"><span class="photo-emoji">🌿</span></div></div>
-    <div class="photo-item short"><div class="photo-item-inner"><span class="photo-emoji">🍃</span></div></div>
-    <div class="photo-item"><div class="photo-item-inner"><span class="photo-emoji">🌺</span></div></div>
-    <div class="photo-item tall"><div class="photo-item-inner"><span class="photo-emoji">🌴</span></div></div>
-    <div class="photo-item"><div class="photo-item-inner"><span class="photo-emoji">🌼</span></div></div>
-    <div class="photo-item"><div class="photo-item-inner"><span class="photo-emoji">🍀</span></div></div>
-    <div class="photo-item short"><div class="photo-item-inner"><span class="photo-emoji">🌱</span></div></div>
-    <div class="photo-item"><div class="photo-item-inner"><span class="photo-emoji">🌾</span></div></div>
-    <div class="photo-item tall"><div class="photo-item-inner"><span class="photo-emoji">🌵</span></div></div>
-    <div class="photo-item"><div class="photo-item-inner"><span class="photo-emoji">🏵️</span></div></div>
-    <div class="photo-item"><div class="photo-item-inner"><span class="photo-emoji">🌹</span></div></div>
-    <div class="photo-item short"><div class="photo-item-inner"><span class="photo-emoji">🪴</span></div></div>
-    <div class="photo-item tall"><div class="photo-item-inner"><span class="photo-emoji">🌲</span></div></div>
-    <div class="photo-item"><div class="photo-item-inner"><span class="photo-emoji">🌸</span></div></div>
-    <div class="photo-item"><div class="photo-item-inner"><span class="photo-emoji">🍂</span></div></div>
-    <div class="photo-item"><div class="photo-item-inner"><span class="photo-emoji">🌊</span></div></div>
-    <div class="photo-item tall"><div class="photo-item-inner"><span class="photo-emoji">🏕️</span></div></div>
-    <div class="photo-item short"><div class="photo-item-inner"><span class="photo-emoji">🌿</span></div></div>
+    <div class="photo-item tall"><div class="photo-item-inner"><img src="images/jardin1.jpg" alt="Jardin" style="width: 100%; height: 100%; object-fit: cover;"></div></div>
+    <div class="photo-item"><div class="photo-item-inner"><img src="images/jardin2.jpg" alt="Jardin" style="width: 100%; height: 100%; object-fit: cover;"></div></div>
+    <div class="photo-item"><div class="photo-item-inner"><img src="images/jardin3.jpg" alt="Jardin" style="width: 100%; height: 100%; object-fit: cover;"></div></div>
+    <div class="photo-item tall"><div class="photo-item-inner"><img src="images/jardin4.jpg" alt="Jardin" style="width: 100%; height: 100%; object-fit: cover;"></div></div>
+    <div class="photo-item"><div class="photo-item-inner"><img src="images/jardin5.jpg" alt="Jardin" style="width: 100%; height: 100%; object-fit: cover;"></div></div>
+    <div class="photo-item tall"><div class="photo-item-inner"><img src="images/jardin6.jpg" alt="Jardin" style="width: 100%; height: 100%; object-fit: cover;"></div></div>
+    <div class="photo-item short"><div class="photo-item-inner"><img src="images/jardin7.jpg" alt="Jardin" style="width: 100%; height: 100%; object-fit: cover;"></div></div>
+    <div class="photo-item"><div class="photo-item-inner"><img src="images/jardin8.jpg" alt="Jardin" style="width: 100%; height: 100%; object-fit: cover;"></div></div>
+    <div class="photo-item tall"><div class="photo-item-inner"><img src="images/jardin9.jpg" alt="Jardin" style="width: 100%; height: 100%; object-fit: cover;"></div></div>
+    <div class="photo-item"><div class="photo-item-inner"><img src="images/jardin10.jpg" alt="Jardin" style="width: 100%; height: 100%; object-fit: cover;"></div></div>
+    <div class="photo-item"><div class="photo-item-inner"><img src="images/jardin11.jpg" alt="Jardin" style="width: 100%; height: 100%; object-fit: cover;"></div></div>
+    <div class="photo-item short"><div class="photo-item-inner"><img src="images/jardin12.jpg" alt="Jardin" style="width: 100%; height: 100%; object-fit: cover;"></div></div>
+    <div class="photo-item"><div class="photo-item-inner"><img src="images/jardin13.jpg" alt="Jardin" style="width: 100%; height: 100%; object-fit: cover;"></div></div>
+    <div class="photo-item tall"><div class="photo-item-inner"><img src="images/jardin14.jpg" alt="Jardin" style="width: 100%; height: 100%; object-fit: cover;"></div></div>
+    <div class="photo-item"><div class="photo-item-inner"><img src="images/jardin15.jpg" alt="Jardin" style="width: 100%; height: 100%; object-fit: cover;"></div></div>
+    <div class="photo-item"><div class="photo-item-inner"><img src="images/jardin16.jpg" alt="Jardin" style="width: 100%; height: 100%; object-fit: cover;"></div></div>
+    <div class="photo-item short"><div class="photo-item-inner"><img src="images/jardin17.jpg" alt="Jardin" style="width: 100%; height: 100%; object-fit: cover;"></div></div>
+    <div class="photo-item tall"><div class="photo-item-inner"><img src="images/jardin18.jpg" alt="Jardin" style="width: 100%; height: 100%; object-fit: cover;"></div></div>
+    <div class="photo-item"><div class="photo-item-inner"><img src="images/jardin19.jpg" alt="Jardin" style="width: 100%; height: 100%; object-fit: cover;"></div></div>
+    <div class="photo-item"><div class="photo-item-inner"><img src="images/jardin20.jpg" alt="Jardin" style="width: 100%; height: 100%; object-fit: cover;"></div></div>
+    <div class="photo-item"><div class="photo-item-inner"><img src="images/jardin21.jpg" alt="Jardin" style="width: 100%; height: 100%; object-fit: cover;"></div></div>
+    <div class="photo-item tall"><div class="photo-item-inner"><img src="images/jardin22.jpg" alt="Jardin" style="width: 100%; height: 100%; object-fit: cover;"></div></div>
+    <div class="photo-item short"><div class="photo-item-inner"><img src="images/jardin23.jpg" alt="Jardin" style="width: 100%; height: 100%; object-fit: cover;"></div></div>
   </div>
   <div class="jardinage-cta reveal">
-    <a href="#contact" class="cta-btn">Contactez-nous <span>→</span></a>
+    <a href="#contact" class="cta-btn">Contactez-nous <span>?</span></a>
   </div>
 </section>
 
@@ -679,19 +720,19 @@ nav {
   </div>
   <div class="soins-cards reveal">
     <div class="soins-card">
-      <span class="soins-icon">🌿</span>
+      <img src="images/med1.jpg" alt="Engrais Bio" class="soins-icon" style="width: 48px; height: 48px; object-fit: cover; border-radius: 8px;">
       <div class="soins-title">Engrais Bio</div>
       <div class="soins-desc">Formule naturelle riche en nutriments essentiels pour stimuler la croissance et renforcer vos plantes de façon écologique.</div>
       <div class="soins-price">à partir de 35 DH</div>
     </div>
     <div class="soins-card">
-      <span class="soins-icon">💧</span>
+      <img src="images/med2.jpg" alt="Traitements Anti-parasites" class="soins-icon" style="width: 48px; height: 48px; object-fit: cover; border-radius: 8px;">
       <div class="soins-title">Traitements Anti-parasites</div>
       <div class="soins-desc">Solutions efficaces contre pucerons, cochenilles et autres nuisibles. Formules douces et respectueuses de l'environnement.</div>
       <div class="soins-price">à partir de 50 DH</div>
     </div>
     <div class="soins-card">
-      <span class="soins-icon">🔬</span>
+      <img src="images/med3.jpg" alt="Substrats Spéciaux" class="soins-icon" style="width: 48px; height: 48px; object-fit: cover; border-radius: 8px;">
       <div class="soins-title">Substrats Spéciaux</div>
       <div class="soins-desc">Mélanges de terreau adaptés à chaque type de plante : cactées, orchidées, plantes tropicales et arbustes.</div>
       <div class="soins-price">à partir de 40 DH</div>
@@ -709,7 +750,9 @@ nav {
   </div>
   <div class="oiseaux-grid reveal">
     <div class="oiseau-card">
-      <div class="oiseau-img" style="background: linear-gradient(135deg,#fff9c4,#fff176)">🦜</div>
+      <div class="oiseau-img">
+        <img src="images/bird1.jpg" alt="Perroquet Vert" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="oiseau-body">
         <div class="oiseau-name">Perroquet Vert</div>
         <div class="oiseau-origin">Amazonie · Perroquet parleur</div>
@@ -717,7 +760,9 @@ nav {
       </div>
     </div>
     <div class="oiseau-card">
-      <div class="oiseau-img" style="background: linear-gradient(135deg,#e1f5fe,#b3e5fc)">🐦</div>
+      <div class="oiseau-img">
+        <img src="images/bird2.jpg" alt="Canari Mélodieux" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="oiseau-body">
         <div class="oiseau-name">Canari Mélodieux</div>
         <div class="oiseau-origin">Îles Canaries · Chanteur</div>
@@ -737,7 +782,9 @@ nav {
   </div>
   <div class="cards-grid reveal" id="bouquets-preview">
     <div class="card bouquet-card">
-      <div class="card-img" style="background: linear-gradient(135deg,#fce4ec,#f48fb1)"><div class="card-img-inner">💐</div></div>
+      <div class="card-img">
+        <img src="images/fleur1.jpg" alt="Bouquet Romantique" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body">
         <div class="card-tag">Mariage</div>
         <div class="card-title">Bouquet Romantique</div>
@@ -746,7 +793,9 @@ nav {
       </div>
     </div>
     <div class="card bouquet-card">
-      <div class="card-img" style="background: linear-gradient(135deg,#fff9c4,#fff176)"><div class="card-img-inner">🌻</div></div>
+      <div class="card-img">
+        <img src="images/fleur2.jpg" alt="Bouquet Soleil" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body">
         <div class="card-tag">Cadeau</div>
         <div class="card-title">Bouquet Soleil</div>
@@ -755,7 +804,9 @@ nav {
       </div>
     </div>
     <div class="card bouquet-card">
-      <div class="card-img" style="background: linear-gradient(135deg,#e8f5e9,#a5d6a7)"><div class="card-img-inner">🌿</div></div>
+      <div class="card-img">
+        <img src="images/fleur3.jpg" alt="Composition Verte" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body">
         <div class="card-tag">Moderne</div>
         <div class="card-title">Composition Verte</div>
@@ -766,92 +817,134 @@ nav {
   </div>
   <div class="hidden-cards reveal" id="bouquets-extra">
     <div class="card bouquet-card">
-      <div class="card-img" style="background:linear-gradient(135deg,#e8eaf6,#c5cae9)"><div class="card-img-inner">🌹</div></div>
+      <div class="card-img">
+        <img src="images/fleur4.jpg" alt="Roses Rouges" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body"><div class="card-tag">Classique</div><div class="card-title">Roses Rouges</div><div class="card-desc">La composition intemporelle, 12 roses rouges pour déclarer votre amour.</div><div class="card-price">220 DH</div></div>
     </div>
     <div class="card bouquet-card">
-      <div class="card-img" style="background:linear-gradient(135deg,#f3e5f5,#ce93d8)"><div class="card-img-inner">🌸</div></div>
+      <div class="card-img">
+        <img src="images/fleur5.jpg" alt="Bouquet Sakura" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body"><div class="card-tag">Printemps</div><div class="card-title">Bouquet Sakura</div><div class="card-desc">Fleurs de cerisier et lilas, fraîcheur printanière enchanteresse.</div><div class="card-price">290 DH</div></div>
     </div>
     <div class="card bouquet-card">
-      <div class="card-img" style="background:linear-gradient(135deg,#fff3e0,#ffcc80)"><div class="card-img-inner">🌼</div></div>
+      <div class="card-img">
+        <img src="images/fleur6.jpg" alt="Bouquet Champêtre" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body"><div class="card-tag">Champêtre</div><div class="card-title">Bouquet Champêtre</div><div class="card-desc">Mélange de fleurs sauvages, lavande et marguerites, style naturel.</div><div class="card-price">160 DH</div></div>
     </div>
     <div class="card bouquet-card">
-      <div class="card-img" style="background:linear-gradient(135deg,#e0f7fa,#80deea)"><div class="card-img-inner">🌺</div></div>
+      <div class="card-img">
+        <img src="images/fleur7.jpg" alt="Tropical" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body"><div class="card-tag">Exotique</div><div class="card-title">Tropical</div><div class="card-desc">Strelitzias, anthuriums et feuilles de bananier pour un effet spectaculaire.</div><div class="card-price">420 DH</div></div>
     </div>
     <div class="card bouquet-card">
-      <div class="card-img" style="background:linear-gradient(135deg,#fafafa,#f5f5f5)"><div class="card-img-inner">🤍</div></div>
+      <div class="card-img">
+        <img src="images/fleur8.jpg" alt="Bouquet Blanc Pur" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body"><div class="card-tag">Cérémonie</div><div class="card-title">Bouquet Blanc Pur</div><div class="card-desc">Lys blancs et orchidées, élégance absolue pour cérémonies officielles.</div><div class="card-price">550 DH</div></div>
     </div>
     <div class="card bouquet-card">
-      <div class="card-img" style="background:linear-gradient(135deg,#ffccbc,#ff8a65)"><div class="card-img-inner">🌷</div></div>
+      <div class="card-img">
+        <img src="images/fleur9.jpg" alt="Coucher de Soleil" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body"><div class="card-tag">Automne</div><div class="card-title">Coucher de Soleil</div><div class="card-desc">Tulipes orangées, dahlias et chrysanthèmes, palette chaude et enveloppante.</div><div class="card-price">200 DH</div></div>
     </div>
     <div class="card bouquet-card">
-      <div class="card-img" style="background:linear-gradient(135deg,#e8f5e9,#66bb6a)"><div class="card-img-inner">🫧</div></div>
+      <div class="card-img">
+        <img src="images/fleur10.jpg" alt="Composition Zen" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body"><div class="card-tag">Zen</div><div class="card-title">Composition Zen</div><div class="card-desc">Bambou, mousse et fleurs blanches, harmonie et sérénité japonaise.</div><div class="card-price">310 DH</div></div>
     </div>
     <div class="card bouquet-card">
-      <div class="card-img" style="background:linear-gradient(135deg,#e1bee7,#8e24aa)"><div class="card-img-inner">💜</div></div>
+      <div class="card-img">
+        <img src="images/fleur11.jpg" alt="Bouquet Violet" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body"><div class="card-tag">Luxe</div><div class="card-title">Bouquet Violet</div><div class="card-desc">Jacinthe, lilas et iris violets pour une composition lumineuse et raffinée.</div><div class="card-price">340 DH</div></div>
     </div>
     <div class="card bouquet-card">
-      <div class="card-img" style="background:linear-gradient(135deg,#fff8e1,#ffd54f)"><div class="card-img-inner">🌟</div></div>
+      <div class="card-img">
+        <img src="images/fleur12.jpg" alt="Bouquet Fête" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body"><div class="card-tag">Anniversaire</div><div class="card-title">Bouquet Fête</div><div class="card-desc">Mélange coloré de gerberas, asters et roses, explosif de joie et de couleurs.</div><div class="card-price">195 DH</div></div>
     </div>
     <div class="card bouquet-card">
-      <div class="card-img" style="background:linear-gradient(135deg,#b2dfdb,#00897b)"><div class="card-img-inner">🌊</div></div>
+      <div class="card-img">
+        <img src="images/fleur13.jpg" alt="Décoration Bureau" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body"><div class="card-tag">Professionnel</div><div class="card-title">Décoration Bureau</div><div class="card-desc">Composition sobre et durable pour bureaux, hôtels et espaces professionnels.</div><div class="card-price">450 DH</div></div>
     </div>
     <div class="card bouquet-card">
-      <div class="card-img" style="background:linear-gradient(135deg,#ffd7d7,#e57373)"><div class="card-img-inner">💝</div></div>
-      <div class="card-body"><div class="card-tag">Saint-Valentin</div><div class="card-title">Cœur Fleuri</div><div class="card-desc">Composition en forme de cœur, roses et œillets rouges, pour une déclaration inoubliable.</div><div class="card-price">490 DH</div></div>
+      <div class="card-img">
+        <img src="images/fleur14.jpg" alt="C?ur Fleuri" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div class="card-body"><div class="card-tag">Saint-Valentin</div><div class="card-title">C?ur Fleuri</div><div class="card-desc">Composition en forme de c?ur, roses et ?illets rouges, pour une déclaration inoubliable.</div><div class="card-price">490 DH</div></div>
     </div>
     <div class="card bouquet-card">
-      <div class="card-img" style="background:linear-gradient(135deg,#e8f5e9,#43a047)"><div class="card-img-inner">🌿</div></div>
+      <div class="card-img">
+        <img src="images/fleur15.jpg" alt="Création Personnalisée" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body"><div class="card-tag">Sur mesure</div><div class="card-title">Création Personnalisée</div><div class="card-desc">Conception sur mesure selon vos goûts et votre budget. Devis gratuit.</div><div class="card-price">Sur devis</div></div>
     </div>
     <div class="card bouquet-card">
-      <div class="card-img" style="background:linear-gradient(135deg,#fff9c4,#f9a825)"><div class="card-img-inner">☀️</div></div>
+      <div class="card-img">
+        <img src="images/fleur16.jpg" alt="Bouquet Méditerranéen" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body"><div class="card-tag">Été</div><div class="card-title">Bouquet Méditerranéen</div><div class="card-desc">Lavande, santoline et fleurs séchées, senteurs du bassin méditerranéen.</div><div class="card-price">175 DH</div></div>
     </div>
     <div class="card bouquet-card">
-      <div class="card-img" style="background:linear-gradient(135deg,#fce4ec,#ec407a)"><div class="card-img-inner">🎀</div></div>
+      <div class="card-img">
+        <img src="images/fleur17.jpg" alt="Bouquet Naissance" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body"><div class="card-tag">Naissance</div><div class="card-title">Bouquet Naissance</div><div class="card-desc">Tons pastel doux et délicats pour célébrer l'arrivée d'un nouveau-né.</div><div class="card-price">260 DH</div></div>
     </div>
     <div class="card bouquet-card">
-      <div class="card-img" style="background:linear-gradient(135deg,#ede7f6,#7e57c2)"><div class="card-img-inner">✨</div></div>
+      <div class="card-img">
+        <img src="images/fleur18.jpg" alt="Bouquet Éternel" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body"><div class="card-tag">Séché</div><div class="card-title">Bouquet Éternel</div><div class="card-desc">Fleurs séchées et stabilisées, compositions durables à garder toujours.</div><div class="card-price">285 DH</div></div>
     </div>
     <div class="card bouquet-card">
-      <div class="card-img" style="background:linear-gradient(135deg,#e0f2f1,#26a69a)"><div class="card-img-inner">🎋</div></div>
+      <div class="card-img">
+        <img src="images/fleur19.jpg" alt="One-Stem" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body"><div class="card-tag">Minimaliste</div><div class="card-title">One-Stem</div><div class="card-desc">L'art du minimalisme floral, une seule fleur exceptionnelle sublimée dans un vase.</div><div class="card-price">95 DH</div></div>
     </div>
     <div class="card bouquet-card">
-      <div class="card-img" style="background:linear-gradient(135deg,#fff8e1,#ffc107)"><div class="card-img-inner">🌻</div></div>
+      <div class="card-img">
+        <img src="images/fleur20.jpg" alt="Corbeille Luxe" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body"><div class="card-tag">Cadeau entreprise</div><div class="card-title">Corbeille Luxe</div><div class="card-desc">Grande corbeille fleurie avec ruban et carte personnalisée, idéale en affaires.</div><div class="card-price">650 DH</div></div>
     </div>
     <div class="card bouquet-card">
-      <div class="card-img" style="background:linear-gradient(135deg,#e3f2fd,#42a5f5)"><div class="card-img-inner">❄️</div></div>
+      <div class="card-img">
+        <img src="images/fleur21.jpg" alt="Bouquet Hivernal" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body"><div class="card-tag">Hiver</div><div class="card-title">Bouquet Hivernal</div><div class="card-desc">Houx, baies rouges et branches enneigées, magie de l'hiver dans vos mains.</div><div class="card-price">230 DH</div></div>
     </div>
     <div class="card bouquet-card">
-      <div class="card-img" style="background:linear-gradient(135deg,#fbe9e7,#bf360c)"><div class="card-img-inner">🔥</div></div>
+      <div class="card-img">
+        <img src="images/fleur22.jpg" alt="Bouquet Passion" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body"><div class="card-tag">Dramatique</div><div class="card-title">Bouquet Passion</div><div class="card-desc">Protéas, roses noires et leucadendrons pour une composition audacieuse et inoubliable.</div><div class="card-price">580 DH</div></div>
     </div>
     <div class="card bouquet-card">
-      <div class="card-img" style="background:linear-gradient(135deg,#f9fbe7,#aed581)"><div class="card-img-inner">🌱</div></div>
+      <div class="card-img">
+        <img src="images/fleur23.jpg" alt="Bouquet Aromatique" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body"><div class="card-tag">Herbes aromatiques</div><div class="card-title">Bouquet Aromatique</div><div class="card-desc">Romarin, thym, lavande et basilic pourpre, bouquet décoratif et parfumé.</div><div class="card-price">130 DH</div></div>
     </div>
     <div class="card bouquet-card">
-      <div class="card-img" style="background:linear-gradient(135deg,#fce4ec,#f06292)"><div class="card-img-inner">🫶</div></div>
+      <div class="card-img">
+        <img src="images/fleur24.jpg" alt="Bouquet Maman" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
       <div class="card-body"><div class="card-tag">Fête des mères</div><div class="card-title">Bouquet Maman</div><div class="card-desc">Pivoines, roses et freesias, la composition idéale pour honorer votre maman.</div><div class="card-price">320 DH</div></div>
     </div>
   </div>
   <div class="voir-tout-wrap reveal">
-    <button class="voir-tout-btn" onclick="toggleSection('bouquets-extra', this)">Voir tout — 24 bouquets</button>
+    <button class="voir-tout-btn" onclick="toggleSection('bouquets-extra', this)">Voir tout ? 24 bouquets</button>
   </div>
 </section>
 
@@ -867,31 +960,34 @@ nav {
       </p>
       <div class="contact-info">
         <div class="contact-item">
-          <div class="contact-item-icon">📍</div>
+          <div class="contact-item-icon">??</div>
           <div class="contact-item-text">
             <div class="contact-item-label">Adresse</div>
             <div class="contact-item-value">Avenue Mohammed VI, Quartier Boukhalef<br>Tanger 90000, Maroc</div>
+            <div style="margin-top: 10px;">
+              <img src="images/map-preview.jpg" alt="Map Preview" style="width: 100%; max-width: 200px; height: auto; border-radius: 8px; border: 1px solid rgba(200,230,202,0.3);">
+            </div>
           </div>
         </div>
         <div class="contact-item">
-          <div class="contact-item-icon">📞</div>
+          <div class="contact-item-icon">??</div>
           <div class="contact-item-text">
             <div class="contact-item-label">Téléphone</div>
             <div class="contact-item-value">+212 539 XX XX XX<br>+212 6XX XX XX XX</div>
           </div>
         </div>
         <div class="contact-item">
-          <div class="contact-item-icon">🕐</div>
+          <div class="contact-item-icon">??</div>
           <div class="contact-item-text">
             <div class="contact-item-label">Horaires</div>
-            <div class="contact-item-value">Lun–Sam : 8h00 – 19h00<br>Dimanche : 9h00 – 13h00</div>
+            <div class="contact-item-value">Lun?Sam : 8h00 ? 19h00<br>Dimanche : 9h00 ? 13h00</div>
           </div>
         </div>
         <div class="contact-item">
-          <div class="contact-item-icon">✉️</div>
+          <div class="contact-item-icon">??</div>
           <div class="contact-item-text">
             <div class="contact-item-label">Email</div>
-            <div class="contact-item-value">contact@vertnature.ma</div>
+            <div class="contact-item-value">contact@jardinsparadis.ma</div>
           </div>
         </div>
       </div>
@@ -920,18 +1016,25 @@ nav {
         <label>Message</label>
         <textarea placeholder="Comment pouvons-nous vous aider ?"></textarea>
       </div>
-      <button class="submit-btn" onclick="this.textContent='Message envoyé ✓'; this.style.background='#4a9b52';">Envoyer le message</button>
+      <button class="submit-btn" onclick="this.textContent='Message envoyé ?'; this.style.background='#4a9b52';">Envoyer le message</button>
     </div>
   </div>
 </section>
 
 <div class="footer-bar">
-  © 2024 Vert & Nature — Jardinerie à Tanger · Tous droits réservés
+  © 2024 Jardins du Paradis ? Jardinerie à Tanger · Tous droits réservés
 </div>
 
 <script>
   function toggleMenu() {
     document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  function showSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 
   function toggleSection(id, btn) {
@@ -944,8 +1047,8 @@ nav {
     const name = names[id] || '';
     const count = counts[id] || '';
     btn.textContent = isOpen
-      ? `Voir tout — ${count} ${name}`
-      : `Réduire ↑`;
+      ? `Voir tout ? ${count} ${name}` 
+      : `Réduire ?`;
   }
 
   const revealObserver = new IntersectionObserver((entries) => {
