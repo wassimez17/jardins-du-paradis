@@ -43,28 +43,41 @@
   }
 
  /* التنسيق المعدل للوجو */
-  .logo {
+.logo {
     display: flex; 
     align-items: center; 
     gap: 12px;
     text-decoration: none;
-    cursor: pointer;
+    cursor: pointer; /* لإظهار أنه قابل للضغط */
   }
 
-  /* تنسيق صورة شعار الشركة */
+  /* استبدال .logo-icon بـ .logo img */
   .logo img {
-    width: 42px; /* نفس مقاس الـ logo-icon القديم */
+    width: 42px; 
     height: 42px;
-    object-fit: contain; /* يحافظ على أبعاد الشعار دون تشويه */
+    object-fit: contain; /* يضمن عدم تشوه شعار الشركة */
+    display: block;
   }
 
   .logo-text-container {
-    display: flex; flex-direction: column;
+    display: flex; 
+    flex-direction: column;
   }
   
-  .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--green-deep); line-height: 1.1; }
-  .logo-sub { font-size: 10px; letter-spacing: 2px; color: var(--text-light); text-transform: uppercase; }
+  .logo-text { 
+    font-family: 'Cormorant Garamond', serif; 
+    font-size: 22px; 
+    font-weight: 600; 
+    color: var(--green-deep); 
+    line-height: 1.1; 
+  }
 
+  .logo-sub { 
+    font-size: 10px; 
+    letter-spacing: 2px; 
+    color: var(--text-light); 
+    text-transform: uppercase; 
+  }
   /* باقي الكود كما هو */
   .nav-links { display: flex; gap: 2px; list-style: none; }
   .nav-links a {
@@ -362,27 +375,18 @@
 <body>
 
 <!-- NAV -->
-<nav id="navbar">
-  <a href="#accueil" class="logo">
-    <div class="logo-icon">🌿</div>
-    <div>
-      <div class="logo-text">Vert & Nature</div>
-      <div class="logo-sub">Jardinerie</div>
+<nav>
+    <div class="logo" onclick="showSection('accueil')">
+        <img src="images/logo.png" alt="Logo">
+        
+        <div class="logo-text-container">
+            <div class="logo-text">Jardins du Paradis</div>
+            <div class="logo-sub">Botanique</div>
+        </div>
     </div>
-  </a>
-  <div class="nav-links" id="navLinks">
-    <a href="#accueil" class="active">Accueil</a>
-    <a href="#plantes">Plantes</a>
-    <a href="#pots">Les Pots</a>
-    <a href="#jardinage">Jardinage</a>
-    <a href="#soins">Soins</a>
-    <a href="#oiseaux">Oiseaux</a>
-    <a href="#bouquets">Bouquets</a>
-    <a href="#contact">Contact</a>
-  </div>
-  <div class="nav-burger" id="burger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </div>
+    
+    <ul class="nav-links">
+        </ul>
 </nav>
 
 <!-- ACCUEIL -->
