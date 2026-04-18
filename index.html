@@ -42,19 +42,22 @@
     height: 72px;
   }
 
+ /* التنسيق المعدل للوجو */
   .logo {
-    display: flex; align-items: center; gap: 12px;
-    text-decoration: none; cursor: pointer;
+    display: flex; 
+    align-items: center; 
+    gap: 12px;
+    text-decoration: none;
+    cursor: pointer;
   }
 
-  /* تنسيق الصورة الجديدة بدلاً من logo-icon */
+  /* تنسيق صورة شعار الشركة */
   .logo img {
-    width: 45px; 
-    height: 45px;
-    object-fit: contain; /* لضمان عدم تشوه الشعار */
+    width: 42px; /* نفس مقاس الـ logo-icon القديم */
+    height: 42px;
+    object-fit: contain; /* يحافظ على أبعاد الشعار دون تشويه */
   }
 
-  /* تنسيق النص (تم دمج منطق الترتيب هنا) */
   .logo-text-container {
     display: flex; flex-direction: column;
   }
