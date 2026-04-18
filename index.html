@@ -286,7 +286,9 @@ nav {
   .soins-card:hover { transform: translateY(-4px); background: white; box-shadow: 0 12px 40px rgba(26,58,31,0.1); }
   .soins-icon { font-size: 48px; margin-bottom: 1.5rem; display: block; }
   .soins-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--main-green); margin-bottom: 0.75rem; }
-  .soins-desc { font-size: 13px; color: var(--text-light); line-height: 1.8; margin-bottom: 1.5rem; }
+  .modal-desc { font-size: 15px; color: var(--text-mid); line-height: 1.8; margin-bottom: 1.5rem; }
+  .modal-desc-item { display: flex; align-items: center; margin-bottom: 0.8rem; font-size: 14px; }
+  .modal-desc-icon { margin-right: 0.8rem; font-size: 16px; color: var(--gold-accent) !important; min-width: 20px; text-align: center; }
   .soins-price { font-size: 16px; font-weight: 500; color: var(--gold-accent); }
 
   .card-desc { color: var(--text-dark); font-size: 13px; line-height: 1.4; margin-top: 0.5rem; }
@@ -516,15 +518,7 @@ nav {
         <img src="images/plant1.jpg" alt="Monstera" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
       <div class="card-body">
-        <div class="card-tag">Intérieur</div>
         <div class="card-title">Monstera Deliciosa</div>
-        <div class="card-desc">
-          <div class="desc-item"><span class="desc-icon">🌿</span>Type: Plante tropicale d'intérieur</div>
-          <div class="desc-item"><span class="desc-icon">🌎</span>Origine: Amérique Centrale</div>
-          <div class="desc-item"><span class="desc-icon">☀️</span>Exposition: Lumière indirecte</div>
-          <div class="desc-item"><span class="desc-icon">💧</span>Arrosage: Hebdomadaire modéré</div>
-          <div class="desc-item"><span class="desc-icon">💡</span>Conseils: Vaporiser les feuilles, nettoyer régulièrement</div>
-        </div>
         <div class="card-price">120 DH <span>/ unité</span></div>
         <button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Monstera Deliciosa - Prix: 120 DH', '_blank')">Commander via WhatsApp</button>
       </div>
@@ -534,9 +528,7 @@ nav {
         <img src="images/plant2.jpg" alt="Ficus" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
       <div class="card-body">
-        <div class="card-tag">Intérieur</div>
         <div class="card-title">Ficus Lyrata</div>
-        <div class="card-desc">Arbre d'intérieur élégant avec feuilles en forme de violon. Parfait pour les salons.</div>
         <div class="card-price">180 DH <span>/ unité</span></div>
         <button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Ficus Lyrata - Prix: 180 DH', '_blank')">Commander via WhatsApp</button>
       </div>
@@ -546,9 +538,7 @@ nav {
         <img src="images/plant3.jpg" alt="Laurier" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
       <div class="card-body">
-        <div class="card-tag">Extérieur</div>
         <div class="card-title">Laurier Rose</div>
-        <div class="card-desc">Arbuste méditerranéen avec fleurs roses parfumées toute l'année. Résistant à la sécheresse.</div>
         <div class="card-price">95 DH <span>/ unité</span></div>
         <button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Laurier Rose - Prix: 95 DH', '_blank')">Commander via WhatsApp</button>
       </div>
@@ -647,7 +637,7 @@ nav {
     </div>
   </div>
   <div class="voir-tout-wrap reveal">
-    <button class="voir-tout-btn" onclick="toggleSection('plantes-extra', this)">Voir tout</button>
+    <button class="voir-tout-btn" onclick="toggleSection('plantes-extra', this)">Voir tout ? 9 plantes</button>
   </div>
 </section>
 
@@ -787,7 +777,7 @@ nav {
     </div>
   </div>
   <div class="voir-tout-wrap reveal">
-    <button class="voir-tout-btn" onclick="toggleSection('pots-extra', this)">Voir tout</button>
+    <button class="voir-tout-btn" onclick="toggleSection('pots-extra', this)">Voir tout ? 9 pots</button>
   </div>
 </section>
 
@@ -1114,7 +1104,7 @@ nav {
     </div>
   </div>
   <div class="voir-tout-wrap reveal">
-    <button class="voir-tout-btn" onclick="toggleSection('bouquets-extra', this)">Voir tout</button>
+    <button class="voir-tout-btn" onclick="toggleSection('bouquets-extra', this)">Voir tout ? 24 bouquets</button>
   </div>
 </section>
 
@@ -1239,7 +1229,7 @@ nav {
     const name = names[id] || '';
     const count = counts[id] || '';
     btn.textContent = isOpen
-      ? `Voir tout ${count} ${name}` 
+      ? `Voir tout ? ${count} ${name}` 
       : `Réduire ?`;
   }
 
@@ -1247,7 +1237,40 @@ nav {
     const modal = document.getElementById('productModal');
     document.getElementById('modalTitle').textContent = title;
     document.getElementById('modalTag').textContent = tag;
-    document.getElementById('modalDesc').textContent = desc;
+    
+    // Format description with icons
+    const descItems = desc.split(' | ');
+    let formattedDesc = '';
+    descItems.forEach(item => {
+      const [key, value] = item.split(': ');
+      let icon = '🌿'; // default icon
+      
+      // Assign icons based on content
+      if (key.includes('Type')) icon = '🌿';
+      else if (key.includes('Origine')) icon = '🌎';
+      else if (key.includes('Exposition')) icon = '☀️';
+      else if (key.includes('Arrosage')) icon = '💧';
+      else if (key.includes('Conseils')) icon = '💡';
+      else if (key.includes('Dimensions')) icon = '📏';
+      else if (key.includes('Matériau')) icon = '🏺';
+      else if (key.includes('Style')) icon = '🎨';
+      else if (key.includes('Usage')) icon = '🌿';
+      else if (key.includes('Durée')) icon = '⏰';
+      else if (key.includes('Mode')) icon = '🔄';
+      else if (key.includes('Moment')) icon = '🌱';
+      else if (key.includes('Composition')) icon = '🧪';
+      else if (key.includes('Aliment')) icon = '🌾';
+      else if (key.includes('Ingrédients')) icon = '🌱';
+      else if (key.includes('Espèces')) icon = '🦜';
+      else if (key.includes('Fleurs')) icon = '🌹';
+      else if (key.includes('Couleurs')) icon = '🎨';
+      else if (key.includes('Nombre')) icon = '🔢';
+      else if (key.includes('Occasion')) icon = '🎂';
+      
+      formattedDesc += `<div class="modal-desc-item"><span class="modal-desc-icon" style="color: var(--gold-accent)">${icon}</span><strong>${key}:</strong> ${value}</div>`;
+    });
+    
+    document.getElementById('modalDesc').innerHTML = formattedDesc;
     document.getElementById('modalPrice').textContent = price;
     document.getElementById('modalImage').src = imageSrc;
     document.getElementById('modalImage').alt = title;
