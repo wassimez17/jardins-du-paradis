@@ -82,7 +82,7 @@ nav {
 .nav-links { display: flex; gap: 2px; list-style: none; }
 .nav-links a {
   font-size: 12px; font-weight: 400; letter-spacing: 1.5px; text-transform: uppercase;
-  color: var(--text-mid); text-decoration: none; padding: 8px 14px; border-radius: 4px;
+    color: var(--green-mid); text-decoration: none; padding: 8px 14px; border-radius: 4px;
   transition: all 0.2s;
 }
 .nav-links a:hover, .nav-links a.active { color: var(--green-mid); background: var(--green-mist); }
@@ -137,16 +137,16 @@ nav {
   .hero-text {
     padding: clamp(3rem, 6vw, 6rem) clamp(2rem, 5vw, 5rem);
     display: flex; flex-direction: column; justify-content: center;
-    background: var(--cream);
+    background: white;
   }
   .section-eyebrow {
     font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--green-mid); margin-bottom: 1.5rem; font-weight: 400;
+    color: #2d6a35; margin-bottom: 1.5rem; font-weight: 400;
   }
   .hero-heading {
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(32px, 3.5vw, 52px); font-weight: 400;
-    line-height: 1.2; color: var(--green-deep);
+    line-height: 1.2; color: #1a3a1f;
     margin-bottom: 1.5rem;
   }
   .hero-body { font-size: 15px; color: var(--text-mid); line-height: 1.8; margin-bottom: 2rem; }
@@ -154,19 +154,19 @@ nav {
   .stat { text-align: center; }
   .stat-num {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 36px; font-weight: 600; color: var(--green-deep); line-height: 1;
+    font-size: 36px; font-weight: 600; color: #1a3a1f; line-height: 1;
   }
   .stat-label { font-size: 11px; letter-spacing: 1px; color: var(--text-light); margin-top: 4px; }
   .divider { width: 1px; background: var(--border); margin: 0 1rem; }
   .cta-btn {
     display: inline-flex; align-items: center; gap: 10px;
-    background: var(--green-deep); color: white;
+    background: #1a3a1f; color: white;
     padding: 14px 32px; border-radius: 40px;
     font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
     text-decoration: none; transition: all 0.3s; margin-top: 2rem;
     align-self: flex-start; border: none; cursor: pointer;
   }
-  .cta-btn:hover { background: var(--green-mid); transform: translateY(-2px); }
+  .cta-btn:hover { background: var(--green-mid); transform: translateY(-2px); box-shadow: 0 8px 16px rgba(26,58,31,0.2); }
   .cta-outline {
     background: transparent; color: var(--green-deep);
     border: 1.5px solid var(--green-deep);
@@ -184,7 +184,7 @@ nav {
   }
   .section-desc { font-size: 15px; color: var(--text-light); max-width: 520px; margin: 0 auto; line-height: 1.8; }
   .section-divider {
-    width: 60px; height: 2px; background: var(--green-light);
+    width: 60px; height: 2px; background: #d4af37;
     margin: 1rem auto 0; border-radius: 2px;
   }
 
@@ -194,12 +194,12 @@ nav {
     margin-bottom: 3rem;
   }
   .card {
-    background: white; border-radius: 16px;
+    background: white; border-radius:16px;
     border: 1px solid var(--border); overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   }
-  .card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(26,58,31,0.12); }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(26,58,31,0.15); }
   .card-img {
     height: 220px; overflow: hidden; position: relative; cursor: pointer;
   }
@@ -210,13 +210,11 @@ nav {
   }
   .card:hover .card-img-inner { transform: scale(1.08); }
   .card-body { padding: 1.4rem 1.5rem; }
-  .card-tag {
-    font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--green-mid); margin-bottom: 6px; font-weight: 400;
+  .card-tag { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--green-mid); margin-bottom: 6px; font-weight: 400; }
   }
-  .card-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: var(--green-deep); margin-bottom: 6px; }
-  .card-desc { font-size: 13px; color: var(--text-light); line-height: 1.7; margin-bottom: 12px; }
-  .card-price { font-size: 18px; font-weight: 500; color: var(--green-mid); }
+  .card-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; color: #1a3a1f; margin-bottom: 6px; }
+  .card-desc { font-size: 13px; color: #1a3a1f; line-height: 1.7; margin-bottom: 12px; }
+  .card-price { font-size: 18px; font-weight: 500; color: #2d6a35; }
   .card-price span { font-size: 12px; font-weight: 300; color: var(--text-light); }
 
   /* VOIR TOUT BTN */
@@ -228,7 +226,7 @@ nav {
     font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
     cursor: pointer; transition: all 0.3s; font-family: 'Jost', sans-serif; font-weight: 400;
   }
-  .voir-tout-btn:hover { background: var(--green-deep); color: white; }
+  .voir-tout-btn:hover { background: #1a3a1f; color: white; }
   .voir-tout-btn.active { background: var(--green-deep); color: white; }
 
   /* HIDDEN CARDS */
@@ -277,9 +275,13 @@ nav {
   }
   .soins-card:hover { transform: translateY(-4px); background: white; box-shadow: 0 12px 40px rgba(26,58,31,0.1); }
   .soins-icon { font-size: 48px; margin-bottom: 1.5rem; display: block; }
-  .soins-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--green-deep); margin-bottom: 0.75rem; }
+  .soins-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: #1a3a1f; margin-bottom: 0.75rem; }
   .soins-desc { font-size: 13px; color: var(--text-light); line-height: 1.8; margin-bottom: 1.5rem; }
-  .soins-price { font-size: 16px; font-weight: 500; color: var(--green-mid); }
+  .soins-price { font-size: 16px; font-weight: 500; color: #2d6a35; }
+
+  .card-desc { color: var(--green-deep); font-size: 13px; line-height: 1.4; margin-top: 0.5rem; }
+  .desc-item { display: flex; align-items: center; margin-bottom: 0.3rem; font-size: 11px; }
+  .desc-icon { margin-right: 0.5rem; font-size: 12px;    color: #d4af37; }
 
   /* OISEAUX */
   .oiseaux-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 700px; margin: 0 auto; }
@@ -290,7 +292,7 @@ nav {
   .oiseau-card:hover { transform: translateY(-6px); box-shadow: 0 20px 60px rgba(26,58,31,0.12); }
   .oiseau-img { height: 260px; display: flex; align-items: center; justify-content: center; font-size: 100px; }
   .oiseau-body { padding: 1.5rem; text-align: center; }
-  .oiseau-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: var(--green-deep); margin-bottom: 6px; }
+  .oiseau-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 600; color: #1a3a1f; margin-bottom: 6px; }
   .oiseau-origin { font-size: 12px; letter-spacing: 1px; color: var(--text-light); text-transform: uppercase; margin-bottom: 10px; }
   .oiseau-price { font-size: 20px; font-weight: 500; color: var(--green-mid); }
 
@@ -505,7 +507,13 @@ nav {
       <div class="card-body">
         <div class="card-tag">Intérieur</div>
         <div class="card-title">Monstera Deliciosa</div>
-        <div class="card-desc">Plante tropicale avec feuilles découpées spectaculaires. Idéale pour les pièces lumineuses.</div>
+        <div class="card-desc">
+          <div class="desc-item"><span class="desc-icon">🌿</span>Type: Plante tropicale d'intérieur</div>
+          <div class="desc-item"><span class="desc-icon">🌎</span>Origine: Amérique Centrale</div>
+          <div class="desc-item"><span class="desc-icon">☀️</span>Exposition: Lumière indirecte</div>
+          <div class="desc-item"><span class="desc-icon">💧</span>Arrosage: Hebdomadaire modéré</div>
+          <div class="desc-item"><span class="desc-icon">💡</span>Conseils: Vaporiser les feuilles, nettoyer régulièrement</div>
+        </div>
         <div class="card-price">120 DH <span>/ unité</span></div>
         <button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Monstera Deliciosa - Prix: 120 DH', '_blank')">Commander via WhatsApp</button>
       </div>
@@ -543,7 +551,13 @@ nav {
       <div class="card-body">
         <div class="card-tag">Extérieur</div>
         <div class="card-title">Palmier Nain</div>
-        <div class="card-desc">Petit palmier tropical parfait pour jardins et terrasses. Facile d'entretien.</div>
+        <div class="card-desc">
+          <div class="desc-item"><span class="desc-icon">🌳</span>Type: Arbre d'intérieur tropical</div>
+          <div class="desc-item"><span class="desc-icon">🌎</span>Origine: Afrique de l'Ouest</div>
+          <div class="desc-item"><span class="desc-icon">☀️</span>Exposition: Lumière vive indirecte</div>
+          <div class="desc-item"><span class="desc-icon">💧</span>Arrosage: Modéré toutes les 1-2 semaines</div>
+          <div class="desc-item"><span class="desc-icon">💡</span>Conseils: Tourner le pot régulièrement</div>
+        </div>
         <div class="card-price">350 DH <span>/ unité</span></div>
         <button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Palmier Nain - Prix: 350 DH', '_blank')">Commander via WhatsApp</button>
       </div>
@@ -555,7 +569,13 @@ nav {
       <div class="card-body">
         <div class="card-tag">Floraison</div>
         <div class="card-title">Hibiscus</div>
-        <div class="card-desc">Magnifique arbuste tropical avec fleurs spectaculaires en rouge et rose. Floraison abondante en été.</div>
+        <div class="card-desc">
+          <div class="desc-item"><span class="desc-icon">🌸</span>Type: Arbuste à fleurs persistantes</div>
+          <div class="desc-item"><span class="desc-icon">🌎</span>Origine: Bassin méditerranéen</div>
+          <div class="desc-item"><span class="desc-icon">☀️</span>Exposition: Plein soleil</div>
+          <div class="desc-item"><span class="desc-icon">💧</span>Arrosage: Régulier en été</div>
+          <div class="desc-item"><span class="desc-icon">💡</span>Conseils: Taille après floraison</div>
+        </div>
         <div class="card-price">95 DH <span>/ unité</span></div>
         <button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Hibiscus - Prix: 95 DH', '_blank')">Commander via WhatsApp</button>
       </div>
@@ -603,7 +623,13 @@ nav {
       <div class="card-body">
         <div class="card-tag">Floraison</div>
         <div class="card-title">Rosier Grimpant</div>
-        <div class="card-desc">Variété robuste aux fleurs très parfumées. Idéale pour pergolas et treillis.</div>
+        <div class="card-desc">
+          <div class="desc-item"><span class="desc-icon">🌸</span>Type: Arbuste à fleurs persistantes</div>
+          <div class="desc-item"><span class="desc-icon">🌎</span>Origine: Bassin méditerranéen</div>
+          <div class="desc-item"><span class="desc-icon">☀️</span>Exposition: Plein soleil</div>
+          <div class="desc-item"><span class="desc-icon">💧</span>Arrosage: Régulier en été</div>
+          <div class="desc-item"><span class="desc-icon">💡</span>Conseils: Taille après floraison</div>
+        </div>
         <div class="card-price">115 DH <span>/ unité</span></div>
         <button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Rosier Grimpant - Prix: 115 DH', '_blank')">Commander via WhatsApp</button>
       </div>
@@ -630,7 +656,12 @@ nav {
       <div class="card-body">
         <div class="card-tag">Terre cuite</div>
         <div class="card-title">Pot Artisanal</div>
-        <div class="card-desc">Pot en terre cuite façonné à la main, style marocain authentique. Parfait pour plantes méditerranéennes.</div>
+        <div class="card-desc">
+          <div class="desc-item"><span class="desc-icon">🏺</span>Dimensions: H25cm x D25cm</div>
+          <div class="desc-item"><span class="desc-icon">🏺</span>Matériau: Terre cuite traditionnelle</div>
+          <div class="desc-item"><span class="desc-icon">🎨</span>Style: Artisanal marocain</div>
+          <div class="desc-item"><span class="desc-icon">🌿</span>Usage: Plantes d'intérieur et extérieur</div>
+        </div>
         <div class="card-price">75 DH <span>/ unité</span></div>
         <button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Pot Artisanal - Prix: 75 DH', '_blank')">Commander via WhatsApp</button>
       </div>
@@ -642,7 +673,12 @@ nav {
       <div class="card-body">
         <div class="card-tag">Céramique</div>
         <div class="card-title">Jardinière Moderne</div>
-        <div class="card-desc">Design épuré en céramique blanche, parfait pour l'intérieur contemporain. Idéale pour compositions florales.</div>
+        <div class="card-desc">
+          <div class="desc-item"><span class="desc-icon">📏</span>Dimensions: L40cm x l20cm x H15cm</div>
+          <div class="desc-item"><span class="desc-icon">🏺</span>Matériau: Céramique émaillée</div>
+          <div class="desc-item"><span class="desc-icon">🎨</span>Style: Design moderne</div>
+          <div class="desc-item"><span class="desc-icon">🌿</span>Usage: Plantes d'intérieur et balcons</div>
+        </div>
         <div class="card-price">140 DH <span>/ unité</span></div>
         <button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Jardinière Moderne - Prix: 140 DH', '_blank')">Commander via WhatsApp</button>
       </div>
@@ -654,7 +690,12 @@ nav {
       <div class="card-body">
         <div class="card-tag">Suspendu</div>
         <div class="card-title">Pot Macramé</div>
-        <div class="card-desc">Suspension en corde naturelle, tendance boho pour vos plantes retombantes. Parfait pour décoration murale.</div>
+        <div class="card-desc">
+          <div class="desc-item"><span class="desc-icon">📏</span>Dimensions: H60cm avec pot D15cm</div>
+          <div class="desc-item"><span class="desc-icon">🪢</span>Matériau: Corde de coton naturelle</div>
+          <div class="desc-item"><span class="desc-icon">🎨</span>Style: Bohème chic</div>
+          <div class="desc-item"><span class="desc-icon">🌿</span>Usage: Plantes retombantes</div>
+        </div>
         <div class="card-price">60 DH <span>/ unité</span></div>
         <button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Pot Macramé - Prix: 60 DH', '_blank')">Commander via WhatsApp</button>
       </div>
@@ -789,21 +830,39 @@ nav {
     <div class="soins-card" onclick="openProductModal('Engrais Bio', 'Entretien', 'Type: Engrais organique liquide | Durée: 6 mois d\'utilisation | Mode d\'emploi: Diluer 1L dans 10L d\'eau | Moment: Printemps et été | Composition: NPK 5-3-7 | Prix: à partir de 35 DH', 'à partir de 35 DH', 'images/med1.jpg')">
       <img src="images/med1.jpg" alt="Engrais Bio" class="soins-icon" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
       <div class="soins-title">Engrais Bio</div>
-      <div class="soins-desc">Engrais organique liquide riche en nutriments essentiels. Stimule la croissance et renforce les plantes de façon 100% écologique.</div>
+      <div class="soins-desc">
+        <div class="desc-item"><span class="desc-icon">🌿</span>Type: Engrais organique liquide</div>
+        <div class="desc-item"><span class="desc-icon">⏰</span>Durée: 6 mois d'utilisation</div>
+        <div class="desc-item"><span class="desc-icon">💧</span>Mode d'emploi: Diluer 1L dans 10L d'eau</div>
+        <div class="desc-item"><span class="desc-icon">🌱</span>Moment: Printemps et été</div>
+        <div class="desc-item"><span class="desc-icon">🧪</span>Composition: NPK 5-3-7</div>
+      </div>
       <div class="soins-price">à partir de 35 DH</div>
       <button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Engrais Bio - Prix: à partir de 35 DH', '_blank')">Commander via WhatsApp</button>
     </div>
     <div class="soins-card" onclick="openProductModal('Traitements Anti-parasites', 'Entretien', 'Type: Traitement bio contre nuisibles | Durée: 4 mois d\'utilisation | Mode d\'emploi: Pulvériser sur feuilles | Moment: Au premier signe d\'infestation | Composition: Huiles essentielles | Prix: à partir de 50 DH', 'à partir de 50 DH', 'images/med2.jpg')">
       <img src="images/med2.jpg" alt="Traitements Anti-parasites" class="soins-icon" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
       <div class="soins-title">Traitements Anti-parasites</div>
-      <div class="soins-desc">Solution bio efficace contre pucerons, cochenilles et autres nuisibles. Formules douces et totalement respectueuses de l'environnement.</div>
+      <div class="soins-desc">
+        <div class="desc-item"><span class="desc-icon">🛡️</span>Type: Traitement bio contre nuisibles</div>
+        <div class="desc-item"><span class="desc-icon">⏰</span>Durée: 4 mois d'utilisation</div>
+        <div class="desc-item"><span class="desc-icon">💨</span>Mode d'emploi: Pulvériser sur feuilles</div>
+        <div class="desc-item"><span class="desc-icon">🐛</span>Moment: Au premier signe d'infestation</div>
+        <div class="desc-item"><span class="desc-icon">🌿</span>Composition: Huiles essentielles</div>
+      </div>
       <div class="soins-price">à partir de 50 DH</div>
       <button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Traitements Anti-parasites - Prix: à partir de 50 DH', '_blank')">Commander via WhatsApp</button>
     </div>
     <div class="soins-card" onclick="openProductModal('Substrats Spéciaux', 'Entretien', 'Type: Terreau spécialisé | Durée: 12 mois d\'utilisation | Mode d\'emploi: Remplacer annuellement | Moment: Au repiquage | Composition: Tourbe, perlite, écorce | Prix: à partir de 40 DH', 'à partir de 40 DH', 'images/med3.jpg')">
       <img src="images/med3.jpg" alt="Substrats Spéciaux" class="soins-icon" style="width: 80px; height: 80px; object-fit: cover; border-radius: 8px;">
       <div class="soins-title">Substrats Spéciaux</div>
-      <div class="soins-desc">Mélanges de terreau professionnels adaptés à chaque type de plante : cactées, orchidées, plantes tropicales et arbustes. Drainage optimal.</div>
+      <div class="soins-desc">
+        <div class="desc-item"><span class="desc-icon">🏺</span>Type: Terreau spécialisé</div>
+        <div class="desc-item"><span class="desc-icon">⏰</span>Durée: 12 mois d'utilisation</div>
+        <div class="desc-item"><span class="desc-icon">🔄</span>Mode d'emploi: Remplacer annuellement</div>
+        <div class="desc-item"><span class="desc-icon">🌱</span>Moment: Au repiquage</div>
+        <div class="desc-item"><span class="desc-icon">🧪</span>Composition: Tourbe, perlite, écorce</div>
+      </div>
       <div class="soins-price">à partir de 40 DH</div>
       <button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Substrats Spéciaux - Prix: à partir de 40 DH', '_blank')">Commander via WhatsApp</button>
     </div>
@@ -825,7 +884,12 @@ nav {
       </div>
       <div class="oiseau-body">
         <div class="oiseau-name">Perroquet Vert</div>
-        <div class="oiseau-origin">Amazonie · Perroquet parleur</div>
+        <div class="oiseau-origin">
+          <div class="desc-item"><span class="desc-icon">🦜</span>Type: Perroquet amazone à bec fort</div>
+          <div class="desc-item"><span class="desc-icon">🌾</span>Aliment: Mélange de graines exotiques</div>
+          <div class="desc-item"><span class="desc-icon">🌱</span>Ingrédients: Tournesol, millet, maïs</div>
+          <div class="desc-item"><span class="desc-icon">🦜</span>Espèces: Perroquets, perruches, cacatoès</div>
+        </div>
         <div class="oiseau-price">1 200 DH</div>
         <button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Perroquet Vert - Prix: 1 200 DH', '_blank')">Commander via WhatsApp</button>
       </div>
@@ -836,7 +900,12 @@ nav {
       </div>
       <div class="oiseau-body">
         <div class="oiseau-name">Canari Mélodieux</div>
-        <div class="oiseau-origin">Îles Canaries · Chanteur</div>
+        <div class="oiseau-origin">
+          <div class="desc-item"><span class="desc-icon">🐦</span>Type: Canari jaune chanteur</div>
+          <div class="desc-item"><span class="desc-icon">🌾</span>Aliment: Mélange de graines fines</div>
+          <div class="desc-item"><span class="desc-icon">🌱</span>Ingrédients: Alpiste, navette, chènevis</div>
+          <div class="desc-item"><span class="desc-icon">🐦</span>Espèces: Canaris, serins, verdiers</div>
+        </div>
         <div class="oiseau-price">350 DH</div>
         <button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Canari Mélodieux - Prix: 350 DH', '_blank')">Commander via WhatsApp</button>
       </div>
@@ -860,7 +929,12 @@ nav {
       <div class="card-body">
         <div class="card-tag">Mariage</div>
         <div class="card-title">Bouquet Romantique</div>
-        <div class="card-desc">Composition élégante avec roses et pivoines pastel. Idéale pour les mariées et fiançailles.</div>
+        <div class="card-desc">
+          <div class="desc-item"><span class="desc-icon">🌹</span>Fleurs: Roses roses, pivoines blanches</div>
+          <div class="desc-item"><span class="desc-icon">🎨</span>Couleurs: Rose, blanc, vert pastel</div>
+          <div class="desc-item"><span class="desc-icon">🔢</span>Nombre: 25 fleurs</div>
+          <div class="desc-item"><span class="desc-icon">💍</span>Occasion: Mariage, fiançailles</div>
+        </div>
         <div class="card-price">380 DH</div>
         <button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Romantique - Prix: 380 DH', '_blank')">Commander via WhatsApp</button>
       </div>
@@ -872,7 +946,12 @@ nav {
       <div class="card-body">
         <div class="card-tag">Cadeau</div>
         <div class="card-title">Bouquet Soleil</div>
-        <div class="card-desc">Ensemble lumineux avec tournesols et marguerites. Gaieté garantie pour égayer n'importe quelle journée.</div>
+        <div class="card-desc">
+          <div class="desc-item"><span class="desc-icon">🌻</span>Fleurs: Tournesols jaunes, marguerites blanches</div>
+          <div class="desc-item"><span class="desc-icon">🎨</span>Couleurs: Jaune, blanc, vert</div>
+          <div class="desc-item"><span class="desc-icon">🔢</span>Nombre: 20 fleurs</div>
+          <div class="desc-item"><span class="desc-icon">🎂</span>Occasion: Anniversaire, remerciements</div>
+        </div>
         <div class="card-price">180 DH</div>
         <button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Soleil - Prix: 180 DH', '_blank')">Commander via WhatsApp</button>
       </div>
@@ -884,7 +963,12 @@ nav {
       <div class="card-body">
         <div class="card-tag">Moderne</div>
         <div class="card-title">Composition Verte</div>
-        <div class="card-desc">Assemblage élégant de feuillages tropicaux et fleurs blanches. Style épuré et très contemporain.</div>
+        <div class="card-desc">
+          <div class="desc-item"><span class="desc-icon">🌿</span>Fleurs: Feuillages tropicaux, orchidées blanches</div>
+          <div class="desc-item"><span class="desc-icon">🎨</span>Couleurs: Vert, blanc, émeraude</div>
+          <div class="desc-item"><span class="desc-icon">🔢</span>Nombre: 18 éléments</div>
+          <div class="desc-item"><span class="desc-icon">🏢</span>Occasion: Décoration moderne, bureau</div>
+        </div>
         <div class="card-price">250 DH</div>
         <button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Composition Verte - Prix: 250 DH', '_blank')">Commander via WhatsApp</button>
       </div>
