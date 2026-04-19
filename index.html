@@ -415,22 +415,111 @@ nav {
   @media (max-width: 900px) {
     #accueil { grid-template-columns: 1fr; }
     .hero-image { min-height: 50vh; }
-    .cards-grid { grid-template-columns: 1fr 1fr; }
-    .hidden-cards { grid-template-columns: 1fr 1fr; }
+    .cards-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+    .hidden-cards { grid-template-columns: 1fr 1fr; gap: 20px; }
     .photo-masonry { columns: 2; }
-    .contact-grid { grid-template-columns: 1fr; }
-    .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; background: var(--cream); flex-direction: column; padding: 1rem 2rem 2rem; border-bottom: 1px solid var(--border); gap: 0; }
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; background: var(--bg-light); flex-direction: column; padding: 1rem 2rem 2rem; border-bottom: 1px solid var(--border); gap: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
     .nav-links.open { display: flex; }
     .nav-burger { display: flex; }
     .stats-row { flex-wrap: wrap; gap: 1rem; }
-    .soins-cards { grid-template-columns: 1fr; }
-    .oiseaux-grid { grid-template-columns: 1fr; max-width: 360px; }
+    .soins-cards { grid-template-columns: 1fr; gap: 20px; }
+    .oiseaux-grid { grid-template-columns: 1fr; max-width: 360px; gap: 24px; }
     .form-row { grid-template-columns: 1fr; }
+    .section-header { margin-bottom: 3rem; }
+    .section-title { font-size: clamp(24px, 4vw, 36px); }
+    .card { border-radius: 12px; }
+    .card-img { height: 180px; }
+    .card-body { padding: 1.2rem 1.3rem; }
+    .card-title { font-size: 18px; }
+    .card-price { font-size: 16px; }
+    .whatsapp-btn { padding: 10px 18px; font-size: 12px; }
   }
   @media (max-width: 600px) {
-    .cards-grid { grid-template-columns: 1fr; }
-    .hidden-cards { grid-template-columns: 1fr; }
-    .photo-masonry { columns: 2; }
+    .cards-grid { grid-template-columns: 1fr; gap: 16px; }
+    .hidden-cards { grid-template-columns: 1fr; gap: 16px; }
+    .photo-masonry { columns: 1; }
+    .hero-text { padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 4vw, 2rem); }
+    .hero-heading { font-size: clamp(28px, 5vw, 40px); }
+    .section-eyebrow { font-size: 10px; }
+    .section-title { font-size: clamp(22px, 4vw, 32px); }
+    .section-desc { font-size: 14px; }
+    .card-img { height: 160px; }
+    .card-body { padding: 1rem 1.1rem; }
+    .card-title { font-size: 16px; }
+    .card-price { font-size: 15px; }
+    .whatsapp-btn { padding: 8px 16px; font-size: 11px; gap: 6px; }
+    .logo img { width: 100px; height: 50px; }
+    .logo-text { font-size: 20px; }
+    .logo-sub { font-size: 9px; }
+    .contact-grid { gap: 2rem; }
+    .modal-content { width: 95%; margin: 1rem; border-radius: 16px; }
+    .modal-img { height: 200px; }
+    .modal-body { padding: 1.5rem; }
+    .modal-title { font-size: 24px; }
+    .modal-price { font-size: 18px; }
+    .modal-desc-item { font-size: 13px; margin-bottom: 0.6rem; }
+    .modal-desc-icon { font-size: 14px; margin-right: 0.6rem; }
+  }
+  @media (max-width: 480px) {
+    .hero-text { padding: 1.5rem 1rem; }
+    .hero-heading { font-size: clamp(24px, 6vw, 36px); }
+    .section-title { font-size: clamp(20px, 5vw, 28px); }
+    .card-img { height: 140px; }
+    .card-body { padding: 0.8rem 1rem; }
+    .card-title { font-size: 15px; }
+    .card-price { font-size: 14px; }
+    .whatsapp-btn { padding: 6px 14px; font-size: 10px; }
+    .logo img { width: 90px; height: 45px; }
+    .logo-text { font-size: 18px; }
+    .logo-sub { font-size: 8px; }
+    .modal-content { width: 98%; margin: 0.5rem; border-radius: 12px; }
+    .modal-img { height: 180px; }
+    .modal-body { padding: 1rem; }
+    .modal-title { font-size: 20px; }
+    .modal-price { font-size: 16px; }
+    .modal-desc-item { font-size: 12px; margin-bottom: 0.5rem; }
+    .modal-desc-icon { font-size: 12px; margin-right: 0.5rem; }
+    .voir-tout-btn { padding: 10px 24px; font-size: 11px; }
+    .footer-bar { padding: 1rem; font-size: 11px; }
+    
+    /* Touch optimizations */
+    .card { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .whatsapp-btn { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    .voir-tout-btn { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    
+    /* Better spacing for touch */
+    .card-body { padding: 1rem; }
+    .whatsapp-btn { margin-top: 0.8rem; }
+    
+    /* Improved readability */
+    .card-title { line-height: 1.3; }
+    .card-price { line-height: 1.2; }
+    .modal-title { line-height: 1.2; }
+    .modal-desc-item { line-height: 1.4; }
+  }
+  
+  /* Small phones */
+  @media (max-width: 360px) {
+    .hero-heading { font-size: clamp(20px, 7vw, 32px); }
+    .section-title { font-size: clamp(18px, 6vw, 26px); }
+    .card-img { height: 120px; }
+    .card-body { padding: 0.8rem; }
+    .card-title { font-size: 14px; }
+    .card-price { font-size: 13px; }
+    .whatsapp-btn { padding: 5px 12px; font-size: 9px; }
+    .logo img { width: 80px; height: 40px; }
+    .logo-text { font-size: 16px; }
+    .logo-sub { font-size: 7px; }
+    .modal-content { width: 100%; margin: 0; border-radius: 0; }
+    .modal-img { height: 160px; }
+    .modal-body { padding: 0.8rem; }
+    .modal-title { font-size: 18px; }
+    .modal-price { font-size: 15px; }
+    .modal-desc-item { font-size: 11px; margin-bottom: 0.4rem; }
+    .modal-desc-icon { font-size: 11px; margin-right: 0.4rem; }
+    .voir-tout-btn { padding: 8px 20px; font-size: 10px; }
+    .footer-bar { padding: 0.8rem; font-size: 10px; }
   }
 
   /* Scroll reveal */
@@ -925,127 +1014,127 @@ nav {
       <div class="card-img">
         <img src="images/fleur4.jpg" alt="Roses Rouges" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <div class="card-body"><div class="card-tag">Classique</div><div class="card-title">Roses Rouges</div><div class="card-desc">Composition intemporelle avec 12 roses rouges passionnées. Le symbole parfait de l\'amour.</div><div class="card-price">220 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Roses Rouges - Prix: 220 DH', '_blank')">Commander via WhatsApp</button></div>
+      <div class="card-body"><div class="card-title">Roses Rouges</div><div class="card-price">220 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Roses Rouges - Prix: 220 DH', '_blank')">Commander via WhatsApp</button></div>
     </div>
     <div class="card bouquet-card" onclick="openProductModal('Bouquet Sakura', 'Art floral', 'Fleurs: Cerisiers, lilas, fleurs de pommier | Couleurs: Rose, blanc, violet | Nombre: 18 fleurs | Occasion: Printemps, renouveau | Prix: 290 DH', '290 DH', 'images/fleur5.jpg')">
       <div class="card-img">
         <img src="images/fleur5.jpg" alt="Bouquet Sakura" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <div class="card-body"><div class="card-tag">Printemps</div><div class="card-title">Bouquet Sakura</div><div class="card-desc">Ensemble délicat de fleurs de cerisier et lilas. Fraîcheur printanière enchanteresse.</div><div class="card-price">290 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Sakura - Prix: 290 DH', '_blank')">Commander via WhatsApp</button></div>
+      <div class="card-body"><div class="card-title">Bouquet Sakura</div><div class="card-price">290 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Sakura - Prix: 290 DH', '_blank')">Commander via WhatsApp</button></div>
     </div>
     <div class="card bouquet-card" onclick="openProductModal('Bouquet Champêtre', 'Art floral', 'Fleurs: Coquelicots, bleuets, lavande, marguerites | Couleurs: Jaune, bleu, violet, blanc | Nombre: 22 fleurs | Occasion: Jardin, décoration naturelle | Prix: 160 DH', '160 DH', 'images/fleur6.jpg')">
       <div class="card-img">
         <img src="images/fleur6.jpg" alt="Bouquet Champêtre" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <div class="card-body"><div class="card-tag">Champêtre</div><div class="card-title">Bouquet Champêtre</div><div class="card-desc">Mélange authentique de fleurs sauvages des champs. Style naturel et rustique.</div><div class="card-price">160 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Champêtre - Prix: 160 DH', '_blank')">Commander via WhatsApp</button></div>
+      <div class="card-body"><div class="card-title">Bouquet Champêtre</div><div class="card-price">160 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Champêtre - Prix: 160 DH', '_blank')">Commander via WhatsApp</button></div>
     </div>
     <div class="card bouquet-card" onclick="openProductModal('Tropical', 'Art floral', 'Fleurs: Strelitzias, anthuriums, feuilles de monstera | Couleurs: Orange, rouge, vert | Nombre: 15 éléments | Occasion: Événements spéciaux, luxe | Prix: 420 DH', '420 DH', 'images/fleur7.jpg')">
       <div class="card-img">
         <img src="images/fleur7.jpg" alt="Tropical" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <div class="card-body"><div class="card-tag">Exotique</div><div class="card-title">Tropical</div><div class="card-desc">Composition spectaculaire avec strelitzias et anthuriums. Effet visuel impressionnant.</div><div class="card-price">420 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Tropical - Prix: 420 DH', '_blank')">Commander via WhatsApp</button></div>
+      <div class="card-body"><div class="card-title">Tropical</div><div class="card-price">420 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Tropical - Prix: 420 DH', '_blank')">Commander via WhatsApp</button></div>
     </div>
     <div class="card bouquet-card" onclick="openProductModal('Bouquet Blanc Pur', 'Art floral', 'Fleurs: Lys blancs, orchidées phalaenopsis, roses blanches | Couleurs: Blanc pur, touches de vert | Nombre: 20 fleurs | Occasion: Mariages, baptêmes | Prix: 550 DH', '550 DH', 'images/fleur8.jpg')">
       <div class="card-img">
         <img src="images/fleur8.jpg" alt="Bouquet Blanc Pur" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <div class="card-body"><div class="card-tag">Cérémonie</div><div class="card-title">Bouquet Blanc Pur</div><div class="card-desc">Composition élégante avec lys et orchidées. Parfait pour les cérémonies officielles.</div><div class="card-price">550 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Blanc Pur - Prix: 550 DH', '_blank')">Commander via WhatsApp</button></div>
+      <div class="card-body"><div class="card-title">Bouquet Blanc Pur</div><div class="card-price">550 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Blanc Pur - Prix: 550 DH', '_blank')">Commander via WhatsApp</button></div>
     </div>
     <div class="card bouquet-card" onclick="openProductModal('Coucher de Soleil', 'Art floral', 'Fleurs: Tulipes orangées, dahlias, chrysanthèmes, roses | Couleurs: Orange, rouge, jaune | Nombre: 18 fleurs | Occasion: Automne, Thanksgiving | Prix: 200 DH', '200 DH', 'images/fleur9.jpg')">
       <div class="card-img">
         <img src="images/fleur9.jpg" alt="Coucher de Soleil" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <div class="card-body"><div class="card-tag">Automne</div><div class="card-title">Coucher de Soleil</div><div class="card-desc">Palette chaude et enveloppante avec tulipes et dahlias. Évoque les couleurs d'automne.</div><div class="card-price">200 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Coucher de Soleil - Prix: 200 DH', '_blank')">Commander via WhatsApp</button></div>
+      <div class="card-body"><div class="card-title">Coucher de Soleil</div><div class="card-price">200 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Coucher de Soleil - Prix: 200 DH', '_blank')">Commander via WhatsApp</button></div>
     </div>
     <div class="card bouquet-card" onclick="openProductModal('Composition Zen', 'Art floral', 'Fleurs: Bambou, mousse, fleurs blanches, orchidées | Couleurs: Vert, blanc, émeraude | Nombre: 12 éléments | Occasion: Méditation, spa, bureau | Prix: 310 DH', '310 DH', 'images/fleur10.jpg')">
       <div class="card-img">
         <img src="images/fleur10.jpg" alt="Composition Zen" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <div class="card-body"><div class="card-tag">Zen</div><div class="card-title">Composition Zen</div><div class="card-desc">Harmonie parfaite entre bambou, mousse et fleurs blanches. Style japonais minimaliste.</div><div class="card-price">310 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Composition Zen - Prix: 310 DH', '_blank')">Commander via WhatsApp</button></div>
+      <div class="card-body"><div class="card-title">Composition Zen</div><div class="card-price">310 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Composition Zen - Prix: 310 DH', '_blank')">Commander via WhatsApp</button></div>
     </div>
     <div class="card bouquet-card" onclick="openProductModal('Bouquet Violet', 'Art floral', 'Fleurs: Jacinthes, lilas, iris violets, delphiniums | Couleurs: Violet, lavande, blanc | Nombre: 16 fleurs | Occasion: Événements élégants, luxe | Prix: 340 DH', '340 DH', 'images/fleur11.jpg')">
       <div class="card-img">
         <img src="images/fleur11.jpg" alt="Bouquet Violet" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <div class="card-body"><div class="card-tag">Luxe</div><div class="card-title">Bouquet Violet</div><div class="card-desc">Composition luxueuse avec fleurs violettes et lavande. Très raffiné et élégant.</div><div class="card-price">340 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Violet - Prix: 340 DH', '_blank')">Commander via WhatsApp</button></div>
+      <div class="card-body"><div class="card-title">Bouquet Violet</div><div class="card-price">340 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Violet - Prix: 340 DH', '_blank')">Commander via WhatsApp</button></div>
     </div>
     <div class="card bouquet-card" onclick="openProductModal('Bouquet Fête', 'Art floral', 'Fleurs: Gerberas, asters, roses, marguerites | Couleurs: Multicolore vif | Nombre: 25 fleurs | Occasion: Anniversaire, fêtes, célébrations | Prix: 195 DH', '195 DH', 'images/fleur12.jpg')">
       <div class="card-img">
         <img src="images/fleur12.jpg" alt="Bouquet Fête" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <div class="card-body"><div class="card-tag">Anniversaire</div><div class="card-title">Bouquet Fête</div><div class="card-desc">Explosion de couleurs et joie avec des fleurs variées. Parfait pour célébrer!</div><div class="card-price">195 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Fête - Prix: 195 DH', '_blank')">Commander via WhatsApp</button></div>
+      <div class="card-body"><div class="card-title">Bouquet Fête</div><div class="card-price">195 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Fête - Prix: 195 DH', '_blank')">Commander via WhatsApp</button></div>
     </div>
     <div class="card bouquet-card" onclick="openProductModal('Décoration Bureau', 'Art floral', 'Fleurs: Monstera, ficus, philodendron | Couleurs: Vert, blanc, touches de couleur | Nombre: 8 plantes | Occasion: Bureaux, hôtels, réceptions | Prix: 450 DH', '450 DH', 'images/fleur13.jpg')">
       <div class="card-img">
         <img src="images/fleur13.jpg" alt="Décoration Bureau" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <div class="card-body"><div class="card-tag">Professionnel</div><div class="card-title">Décoration Bureau</div><div class="card-desc">Composition sobre et élégante avec plantes vertes. Parfaite pour les espaces professionnels.</div><div class="card-price">450 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Décoration Bureau - Prix: 450 DH', '_blank')">Commander via WhatsApp</button></div>
+      <div class="card-body"><div class="card-title">Décoration Bureau</div><div class="card-price">450 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Décoration Bureau - Prix: 450 DH', '_blank')">Commander via WhatsApp</button></div>
     </div>
     <div class="card bouquet-card" onclick="openProductModal('C?ur Fleuri', 'Art floral', 'Fleurs: 15 roses rouges, 10 ?illets rouges | Couleurs: Rouge passion | Nombre: 25 fleurs | Occasion: Saint-Valentin, déclaration d\'amour | Prix: 490 DH', '490 DH', 'images/fleur14.jpg')">
       <div class="card-img">
         <img src="images/fleur14.jpg" alt="C?ur Fleuri" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <div class="card-body"><div class="card-tag">Saint-Valentin</div><div class="card-title">C?ur Fleuri</div><div class="card-desc">Coeur romantique avec roses et ?illets rouges. Le symbole parfait de l\'amour.</div><div class="card-price">490 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: C?ur Fleuri - Prix: 490 DH', '_blank')">Commander via WhatsApp</button></div>
+      <div class="card-body"><div class="card-title">C?ur Fleuri</div><div class="card-price">490 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: C?ur Fleuri - Prix: 490 DH', '_blank')">Commander via WhatsApp</button></div>
     </div>
     <div class="card bouquet-card" onclick="openProductModal('Création Personnalisée', 'Art floral', 'Fleurs: Selon votre choix | Couleurs: Personnalisées | Nombre: Variable | Occasion: Événements spéciaux, sur mesure | Prix: Sur devis', 'Sur devis', 'images/fleur15.jpg')">
       <div class="card-img">
         <img src="images/fleur15.jpg" alt="Création Personnalisée" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <div class="card-body"><div class="card-tag">Sur mesure</div><div class="card-title">Création Personnalisée</div><div class="card-desc">Composition unique créée selon vos envies et votre budget. Devis gratuit et personnalisé.</div><div class="card-price">Sur devis</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je souhaite une création personnalisée - Devis gratuit', '_blank')">Demander un devis</button></div>
+      <div class="card-body"><div class="card-title">Création Personnalisée</div><div class="card-price">Sur devis</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je souhaite une création personnalisée - Devis gratuit', '_blank')">Demander un devis</button></div>
     </div>
     <div class="card bouquet-card" onclick="openProductModal('Bouquet Méditerranéen', 'Art floral', 'Fleurs: Lavande, santoline, immortelles, olivier | Couleurs: Violet, blanc, jaune | Nombre: 20 éléments | Occasion: Été, décoration provençale | Prix: 175 DH', '175 DH', 'images/fleur16.jpg')">
       <div class="card-img">
         <img src="images/fleur16.jpg" alt="Bouquet Méditerranéen" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <div class="card-body"><div class="card-tag">Été</div><div class="card-title">Bouquet Méditerranéen</div><div class="card-desc">Parfums du sud avec lavande et fleurs provençales. Évoque les vacances ensoleillées.</div><div class="card-price">175 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Méditerranéen - Prix: 175 DH', '_blank')">Commander via WhatsApp</button></div>
+      <div class="card-body"><div class="card-title">Bouquet Méditerranéen</div><div class="card-price">175 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Méditerranéen - Prix: 175 DH', '_blank')">Commander via WhatsApp</button></div>
     </div>
     <div class="card bouquet-card" onclick="openProductModal('Bouquet Naissance', 'Art floral', 'Fleurs: Roses pastel, gypsophiles, eucalyptus | Couleurs: Rose pâle, blanc, vert tendre | Nombre: 18 fleurs | Occasion: Naissance, baptême | Prix: 260 DH', '260 DH', 'images/fleur17.jpg')">
       <div class="card-img">
         <img src="images/fleur17.jpg" alt="Bouquet Naissance" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <div class="card-body"><div class="card-tag">Naissance</div><div class="card-title">Bouquet Naissance</div><div class="card-desc">Douceur et tendresse avec des tons pastel. Parfait pour accueillir un nouveau-né.</div><div class="card-price">260 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Naissance - Prix: 260 DH', '_blank')">Commander via WhatsApp</button></div>
+      <div class="card-body"><div class="card-title">Bouquet Naissance</div><div class="card-price">260 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Naissance - Prix: 260 DH', '_blank')">Commander via WhatsApp</button></div>
     </div>
     <div class="card bouquet-card" onclick="openProductModal('Bouquet Éternel', 'Art floral', 'Fleurs: Hélichrysum, statice, lavande, roses séchées | Couleurs: Naturels, dorés, blancs | Nombre: 15 éléments | Occasion: Décoration durable, cadeau souvenir | Prix: 285 DH', '285 DH', 'images/fleur18.jpg')">
       <div class="card-img">
         <img src="images/fleur18.jpg" alt="Bouquet Éternel" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <div class="card-body"><div class="card-tag">Séché</div><div class="card-title">Bouquet Éternel</div><div class="card-desc">Fleurs séchées stabilisées qui gardent leur beauté. Un souvenir qui dure éternellement.</div><div class="card-price">285 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Éternel - Prix: 285 DH', '_blank')">Commander via WhatsApp</button></div>
+      <div class="card-body"><div class="card-title">Bouquet Éternel</div><div class="card-price">285 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Éternel - Prix: 285 DH', '_blank')">Commander via WhatsApp</button></div>
     </div>
     <div class="card bouquet-card" onclick="openProductModal('One-Stem', 'Art floral', 'L\'art du minimalisme floral, une seule fleur exceptionnelle sublimée dans un vase.', '95 DH', 'images/fleur19.jpg')">
       <div class="card-img">
         <img src="images/fleur19.jpg" alt="One-Stem" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <div class="card-body"><div class="card-tag">Minimaliste</div><div class="card-title">One-Stem</div><div class="card-desc">L'art du minimalisme floral avec une seule fleur exceptionnelle. Simplicité et élégance parfaite.</div><div class="card-price">95 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: One-Stem - Prix: 95 DH', '_blank')">Commander via WhatsApp</button></div>
+      <div class="card-body"><div class="card-title">One-Stem</div><div class="card-price">95 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: One-Stem - Prix: 95 DH', '_blank')">Commander via WhatsApp</button></div>
     </div>
     <div class="card bouquet-card" onclick="openProductModal('Corbeille Luxe', 'Art floral', 'Grande corbeille fleurie avec ruban et carte personnalisée, idéale en affaires.', '650 DH', 'images/fleur20.jpg')">
       <div class="card-img">
         <img src="images/fleur20.jpg" alt="Corbeille Luxe" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <div class="card-body"><div class="card-tag">Cadeau entreprise</div><div class="card-title">Corbeille Luxe</div><div class="card-desc">Corbeille luxueuse avec ruban personnalisé. Parfaite pour les cadeaux d'affaires et événements d'entreprise.</div><div class="card-price">650 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Corbeille Luxe - Prix: 650 DH', '_blank')">Commander via WhatsApp</button></div>
+      <div class="card-body"><div class="card-title">Corbeille Luxe</div><div class="card-price">650 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Corbeille Luxe - Prix: 650 DH', '_blank')">Commander via WhatsApp</button></div>
     </div>
     <div class="card bouquet-card" onclick="openProductModal('Bouquet Hivernal', 'Art floral', 'Houx, baies rouges et branches enneigées, magie de l\'hiver dans vos mains.', '230 DH', 'images/fleur21.jpg')">
       <div class="card-img">
         <img src="images/fleur21.jpg" alt="Bouquet Hivernal" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <div class="card-body"><div class="card-tag">Hiver</div><div class="card-title">Bouquet Hivernal</div><div class="card-desc">Composition hivernale avec houx, baies rouges et branches enneigées. La magie de l'hiver.</div><div class="card-price">230 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Hivernal - Prix: 230 DH', '_blank')">Commander via WhatsApp</button></div>
+      <div class="card-body"><div class="card-title">Bouquet Hivernal</div><div class="card-price">230 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Hivernal - Prix: 230 DH', '_blank')">Commander via WhatsApp</button></div>
     </div>
     <div class="card bouquet-card" onclick="openProductModal('Bouquet Passion', 'Art floral', 'Protéas, roses noires et leucadendrons pour une composition audacieuse et inoubliable.', '580 DH', 'images/fleur22.jpg')">
       <div class="card-img">
         <img src="images/fleur22.jpg" alt="Bouquet Passion" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <div class="card-body"><div class="card-tag">Dramatique</div><div class="card-title">Bouquet Passion</div><div class="card-desc">Composition audacieuse avec protéas, roses noires et leucadendrons. Effet spectaculaire garanti.</div><div class="card-price">580 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Passion - Prix: 580 DH', '_blank')">Commander via WhatsApp</button></div>
+      <div class="card-body"><div class="card-title">Bouquet Passion</div><div class="card-price">580 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Passion - Prix: 580 DH', '_blank')">Commander via WhatsApp</button></div>
     </div>
     <div class="card bouquet-card" onclick="openProductModal('Bouquet Aromatique', 'Art floral', 'Romarin, thym, lavande et basilic pourpre, bouquet décoratif et parfumé.', '130 DH', 'images/fleur23.jpg')">
       <div class="card-img">
         <img src="images/fleur23.jpg" alt="Bouquet Aromatique" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <div class="card-body"><div class="card-tag">Herbes aromatiques</div><div class="card-title">Bouquet Aromatique</div><div class="card-desc">Mélange parfumé de romarin, thym, lavande et basilic pourpre. Décoratif et aromatique.</div><div class="card-price">130 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Aromatique - Prix: 130 DH', '_blank')">Commander via WhatsApp</button></div>
+      <div class="card-body"><div class="card-title">Bouquet Aromatique</div><div class="card-price">130 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Aromatique - Prix: 130 DH', '_blank')">Commander via WhatsApp</button></div>
     </div>
     <div class="card bouquet-card" onclick="openProductModal('Bouquet Maman', 'Art floral', 'Pivoines, roses et freesias, la composition idéale pour honorer votre maman.', '320 DH', 'images/fleur24.jpg')">
       <div class="card-img">
         <img src="images/fleur24.jpg" alt="Bouquet Maman" style="width: 100%; height: 100%; object-fit: cover;">
       </div>
-      <div class="card-body"><div class="card-tag">Fête des mères</div><div class="card-title">Bouquet Maman</div><div class="card-desc">Composition tendre avec pivoines, roses et freesias. Le cadeau parfait pour honorer votre maman.</div><div class="card-price">320 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Maman - Prix: 320 DH', '_blank')">Commander via WhatsApp</button></div>
+      <div class="card-body"><div class="card-title">Bouquet Maman</div><div class="card-price">320 DH</div><button class="whatsapp-btn" onclick="event.stopPropagation(); window.open('https://wa.me/212600000000?text=Bonjour, je suis intéressé(e) par: Bouquet Maman - Prix: 320 DH', '_blank')">Commander via WhatsApp</button></div>
     </div>
   </div>
   <div class="voir-tout-wrap reveal">
