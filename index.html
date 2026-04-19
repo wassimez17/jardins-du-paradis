@@ -286,9 +286,9 @@ nav {
   .soins-card:hover { transform: translateY(-4px); background: white; box-shadow: 0 12px 40px rgba(26,58,31,0.1); }
   .soins-icon { font-size: 48px; margin-bottom: 1.5rem; display: block; }
   .soins-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--main-green); margin-bottom: 0.75rem; }
-  .modal-desc { font-size: 15px; color: var(--text-mid); line-height: 1.8; margin-bottom: 1.5rem; }
-  .modal-desc-item { display: flex; align-items: center; margin-bottom: 0.8rem; font-size: 14px; }
-  .modal-desc-icon { margin-right: 0.8rem; font-size: 16px; color: var(--gold-accent) !important; min-width: 20px; text-align: center; }
+  .modal-desc { font-size: 15px; color: var(--main-green); line-height: 1.8; margin-bottom: 1.5rem; }
+  .modal-desc-item { display: flex; align-items: center; margin-bottom: 0.8rem; font-size: 14px; color: var(--main-green); }
+  .modal-desc-icon { margin-right: 0.8rem; font-size: 16px; color: var(--main-green) !important; min-width: 20px; text-align: center; }
   .soins-price { font-size: 16px; font-weight: 500; color: var(--gold-accent); }
 
   .card-desc { color: var(--text-dark); font-size: 13px; line-height: 1.4; margin-top: 0.5rem; }
@@ -363,7 +363,7 @@ nav {
   }
   .product-modal.active { display: flex; align-items: center; justify-content: center; }
   .modal-content {
-    background: white; border-radius: 20px; max-width: 600px; width: 90%;
+    background: white; border-radius: 20px; max-width: 600px; width: 85%; margin: 2rem auto;
     max-height: 90vh; overflow-y: auto; position: relative;
     box-shadow: 0 25px 50px rgba(0,0,0,0.3);
   }
@@ -378,7 +378,7 @@ nav {
     display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; padding: 2rem;
   }
   .modal-image {
-    width: 100%; height: 300px; object-fit: cover; border-radius: 12px;
+    width: 100%; height: 250px; object-fit: cover; border-radius: 12px 12px 0 0;
   }
   .modal-info { display: flex; flex-direction: column; gap: 1rem; }
   .modal-title {
