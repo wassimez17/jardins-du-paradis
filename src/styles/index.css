@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply box-border;
+  }
+  
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply font-sans bg-bg-light text-text-dark font-light;
+  }
+  
+  img {
+    @apply max-w-full h-auto transition-transform duration-500;
+  }
+}
+
+@layer utilities {
+  .reveal {
+    @apply opacity-0 translate-y-8 transition-all duration-700;
+  }
+  
+  .reveal.visible {
+    @apply opacity-100 translate-y-0;
+  }
+}
