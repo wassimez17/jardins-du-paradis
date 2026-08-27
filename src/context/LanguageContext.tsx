@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, ReactNode } from 'react'
+import { createContext, useState, useContext, ReactNode } from 'react'
 import { fr } from '../translations/fr'
 import { en } from '../translations/en'
 import { es } from '../translations/es'
@@ -8,29 +8,64 @@ type Language = 'fr' | 'en' | 'es'
 interface Translations {
   nav: {
     accueil: string
+    catalogue: string
+    services: string
+    realisations: string
+    contact: string
     plantes: string
     pots: string
     jardinage: string
     soins: string
     oiseaux: string
     bouquets: string
-    contact: string
   }
   hero: {
-    founded: string
+    eyebrow: string
     title: string
-    subtitle: string
-    welcome: string
     description: string
-    description2: string
-    stats: {
-      experience: string
-      species: string
-      clients: string
-    }
+    ctaCatalog: string
+    ctaContact: string
+  }
+  brochure: {
+    title: string
+    description: string
+    viewPdf: string
+    downloadPdf: string
+  }
+  jardinage: {
+    title: string
+    description: string
     cta: string
   }
+  footer: {
+    contact: string
+    navigation: string
+    contactUs: string
+    whatsapp: string
+  }
   sections: {
+    categories: {
+      title: string
+    }
+    services: {
+      eyebrow: string
+      title: string
+      description: string
+      aménagement: string
+      aménagementDesc: string
+      entretien: string
+      entretienDesc: string
+      plantation: string
+      plantationDesc: string
+      décoration: string
+      décorationDesc: string
+    }
+    realisations: {
+      eyebrow: string
+      title: string
+      description: string
+      project: string
+    }
     plants: {
       eyebrow: string
       title: string
@@ -82,22 +117,16 @@ interface Translations {
       submit: string
     }
   }
-  footer: {
-    description: string
-    contact: string
-    followUs: string
-    followUsText: string
-    copyright: string
-  }
   common: {
     orderWhatsApp: string
     seeMore: string
     reduce: string
     custom: string
+    seeAllCount: string
   }
 }
 
-interface LanguageContextType {
+export interface LanguageContextType {
   language: Language
   setLanguage: (lang: Language) => void
   t: Translations
@@ -109,7 +138,7 @@ const translations: Record<Language, Translations> = {
   es,
 }
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
+export const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>('fr')

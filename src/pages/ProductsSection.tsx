@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useScrollReveal } from '../hooks/useScrollReveal'
 import { useModal } from '../hooks/useModal'
 import { Product } from '../types'
@@ -12,6 +13,8 @@ interface ProductsSectionProps {
   description: string
   products: Product[]
   initialShow?: number
+  showAllLink?: string
+  showAllText?: string
 }
 
 export default function ProductsSection({
@@ -21,6 +24,8 @@ export default function ProductsSection({
   description,
   products,
   initialShow = 3,
+  showAllLink,
+  showAllText,
 }: ProductsSectionProps) {
   const [showAll, setShowAll] = useState(false)
   const { isOpen, selectedProduct, openModal, closeModal } = useModal()
@@ -44,7 +49,7 @@ export default function ProductsSection({
           {title}
         </h2>
         <div className="w-[60px] h-0.5 bg-gold-accent mx-auto mt-3 md:mt-4 rounded-sm" />
-        <p className="text-sm md:text-sm text-text-light max-w-[520px] mx-auto leading-relaxed mt-3 md:mt-4 px-4">
+        <p className="text-sm md:text-sm text-text-mid max-w-[520px] mx-auto leading-relaxed mt-3 md:mt-4 px-4">
           {description}
         </p>
       </div>
@@ -71,16 +76,25 @@ export default function ProductsSection({
         </div>
       )}
 
-      {extraProducts.length > 0 && (
+      {(extraProducts.length > 0 || showAllLink) && (
         <div className="text-center">
-          <button
-            onClick={() => setShowAll(!showAll)}
-            className={`inline-flex items-center gap-2.5 border-[1.5px] border-main-green text-main-green bg-transparent px-7 md:px-9 py-2.5 md:py-3 rounded-full text-xs tracking-[1.5px] uppercase cursor-pointer transition-all font-sans font-normal hover:bg-main-green hover:text-white ${
-              showAll ? 'bg-main-green text-white' : ''
-            }`}
-          >
-            {showAll ? 'Réduire ?' : `Voir tout ? ${products.length} ${id === 'plantes' ? 'plantes' : id === 'pots' ? 'pots' : 'bouquets'}`}
-          </button>
+          {showAllLink ? (
+            <Link
+              to={showAllLink}
+              className="inline-flex items-center gap-2.5 border-[1.5px] border-green-mid text-green-mid bg-transparent px-7 md:px-9 py-2.5 md:py-3 rounded-full text-xs tracking-[1.5px] uppercase cursor-pointer transition-all font-sans font-normal hover:bg-main-green hover:text-white hover:border-main-green"
+            >
+              {showAllText || 'Voir tout →'}
+            </Link>
+          ) : (
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className={`inline-flex items-center gap-2.5 border-[1.5px] border-green-mid text-green-mid bg-transparent px-7 md:px-9 py-2.5 md:py-3 rounded-full text-xs tracking-[1.5px] uppercase cursor-pointer transition-all font-sans font-normal hover:bg-main-green hover:text-white hover:border-main-green ${
+                showAll ? 'bg-main-green text-white border-main-green' : ''
+              }`}
+            >
+              {showAll ? 'Réduire' : `Voir tout (${products.length})`}
+            </button>
+          )}
         </div>
       )}
 

@@ -1,18 +1,25 @@
-import { Helmet } from 'react-helmet-async'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import MainLayout from './layouts/MainLayout'
+import PlantesPage from './pages/PlantesPage'
+import PotsPage from './pages/PotsPage'
+import SoinsPage from './pages/SoinsPage'
+import OiseauxPage from './pages/OiseauxPage'
+import BouquetsPage from './pages/BouquetsPage'
+import JardinagePage from './pages/JardinagePage'
 
 function App() {
   return (
-    <>
-      <Helmet>
-        <title>Jardins Du Paradis - Nature &amp; Élégance</title>
-        <meta
-          name="description"
-          content="Jardins du Paradis - Votre jardinerie de confiance depuis 2007. Aménagements et entretien des espaces verts, plantes, pots, bouquets et décoration à Tanger, Maroc."
-        />
-      </Helmet>
-      <MainLayout />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainLayout />} />
+        <Route path="/plantes" element={<PlantesPage />} />
+        <Route path="/pots" element={<PotsPage />} />
+        <Route path="/soins" element={<SoinsPage />} />
+        <Route path="/oiseaux" element={<OiseauxPage />} />
+        <Route path="/bouquets" element={<BouquetsPage />} />
+        <Route path="/jardinage" element={<JardinagePage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
