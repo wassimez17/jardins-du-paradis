@@ -1,5 +1,7 @@
 import { useEffect } from 'react'
 import { Product } from '../types'
+import { useLanguage } from '../context/LanguageContext'
+import { CONTACT_CONFIG } from '../config/contact'
 
 interface ProductModalProps {
   isOpen: boolean
@@ -42,6 +44,8 @@ const icons = {
 }
 
 export default function ProductModal({ isOpen, product, onClose }: ProductModalProps) {
+  const { t } = useLanguage()
+  
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose()
@@ -78,7 +82,7 @@ export default function ProductModal({ isOpen, product, onClose }: ProductModalP
   }
 
   const whatsappMessage = `Bonjour, je suis intéressé(e) par: ${product.title}\n${product.description}\nPrix: ${product.price}\nMerci!`
-  const whatsappUrl = `https://wa.me/212600000000?text=${encodeURIComponent(whatsappMessage)}`
+  const whatsappUrl = `https://wa.me/${CONTACT_CONFIG.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`
 
   return (
     <div
@@ -125,7 +129,7 @@ export default function ProductModal({ isOpen, product, onClose }: ProductModalP
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center bg-[#25D366] text-white px-8 py-4 rounded-full font-semibold text-base shadow-lg hover:bg-[#128C7E] hover:-translate-y-0.5 hover:shadow-xl transition-all duration-300 w-full"
               >
-                Commander via WhatsApp
+                {t.common.orderWhatsApp}
               </a>
             </div>
           </div>

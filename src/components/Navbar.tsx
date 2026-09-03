@@ -1,7 +1,11 @@
 import { useState, useEffect } from 'react'
+import { useNavigate, useLocation, Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
+import { CONTACT_CONFIG } from '../config/contact'
 
 export default function Navbar() {
+  const navigate = useNavigate()
+  const location = useLocation()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isCatalogueOpen, setIsCatalogueOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -15,6 +19,22 @@ export default function Navbar() {
       setIsMenuOpen(false)
       setIsCatalogueOpen(false)
       setIsMobileCatalogueOpen(false)
+    }
+  }
+
+  const navigateToSection = (sectionId: string) => {
+    setIsMenuOpen(false)
+    setIsCatalogueOpen(false)
+    setIsMobileCatalogueOpen(false)
+    
+    if (location.pathname === '/') {
+      // Already on homepage, scroll to section
+      setTimeout(() => scrollToSection(sectionId), 100)
+    } else {
+      // Navigate to homepage with hash
+      navigate(`/#${sectionId}`)
+      // Scroll after navigation
+      setTimeout(() => scrollToSection(sectionId), 300)
     }
   }
 
@@ -42,8 +62,8 @@ export default function Navbar() {
 
   const mainNavItems = [
     { id: 'accueil', label: t.nav.accueil },
-    { id: 'services', label: t.nav.services },
-    { id: 'realisations', label: t.nav.realisations },
+    { id: 'apropos', label: t.nav.apropos },
+    { id: 'jardinage', label: t.nav.jardinage },
     { id: 'contact', label: t.nav.contact },
   ]
 
@@ -55,7 +75,7 @@ export default function Navbar() {
     } flex items-center justify-between px-[4vw] h-[60px] md:h-[72px]`}>
       <div
         className="flex items-center cursor-pointer group"
-        onClick={() => scrollToSection('accueil')}
+        onClick={() => navigateToSection('accueil')}
       >
         <img
           src="/logo.png"
@@ -69,7 +89,7 @@ export default function Navbar() {
         {mainNavItems.map((item) => (
           <li key={item.id}>
             <button
-              onClick={() => scrollToSection(item.id)}
+              onClick={() => navigateToSection(item.id)}
               className="text-xs font-normal tracking-[1.5px] uppercase px-4 py-2 rounded-full transition-all duration-300 text-green-mid hover:text-main-green hover:bg-green-mist/50"
             >
               {item.label}
@@ -93,7 +113,7 @@ export default function Navbar() {
               {catalogueItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={() => navigateToSection(item.id)}
                   className="w-full text-left px-4 py-2.5 text-xs text-green-mid hover:bg-green-mist hover:text-main-green transition-colors duration-200"
                 >
                   {item.label}
@@ -133,7 +153,7 @@ export default function Navbar() {
 
         {/* Desktop WhatsApp CTA */}
         <a
-          href="https://wa.me/212600000000"
+          href={`https://wa.me/${CONTACT_CONFIG.whatsapp}`}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 bg-main-green text-white px-5 py-2.5 rounded-full text-xs font-medium tracking-[1.5px] uppercase hover:bg-gold-accent hover:text-main-green hover:shadow-xl transition-all duration-300"
@@ -162,7 +182,7 @@ export default function Navbar() {
             {mainNavItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => navigateToSection(item.id)}
                 className="text-left py-3 text-sm font-medium text-green-mid hover:text-main-green transition-colors duration-200 border-b border-border/50 last:border-0"
               >
                 {item.label}
@@ -185,7 +205,7 @@ export default function Navbar() {
                   {catalogueItems.map((item) => (
                     <button
                       key={item.id}
-                      onClick={() => scrollToSection(item.id)}
+                      onClick={() => navigateToSection(item.id)}
                       className="w-full text-left py-2 text-sm text-green-mid hover:text-main-green transition-colors duration-200"
                     >
                       {item.label}
@@ -219,7 +239,7 @@ export default function Navbar() {
             {/* Mobile WhatsApp CTA */}
             <div className="pt-4">
               <a
-                href="https://wa.me/212600000000"
+                href={`https://wa.me/${CONTACT_CONFIG.whatsapp}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 w-full bg-main-green text-white px-5 py-3 rounded-full text-sm font-medium hover:bg-gold-accent hover:text-main-green hover:shadow-xl transition-all duration-300"

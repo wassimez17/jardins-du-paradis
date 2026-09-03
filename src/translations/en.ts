@@ -1,13 +1,14 @@
 export const en = {
   nav: {
     accueil: 'Home',
+    apropos: 'About',
+    jardinage: 'Gardening',
     catalogue: 'Catalog',
     services: 'Services',
-    realisations: 'Projects',
+    realisations: 'Portfolio',
     contact: 'Contact',
     plantes: 'Plants',
     pots: 'Pots',
-    jardinage: 'Gardening',
     soins: 'Care',
     oiseaux: 'Birds',
     bouquets: 'Bouquets',
@@ -29,6 +30,15 @@ export const en = {
     title: 'Gardening & Landscaping',
     description: 'Professional landscaping and green space maintenance services for individuals and businesses.',
     cta: 'Request a quote',
+    seeAll: 'See all projects →',
+  },
+  apropos: {
+    title: 'About JARDINS DU PARADIS',
+    description: 'Based in <strong>Tangier, Morocco</strong>, Jardins du Paradis specializes in <strong>gardening, landscaping and green space maintenance</strong>. We assist individuals and professionals in the creation and maintenance of gardens and outdoor spaces, offering solutions adapted to each environment and each need.<br>Our expertise covers various areas: <strong>garden design and landscaping, planting, green space maintenance, plant care, pruning and gardening work</strong>. Jardins du Paradis also offers a selection of <strong>plants, pots, bouquets and items dedicated to the world of gardening</strong>.<br>For Jardins du Paradis, every green space deserves special attention. We place great importance on the <strong>choice of plants, the harmony of arrangements and the details of each project</strong>, to create pleasant, natural and sustainable spaces.<br>We also put our experience at the service of our clients by providing <strong>personalized advice</strong>, from the choice of plants to their maintenance, including the organization and landscaping of their green spaces.<br>Our goal is simple: to offer quality work and adapted solutions to <strong>transform, beautify and maintain your green spaces</strong>, while remaining attentive to your desires and needs.',
+    expertise: 'Expertise & experience',
+    quality: 'Quality & selection',
+    personalized: 'Personalized support',
+    cta: 'Discover our services',
   },
   footer: {
     contact: 'Contact',
@@ -81,11 +91,13 @@ export const en = {
       eyebrow: 'Maintenance & Products',
       title: 'Plant Care',
       description: 'Everything you need to keep your plants healthy, from natural fertilizers to specialized treatments.',
+      seeAll: 'See all',
     },
     oiseaux: {
       eyebrow: 'Our feathered friends',
       title: 'Birds',
       description: 'Adopt a feathered companion to brighten your home or garden with their melodious songs.',
+      seeAll: 'See all',
     },
     bouquets: {
       eyebrow: 'Floral art',

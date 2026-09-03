@@ -22,7 +22,7 @@ export default function Categories() {
   }
 
   return (
-    <section className="py-10 md:py-14 px-[6vw] bg-green-mist">
+    <section className="py-6 md:py-8 px-[6vw] bg-green-mist">
       <div
         ref={ref}
         className={`grid grid-cols-2 md:grid-cols-6 gap-4 md:gap-8 justify-items-center ${

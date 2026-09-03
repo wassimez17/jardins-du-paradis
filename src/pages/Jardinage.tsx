@@ -2,6 +2,7 @@ import { useScrollReveal } from '../hooks/useScrollReveal'
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { jardinImages } from '../constants/products'
+import { CONTACT_CONFIG } from '../config/contact'
 
 interface JardinageProps {
   showAllLink?: string
@@ -17,13 +18,13 @@ export default function Jardinage({ showAllLink }: JardinageProps) {
   const row2Images = jardinImages.slice(4, 8)
 
   return (
-    <section id="jardinage" className="bg-main-green py-16 md:py-24 px-3 sm:px-[6vw]">
+    <section id="jardinage" className="bg-main-green py-10 md:py-16 px-3 sm:px-[6vw]">
       <div
         ref={headerRef}
-        className={`text-center mb-12 md:mb-16 ${headerVisible ? 'reveal visible' : 'reveal'}`}
+        className={`text-center mb-8 md:mb-10 ${headerVisible ? 'reveal visible' : 'reveal'}`}
       >
         <div className="text-[10px] md:text-[11px] tracking-[3px] uppercase text-gold-accent mb-4 md:mb-6 font-normal">
-          Services
+          {t.sections.services.eyebrow}
         </div>
         <h2 className="font-serif text-[clamp(24px,4vw,44px)] font-normal leading-tight text-white mb-3 md:mb-4">
           {t.jardinage.title}
@@ -36,7 +37,7 @@ export default function Jardinage({ showAllLink }: JardinageProps) {
 
       <div
         ref={galleryRef}
-        className={`mb-8 md:mb-12 ${galleryVisible ? 'reveal visible' : 'reveal'}`}
+        className={`mb-6 md:mb-8 ${galleryVisible ? 'reveal visible' : 'reveal'}`}
       >
         <div className="columns-2 sm:columns-4 gap-3 md:gap-4">
           {[...row1Images, ...row2Images].map((image, index) => (
@@ -66,10 +67,10 @@ export default function Jardinage({ showAllLink }: JardinageProps) {
               to={showAllLink}
               className="inline-flex items-center gap-2.5 bg-white/10 border-2 border-white/30 text-white px-6 md:px-8 py-2.5 md:py-3.5 rounded-full text-xs tracking-[1.5px] uppercase no-underline transition-all cursor-pointer hover:bg-white/20 hover:border-white/50"
             >
-              Voir toutes nos réalisations →
+              {t.jardinage.seeAll}
             </Link>
             <a
-              href="https://wa.me/212600000000"
+              href={`https://wa.me/${CONTACT_CONFIG.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 bg-gold-accent text-main-green px-6 md:px-8 py-2.5 md:py-3.5 rounded-full text-xs tracking-[1.5px] uppercase no-underline transition-all border-none cursor-pointer hover:bg-white hover:shadow-xl shadow-lg"
@@ -79,7 +80,7 @@ export default function Jardinage({ showAllLink }: JardinageProps) {
           </div>
         ) : (
           <a
-            href="https://wa.me/212600000000"
+            href={`https://wa.me/${CONTACT_CONFIG.whatsapp}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2.5 bg-gold-accent text-main-green px-6 md:px-8 py-2.5 md:py-3.5 rounded-full text-xs tracking-[1.5px] uppercase no-underline transition-all border-none cursor-pointer hover:bg-white hover:shadow-xl shadow-lg"

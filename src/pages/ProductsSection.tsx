@@ -37,10 +37,10 @@ export default function ProductsSection({
   const extraProducts = products.slice(initialShow)
 
   return (
-    <section id={id} className="py-16 md:py-24 px-3 sm:px-[6vw]">
+    <section id={id} className="py-10 md:py-16 px-3 sm:px-[6vw]">
       <div
         ref={headerRef}
-        className={`text-center mb-12 md:mb-16 ${headerVisible ? 'reveal visible' : 'reveal'}`}
+        className={`text-center mb-8 md:mb-10 ${headerVisible ? 'reveal visible' : 'reveal'}`}
       >
         <div className="text-[10px] md:text-[11px] tracking-[3px] uppercase text-green-mid mb-4 md:mb-6 font-normal">
           {eyebrow}
@@ -56,7 +56,7 @@ export default function ProductsSection({
 
       <div
         ref={gridRef}
-        className={`grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 md:gap-7 mb-8 md:mb-12 ${gridVisible ? 'reveal visible' : 'reveal'}`}
+        className={`grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 md:gap-5 mb-6 md:mb-8 ${gridVisible ? 'reveal visible' : 'reveal'}`}
       >
         {visibleProducts.map((product) => (
           <Card key={product.id} product={product} onOpenModal={openModal} />
@@ -66,7 +66,7 @@ export default function ProductsSection({
       {extraProducts.length > 0 && (
         <div
           ref={extraRef}
-          className={`grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 md:gap-7 mb-6 md:mb-8 mt-5 md:mt-7 ${
+          className={`grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 md:gap-5 mb-6 md:mb-8 mt-5 md:mt-7 ${
             showAll ? 'grid' : 'hidden'
           } ${extraVisible ? 'reveal visible' : 'reveal'}`}
         >

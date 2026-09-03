@@ -1,13 +1,14 @@
 export const es = {
   nav: {
     accueil: 'Inicio',
+    apropos: 'Sobre nosotros',
+    jardinage: 'Jardinería',
     catalogue: 'Catálogo',
     services: 'Servicios',
     realisations: 'Proyectos',
     contact: 'Contacto',
     plantes: 'Plantas',
     pots: 'Macetas',
-    jardinage: 'Jardinería',
     soins: 'Cuidado',
     oiseaux: 'Pájaros',
     bouquets: 'Ramos',
@@ -29,6 +30,15 @@ export const es = {
     title: 'Jardinería y Paisajismo',
     description: 'Servicios profesionales de paisajismo y mantenimiento de espacios verdes para particulares y empresas.',
     cta: 'Solicitar presupuesto',
+    seeAll: 'Ver todos los proyectos →',
+  },
+  apropos: {
+    title: 'Sobre JARDINS DU PARADIS',
+    description: 'Con sede en <strong>Tánger, Marruecos</strong>, Jardins du Paradis se especializa en <strong>jardinería, paisajismo y mantenimiento de espacios verdes</strong>. Acompañamos a particulares y profesionales en la creación y mantenimiento de jardines y espacios exteriores, ofreciendo soluciones adaptadas a cada entorno y necesidad.<br>Nuestra experiencia cubre diversas áreas: <strong>diseño y paisajismo de jardines, plantación, mantenimiento de espacios verdes, cuidado de plantas, poda y trabajos de jardinería</strong>. Jardins du Paradis también ofrece una selección de <strong>plantas, macetas, ramos y artículos dedicados al mundo de la jardinería</strong>.<br>Para Jardins du Paradis, cada espacio verde merece atención especial. Damos gran importancia a la <strong>elección de plantas, la armonía de los arreglos y los detalles de cada proyecto</strong>, para crear espacios agradables, naturales y sostenibles.<br>También ponemos nuestra experiencia al servicio de nuestros clientes proporcionando <strong>consejos personalizados</strong>, desde la elección de plantas hasta su mantenimiento, incluyendo la organización y paisajismo de sus espacios verdes.<br>Nuestro objetivo es simple: ofrecer un trabajo de calidad y soluciones adaptadas para <strong>transformar, embellecer y mantener sus espacios verdes</strong>, permaneciendo atentos a sus deseos y necesidades.',
+    expertise: 'Saber hacer y experiencia',
+    quality: 'Calidad y selección',
+    personalized: 'Acompañamiento personalizado',
+    cta: 'Descubrir nuestros servicios',
   },
   footer: {
     contact: 'Contacto',
@@ -81,11 +91,13 @@ export const es = {
       eyebrow: 'Mantenimiento y Productos',
       title: 'Cuidado de Plantas',
       description: 'Todo lo necesario para mantener sus plantas sanas, desde fertilizantes naturales hasta tratamientos especializados.',
+      seeAll: 'Ver todo',
     },
     oiseaux: {
       eyebrow: 'Nuestros amigos emplumados',
       title: 'Pájaros',
       description: 'Adopte un compañero emplumado para animar su hogar o jardín con sus melodiosos cantos.',
+      seeAll: 'Ver todo',
     },
     bouquets: {
       eyebrow: 'Arte floral',

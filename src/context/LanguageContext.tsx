@@ -8,13 +8,14 @@ type Language = 'fr' | 'en' | 'es'
 interface Translations {
   nav: {
     accueil: string
+    apropos: string
+    jardinage: string
     catalogue: string
     services: string
     realisations: string
     contact: string
     plantes: string
     pots: string
-    jardinage: string
     soins: string
     oiseaux: string
     bouquets: string
@@ -35,6 +36,15 @@ interface Translations {
   jardinage: {
     title: string
     description: string
+    cta: string
+    seeAll: string
+  }
+  apropos: {
+    title: string
+    description: string
+    expertise: string
+    quality: string
+    personalized: string
     cta: string
   }
   footer: {
@@ -88,11 +98,13 @@ interface Translations {
       eyebrow: string
       title: string
       description: string
+      seeAll: string
     }
     oiseaux: {
       eyebrow: string
       title: string
       description: string
+      seeAll: string
     }
     bouquets: {
       eyebrow: string

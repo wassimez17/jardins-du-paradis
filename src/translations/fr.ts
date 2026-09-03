@@ -1,13 +1,14 @@
 export const fr = {
   nav: {
     accueil: 'Accueil',
+    apropos: 'À propos',
+    jardinage: 'Jardinage',
     catalogue: 'Catalogue',
     services: 'Services',
     realisations: 'Réalisations',
     contact: 'Contact',
     plantes: 'Plantes',
     pots: 'Pots',
-    jardinage: 'Jardinage',
     soins: 'Soins',
     oiseaux: 'Oiseaux',
     bouquets: 'Bouquets',
@@ -29,6 +30,15 @@ export const fr = {
     title: 'Jardinage & Aménagement',
     description: 'Des services professionnels d\'aménagement paysager et d\'entretien d\'espaces verts pour particuliers et professionnels.',
     cta: 'Demander un devis',
+    seeAll: 'Voir toutes nos réalisations →',
+  },
+  apropos: {
+    title: 'À propos de JARDINS DU PARADIS',
+    description: 'Basée à <strong>Tanger, au Maroc</strong>, Jardins du Paradis est spécialisée dans le <strong>jardinage, l\'aménagement et l\'entretien des espaces verts</strong>. Nous accompagnons particuliers et professionnels dans la création et l\'entretien de jardins et d\'espaces extérieurs, en proposant des solutions adaptées à chaque environnement et à chaque besoin.<br>Notre savoir-faire couvre différents domaines : <strong>conception et aménagement de jardins, plantation, entretien des espaces verts, soins des plantes, taille et travaux de jardinage</strong>. Jardins du Paradis propose également une sélection de <strong>plantes, pots, bouquets et articles dédiés à l\'univers du jardin</strong>.<br>Pour Jardins du Paradis, chaque espace vert mérite une attention particulière. Nous accordons une grande importance au <strong>choix des plantes, à l\'harmonie des aménagements et aux détails de chaque réalisation</strong>, afin de créer des espaces agréables, naturels et durables.<br>Nous mettons également notre expérience au service de nos clients en leur apportant des <strong>conseils personnalisés</strong>, depuis le choix des plantes jusqu\'à leur entretien, en passant par l\'organisation et l\'aménagement de leurs espaces verts.<br>Notre objectif est simple : proposer un travail soigné et des solutions adaptées pour <strong>transformer, embellir et entretenir vos espaces verts</strong>, tout en restant à l\'écoute de vos envies et de vos besoins.',
+    expertise: 'Savoir-faire & expérience',
+    quality: 'Qualité & sélection',
+    personalized: 'Accompagnement personnalisé',
+    cta: 'Découvrir nos services',
   },
   footer: {
     contact: 'Contact',
@@ -81,11 +91,13 @@ export const fr = {
       eyebrow: 'Entretien & Produits',
       title: 'Soins des Plantes',
       description: 'Tout ce qu\'il faut pour garder vos plantes en bonne santé, des engrais naturels aux traitements spécialisés.',
+      seeAll: 'Voir tout',
     },
     oiseaux: {
       eyebrow: 'Nos compagnons ailés',
       title: 'Oiseaux',
       description: 'Adoptez un compagnon ailé pour animer votre maison ou jardin avec leurs chants mélodieux.',
+      seeAll: 'Voir tout',
     },
     bouquets: {
       eyebrow: 'Art floral',

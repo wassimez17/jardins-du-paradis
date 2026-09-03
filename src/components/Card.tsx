@@ -1,4 +1,6 @@
 import { Product } from '../types'
+import { useLanguage } from '../context/LanguageContext'
+import { CONTACT_CONFIG } from '../config/contact'
 
 interface CardProps {
   product: Product
@@ -7,10 +9,12 @@ interface CardProps {
 }
 
 export default function Card({ product, onOpenModal, fullImage = false }: CardProps) {
+  const { t } = useLanguage()
+  
   const handleWhatsAppClick = (e: React.MouseEvent) => {
     e.stopPropagation()
     const message = `Bonjour, je suis intéressé(e) par: ${product.title} - Prix: ${product.price}`
-    window.open(`https://wa.me/212600000000?text=${encodeURIComponent(message)}`, '_blank')
+    window.open(`https://wa.me/${CONTACT_CONFIG.whatsapp}?text=${encodeURIComponent(message)}`, '_blank')
   }
 
   return (
@@ -43,7 +47,7 @@ export default function Card({ product, onOpenModal, fullImage = false }: CardPr
           className="w-full bg-main-green text-white px-3 md:px-4 py-2 md:py-2 rounded-full text-[10px] md:text-xs tracking-[1px] md:tracking-[1.5px] uppercase font-medium hover:bg-gold-accent hover:shadow-lg transition-all duration-300 transform hover:scale-105"
         >
           <span className="md:hidden">WhatsApp</span>
-          <span className="hidden md:inline">Commander via WhatsApp</span>
+          <span className="hidden md:inline">{t.common.orderWhatsApp}</span>
         </button>
       </div>
     </div>
