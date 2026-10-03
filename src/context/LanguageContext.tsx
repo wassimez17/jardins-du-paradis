@@ -47,6 +47,43 @@ interface Translations {
     personalized: string
     cta: string
   }
+  aboutPage: {
+    title: string
+    heroEyebrow: string
+    heroDescription: string
+    whoWeAre: {
+      title: string
+      description: string
+      description2: string
+    }
+    ourValues: {
+      title: string
+      description: string
+      quality: string
+      expertise: string
+      proximity: string
+      excellence: {
+        title: string
+        description: string
+      }
+      passion: {
+        title: string
+        description: string
+      }
+      reliability: {
+        title: string
+        description: string
+      }
+    }
+    contact: {
+      title: string
+      address: string
+      phone: string
+      email: string
+      followUs: string
+      whatsappCta: string
+    }
+  }
   footer: {
     contact: string
     navigation: string
@@ -131,10 +168,40 @@ interface Translations {
   }
   common: {
     orderWhatsApp: string
+    seeDetails: string
     seeMore: string
+    addToCart: string
+    added: string
+    backToHome: string
     reduce: string
     custom: string
     seeAllCount: string
+  }
+  servicesPage: {
+    heroEyebrow: string
+    title: string
+    heroDescription: string
+    features: string[]
+    servicesTitle: string
+    servicesList: any
+    contactCta: string
+    whyChooseUs: {
+      title: string
+      description: string
+      items: {
+        title: string
+        description: string
+      }[]
+    }
+    reviews: {
+      title: string
+      description: string
+      items: {
+        name: string
+        rating: number
+        text: string
+      }[]
+    }
   }
 }
 

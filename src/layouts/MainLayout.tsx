@@ -7,13 +7,16 @@ import Apropos from '../pages/Apropos'
 import Categories from '../pages/Categories'
 import ProductsSection from '../pages/ProductsSection'
 import Jardinage from '../pages/Jardinage'
-import Brochure from '../pages/Brochure'
+import Reviews from '../pages/Reviews'
 import { plantes, pots, soins, oiseaux, bouquets } from '../constants/products'
 
 export default function MainLayout() {
   const { t } = useLanguage()
   
   useEffect(() => {
+    // Scroll to top on page load
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+    
     // Handle hash scrolling on page load
     const hash = window.location.hash.replace('#', '')
     if (hash) {
@@ -23,9 +26,6 @@ export default function MainLayout() {
           element.scrollIntoView({ behavior: 'smooth' })
         }
       }, 300)
-    } else {
-      // Scroll to top if no hash
-      window.scrollTo(0, 0)
     }
   }, [])
 
@@ -86,7 +86,7 @@ export default function MainLayout() {
         showAllLink="/bouquets"
         showAllText={`${t.sections.bouquets.seeAll} →`}
       />
-      <Brochure />
+      <Reviews />
       <ContactFooter />
     </div>
   )

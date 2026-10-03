@@ -40,11 +40,48 @@ export const fr = {
     personalized: 'Accompagnement personnalisé',
     cta: 'Découvrir nos services',
   },
+  aboutPage: {
+    title: 'À propos de nous',
+    heroEyebrow: 'Depuis 2007 · Tanger, Maroc',
+    heroDescription: 'Fondée en 2007 à Tanger, Jardins du Paradis est votre partenaire de confiance pour tous vos projets d\'aménagement paysager, plantes, pots et décoration florale.',
+    whoWeAre: {
+      title: 'Qui sommes-nous',
+      description: 'Basée à Tanger, Jardins du Paradis est spécialisée dans le jardinage, l\'aménagement et l\'entretien des espaces verts. Nous accompagnons particuliers et professionnels dans la création et l\'entretien de jardins et d\'espaces extérieurs.',
+      description2: 'Notre savoir-faire couvre différents domaines : conception et aménagement de jardins, plantation, entretien des espaces verts, soins des plantes, taille et travaux de jardinage. Nous proposons également une sélection de plantes, pots, bouquets et articles dédiés à l\'univers du jardin.',
+    },
+    ourValues: {
+      title: 'Nos Valeurs',
+      description: 'Chez Jardins du Paradis, chaque espace vert raconte une histoire. Notre approche combine créativité, expertise et respect de la nature pour créer des jardins qui inspirent.',
+      quality: 'Qualité',
+      expertise: 'Savoir-faire',
+      proximity: 'Proximité & accompagnement',
+      excellence: {
+        title: 'Excellence',
+        description: 'Nous nous engageons à fournir un travail de qualité supérieure, en utilisant les meilleures plantes et matériaux pour garantir des résultats durables et esthétiques.',
+      },
+      passion: {
+        title: 'Passion',
+        description: 'Notre amour pour la nature et le jardinage se reflète dans chaque projet. Nous mettons tout notre cœur pour créer des espaces verts qui inspirent et émerveillent.',
+      },
+      reliability: {
+        title: 'Fiabilité',
+        description: 'Nous honorons nos engagements et respectons les délais. Notre équipe professionnelle est à votre écoute pour répondre à vos besoins avec sérieux et dévouement.',
+      },
+    },
+    contact: {
+      title: 'Contactez-nous',
+      address: 'Adresse',
+      phone: 'Téléphone',
+      email: 'Email',
+      followUs: 'Suivez-nous',
+      whatsappCta: 'Nous contacter sur WhatsApp',
+    },
+  },
   footer: {
     contact: 'Contact',
     navigation: 'Navigation',
-    contactUs: 'Contactez-nous',
-    whatsapp: 'WhatsApp',
+    contactUs: 'Appelez-nous',
+    whatsapp: 'Contact',
   },
   sections: {
     categories: {
@@ -124,9 +161,86 @@ export const fr = {
   },
   common: {
     orderWhatsApp: 'Commander via WhatsApp',
+    seeDetails: 'Voir les détails',
     seeMore: 'Voir tout',
+    addToCart: 'Ajouter au panier',
+    added: 'Ajouté ✓',
+    backToHome: 'Retour à l\'accueil',
     reduce: 'Réduire',
     custom: 'Sur mesure',
     seeAllCount: 'Voir tout',
+  },
+  servicesPage: {
+    heroEyebrow: 'Depuis 2007 · Tanger, Maroc',
+    title: 'Nos Services',
+    heroDescription: 'Solutions élégantes d\'aménagement paysager pour particuliers et professionnels à travers tout le Maroc.',
+    features: [
+      'Expertise professionnelle',
+      'Qualité garantie',
+      'Personnalisation',
+      'Service sur mesure',
+    ],
+    servicesTitle: 'Ce que nous créons pour vous',
+    servicesList: [
+      {
+        title: 'Aménagement paysager',
+        description: 'Conception et réalisation de jardins paysagers sur mesure pour particuliers et professionnels. De la création de jardins à l\'entretien régulier, nous transformons vos espaces verts en lieux de vie agréables.',
+        image: '/images/jardin5.jpg',
+      },
+      {
+        title: 'Plantation & Entretien',
+        description: 'Sélection et plantation de végétaux adaptés à votre environnement et vos préférences. Services d\'entretien régulier pour maintenir vos espaces verts en parfait état toute l\'année.',
+        image: '/images/jardin6.jpg',
+      },
+      {
+        title: 'Décoration florale',
+        description: 'Création de compositions florales pour événements, mariages et décoration intérieure. Bouquets sur mesure pour toutes les occasions.',
+        image: '/images/fleur1.jpg',
+      },
+    ],
+    contactCta: 'Nous contacter',
+    whyChooseUs: {
+      title: 'Pourquoi nous choisir',
+      description: 'Depuis 2007, nous nous engageons à offrir des services d\'excellence pour tous vos projets d\'aménagement et d\'entretien d\'espaces verts.',
+      items: [
+        {
+          title: '17 ans d\'expérience',
+          description: 'Un savoir-faire éprouvé dans tous les types de projets paysagers.',
+        },
+        {
+          title: 'Équipe qualifiée',
+          description: 'Des professionnels passionnés et formés aux meilleures techniques.',
+        },
+        {
+          title: 'Produits de qualité',
+          description: 'Sélection rigoureuse de plantes et matériaux durables.',
+        },
+        {
+          title: 'Service personnalisé',
+          description: 'Solutions adaptées à vos besoins et à votre budget.',
+        },
+      ],
+    },
+    reviews: {
+      title: 'Avis clients',
+      description: 'Ce que nos clients disent de nous',
+      items: [
+        {
+          name: 'Karim M.',
+          rating: 5,
+          text: 'Jardins du Paradis a transformé ma terrasse en un véritable paradis. Leur équipe a compris exactement ce que je voulais et a livré un travail exceptionnel en 3 semaines.',
+        },
+        {
+          name: 'Sara T.',
+          rating: 5,
+          text: 'Pour notre mariage, ils ont créé des compositions florales magnifiques. Originalité et qualité au rendez-vous. Nos invités étaient ravis !',
+        },
+        {
+          name: 'Youssef B.',
+          rating: 5,
+          text: 'Depuis 2 ans, ils entretiennent mon jardin commercial. Ponctualité, qualité et conseils avisés. Je recommande à 100%.',
+        },
+      ],
+    },
   },
 }

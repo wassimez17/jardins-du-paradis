@@ -13,7 +13,7 @@ export default function Hero() {
   }
 
   return (
-    <section id="accueil" className="relative min-h-[75vh] md:min-h-[80vh] flex items-center justify-center pt-[60px] md:pt-[72px]">
+    <section id="accueil" className="relative min-h-[85vh] md:min-h-[80vh] flex items-center justify-center pt-[60px] md:pt-[72px]">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 bg-hero-gradient">
         <div className="absolute inset-0 bg-gradient-to-br from-[rgba(26,60,52,0.7)] via-[rgba(45,106,53,0.5)] to-[rgba(26,60,52,0.8)]" />
@@ -24,34 +24,34 @@ export default function Hero() {
       {/* Content */}
       <div
         ref={heroRef}
-        className={`relative z-10 max-w-4xl mx-auto px-[6vw] text-center ${isVisible ? 'reveal visible' : 'reveal'}`}
+        className={`relative z-10 max-w-4xl mx-auto px-[4vw] md:px-[6vw] text-center ${isVisible ? 'reveal visible' : 'reveal'}`}
       >
         {/* Eyebrow */}
-        <div className="text-[10px] md:text-[11px] tracking-[3px] uppercase text-gold-accent mb-6 md:mb-8 opacity-95 animate-fade-in drop-shadow-lg">
+        <div className="text-[11px] md:text-[11px] tracking-[2px] md:tracking-[3px] uppercase text-gold-accent mb-4 md:mb-8 opacity-95 animate-fade-in drop-shadow-lg">
           {t.hero.eyebrow}
         </div>
 
         {/* H1 */}
-        <h1 className="font-serif text-[clamp(36px,6vw,64px)] md:text-[clamp(42px,5vw,72px)] font-light text-white leading-tight mb-6 md:mb-8 animate-slide-up drop-shadow-2xl">
+        <h1 className="font-serif text-[clamp(28px,8vw,64px)] md:text-[clamp(42px,5vw,72px)] font-light text-white leading-tight mb-4 md:mb-8 animate-slide-up drop-shadow-2xl">
           {t.hero.title}
         </h1>
 
         {/* Description */}
-        <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto leading-relaxed mb-8 md:mb-12 animate-fade-in-delay drop-shadow-lg">
+        <p className="text-sm md:text-base text-white/90 max-w-2xl mx-auto leading-relaxed mb-6 md:mb-12 animate-fade-in-delay drop-shadow-lg px-2">
           {t.hero.description}
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-delay">
+        <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center animate-fade-in-delay px-4">
           <button
             onClick={() => scrollToSection('categories')}
-            className="w-full sm:w-auto bg-gold-accent text-main-green px-8 md:px-10 py-3 md:py-4 rounded-full text-xs md:text-sm tracking-[1.5px] uppercase font-medium hover:bg-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg"
+            className="w-full sm:w-auto bg-gold-accent text-main-green px-6 md:px-10 py-3 md:py-4 rounded-full text-xs md:text-sm tracking-[1.5px] uppercase font-medium hover:bg-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg active:scale-95"
           >
             {t.hero.ctaCatalog}
           </button>
           <button
             onClick={() => scrollToSection('contact')}
-            className="w-full sm:w-auto bg-white/10 backdrop-blur-sm border-2 border-white/40 text-white px-8 md:px-10 py-3 md:py-4 rounded-full text-xs md:text-sm tracking-[1.5px] uppercase font-medium hover:bg-white/20 hover:border-white/60 transition-all duration-300"
+            className="w-full sm:w-auto bg-white/10 backdrop-blur-sm border-2 border-white/40 text-white px-6 md:px-10 py-3 md:py-4 rounded-full text-xs md:text-sm tracking-[1.5px] uppercase font-medium hover:bg-white/20 hover:border-white/60 transition-all duration-300 active:scale-95"
           >
             {t.hero.ctaContact}
           </button>

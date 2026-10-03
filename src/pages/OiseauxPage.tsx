@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import Navbar from '../components/Navbar'
 import ContactFooter from '../components/ContactFooter'
@@ -13,7 +12,7 @@ export default function OiseauxPage() {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
-    window.scrollTo(0, 0)
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
   }, [])
 
   const handleCardClick = (product: any) => {
@@ -48,15 +47,15 @@ export default function OiseauxPage() {
               />
             ))}
           </div>
-          <Link
-            to="/"
+          <button
+            onClick={() => window.location.href = '/'}
             className="inline-flex items-center gap-2 text-main-green hover:text-gold-accent transition-colors duration-300"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
-            <span className="text-sm font-medium">{t.common.seeMore}</span>
-          </Link>
+            <span className="text-sm font-medium">{t.common.backToHome}</span>
+          </button>
         </div>
       </section>
       <ContactFooter />

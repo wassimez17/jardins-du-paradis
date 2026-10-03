@@ -40,11 +40,48 @@ export const es = {
     personalized: 'Acompañamiento personalizado',
     cta: 'Descubrir nuestros servicios',
   },
+  aboutPage: {
+    title: 'Sobre nosotros',
+    heroEyebrow: 'Desde 2007 · Tánger, Marruecos',
+    heroDescription: 'Fundada en 2007 en Tánger, Jardins du Paradis es su socio de confianza para todos sus proyectos de paisajismo, plantas, macetas y decoración floral.',
+    whoWeAre: {
+      title: 'Quiénes somos',
+      description: 'Con sede en Tánger, Jardins du Paradis se especializa en jardinería, paisajismo y mantenimiento de espacios verdes. Acompañamos a particulares y profesionales en la creación y mantenimiento de jardines y espacios exteriores.',
+      description2: 'Nuestra experiencia cubre diversas áreas: diseño y paisajismo de jardines, plantación, mantenimiento de espacios verdes, cuidado de plantas, poda y trabajos de jardinería. También ofrecemos una selección de plantas, macetas, ramos y artículos dedicados al mundo de la jardinería.',
+    },
+    ourValues: {
+      title: 'Nuestros Valores',
+      description: 'En Jardins du Paradis, cada espacio verde cuenta una historia. Nuestro enfoque combina creatividad, experiencia y respeto por la naturaleza para crear jardines que inspiran.',
+      quality: 'Calidad',
+      expertise: 'Experiencia',
+      proximity: 'Proximidad y acompañamiento',
+      excellence: {
+        title: 'Excelencia',
+        description: 'Nos comprometemos a proporcionar un trabajo de calidad superior, utilizando las mejores plantas y materiales para garantizar resultados duraderos y estéticos.',
+      },
+      passion: {
+        title: 'Pasión',
+        description: 'Nuestro amor por la naturaleza y la jardinería se refleja en cada proyecto. Ponemos todo nuestro corazón en crear espacios verdes que inspiran y maravillan.',
+      },
+      reliability: {
+        title: 'Fiabilidad',
+        description: 'Cumplimos nuestros compromisos y respetamos los plazos. Nuestro equipo profesional está a su servicio para satisfacer sus necesidades con seriedad y dedicación.',
+      },
+    },
+    contact: {
+      title: 'Contáctenos',
+      address: 'Dirección',
+      phone: 'Teléfono',
+      email: 'Email',
+      followUs: 'Síguenos',
+      whatsappCta: 'Contáctenos por WhatsApp',
+    },
+  },
   footer: {
     contact: 'Contacto',
     navigation: 'Navegación',
-    contactUs: 'Contáctenos',
-    whatsapp: 'WhatsApp',
+    contactUs: 'Llámenos',
+    whatsapp: 'Contacto',
   },
   sections: {
     categories: {
@@ -124,9 +161,86 @@ export const es = {
   },
   common: {
     orderWhatsApp: 'Pedir por WhatsApp',
+    seeDetails: 'Ver detalles',
     seeMore: 'Ver todo',
+    addToCart: 'Añadir al carrito',
+    added: 'Añadido ✓',
+    backToHome: 'Volver al inicio',
     reduce: 'Mostrar menos',
     custom: 'Personalizado',
     seeAllCount: 'Ver todo',
+  },
+  servicesPage: {
+    heroEyebrow: 'Desde 2007 · Tánger, Marruecos',
+    title: 'Nuestros Servicios',
+    heroDescription: 'Soluciones elegantes de paisajismo para particulares y profesionales en todo Marruecos.',
+    features: [
+      'Experiencia profesional',
+      'Calidad garantizada',
+      'Personalización',
+      'Servicio a medida',
+    ],
+    servicesTitle: 'Lo que creamos para usted',
+    servicesList: [
+      {
+        title: 'Paisajismo',
+        description: 'Diseño y creación de paisajes personalizados para particulares y profesionales. Desde la creación de jardines hasta el mantenimiento regular, transformamos sus espacios verdes en áreas agradables.',
+        image: '/images/jardin5.jpg',
+      },
+      {
+        title: 'Plantación y Mantenimiento',
+        description: 'Selección y plantación de plantas adaptadas a su entorno y preferencias. Servicios de mantenimiento regular para mantener sus espacios verdes en perfectas condiciones todo el año.',
+        image: '/images/jardin6.jpg',
+      },
+      {
+        title: 'Decoración Floral',
+        description: 'Creación de arreglos florales para eventos, bodas y decoración interior. Ramos personalizados para todas las ocasiones.',
+        image: '/images/fleur1.jpg',
+      },
+    ],
+    contactCta: 'Contáctenos',
+    whyChooseUs: {
+      title: 'Por qué elegirnos',
+      description: 'Desde 2007, nos comprometemos a ofrecer servicios excelentes para todos sus proyectos de paisajismo y mantenimiento de espacios verdes.',
+      items: [
+        {
+          title: '17 años de experiencia',
+          description: 'Experiencia probada en todo tipo de proyectos de paisajismo.',
+        },
+        {
+          title: 'Equipo calificado',
+          description: 'Profesionales apasionados formados en las mejores técnicas.',
+        },
+        {
+          title: 'Productos de calidad',
+          description: 'Selección rigurosa de plantas y materiales duraderos.',
+        },
+        {
+          title: 'Servicio personalizado',
+          description: 'Soluciones adaptadas a sus necesidades y presupuesto.',
+        },
+      ],
+    },
+    reviews: {
+      title: 'Opiniones de clientes',
+      description: 'Lo que nuestros clientes dicen de nosotros',
+      items: [
+        {
+          name: 'Karim M.',
+          rating: 5,
+          text: 'Jardins du Paradis transformó mi terraza en un verdadero paraíso. Su equipo entendió exactamente lo que quería y entregó un trabajo excepcional en 3 semanas.',
+        },
+        {
+          name: 'Sara T.',
+          rating: 5,
+          text: 'Para nuestra boda, crearon arreglos florales magníficos. Originalidad y calidad cumplidas. ¡Nuestros invitados estaban encantados!',
+        },
+        {
+          name: 'Youssef B.',
+          rating: 5,
+          text: 'Desde hace 2 años, mantienen mi jardín comercial. Puntualidad, calidad y consejos expertos. Recomiendo al 100%.',
+        },
+      ],
+    },
   },
 }

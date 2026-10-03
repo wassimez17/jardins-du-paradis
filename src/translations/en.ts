@@ -40,11 +40,48 @@ export const en = {
     personalized: 'Personalized support',
     cta: 'Discover our services',
   },
+  aboutPage: {
+    title: 'About Us',
+    heroEyebrow: 'Since 2007 · Tangier, Morocco',
+    heroDescription: 'Founded in 2007 in Tangier, Jardins du Paradis is your trusted partner for all your landscaping projects, plants, pots and floral decoration.',
+    whoWeAre: {
+      title: 'Who We Are',
+      description: 'Based in Tangier, Jardins du Paradis specializes in gardening, landscaping and green space maintenance. We assist individuals and professionals in the creation and maintenance of gardens and outdoor spaces.',
+      description2: 'Our expertise covers various areas: garden design and landscaping, planting, green space maintenance, plant care, pruning and gardening work. We also offer a selection of plants, pots, bouquets and items dedicated to the world of gardening.',
+    },
+    ourValues: {
+      title: 'Our Values',
+      description: 'At Jardins du Paradis, every green space tells a story. Our approach combines creativity, expertise and respect for nature to create gardens that inspire.',
+      quality: 'Quality',
+      expertise: 'Expertise',
+      proximity: 'Proximity & Support',
+      excellence: {
+        title: 'Excellence',
+        description: 'We are committed to providing superior quality work, using the best plants and materials to ensure durable and aesthetic results.',
+      },
+      passion: {
+        title: 'Passion',
+        description: 'Our love for nature and gardening is reflected in every project. We put our heart into creating green spaces that inspire and amaze.',
+      },
+      reliability: {
+        title: 'Reliability',
+        description: 'We honor our commitments and respect deadlines. Our professional team is at your service to meet your needs with seriousness and dedication.',
+      },
+    },
+    contact: {
+      title: 'Contact Us',
+      address: 'Address',
+      phone: 'Phone',
+      email: 'Email',
+      followUs: 'Follow Us',
+      whatsappCta: 'Contact us on WhatsApp',
+    },
+  },
   footer: {
     contact: 'Contact',
     navigation: 'Navigation',
-    contactUs: 'Contact us',
-    whatsapp: 'WhatsApp',
+    contactUs: 'Call us',
+    whatsapp: 'Contact',
   },
   sections: {
     categories: {
@@ -124,9 +161,86 @@ export const en = {
   },
   common: {
     orderWhatsApp: 'Order via WhatsApp',
+    seeDetails: 'View details',
     seeMore: 'See all',
+    addToCart: 'Add to cart',
+    added: 'Added ✓',
+    backToHome: 'Back to home',
     reduce: 'Show less',
     custom: 'Custom',
     seeAllCount: 'See all',
+  },
+  servicesPage: {
+    heroEyebrow: 'Since 2007 · Tangier, Morocco',
+    title: 'Our Services',
+    heroDescription: 'Elegant landscaping solutions for individuals and professionals across Morocco.',
+    features: [
+      'Professional expertise',
+      'Quality guaranteed',
+      'Personalization',
+      'Tailored service',
+    ],
+    servicesTitle: 'What We Create for You',
+    servicesList: [
+      {
+        title: 'Landscaping',
+        description: 'Design and creation of custom landscaping for individuals and professionals. From garden creation to regular maintenance, we transform your green spaces into pleasant living areas.',
+        image: '/images/jardin5.jpg',
+      },
+      {
+        title: 'Planting & Maintenance',
+        description: 'Selection and planting of plants adapted to your environment and preferences. Regular maintenance services to keep your green spaces in perfect condition all year round.',
+        image: '/images/jardin6.jpg',
+      },
+      {
+        title: 'Floral Decoration',
+        description: 'Creation of floral arrangements for events, weddings and interior decoration. Custom bouquets for all occasions.',
+        image: '/images/fleur1.jpg',
+      },
+    ],
+    contactCta: 'Contact Us',
+    whyChooseUs: {
+      title: 'Why Choose Us',
+      description: 'Since 2007, we are committed to providing excellent services for all your landscaping and green space maintenance projects.',
+      items: [
+        {
+          title: '17 years of experience',
+          description: 'Proven expertise in all types of landscaping projects.',
+        },
+        {
+          title: 'Qualified team',
+          description: 'Passionate professionals trained in the best techniques.',
+        },
+        {
+          title: 'Quality products',
+          description: 'Rigorous selection of plants and durable materials.',
+        },
+        {
+          title: 'Personalized service',
+          description: 'Solutions tailored to your needs and budget.',
+        },
+      ],
+    },
+    reviews: {
+      title: 'Customer Reviews',
+      description: 'What our clients say about us',
+      items: [
+        {
+          name: 'Karim M.',
+          rating: 5,
+          text: 'Jardins du Paradis transformed my terrace into a true paradise. Their team understood exactly what I wanted and delivered exceptional work in 3 weeks.',
+        },
+        {
+          name: 'Sara T.',
+          rating: 5,
+          text: 'For our wedding, they created magnificent floral arrangements. Originality and quality delivered. Our guests were delighted!',
+        },
+        {
+          name: 'Youssef B.',
+          rating: 5,
+          text: 'For 2 years, they have maintained my commercial garden. Punctuality, quality and expert advice. I recommend 100%.',
+        },
+      ],
+    },
   },
 }

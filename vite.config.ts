@@ -10,5 +10,15 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
-  assetsInclude: ['**/*.jpg', '**/*.png', '**/*.jpeg', '**/*.gif', '**/*.svg'],
+  assetsInclude: ['**/*.jpg', '**/*.png', '**/*.jpeg', '**/*.gif', '**/*.svg', '**/*.webp'],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000,
+  },
 })

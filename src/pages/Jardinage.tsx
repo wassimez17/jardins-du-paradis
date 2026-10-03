@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { jardinImages } from '../constants/products'
 import { CONTACT_CONFIG } from '../config/contact'
+import Brochure from './Brochure'
 
 interface JardinageProps {
   showAllLink?: string
@@ -14,42 +15,46 @@ export default function Jardinage({ showAllLink }: JardinageProps) {
   const [ctaRef, ctaVisible] = useScrollReveal<HTMLDivElement>()
   const { t } = useLanguage()
 
+  // When on the full Jardinage page, include the Brochure
+  const isFullPage = !showAllLink
+
   const row1Images = jardinImages.slice(0, 4)
   const row2Images = jardinImages.slice(4, 8)
 
   return (
-    <section id="jardinage" className="bg-main-green py-10 md:py-16 px-3 sm:px-[6vw]">
+    <section id="jardinage" className="bg-main-green py-8 md:py-16 px-3 sm:px-[6vw]">
       <div
         ref={headerRef}
-        className={`text-center mb-8 md:mb-10 ${headerVisible ? 'reveal visible' : 'reveal'}`}
+        className={`text-center mb-6 md:mb-10 ${headerVisible ? 'reveal visible' : 'reveal'}`}
       >
-        <div className="text-[10px] md:text-[11px] tracking-[3px] uppercase text-gold-accent mb-4 md:mb-6 font-normal">
+        <div className="text-[10px] md:text-[11px] tracking-[2px] md:tracking-[3px] uppercase text-gold-accent mb-3 md:mb-6 font-normal">
           {t.sections.services.eyebrow}
         </div>
-        <h2 className="font-serif text-[clamp(24px,4vw,44px)] font-normal leading-tight text-white mb-3 md:mb-4">
+        <h2 className="font-serif text-[clamp(20px,5vw,44px)] font-normal leading-tight text-white mb-2 md:mb-4">
           {t.jardinage.title}
         </h2>
-        <div className="w-[60px] h-0.5 bg-gold-accent mx-auto mt-3 md:mt-4 rounded-sm" />
-        <p className="text-sm md:text-sm text-white/90 max-w-[520px] mx-auto leading-relaxed mt-3 md:mt-4 px-4">
+        <div className="w-[50px] md:w-[60px] h-0.5 bg-gold-accent mx-auto mt-2 md:mt-4 rounded-sm" />
+        <p className="text-xs md:text-sm text-white/90 max-w-[520px] mx-auto leading-relaxed mt-2 md:mt-4 px-4">
           {t.jardinage.description}
         </p>
       </div>
 
       <div
         ref={galleryRef}
-        className={`mb-6 md:mb-8 ${galleryVisible ? 'reveal visible' : 'reveal'}`}
+        className={`mb-4 md:mb-8 ${galleryVisible ? 'reveal visible' : 'reveal'}`}
       >
-        <div className="columns-2 sm:columns-4 gap-3 md:gap-4">
+        <div className="columns-2 sm:columns-4 gap-2 md:gap-4">
           {[...row1Images, ...row2Images].map((image, index) => (
             <div
               key={index}
-              className="relative overflow-hidden rounded-lg md:rounded-xl break-inside-avoid mb-3 md:mb-4"
+              className="relative overflow-hidden rounded-lg md:rounded-xl break-inside-avoid mb-2 md:mb-4"
             >
               <div className="bg-[rgba(26,60,52,0.5)] border border-[rgba(197,160,89,0.3)] rounded-lg md:rounded-xl overflow-hidden transition-all duration-300 hover:bg-[rgba(197,160,89,0.2)] hover:scale-[1.02]">
                 <img
                   src={image}
                   alt={`Jardin ${index + 1}`}
                   className="w-full h-auto object-contain"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -62,10 +67,10 @@ export default function Jardinage({ showAllLink }: JardinageProps) {
         className={`text-center ${ctaVisible ? 'reveal visible' : 'reveal'}`}
       >
         {showAllLink ? (
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center px-4">
             <Link
               to={showAllLink}
-              className="inline-flex items-center gap-2.5 bg-white/10 border-2 border-white/30 text-white px-6 md:px-8 py-2.5 md:py-3.5 rounded-full text-xs tracking-[1.5px] uppercase no-underline transition-all cursor-pointer hover:bg-white/20 hover:border-white/50"
+              className="inline-flex items-center gap-2.5 bg-white/10 border-2 border-white/30 text-white px-5 md:px-8 py-2.5 md:py-3.5 rounded-full text-xs tracking-[1.5px] uppercase no-underline transition-all cursor-pointer hover:bg-white/20 hover:border-white/50 active:scale-95"
             >
               {t.jardinage.seeAll}
             </Link>
@@ -73,7 +78,7 @@ export default function Jardinage({ showAllLink }: JardinageProps) {
               href={`https://wa.me/${CONTACT_CONFIG.whatsapp}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 bg-gold-accent text-main-green px-6 md:px-8 py-2.5 md:py-3.5 rounded-full text-xs tracking-[1.5px] uppercase no-underline transition-all border-none cursor-pointer hover:bg-white hover:shadow-xl shadow-lg"
+              className="inline-flex items-center gap-2.5 bg-gold-accent text-main-green px-5 md:px-8 py-2.5 md:py-3.5 rounded-full text-xs tracking-[1.5px] uppercase no-underline transition-all border-none cursor-pointer hover:bg-white hover:shadow-xl shadow-lg active:scale-95"
             >
               {t.jardinage.cta}
             </a>
@@ -83,12 +88,14 @@ export default function Jardinage({ showAllLink }: JardinageProps) {
             href={`https://wa.me/${CONTACT_CONFIG.whatsapp}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2.5 bg-gold-accent text-main-green px-6 md:px-8 py-2.5 md:py-3.5 rounded-full text-xs tracking-[1.5px] uppercase no-underline transition-all border-none cursor-pointer hover:bg-white hover:shadow-xl shadow-lg"
+            className="inline-flex items-center gap-2.5 bg-gold-accent text-main-green px-5 md:px-8 py-2.5 md:py-3.5 rounded-full text-xs tracking-[1.5px] uppercase no-underline transition-all border-none cursor-pointer hover:bg-white hover:shadow-xl shadow-lg active:scale-95"
           >
             {t.jardinage.cta}
           </a>
         )}
       </div>
+
+      {isFullPage && <Brochure />}
     </section>
   )
 }

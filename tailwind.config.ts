@@ -46,6 +46,17 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function({ addUtilities }) {
+      addUtilities({
+        '.line-clamp-2': {
+          display: '-webkit-box',
+          '-webkit-line-clamp': '2',
+          '-webkit-box-orient': 'vertical',
+          'overflow': 'hidden',
+        },
+      })
+    },
+  ],
 }
 export default config
