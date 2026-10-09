@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import { CONTACT_CONFIG } from '../config/contact'
 import { useCart } from '../context/CartContext'
 
 export default function Navbar() {
   const location = useLocation()
+  const navigate = useNavigate()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isCatalogueOpen, setIsCatalogueOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -40,24 +41,24 @@ export default function Navbar() {
     
     // Apropos navigates to dedicated page
     if (sectionId === 'apropos') {
-      window.location.href = '/apropos'
+      navigate('/apropos')
       return
     }
-    
+
     // Services navigates to dedicated page
     if (sectionId === 'services') {
-      window.location.href = '/services'
+      navigate('/services')
       return
     }
-    
+
     if (catalogueRoutes[sectionId]) {
-      window.location.href = catalogueRoutes[sectionId]
+      navigate(catalogueRoutes[sectionId])
     } else if (location.pathname === '/') {
       // Already on homepage, scroll to section
       setTimeout(() => scrollToSection(sectionId), 100)
     } else {
       // Navigate to homepage with hash
-      window.location.href = `/#${sectionId}`
+      navigate(`/#${sectionId}`)
     }
   }
 
@@ -68,6 +69,14 @@ export default function Navbar() {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  // Handle hash scrolling on homepage
+  useEffect(() => {
+    if (location.pathname === '/' && location.hash) {
+      const sectionId = location.hash.replace('#', '')
+      setTimeout(() => scrollToSection(sectionId), 100)
+    }
+  }, [location.pathname, location.hash])
 
   const languages = [
     { code: 'fr', label: 'FR', flag: '/images/flags/frflag.png' },
@@ -99,7 +108,7 @@ export default function Navbar() {
     } flex items-center justify-between px-[4vw] h-[60px] md:h-[72px]`}>
       <div
         className="flex items-center cursor-pointer group"
-        onClick={() => window.location.href = '/'}
+        onClick={() => navigate('/')}
       >
         <img
           src="/logo.png"
@@ -190,7 +199,7 @@ export default function Navbar() {
 
         {/* Cart Icon */}
         <button
-          onClick={() => window.location.href = '/panier'}
+          onClick={() => navigate('/panier')}
           className="relative flex items-center justify-center w-10 h-10 bg-green-mist rounded-full hover:bg-green-pale transition-colors duration-300"
         >
           <svg className="w-5 h-5 text-main-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -208,7 +217,7 @@ export default function Navbar() {
       <div className="md:hidden flex items-center gap-2">
         {/* Mobile Cart Icon */}
         <button
-          onClick={() => window.location.href = '/panier'}
+          onClick={() => navigate('/panier')}
           className="relative flex items-center justify-center w-10 h-10 bg-green-mist rounded-full hover:bg-green-pale transition-colors duration-300"
         >
           <svg className="w-5 h-5 text-main-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -311,7 +320,7 @@ export default function Navbar() {
             {/* Mobile Cart */}
             <div className="pt-4">
               <button
-                onClick={() => window.location.href = '/panier'}
+                onClick={() => navigate('/panier')}
                 className="relative flex items-center justify-center gap-2 w-full bg-green-mist text-main-green px-6 py-3 rounded-full text-sm font-medium hover:bg-green-pale transition-colors duration-300 active:scale-95"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

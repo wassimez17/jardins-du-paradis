@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import Navbar from '../components/Navbar'
 import ContactFooter from '../components/ContactFooter'
@@ -6,6 +7,7 @@ import { CONTACT_CONFIG } from '../config/contact'
 
 export default function ServicesPage() {
   const { t } = useLanguage()
+  const navigate = useNavigate()
   const [isVisible, setIsVisible] = useState({
     hero: false,
     features: false,
@@ -214,7 +216,7 @@ export default function ServicesPage() {
       {/* Back to Home */}
       <div className="py-8 md:py-12 px-[6vw] md:px-[6vw] bg-white text-center">
         <button
-          onClick={() => window.location.href = '/'}
+          onClick={() => navigate('/')}
           className="inline-flex items-center gap-2 text-main-green hover:text-gold-accent transition-colors duration-300"
         >
           <svg className="w-4 md:w-5 h-4 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

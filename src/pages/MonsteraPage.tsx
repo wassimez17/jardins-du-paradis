@@ -4,10 +4,12 @@ import Navbar from '../components/Navbar'
 import ContactFooter from '../components/ContactFooter'
 import { useCart } from '../context/CartContext'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export default function MonsteraPage() {
   const monstera = plantes.find(p => p.id === 'plant1')
   const { addToCart } = useCart()
+  const navigate = useNavigate()
   const [quantity, setQuantity] = useState(1)
   const [showConfirmation, setShowConfirmation] = useState(false)
   const [showZoom, setShowZoom] = useState(false)
@@ -64,7 +66,7 @@ export default function MonsteraPage() {
 
   const handleRelatedProductClick = (product: typeof plantes[0]) => {
     const slug = product.slug || product.id
-    window.location.href = `/plantes/${slug}`
+    navigate(`/plantes/${slug}`)
   }
 
   const handleRelatedProductWhatsApp = (e: React.MouseEvent, product: typeof plantes[0]) => {
@@ -99,9 +101,9 @@ export default function MonsteraPage() {
         {/* Breadcrumb */}
         <div className="px-[4vw] md:px-[6vw] py-4 border-b border-border">
           <nav className="flex items-center gap-2 text-xs md:text-sm text-green-mid">
-            <button onClick={() => window.location.href = '/'} className="hover:text-main-green transition-colors">Accueil</button>
+            <button onClick={() => navigate('/')} className="hover:text-main-green transition-colors">Accueil</button>
             <span className="text-border">/</span>
-            <button onClick={() => window.location.href = '/plantes'} className="hover:text-main-green transition-colors">Plantes</button>
+            <button onClick={() => navigate('/plantes')} className="hover:text-main-green transition-colors">Plantes</button>
             <span className="text-border">/</span>
             <span className="text-main-green font-medium">Monstera Deliciosa</span>
           </nav>

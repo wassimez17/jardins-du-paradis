@@ -21,23 +21,24 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | undefined>(undefined)
 
 export function CartProvider({ children }: { children: ReactNode }) {
-  const [cart, setCart] = useState<CartItem[]>([])
-
-  // Load cart from localStorage on mount
-  useEffect(() => {
-    const savedCart = localStorage.getItem('cart')
-    if (savedCart) {
+  const [cart, setCart] = useState<CartItem[]>(() => {
+    // Lazy initialization: load from localStorage on first render
+    if (typeof window !== 'undefined') {
       try {
-        const parsedCart = JSON.parse(savedCart)
-        if (Array.isArray(parsedCart) && parsedCart.length > 0) {
-          setCart(parsedCart)
+        const savedCart = localStorage.getItem('cart')
+        if (savedCart) {
+          const parsedCart = JSON.parse(savedCart)
+          if (Array.isArray(parsedCart) && parsedCart.length > 0) {
+            return parsedCart
+          }
         }
       } catch (e) {
         console.error('Error parsing cart from localStorage:', e)
         localStorage.removeItem('cart')
       }
     }
-  }, [])
+    return []
+  })
 
   // Save cart to localStorage whenever it changes
   useEffect(() => {

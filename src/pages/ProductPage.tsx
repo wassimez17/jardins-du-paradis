@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { CONTACT_CONFIG } from '../config/contact'
 import { plantes, pots, soins, oiseaux, bouquets } from '../constants/products'
 import { Product } from '../types'
@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react'
 
 export default function ProductPage() {
   const { productSlug } = useParams<{ productSlug: string }>()
+  const navigate = useNavigate()
   
   // Find product in all categories
   const allProducts = [...plantes, ...pots, ...soins, ...oiseaux, ...bouquets]
@@ -23,9 +24,9 @@ export default function ProductPage() {
   // Redirect Monstera to its specific page
   useEffect(() => {
     if (productSlug === 'monstera-deliciosa' || productSlug === 'plant1') {
-      window.location.href = '/plantes/monstera-deliciosa'
+      navigate('/plantes/monstera-deliciosa')
     }
-  }, [productSlug])
+  }, [productSlug, navigate])
 
   // Get viewed products from localStorage and mark current as viewed
   useEffect(() => {
@@ -81,7 +82,7 @@ export default function ProductPage() {
 
   const handleRelatedProductClick = (relatedProduct: Product) => {
     const slug = relatedProduct.slug || relatedProduct.id
-    window.location.href = `/${relatedProduct.category}/${slug}`
+    navigate(`/${relatedProduct.category}/${slug}`)
   }
 
   const handleRelatedProductWhatsApp = (e: React.MouseEvent, relatedProduct: Product) => {
@@ -280,9 +281,9 @@ export default function ProductPage() {
         {/* Breadcrumb */}
         <div className="px-[4vw] md:px-[6vw] py-4 border-b border-border">
           <nav className="flex items-center gap-2 text-xs md:text-sm text-green-mid">
-            <button onClick={() => window.location.href = '/'} className="hover:text-main-green transition-colors">Accueil</button>
+            <button onClick={() => navigate('/')} className="hover:text-main-green transition-colors">Accueil</button>
             <span className="text-border">/</span>
-            <button onClick={() => window.location.href = `/${product.category}`} className="hover:text-main-green transition-colors capitalize">{product.category}</button>
+            <button onClick={() => navigate(`/${product.category}`)} className="hover:text-main-green transition-colors capitalize">{product.category}</button>
             <span className="text-border">/</span>
             <span className="text-main-green font-medium">{product.title}</span>
           </nav>

@@ -176,6 +176,15 @@ interface Translations {
     reduce: string
     custom: string
     seeAllCount: string
+    cartEmpty: string
+    cartEmptyDescription: string
+    cartTitle: string
+    quantity: string
+    unitPrice: string
+    subtotal: string
+    estimatedTotal: string
+    sendWhatsApp: string
+    remove: string
   }
   servicesPage: {
     heroEyebrow: string

@@ -2,10 +2,14 @@ import { CONTACT_CONFIG } from '../config/contact'
 import Navbar from '../components/Navbar'
 import ContactFooter from '../components/ContactFooter'
 import { useCart } from '../context/CartContext'
+import { useLanguage } from '../context/LanguageContext'
 import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export default function CartPage() {
   const { cart, updateQuantity, removeFromCart, getTotalPrice } = useCart()
+  const { t } = useLanguage()
+  const navigate = useNavigate()
 
   // Scroll to top on mount
   useEffect(() => {
@@ -14,16 +18,16 @@ export default function CartPage() {
 
   const handleWhatsAppOrder = () => {
     let message = 'Bonjour, je souhaite commander :\n\n'
-    
+
     cart.forEach(item => {
       const priceNum = parseInt(item.price.replace(/\D/g, '')) || 0
       const subtotal = priceNum * item.quantity
       message += `${item.quantity} × ${item.title} — ${subtotal} DH\n`
     })
-    
+
     const total = getTotalPrice()
-    message += `\nTotal estimé : ${total}`
-    
+    message += `\n${t.common.estimatedTotal} : ${total}`
+
     window.open(`https://wa.me/${CONTACT_CONFIG.whatsapp}?text=${encodeURIComponent(message)}`, '_blank')
   }
 
@@ -43,37 +47,37 @@ export default function CartPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
               </svg>
             </div>
-            <h1 className="text-2xl md:text-3xl font-serif text-main-green mb-4 font-light">Votre panier est vide</h1>
+            <h1 className="text-2xl md:text-3xl font-serif text-main-green mb-4 font-light">{t.common.cartEmpty}</h1>
             <p className="text-sm md:text-base text-text-mid mb-8 leading-relaxed">
-              Découvrez notre sélection complète pour créer votre espace vert idéal.
+              {t.common.cartEmptyDescription}
             </p>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-3 max-w-3xl mx-auto">
               <button
-                onClick={() => window.location.href = '/plantes'}
+                onClick={() => navigate('/plantes')}
                 className="inline-block bg-main-green text-white px-4 py-3 rounded-full text-xs md:text-sm font-medium tracking-[1.5px] uppercase hover:bg-gold-accent hover:text-main-green transition-all duration-300"
               >
                 Plantes
               </button>
               <button
-                onClick={() => window.location.href = '/pots'}
+                onClick={() => navigate('/pots')}
                 className="inline-block bg-main-green text-white px-4 py-3 rounded-full text-xs md:text-sm font-medium tracking-[1.5px] uppercase hover:bg-gold-accent hover:text-main-green transition-all duration-300"
               >
                 Pots
               </button>
               <button
-                onClick={() => window.location.href = '/soins'}
+                onClick={() => navigate('/soins')}
                 className="inline-block bg-main-green text-white px-4 py-3 rounded-full text-xs md:text-sm font-medium tracking-[1.5px] uppercase hover:bg-gold-accent hover:text-main-green transition-all duration-300"
               >
                 Soins
               </button>
               <button
-                onClick={() => window.location.href = '/oiseaux'}
+                onClick={() => navigate('/oiseaux')}
                 className="inline-block bg-main-green text-white px-4 py-3 rounded-full text-xs md:text-sm font-medium tracking-[1.5px] uppercase hover:bg-gold-accent hover:text-main-green transition-all duration-300"
               >
                 Oiseaux
               </button>
               <button
-                onClick={() => window.location.href = '/bouquets'}
+                onClick={() => navigate('/bouquets')}
                 className="inline-block bg-main-green text-white px-4 py-3 rounded-full text-xs md:text-sm font-medium tracking-[1.5px] uppercase hover:bg-gold-accent hover:text-main-green transition-all duration-300"
               >
                 Bouquets
@@ -90,7 +94,7 @@ export default function CartPage() {
     <div className="min-h-screen bg-cream/50">
       <Navbar />
       <div className="max-w-4xl mx-auto px-4 md:px-8 py-12 md:py-20">
-        <h1 className="text-2xl md:text-3xl font-semibold text-main-green mb-8 md:mb-12">Mon Panier</h1>
+        <h1 className="text-2xl md:text-3xl font-semibold text-main-green mb-8 md:mb-12">{t.common.cartTitle}</h1>
 
         {/* Cart Items */}
         <div className="space-y-4 md:space-y-6 mb-8 md:mb-12">
@@ -141,7 +145,7 @@ export default function CartPage() {
                     onClick={() => removeFromCart(item.id)}
                     className="text-red-400 hover:text-red-500 transition-colors text-xs md:text-sm"
                   >
-                    Supprimer
+                    {t.common.remove}
                   </button>
                   <p className="text-base md:text-lg font-semibold text-main-green">
                     {getItemSubtotal(item.price, item.quantity)}
@@ -155,7 +159,7 @@ export default function CartPage() {
         {/* Total & CTA */}
         <div className="bg-white rounded-2xl p-6 md:p-8 shadow-sm border border-border/30">
           <div className="flex justify-between items-center mb-6">
-            <span className="text-lg md:text-xl font-semibold text-main-green">Total estimé</span>
+            <span className="text-lg md:text-xl font-semibold text-main-green">{t.common.estimatedTotal}</span>
             <span className="text-xl md:text-2xl font-bold text-main-green">{getTotalPrice()}</span>
           </div>
 
@@ -163,7 +167,7 @@ export default function CartPage() {
             onClick={handleWhatsAppOrder}
             className="w-full bg-main-green text-white px-6 py-4 rounded-full text-sm md:text-base font-medium tracking-[1.5px] uppercase hover:bg-gold-accent hover:text-main-green hover:shadow-xl transition-all duration-300 shadow-lg"
           >
-            Envoyer ma demande sur WhatsApp
+            {t.common.sendWhatsApp}
           </button>
         </div>
       </div>

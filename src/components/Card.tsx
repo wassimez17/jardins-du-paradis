@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Product } from '../types'
 import { useLanguage } from '../context/LanguageContext'
 import { useCart } from '../context/CartContext'
@@ -12,11 +13,12 @@ interface CardProps {
 export default function Card({ product, onOpenModal, fullImage = false }: CardProps) {
   const { t } = useLanguage()
   const { addToCart } = useCart()
+  const navigate = useNavigate()
   const [added, setAdded] = useState(false)
 
   const handleCardClick = () => {
     if (product.slug) {
-      window.location.href = `/${product.category}/${product.slug}`
+      navigate(`/${product.category}/${product.slug}`)
     } else if (onOpenModal) {
       onOpenModal(product)
     }

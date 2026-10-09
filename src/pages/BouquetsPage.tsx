@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useLanguage } from '../context/LanguageContext'
 import Navbar from '../components/Navbar'
 import ContactFooter from '../components/ContactFooter'
@@ -8,6 +9,7 @@ import { bouquets } from '../constants/products'
 
 export default function BouquetsPage() {
   const { t } = useLanguage()
+  const navigate = useNavigate()
   const [selectedProduct, setSelectedProduct] = useState<any>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -48,7 +50,7 @@ export default function BouquetsPage() {
             ))}
           </div>
           <button
-            onClick={() => window.location.href = '/'}
+            onClick={() => navigate('/')}
             className="inline-flex items-center gap-2 text-main-green hover:text-gold-accent transition-colors duration-300"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
